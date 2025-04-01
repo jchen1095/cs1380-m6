@@ -37,6 +37,10 @@ const mem = require('./mem');
 
 const store = require('./store');
 
+/* Map-Reduce Service */
+
+const mr = require('./mr');
+
 module.exports = {
   status: status,
   routes: routes,
@@ -45,4 +49,5 @@ module.exports = {
   gossip: gossip,
   mem: mem,
   store: store,
+  mr: mr
 };
