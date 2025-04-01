@@ -3,6 +3,9 @@ const log = require('../util/log');
 const status = {};
 const id = require('../util/id');
 
+status.spawn = require('@brown-ds/distribution/distribution/local/status').spawn; 
+status.stop = require('@brown-ds/distribution/distribution/local/status').stop; 
+
 global.moreStatus = {
   sid: global.distribution.util.id.getSID(global.nodeConfig),
   nid: global.distribution.util.id.getNID(global.nodeConfig),
@@ -14,6 +17,7 @@ global.moreStatus = {
 };
 
 status.get = function(configuration, callback) {
+  console.log(global.moreStatus)
   callback = callback || function() { };
 
   if (configuration === 'heapTotal') {
@@ -78,8 +82,7 @@ status.get = function(configuration, callback) {
 };
 
 
-status.spawn = require('@brown-ds/distribution/distribution/local/status').spawn; 
-status.stop = require('@brown-ds/distribution/distribution/local/status').stop; 
+
 
 
 // status.spawn = function(configuration, callback) {
