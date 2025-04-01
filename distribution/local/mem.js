@@ -1,90 +1,96 @@
-const getID = require('../util/id.js').getID;
+const { getID } = require("../util/id");
 
-const MemMapping = {};
+const memMap = new Map();
 
 function put(state, configuration, callback) {
-    console.log('hi')
-    try {
-        const gid = configuration ? configuration.gid || 'all' : 'all';
-        let key = configuration? ((typeof configuration == 'string') ? configuration || null: configuration.key || null) : null
-        
-        if (!key) {
-            key = getID(state)
+    let key;
+    let gid = "local";
+    if (configuration === null) {
+        // configuration is null, use hash of the object as a key
+        key = getID(state);
+    } else if (typeof configuration === "object") {
+        if (!Object.hasOwn(configuration, "key") || !Object.hasOwn(configuration, "gid")) {
+            callback(new Error("Configuration is an object but is missing key or gid field"))
+            return;
         }
-                // key = getID(key);
-        console.log('hi')
-        console.log(MemMapping)
-        if (!(MemMapping.hasOwnProperty(gid))) {
-            MemMapping[gid] = new Map();
-        }
-        console.log(MemMapping)
-        console.log('mapping')
-        console.log(key)
-        MemMapping[gid].set(key, state);   
-        console.log(MemMapping)
-        if (callback) {
-            callback(null, state);
-        }
-    } catch (e) {
-        if (callback) {
-            callback(e, null);
-        }
+        key = configuration.key;
+        gid = configuration.gid;
+    } else if (typeof configuration === "string") {
+        // just use the key directly to query stuff
+        key = configuration;
+    } else {
+        callback(new Error("Unknown format for configuration object"))
+        return;
     }
+    
+    // store object in the map, based on origin group
+    if (!memMap.has(gid)) {
+        memMap.set(gid, new Map());
+    }
+    memMap.get(gid).set(key, state);
+
+    // callback to return
+    callback(null, memMap.get(gid).get(key));
 };
 
 function get(configuration, callback) {
-    try {
-        if(configuration == null) {
-            MemMapping.hasOwnProperty(gid) && callback(null, MemMapping[gid]); // will return as a map 
+    let key;
+    let gid = "local";
+    if (typeof configuration === "object") {
+        if (!Object.hasOwn(configuration, "key") || !Object.hasOwn(configuration, "gid")) {
+            callback(new Error("Configuration is an object but is missing key or gid field"))
+            return;
         }
-        // const key = getID(configuration.key || configuration);
-        const key = configuration.key || configuration;
-        // console.log(key)
-        const gid = configuration ? configuration.gid || 'all': 'all';
-        
-
-        if (!(MemMapping.hasOwnProperty(gid))) {
-            callback(new Error("[get] Group not found:"+ gid), null);
-            return
-        }
-
-        if (!(MemMapping[gid].has(key))) {
-            console.log(configuration)
-            console.log(key)
-            console.log(MemMapping)
-            callback(new Error("[Get] Key not found: " + key), null);
-            return;    
-        }
-
-        callback(null, MemMapping[gid].get(key));
+        key = configuration.key;
+        gid = configuration.gid;
+    } else if (typeof configuration === "string") {
+        key = configuration;
+    } else {
+        callback(new Error("Unknown format for configuration object"))
         return;
-    } catch (e) {
-        callback (new Error("[Get] Error during execution. :/"), null);
     }
-    
+
+    if (!memMap.has(gid)) {
+        callback(new Error(`Key ${key} was not found.`));
+        return;
+    }
+    if (!memMap.get(gid).has(key)) {
+        callback(new Error(`Key ${key} was not found.`));
+        return;
+    }
+
+    callback(null, memMap.get(gid).get(key));
 }
 
 function del(configuration, callback) {
-    // const key = getID(configuration.key || configuration);
-    const key = configuration.key || configuration;
-    const gid = configuration?configuration.gid || 'all': 'all';
-
-    if (!(MemMapping.hasOwnProperty(gid))) {
-        callback(new Error("Group not found:"+ gid), null);
-        return
-    }
-
-    if (MemMapping[gid].has(key)) {
-        const temp = MemMapping[gid].get(key)
-        MemMapping[gid].delete(key)
-        if (callback) {
-            callback(null, temp);
+    let key;
+    let gid = "local";
+    if (typeof configuration === "object") {
+        if (!Object.hasOwn(configuration, "key") || !Object.hasOwn(configuration, "gid")) {
+            callback(new Error("Configuration is an object but is missing key or gid field"))
+            return;
         }
+        key = configuration.key;
+        gid = configuration.gid;
+    } else if (typeof configuration === "string") {
+        key = configuration;
     } else {
-        if (callback) {
-            callback(new Error('[Del] Key not found:' + key), null);
-        }
+        callback(new Error("Unknown format for configuration object"))
+        return;
     }
+
+    if (!memMap.has(gid)) {
+        callback(new Error(`Key ${key} was not found.`));
+        return;
+    }
+    if (!memMap.get(gid).has(key)) {
+        callback(new Error(`Key ${key} was not found.`));
+        return;
+    }
+
+    const deleted = memMap.get(gid).get(key);
+    memMap.get(gid).delete(key);
+    callback(null, deleted);
 };
 
 module.exports = {put, get, del};
