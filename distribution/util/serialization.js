@@ -1,105 +1,132 @@
+function serialize(object) {
+  // Case 1: Number
+  if (typeof object === "number") {
+      return JSON.stringify({
+          type: "number",
+          value: object.toString()
+      })
+  }
+  // Case 2: String
+  if (typeof object === "string") {
+      return JSON.stringify({
+          type: "string",
+          value: object.toString()
+      })
+  }
+  // Case 3: Boolean
+  if (typeof object === "boolean") {
+      return JSON.stringify({
+          type: "boolean",
+          value: object.toString()
+      })
+  }
+  // Case 4: null
+  if (object === null) {
+      return JSON.stringify({
+          type: "null",
+          value: ""
+      })
+  }
+  // Case 5: undefined
+  if (object === undefined) {
+      return JSON.stringify({
+          type: "undefined",
+          value: ""
+      })
+  }
+  // Case 6: Functions
+  if (typeof object === "function") {
+      return JSON.stringify({
+          type: "function",
+          value: object.toString()
+      })
+  }
+  // Case 7: Array
+  if (Array.isArray(object)) {
+      const arr = [];
+      for (const el of object) {
+          arr.push(serialize(el));
+      }
+      return JSON.stringify({
+          type: "array",
+          value: arr
+      })
+  }
+  // Case 8: Error
+  if (object instanceof Error) {
+      return JSON.stringify({
+          type: "error",
+          value: object.message
+      })
+  }
+  // Case 9: Date
+  if (object instanceof Date) {
+      return JSON.stringify({
+          type: "date",
+          value: object.toISOString()
+      })
+  }
+  // Case 10: Object
+  if (typeof object === "object") {
+      const obj = {};
+      for (const key of Object.keys(object)) {
+          obj[key] = serialize(object[key])
+      }
+      return JSON.stringify({
+          type: "object",
+          value: obj
+      })
+  }
+}
 
-// function serialize(object) {
-//   switch(object){
-//     case null:
-//       return "{\"type\":\"null\",\"value\":\"\"}";
-//     case undefined:
-//       return "{\"type\":\"undefined\",\"value\":\"\"}";
-//   }
-//   switch(typeof object) {
-//     case 'array':
-//       return serializeArray(object);
-//     case 'object':
-//       if (Array.isArray(object)) {
-//         return serializeArray(object);
-//       } else if (object instanceof Date) {
-//       return `{"type":"Date","value":${JSON.stringify(object)}}`;
-//       } else if (object instanceof Error) {
-//         return `{"type":"Error","value":${JSON.stringify(object.message)}}`;
-//       }
-//       return serializeObject(object);
-//     case 'function':   
-//       return `{"type":"function","value":${JSON.stringify(object.toString())}}`;
-//   }
-//   return `{"type":${JSON.stringify(typeof object)},"value":${JSON.stringify(object.toString())}}`;
-// }
+function deserialize(string) {
+  // Use JSON.parse to parse the input JSON file
+  // TODO - check that this returns a syntax error in case the format is invalid
+  const inputJson = JSON.parse(string);
 
-// function deserialize(string) {
-//   const object = JSON.parse(string);
-//   return parseDeserialized(object);
-// }
+  // Check that input JSON has a type and a value. Otherwise, throw syntax error.
+  if (!inputJson.hasOwnProperty('type')) {
+      throw SyntaxError("Top-level or nested object has no type property")
+  }
+  if (!inputJson.hasOwnProperty('value')) {
+      throw SyntaxError("Top-level or nested object has no value property")
+  }
 
-// function parseDeserialized(object) {
-//   switch(object["type"]) {
-//     case 'null':
-//       return null;
-//     case 'undefined':
-//       return undefined;
-//     case 'array':// change?
-//       return deserializeArray(object.value);
-//     case 'object': // change?
-//       return deserializeObject(object.value);
-//     case 'function':
-//       return eval(`(${object.value})`);
-//     case 'number':
-//       return Number(object.value);
-//     case 'boolean':
-//       if (object.value == 'false') {
-//         return false;
-//       }    else if (object.value == 'true') {
-//         return true;
-//       }
-//       throw Error('Boolean not formatted as true or false');
-//     case 'string':
-//       return String(object.value);
-//     case 'Date':
-//       return new Date(object.value);
-//     case 'Error':
-//       return new Error(object.value);
-//   }
-  
-//   throw Error('Unable to deserialize')
-// }
-
-
-// function serializeObject(object) {
-//   let components = []
-//   for (const key in object) {
-//     components.push(`${JSON.stringify(key)}:${JSON.stringify(serialize(object[key]))}`);
-//   }
-//   const finalStr = components.join(',');
-//   return `{"type":"object","value":{${finalStr}}}`;
-// }
-
-// function serializeArray(array) {
-//   let components = [];
-//   for (const item of array) {
-//     components.push(serialize(item));
-//   }
-//   const finalStr = components.join(',');
-//   return `{"type":"array","value":[${finalStr}]}`;
-// }
-
-// function deserializeArray(array) {
-//   let components = [];
-//   for (const item of array) {
-//     components.push(parseDeserialized(item));
-//   }
-//   return components;
-// }
-
-// function deserializeObject(object) {
-//   let components = {};
-//   for (const key in object) {
-//     components[key] = parseDeserialized(JSON.parse(object[key]));
-//   }
-//   return components;
-// }
-serialize = require('@brown-ds/distribution/distribution/util/serialization').serialize;
-
-deserialize = require('@brown-ds/distribution/distribution/util/serialization').deserialize;
+  const type = inputJson.type;
+  const value = inputJson.value;
+  switch (type) {
+      case "number":
+          return parseInt(value);
+      case "string":
+          return value;
+      case "boolean":
+          return value === "true" ? true : false;
+      case "null":
+          return null;
+      case "undefined":
+          return undefined;
+      case "function":
+          return eval('(' + value + ')');
+      case "object":
+          const output = {}
+          for (const key of Object.keys(value)) {
+              output[key] = deserialize(value[key])
+          }
+          return output
+      case "array": {
+          return value.map((e) => deserialize(e));
+      }
+      case "error": {
+          return new Error(value);
+      }
+      case "date":
+          return new Date(value);
+      default:
+          throw SyntaxError("Object has unsupported type")
+  }
+}
 
 module.exports = {
   serialize: serialize,
-  deserialize: deserialize,
+  deserialize: deserialize
 };
