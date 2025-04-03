@@ -114,7 +114,8 @@ function deserialize(string) {
           }
           return output
       case "array": {
-          return value.map((e) => deserialize(e));
+        // console.log("value in array branch of deserialize is:", value);
+        return value.map((e) =>  deserialize(e));
       }
       case "error": {
           return new Error(value);

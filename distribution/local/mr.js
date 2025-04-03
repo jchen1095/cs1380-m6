@@ -54,6 +54,7 @@ function _mr(config) {
     };
 
     function notify(configuration, callback) {
+        console.log("I am ", id.getSID(global.nodeConfig), "configuration in notify is:", configuration, "\n\n\n");
         const operation = configuration.operation;
         const args = configuration.args;
 
@@ -157,6 +158,7 @@ function _mr(config) {
                 // alternative is to only send the set of relevant keys, but this requires changing
                 // the structure of comm.send too much. so instead we recompute to see if the keys
                 // belong to us, which shouldn't be an insane overhead.
+                console.log("I am ", id.getSID(global.nodeConfig), "i am at the beginning of command map", "\n\n\n");
                 const allKeys = args[0]
                 let localKeys = [];
                 allKeys.forEach((key, index) => {
@@ -170,10 +172,15 @@ function _mr(config) {
                     callback(null, true);
                 }
 
+                console.log("I am ", id.getSID(global.nodeConfig), "i am at the edge case of command map", "\n\n\n");
+
+                // console.log("I am ", id.getSID(global.nodeConfig), "i got to the edge case", configuration, "\n\n\n");
+
                 // read each key from local.store, and use mapper
                 let localKeyCounts = 0;
                 localKeys.forEach((key, index) => {
                     global.distribution.local.store.get({ key: key, gid: context.gid }, (e, v) => {
+                        console.log("I am ", id.getSID(global.nodeConfig), "this is v:", v, "\n\n\n");
                         let outMappingCounts = 0;
                         const outMappings = mrLocalStorage.get("map")(key, v);
                         for (let i = 0; i < outMappings.length; i++) {

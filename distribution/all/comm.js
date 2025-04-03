@@ -1,5 +1,7 @@
 /** @typedef {import("../types").Callback} Callback */
 
+const { id } = require("../util/util.js");
+
 
 /**
  * NOTE: This Target is slightly different from local.all.Target
@@ -36,7 +38,10 @@ function comm(config) {
       let nodeToError = {};
       let nodeToResponse = {};
 
+      // console.log("nodes:", nodes);
       for (const sillygoose in nodes) {
+        // console.log("node to send to:", id.getSID(nodes[sillygoose]))
+        // console.log("message to be sent:", message);
         require("../local/comm.js").send(message, {node: nodes[sillygoose], service: configuration.service, method: configuration.method}, (e,v) => {
           // console.log("e",e);
           // console.log("v",v);
