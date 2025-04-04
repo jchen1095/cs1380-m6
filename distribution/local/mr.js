@@ -2,23 +2,25 @@ const { NotifyOps } = require("../util/enum");
 const { id } = require("../util/util");
 
 // Array to hold all mr instances this node is orchestrator for
-let orchestratorFor = []
+let mrInstances = {}
 
 function setup(config, callback) {
-    const { instanceId, isOrchestrator } = config;
+    const { instanceId, isOrchestrator, gid } = config;
 
-    if (isOrchestrator) {
-        orchestratorFor.push(instanceId)
-    } else {
+    // Check if service wasn't already set up as orchestrator
+    if (instanceId in mrInstances) {
         // This happens when we call comm.send on the group with the setup function, after setting up the orchestrator
         // If we deemed that this node is already the orchestrator for the provided instance, just return. 
-        if (orchestratorFor.includes(instanceId)) {
+        if (mrInstances[instanceId].isOrchestrator) {
             callback(null, true);
             return;
         }
     }
 
-    // Delete everything related to the node in the store/ folder to avoid any issues
+    // Object to keep track of ongoing MapReduce instances
+    mrInstances[instanceId] = {gid: gid, isOrchestrator: isOrchestrator};
+
+    // Set up the routes with the closure-like mr service
     global.distribution.local.routes.put(_mr(config), instanceId, (e, v) => {
         if (e) {
             callback(e);
@@ -29,7 +31,21 @@ function setup(config, callback) {
 }
 
 function teardown(instanceId, callback) {
-    global.distribution.local.routes.rem(instanceId, callback);
+    // Get the gid for that instance
+    const { gid } = mrInstances[instanceId]
+
+    // Delete the route
+    global.distribution.local.routes.rem(instanceId, (e, v) => {
+        console.log("ROUTE WAS DELETED!");
+        // Clear the store
+        global.distribution.local.store.batchDelete({ gid: `${gid}-map` }, (e, v) => {
+            global.distribution.local.store.batchDelete({ gid: `${gid}-shuffle` }, (e, v) => {
+                global.distribution.local.store.batchDelete({ gid: `${gid}-reduce` }, (e, v) => {
+                    callback(null, true)
+                })
+            })
+        })
+    });
 }
 
 module.exports = { setup, teardown }
@@ -54,7 +70,6 @@ function _mr(config) {
     };
 
     function notify(configuration, callback) {
-        console.log("I am ", id.getSID(global.nodeConfig), "configuration in notify is:", configuration, "\n\n\n");
         const operation = configuration.operation;
         const args = configuration.args;
 
@@ -158,7 +173,6 @@ function _mr(config) {
                 // alternative is to only send the set of relevant keys, but this requires changing
                 // the structure of comm.send too much. so instead we recompute to see if the keys
                 // belong to us, which shouldn't be an insane overhead.
-                console.log("I am ", id.getSID(global.nodeConfig), "i am at the beginning of command map", "\n\n\n");
                 const allKeys = args[0]
                 let localKeys = [];
                 allKeys.forEach((key, index) => {
@@ -172,15 +186,10 @@ function _mr(config) {
                     callback(null, true);
                 }
 
-                console.log("I am ", id.getSID(global.nodeConfig), "i am at the edge case of command map", "\n\n\n");
-
-                // console.log("I am ", id.getSID(global.nodeConfig), "i got to the edge case", configuration, "\n\n\n");
-
                 // read each key from local.store, and use mapper
                 let localKeyCounts = 0;
                 localKeys.forEach((key, index) => {
                     global.distribution.local.store.get({ key: key, gid: context.gid }, (e, v) => {
-                        console.log("I am ", id.getSID(global.nodeConfig), "this is v:", v, "\n\n\n");
                         let outMappingCounts = 0;
                         const outMappings = mrLocalStorage.get("map")(key, v);
                         for (let i = 0; i < outMappings.length; i++) {
