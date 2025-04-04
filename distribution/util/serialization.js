@@ -96,7 +96,10 @@ function deserialize(string) {
   const value = inputJson.value;
   switch (type) {
       case "number":
-          return parseInt(value);
+        if (Number.isInteger(value)) {
+            return parseInt(value);
+        }
+        return parseFloat(value);
       case "string":
           return value;
       case "boolean":

@@ -57,16 +57,20 @@ function mr(config) {
 
       // Step 1: Use local `mr` service to tell ourselves we're the orchestrator
       global.distribution.local.mr.setup({ instanceId: instanceId, isOrchestrator: true, gid: context.gid, group: groupInfo }, (e, v) => {
-        console.log("setup done!")
+        // console.log("setup done!")
         global.distribution[context.gid].comm.send([{ instanceId: instanceId, isOrchestrator: false, gid: context.gid, group: groupInfo }], { service: "mr", method: "setup" }, (e, v) => {
-          console.log("setup done for nodes", v, e);
+          // console.log("setup done for nodes", v, e);
           global.distribution[context.gid].comm.send([{ operation: NotifyOps.REGISTER_FUNCTIONS, args: [{ map: configuration.map, reduce: configuration.reduce }] }], { service: instanceId, method: "notify" }, (e, v) => {
-            console.log("register functions done for node", v, e);
+            // console.log("register functions done for node", v, e);
             global.distribution[context.gid].comm.send([{ operation: NotifyOps.COMMAND_MAP, args: [configuration.keys] }], { service: instanceId, method: "notify" }, (e, v) => { 
-              console.log("map done for nodes", v, e)
+              // console.log("map done for nodes", v, e)
               global.distribution[context.gid].comm.send([{ operation: NotifyOps.COMMAND_SHUFFLE, args: [] }], { service: instanceId, method: "notify" }, (e, v) => {
+                // console.log("shuffle done for all nodes", v, e);
                 global.distribution[context.gid].comm.send([{ operation: NotifyOps.COMMAND_REDUCE, args: [] }], { service: instanceId, method: "notify" }, (e, v) => {
-                  global.distribution[context.gid].comm.send([{ instanceId: instanceId }], { service: "mr", method: "teardown" }, (e, _) => {
+                  // console.log("reduce done for all nodes", v, e);
+                  // cb(null, Object.values(v).flat());
+                  global.distribution[context.gid].comm.send([ instanceId ], { service: "mr", method: "teardown" }, (e, _) => {
+                    // console.log("teardown sent for all nodes", v, e);
                     global.distribution.local.mr.teardown(instanceId, (e, _) => {
                       cb(null, Object.values(v).flat());
                     })

@@ -98,9 +98,11 @@ function put(service, configuration, callback) {
  * @param {Callback} callback
  */
 function rem(configuration, callback) {
+    // console.log("I am REMMING!!", configuration, "\n\n\n\n");
     try {
         if (configuration in RoutesMap) {
             delete RoutesMap[configuration];
+            // console.log("DOES THIS SUCCEED????\n\n\n\n\n");
             if (typeof callback === 'function') {
                 callback(null, configuration);
             return;
