@@ -1,6 +1,7 @@
 const { group } = require('yargs');
 
 const util = require('../util/id.js');
+const { id } = require('../util/util.js');
 const groups = {};
 const groupMapping = new Map();
 groupMapping.set('all',{})
@@ -28,6 +29,7 @@ groups.get = function(name, callback) {
 groups.put = function(config, group, callback) {
     // console.log(config)
     // groupMapping[config.gid || config] = group;
+    const hashFunc = config.hash || id.consistentHash;
     groupMapping.set(config.gid || config, group);
     groupMapping.set('all', Object.assign({},groupMapping.get('all'), group))
     
@@ -35,10 +37,10 @@ groups.put = function(config, group, callback) {
     global.distribution[config.gid || config].status = require("../all/status.js")({gid: config.gid || config});
     global.distribution[config.gid || config].gossip = require("../all/gossip.js")({gid: config.gid || config});
     global.distribution[config.gid || config].groups = require("../all/groups.js")({gid: config.gid || config});
-    global.distribution[config.gid || config].mem = require("../all/mem.js")({gid: config.gid || config, hash: config.hash});
+    global.distribution[config.gid || config].mem = require("../all/mem.js")({gid: config.gid || config, hash: hashFunc});
     global.distribution[config.gid || config].routes = require("../all/routes.js")({gid: config.gid || config});
     global.distribution[config.gid || config].comm = require("../all/comm.js")({gid: config.gid || config});
-    global.distribution[config.gid || config].store = require("../all/store.js")({gid: config.gid || config, hash: config.hash});
+    global.distribution[config.gid || config].store = require("../all/store.js")({gid: config.gid || config, hash: hashFunc});
     global.distribution[config.gid || config].mr = require("../all/mr.js")({gid: config.gid || config});
     if (typeof callback == 'function') {
         callback(null, group);

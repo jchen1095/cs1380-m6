@@ -55,24 +55,42 @@ function naiveHash(kid, nids) {
 }
 
 function consistentHash(kid, nids) {
-  nids.sort();
-  const idNum = idToNum(kid)
-  // let newList = [];
-  // newList.push(...nids)
-  // newList.push(idNum)
-  // newList.sort()
-  let newList = [nids + [idNum]]
-  const index = newList.indexOf(idNum)
-  return nids[index<newList.length-1 ? index+1:0]
+  // keep mapping from number to original id
+  const numsToIds = new Map();
+  numsToIds.set(idToNum(kid), kid);
+  for (nid of nids) {
+    numsToIds.set(idToNum(nid), nid);
+  }
+
+  // get list of values
+  const nums = [...numsToIds.keys()];
+  nums.sort();
+  const kidIndex = nums.indexOf(idToNum(kid));
+  
+  // determine element right after kid
+  let toPick;
+  if (kidIndex === nums.length-1) {
+    toPick = 0;
+  } else {
+    toPick = kidIndex + 1;
+  }
+
+  // return ID of node corresponding to that element
+  return numsToIds.get(nums[toPick]);
 }
 
 
 function rendezvousHash(kid, nids) {
-  nids.sort();
-  nids.map((nid)=> {nid+kid});
-  let hashed = Object.fromEntries(nids.map(nid => [getID(nid+kid), nid]))
-  let max = Object.keys(hashed).sort().pop();
-  return hashed[max];
+  const numsToIds = new Map();
+  for (nid of nids) {
+    numsToIds.set(idToNum(getID(kid + nid)), nid);
+  }
+
+  const nums = [...numsToIds.keys()];
+  // sort in reverse order
+  nums.sort((a, b) => b-a);
+
+  return numsToIds.get(nums[0])
 }
 
 module.exports = {

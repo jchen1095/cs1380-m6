@@ -62,7 +62,7 @@ function mr(config) {
             global.distribution[context.gid].comm.send([{ operation: NotifyOps.COMMAND_MAP, args: [configuration.keys] }], { service: instanceId, method: "notify" }, (e, v) => { 
               global.distribution[context.gid].comm.send([{ operation: NotifyOps.COMMAND_SHUFFLE, args: [] }], { service: instanceId, method: "notify" }, (e, v) => {
                 global.distribution[context.gid].comm.send([{ operation: NotifyOps.COMMAND_REDUCE, args: [] }], { service: instanceId, method: "notify" }, (e, v) => {
-                  global.distribution[context.gid].comm.send([{ instanceId: instanceId }], { service: "mr", method: "teardown" }, (e, _) => {
+                  global.distribution[context.gid].comm.send([ instanceId ], { service: "mr", method: "teardown" }, (e, _) => {
                     global.distribution.local.mr.teardown(instanceId, (e, _) => {
                       cb(null, Object.values(v).flat());
                     })

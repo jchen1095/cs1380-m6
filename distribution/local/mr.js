@@ -2,23 +2,25 @@ const { NotifyOps } = require("../util/enum");
 const { id } = require("../util/util");
 
 // Array to hold all mr instances this node is orchestrator for
-let orchestratorFor = []
+let mrInstances = {}
 
 function setup(config, callback) {
-    const { instanceId, isOrchestrator } = config;
+    const { instanceId, isOrchestrator, gid } = config;
 
-    if (isOrchestrator) {
-        orchestratorFor.push(instanceId)
-    } else {
+    // Check if service wasn't already set up as orchestrator
+    if (instanceId in mrInstances) {
         // This happens when we call comm.send on the group with the setup function, after setting up the orchestrator
         // If we deemed that this node is already the orchestrator for the provided instance, just return. 
-        if (orchestratorFor.includes(instanceId)) {
+        if (mrInstances[instanceId].isOrchestrator) {
             callback(null, true);
             return;
         }
     }
 
-    // Delete everything related to the node in the store/ folder to avoid any issues
+    // Object to keep track of ongoing MapReduce instances
+    mrInstances[instanceId] = {gid: gid, isOrchestrator: isOrchestrator};
+
+    // Set up the routes with the closure-like mr service
     global.distribution.local.routes.put(_mr(config), instanceId, (e, v) => {
         if (e) {
             callback(e);
@@ -29,7 +31,21 @@ function setup(config, callback) {
 }
 
 function teardown(instanceId, callback) {
-    global.distribution.local.routes.rem(instanceId, callback);
+    // Get the gid for that instance
+    const { gid } = mrInstances[instanceId]
+
+    // Delete the route
+    global.distribution.local.routes.rem(instanceId, (e, v) => {
+        console.log("ROUTE WAS DELETED!");
+        // Clear the store
+        global.distribution.local.store.batchDelete({ gid: `${gid}-map` }, (e, v) => {
+            global.distribution.local.store.batchDelete({ gid: `${gid}-shuffle` }, (e, v) => {
+                global.distribution.local.store.batchDelete({ gid: `${gid}-reduce` }, (e, v) => {
+                    callback(null, true)
+                })
+            })
+        })
+    });
 }
 
 module.exports = { setup, teardown }

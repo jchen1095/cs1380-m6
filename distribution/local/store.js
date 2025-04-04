@@ -105,6 +105,31 @@ function batchAppend(state, configuration, callback) {
   })
 }
 
+function batchDelete(configuration, callback) {
+  if (!Object.hasOwn(configuration, "gid")) {
+    callback(new Error("Configuration is an object but is missing key or gid field"))
+    return;
+  }
+
+  const gid = configuration.gid;
+
+  // give all files in a given directory (for the provided gid in the config object)
+  const gidStoreFolder = _getGIDStoreFolder(gid);
+  try {
+    fs.rmSync(gidStoreFolder, { recursive: true });
+    callback(null, true);
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      // In the case where the folder wasn't found, return the error.
+      // In the specific MapReduce case where this is used, we handle this quietly.
+      callback(err, null);
+      return;
+    }
+    callback(err, null);
+  }
+
+}
+
 function get(configuration, callback) {
   let key;
   let gid = "local";
@@ -255,4 +280,4 @@ function _alphaNumericizeKey(key) {
   return key.replace(/[^a-zA-Z0-9]/g, '')
 }
 
-module.exports = { put, get, del, append, batchAppend, search, clear };
+module.exports = { put, get, del, append, batchAppend, batchDelete, search, clear };
