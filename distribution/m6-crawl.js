@@ -31,20 +31,29 @@ const startTests = () => {
         // Import execSync
         const { execSync } = require("child_process");
 
-        try {
-            const test = execSync(`pwd`, { encoding: 'utf-8'} );
-            console.log("PWD:", test);
-            // Step 2: Retrieve text from page
-            const capturedText = execSync(`./crawl.sh ${value}`, { encoding: 'utf-8'} );
+        const resultPromise = new Promise((resolve, reject) => {
+            const out = {};
+            try {
+                const test = execSync(`pwd`, { encoding: 'utf-8'} );
+                console.log("PWD:", test);
 
-            // Step 3: Store text for one node (for now just do it in the same folder)
-            
+                // Step 2: Retrieve text from page
+                const capturedText = execSync(`./crawl.sh ${value}`, { encoding: 'utf-8'} );
 
+                // Step 3: Store text for one node (for now just do it in the same folder)
+                distribution.crawl.store.put(capturedText, `${key}-text`, (e, v) => {
+                    // Value doesn't matter; what matters here is that we stored the text
+                    out[value] = true;
+                    console.log("about to resolve promise")
+                    resolve(out);
+                })
+            } catch (e) {
+                console.log("Something went wrong while trying to run execSync:", e);
+            }
+        })
 
-            console.log("capturedText:", capturedText);
-        } catch (e) {
-            console.log("Something went wrong while trying to run execSync:", e);
-        }
+        return resultPromise;
+
 
         // Step 1: Retrieve URLs from page
 
@@ -55,7 +64,6 @@ const startTests = () => {
 
         // Return a promise which will be resolved at the end of the put callback
 
-        return [];
     }
 
     const reducer = (key, values) => {
