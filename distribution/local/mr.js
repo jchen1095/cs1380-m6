@@ -191,7 +191,7 @@ function _mr(config) {
                 localKeys.forEach((key, index) => {
                     global.distribution.local.store.get({ key: key, gid: context.gid }, (e, v) => {
                         let outMappingCounts = 0;
-                        const outMappings = mrLocalStorage.get("map")(key, v);
+                        const outMappings = mrLocalStorage.get("map")(key, v, global.distribution.util.require);
                         for (let i = 0; i < outMappings.length; i++) {
                             const mapKey = Object.keys(outMappings[i])[0]
                             const mapValue = outMappings[i][mapKey];

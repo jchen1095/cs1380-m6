@@ -25,13 +25,31 @@ const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/"
 
 const startTests = () => {
 
-    const mapper = (key, value) => {
-        console.log("received URL!:", key, value);
+    // See https://edstem.org/us/courses/69551/discussion/6470553 for explanation of the
+    // "require" argument
+    const mapper = (key, value, require) => {
+        // Import execSync
+        const { execSync } = require("child_process");
+
+        try {
+            const test = execSync(`pwd`, { encoding: 'utf-8'} );
+            console.log("PWD:", test);
+            // Step 2: Retrieve text from page
+            const capturedText = execSync(`./crawl.sh ${value}`, { encoding: 'utf-8'} );
+
+            // Step 3: Store text for one node (for now just do it in the same folder)
+            
+
+
+            console.log("capturedText:", capturedText);
+        } catch (e) {
+            console.log("Something went wrong while trying to run execSync:", e);
+        }
+
         // Step 1: Retrieve URLs from page
 
-        // Step 2: Retrieve text from page
 
-        // Step 3: Store text for one node (for now just do it in the same folder)
+
 
         // Step 4: Store URLs in the base folder to be able to start a MR again
 
