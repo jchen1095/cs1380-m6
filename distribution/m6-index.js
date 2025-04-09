@@ -37,8 +37,9 @@ const startTests = () => {
             const out = {};
             try {
                 // Step 2: Retrieve text from page
-                const capturedText = execSync(`./index_test.sh ${value}`, { encoding: 'utf-8'} );
-                
+                const capturedText = execSync(`./index_map.sh ${value}`, { encoding: 'utf-8'} );
+                console.log("[Captured Output]");
+                console.log(capturedText);
                 // Step 3: Store text for one node (for now just do it in the same folder)
                 distribution.crawl.store.put(capturedText, `${key}-text`, (e, v) => {
                     // Value doesn't matter; what matters here is that we stored the text
@@ -65,8 +66,31 @@ const startTests = () => {
 
     }
 
-    const reducer = (key, values) => {
-        return [];
+    const reducer = (key, value, require) => {
+        //key is the node, values is the shuffled text 
+        console.log('k,v', key, value);
+        const { execSync } = require("child_process");
+
+        const resultPromise = new Promise((resolve, reject) => {
+            const out = {};
+            try {
+                // Step 2: Retrieve text from page
+                const capturedText = execSync(`./index_reduce.sh ${value}`, { encoding: 'utf-8'} );
+                console.log("[Captured Output]");
+                console.log(capturedText);
+                // Step 3: Store text for one node (for now just do it in the same folder)
+                distribution.crawl.store.put(capturedText, `${key}-reduced`, (e, v) => {
+                    // Value doesn't matter; what matters here is that we stored the text
+                    out[value] = true;
+                    console.log("about to resolve promise")
+                    resolve(out);
+                })
+            } catch (e) {
+                console.log("Something went wrong while trying to run execSync:", e);
+            }
+        })
+
+        return resultPromise;
     }
 
     
