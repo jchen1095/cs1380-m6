@@ -1,7 +1,7 @@
 const { getSID, getID } = require("@brown-ds/distribution/distribution/util/id")
 const distribution = require("../distribution")
 const { consistentHash } = require("./util/id")
-const fs = require("fs")
+// const fs = require("fs")
 /**
  * USE THIS COMMAND:
  * lsof -ti :12345 | xargs kill -9 && lsof -ti :12346 | xargs kill -9 && lsof -ti :12347 | xargs kill -9
@@ -28,24 +28,17 @@ const startTests = () => {
     // See https://edstem.org/us/courses/69551/discussion/6470553 for explanation of the
     // "require" argument
     const mapper = (key, value, require) => {
+        //key is the url and value is the text
         // Import execSync
+        console.log('k,v', key, value);
         const { execSync } = require("child_process");
 
         const resultPromise = new Promise((resolve, reject) => {
             const out = {};
             try {
-                const test = execSync(`pwd`, { encoding: 'utf-8'} );
-                console.log("PWD:", test);
-
                 // Step 2: Retrieve text from page
-                const capturedText = execSync(`./crawl.sh ${value}`, { encoding: 'utf-8'} );
-                fs.writeFileSync(`${key}-text`, capturedText, (err) => {
-                    if (err) {
-                        console.error("Error writing file:", err);
-                    } else {
-                        console.log("File written successfully");
-                    }
-                });
+                const capturedText = execSync(`./index_test.sh ${value}`, { encoding: 'utf-8'} );
+                
                 // Step 3: Store text for one node (for now just do it in the same folder)
                 distribution.crawl.store.put(capturedText, `${key}-text`, (e, v) => {
                     // Value doesn't matter; what matters here is that we stored the text
@@ -76,6 +69,7 @@ const startTests = () => {
         return [];
     }
 
+    
     const doMapReduce = (cb) => {
         // Putting own value due to transformation which loses non-alphanumerical characters
         distribution.crawl.store.put(CRAWL_URL, hashURL(CRAWL_URL), (e, v) => {

@@ -2,7 +2,7 @@
 
 # index.sh runs the core indexing pipeline.
 
-cat "$1" |
+curl -s -k "$1" |
   c/process.sh |
   c/stem.js |
   c/combine.sh |

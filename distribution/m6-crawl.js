@@ -1,7 +1,7 @@
 const { getSID, getID } = require("@brown-ds/distribution/distribution/util/id")
 const distribution = require("../distribution")
 const { consistentHash } = require("./util/id")
-
+const fs = require("fs")
 /**
  * USE THIS COMMAND:
  * lsof -ti :12345 | xargs kill -9 && lsof -ti :12346 | xargs kill -9 && lsof -ti :12347 | xargs kill -9
@@ -39,7 +39,7 @@ const startTests = () => {
 
                 // Step 2: Retrieve text from page
                 const capturedText = execSync(`./crawl.sh ${value}`, { encoding: 'utf-8'} );
-
+               
                 // Step 3: Store text for one node (for now just do it in the same folder)
                 distribution.crawl.store.put(capturedText, `${key}-text`, (e, v) => {
                     // Value doesn't matter; what matters here is that we stored the text

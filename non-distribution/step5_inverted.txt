@@ -1,0 +1,205 @@
+address   | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+address apach  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+address apach debian | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+address bodi  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+address bodi  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+align   | 29 | https://atlas.cs.brown.edu/data/gutenberg/
+align align  | 14 | https://atlas.cs.brown.edu/data/gutenberg/
+align align nbsp | 14 | https://atlas.cs.brown.edu/data/gutenberg/
+align nbsp  | 15 | https://atlas.cs.brown.edu/data/gutenberg/
+align nbsp colspan | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+align nbsp valign | 14 | https://atlas.cs.brown.edu/data/gutenberg/
+alt   | 16 | https://atlas.cs.brown.edu/data/gutenberg/
+alt dir  | 11 | https://atlas.cs.brown.edu/data/gutenberg/
+alt dir href | 11 | https://atlas.cs.brown.edu/data/gutenberg/
+alt ico  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+alt ico href | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+alt parentdir  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+alt parentdir href | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+alt txt  | 3 | https://atlas.cs.brown.edu/data/gutenberg/
+alt txt href | 3 | https://atlas.cs.brown.edu/data/gutenberg/
+apach   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+apach debian  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+apach debian server | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+atla   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+atla brown  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+atla brown port | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+blank   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+blank gif  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+blank gif alt | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+bodi   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+bodi   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+bodi   | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+bodi data  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+bodi data gutenberg | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+book   | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+book txt  | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+book txt align | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+book txt book | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+brown   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+brown port  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+brown port address | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+colspan   | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+colspan tabl  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+colspan tabl address | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+colspan valign  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+colspan valign img | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+data   | 3 | https://atlas.cs.brown.edu/data/gutenberg/
+data gutenberg  | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+data gutenberg tabl | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+data gutenberg titl | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+data parent  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+data parent directori | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+debian   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+debian server  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+debian server atla | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+descript   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+descript colspan  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+descript colspan valign | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+dir   | 11 | https://atlas.cs.brown.edu/data/gutenberg/
+dir href  | 11 | https://atlas.cs.brown.edu/data/gutenberg/
+dir href align | 10 | https://atlas.cs.brown.edu/data/gutenberg/
+dir href retir | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+directori   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+directori nbsp  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+directori nbsp align | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+doctyp   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+doctyp public  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+doctyp public dtd | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+donat   | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+donat howto  | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+donat howto txt | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+dtd   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+dtd final  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+dtd final en | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+en   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+en head  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+en head titl | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+final   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+final en  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+final en head | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+folder   | 11 | https://atlas.cs.brown.edu/data/gutenberg/
+folder gif  | 11 | https://atlas.cs.brown.edu/data/gutenberg/
+folder gif alt | 11 | https://atlas.cs.brown.edu/data/gutenberg/
+gif   | 16 | https://atlas.cs.brown.edu/data/gutenberg/
+gif alt  | 16 | https://atlas.cs.brown.edu/data/gutenberg/
+gif alt dir | 11 | https://atlas.cs.brown.edu/data/gutenberg/
+gif alt ico | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+gif alt parentdir | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+gif alt txt | 3 | https://atlas.cs.brown.edu/data/gutenberg/
+gutenberg   | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+gutenberg tabl  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+gutenberg tabl valign | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+gutenberg titl  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+gutenberg titl head | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+head   | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+head bodi  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+head bodi data | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+head titl  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+head titl data | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+howto   | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+howto txt  | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+howto txt align | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+howto txt donat | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href   | 19 | https://atlas.cs.brown.edu/data/gutenberg/
+href align  | 10 | https://atlas.cs.brown.edu/data/gutenberg/
+href align align | 10 | https://atlas.cs.brown.edu/data/gutenberg/
+href book  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href book txt | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href data  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href data parent | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href descript  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href descript colspan | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href donat  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href donat howto | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href href  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href href modifi | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href indextre  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href indextre txt | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href modifi  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href modifi href | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href retir  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href retir retir | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href size  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+href size href | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+ico   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+ico href  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+ico href href | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+icon   | 16 | https://atlas.cs.brown.edu/data/gutenberg/
+icon blank  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+icon blank gif | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+icon folder  | 11 | https://atlas.cs.brown.edu/data/gutenberg/
+icon folder gif | 11 | https://atlas.cs.brown.edu/data/gutenberg/
+icon gif  | 4 | https://atlas.cs.brown.edu/data/gutenberg/
+icon gif alt | 4 | https://atlas.cs.brown.edu/data/gutenberg/
+img   | 16 | https://atlas.cs.brown.edu/data/gutenberg/
+img src  | 16 | https://atlas.cs.brown.edu/data/gutenberg/
+img src icon | 16 | https://atlas.cs.brown.edu/data/gutenberg/
+indextre   | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+indextre txt  | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+indextre txt align | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+indextre txt indextre | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+modifi   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+modifi href  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+modifi href size | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+nbsp   | 16 | https://atlas.cs.brown.edu/data/gutenberg/
+nbsp align  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+nbsp align nbsp | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+nbsp colspan  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+nbsp colspan tabl | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+nbsp valign  | 14 | https://atlas.cs.brown.edu/data/gutenberg/
+nbsp valign img | 14 | https://atlas.cs.brown.edu/data/gutenberg/
+parent   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+parent directori  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+parent directori nbsp | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+parentdir   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+parentdir href  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+parentdir href data | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+port   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+port address  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+port address bodi | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+public   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+public dtd  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+public dtd final | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+retir   | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+retir align  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+retir align align | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+retir retir  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+retir retir align | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+server   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+server atla  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+server atla brown | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+size   | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+size href  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+size href descript | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+src   | 16 | https://atlas.cs.brown.edu/data/gutenberg/
+src icon  | 16 | https://atlas.cs.brown.edu/data/gutenberg/
+src icon blank | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+src icon folder | 11 | https://atlas.cs.brown.edu/data/gutenberg/
+src icon gif | 4 | https://atlas.cs.brown.edu/data/gutenberg/
+tabl   | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+tabl address  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+tabl address apach | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+tabl valign  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+tabl valign img | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+titl   | 2 | https://atlas.cs.brown.edu/data/gutenberg/
+titl data  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+titl data gutenberg | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+titl head  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+titl head bodi | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+txt   | 9 | https://atlas.cs.brown.edu/data/gutenberg/
+txt align  | 3 | https://atlas.cs.brown.edu/data/gutenberg/
+txt align align | 3 | https://atlas.cs.brown.edu/data/gutenberg/
+txt book  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+txt book txt | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+txt donat  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+txt donat howto | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+txt href  | 3 | https://atlas.cs.brown.edu/data/gutenberg/
+txt href book | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+txt href donat | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+txt href indextre | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+txt indextre  | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+txt indextre txt | 1 | https://atlas.cs.brown.edu/data/gutenberg/
+valign   | 16 | https://atlas.cs.brown.edu/data/gutenberg/
+valign img  | 16 | https://atlas.cs.brown.edu/data/gutenberg/
+valign img src | 16 | https://atlas.cs.brown.edu/data/gutenberg/
