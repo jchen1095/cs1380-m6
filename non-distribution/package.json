@@ -13,6 +13,7 @@
     "natural": "^6.10.4"
   },
   "scripts": {
+    "start": "react-scripts start",
     "pretest": "../scripts/pretest.sh",
     "test": "jest --maxWorkers=1",
     "lint": "eslint . --config .eslintrc --fix"
