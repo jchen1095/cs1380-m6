@@ -34,9 +34,6 @@ const startTests = () => {
         const resultPromise = new Promise((resolve, reject) => {
             const out = {};
             try {
-                const test = execSync(`pwd`, { encoding: 'utf-8'} );
-                console.log("PWD:", test);
-
                 // Step 2: Retrieve text from page
                 const capturedText = execSync(`./crawl.sh ${value}`, { encoding: 'utf-8'} );
 
@@ -44,7 +41,6 @@ const startTests = () => {
                 distribution.crawl.store.put(capturedText, `${key}-text`, (e, v) => {
                     // Value doesn't matter; what matters here is that we stored the text
                     out[value] = true;
-                    console.log("about to resolve promise")
                     resolve(out);
                 })
             } catch (e) {
@@ -53,15 +49,8 @@ const startTests = () => {
         })
 
         return resultPromise;
-
-
         // Step 1: Retrieve URLs from page
-
-
-
-
         // Step 4: Store URLs in the base folder to be able to start a MR again
-
         // Return a promise which will be resolved at the end of the put callback
 
     }
