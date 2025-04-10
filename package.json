@@ -22,8 +22,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "yargs": "^17.7.2",
-    "@brown-ds/distribution": "latest"
+    "@brown-ds/distribution": "latest",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "yargs": "^17.7.2"
   },
   "report": {
     "hours": 999,
@@ -34,12 +36,22 @@
       "ssd-gb": 999
     },
     "throughput": {
-      "dev": ["I lost the progress here, will update after with previous throughput", "3610 put, 834 get"],
-      "aws": ["I lost the progress here, will update after with previous throughput", "753 put, 735 get"]
+      "dev": [
+        "I lost the progress here, will update after with previous throughput",
+        "3610 put, 834 get"
+      ],
+      "aws": [
+        "I lost the progress here, will update after with previous throughput",
+        "753 put, 735 get"
+      ]
     },
     "latency": {
-      "dev": ["277 ms/1000put, 1198/1000 get"],
-      "aws": ["1327 ms/1000put, 1359/1000 get"]
+      "dev": [
+        "277 ms/1000put, 1198/1000 get"
+      ],
+      "aws": [
+        "1327 ms/1000put, 1359/1000 get"
+      ]
     },
     "dloc": -99
   }

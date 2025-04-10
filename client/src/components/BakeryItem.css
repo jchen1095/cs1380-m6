@@ -1,0 +1,43 @@
+#item-container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: auto;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#item-desc {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+img {
+  width: 400px;
+  height: auto;
+}
+
+p {
+  margin: auto;
+}
+
+h3 {
+  margin: auto;
+}
+
+button {
+  border-radius: 5px;
+  background-color: #eeeeee;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  float: right;
+}
