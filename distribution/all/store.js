@@ -66,6 +66,8 @@ function store(config) {
 
     reconf: (configuration, callback) => {
     },
+
+    getNode: (configuration, callback) => _retrieveNode(context, configuration, callback)
   };
 };
 
