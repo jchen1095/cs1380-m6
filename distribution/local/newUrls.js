@@ -1,4 +1,3 @@
-const local = require('./local');
 const {getID} = require('../util/id');
 const {execSync} = require('child_process');
 const newUrls = {};
@@ -9,7 +8,7 @@ const meta = {
 
 // Just calls getAll from local.mem -> gets all url objects and reformats to output
 newUrls.get = function(callback) {
-    local.mem.getAll({gid: "newUrls"}, (e,v) => {
+    global.distribution.local.mem.getAll({gid: "newUrls"}, (e,v) => {
         if (e) {
             callback(e);
             return;
@@ -28,12 +27,15 @@ newUrls.get = function(callback) {
 newUrls.put = function(urls, callback) {
     // assumption -> each url is {hash: url}
     let count = 0;
+    // console.log("URLS:", urls);
     for (const url of urls) {
-        local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0] }, (e,v) => {
+        // console.log(url)
+        global.distribution.local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0] }, (e,v) => {
             if (e) {
                 callback(e);
                 return;
             }
+            // console.log("mem v:", v);
             count++;
             if (count >= urls.length) {
                 callback(null, count);
@@ -44,13 +46,13 @@ newUrls.put = function(urls, callback) {
 }
 
 newUrls.clear = function(callback) {
-    local.mem.getAll({gid: "newUrls"}, (e,newUrls) => {
+    global.distribution.local.mem.getAll({gid: "newUrls"}, (e,newUrls) => {
         // add previous urls to visited.txt
         const urls = Object.values(newUrls).join('\n');
         execSync(`echo "${urls}" >> d/visited.txt`, {encoding: 'utf-8'});
 
         // delete all urls to clear local mapping
-        local.mem.del({gid: "newUrls", key: null}, (e,v) => {
+        global.distribution.local.mem.del({gid: "newUrls", key: null}, (e,v) => {
             if (e) {
                 callback(e);
                 return;
@@ -63,7 +65,7 @@ newUrls.clear = function(callback) {
 
 newUrls.flush = function(callback) {
     // check visited.txt (grep) -> if not in visited.txt -> add to newUrls.txt
-    local.mem.getAll({gid: "newUrls"}, (e,u) => {
+    global.distribution.local.mem.getAll({gid: "newUrls"}, (e,u) => {
         const urlArr = Object.values(u);
         const urlStr = urlArr.join('\n');
         // get all the non-visited urls

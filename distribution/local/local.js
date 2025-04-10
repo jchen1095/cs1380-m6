@@ -41,6 +41,9 @@ const store = require('./store');
 
 const mr = require('./mr');
 
+/* Next URLs Service */
+const newUrls = require("./newUrls")
+
 module.exports = {
   status: status,
   routes: routes,
@@ -49,5 +52,6 @@ module.exports = {
   gossip: gossip,
   mem: mem,
   store: store,
-  mr: mr
+  mr: mr,
+  newUrls: newUrls
 };

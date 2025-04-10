@@ -30,45 +30,65 @@ const startTests = () => {
     // "require" argument
     const mapper = (key, value, require) => {
         // Import execSync
-        const { execSync } = require("child_process");
+        const { execSync, spawnSync } = require("child_process");
 
         const resultPromise = new Promise((resolve, reject) => {
+            // Step 0: Curl the URL
+            const rawURLContent = execSync(`curl -skL ${value}`, { encoding: 'utf-8' })
+
+            const capturedText = spawnSync('node', ['./c/getText.js'], {
+                input: rawURLContent,
+                encoding: 'utf-8'
+            }).output[1];
+
             // Step 1: Get text from page
-            const capturedText = execSync(`./getText.js`, { encoding: 'utf-8' });
+            // const capturedText = execSync(`./c/getText.js`, { encoding: 'utf-8' });
             // Step 2: Build up object with page data
             const data = { url: value, text: capturedText }
             // Step 3: Store content under hashURL(value)
+            // console.log("key:", key);
+            
             distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, v) => {
+                console.log("e:", e);
+                console.log("v:", v);
                 // Step 4: Get URLs from page
-                const urlsRaw = execSync('./getURLs.js', { encoding: 'utf-8' });
+                const urlsRaw = spawnSync('node', [`./c/getURLs.js`, value], {
+                    input: rawURLContent,
+                    encoding: 'utf-8'
+                }).output[1];
+                // console.log("URLSRAW:", urlsRaw)
                 const urlList = urlsRaw.split('\n');
                 // Step 5: Go through each URL to determine which node it should be sent to
                 let count = 0;
                 const d = {};
-                for (let url in urlList) {
-                    const nsidToNode = {};
+                const nsidToNode = {};
+                for (const url of urlList) {
                     distribution.crawl.store.getNode(url, (e, v) => {
                         count++;
                         // Add to per node batch of URLs
-                        const sid = getSID(v);
+                        const sid = distribution.util.id.getSID(v);
                         if (!Object.hasOwn(d, sid)) {
                             d[sid] = [];
                         }
-                        d[sid].push({ key: url })
+
+                        const newUrlKey = distribution.util.id.getID(url).slice(0, 20);;
+                        d[sid].push({ [newUrlKey]: url })
+                        // console.log("v NODE:", v);
                         nsidToNode[sid] = v;
+                        // console.log("nsidToNode:", nsidToNode)
                         if (count === urlList.length) {
                             // We've gone through all URLs. Let's send through the nextURLs service
                             for (let nsid in d) {
-                                if (nsid === getSID(global.nodeConfig)) {
+                                if (nsid === distribution.util.id.getSID(global.nodeConfig)) {
                                     // Call own service for this
-                                    distribution.local.nextUrls.put(d[nsid], (e, v) => {
+                                    distribution.local.newUrls.put(d[nsid], (e, v) => {
                                         resolve([{ [key]: true }]);
                                     })
                                 } else {
                                     // Use comm.send to give it to peer nodes
                                     distribution.local.comm.send(
-                                        [nextUrls],
-                                        { node: nsidToNode[nsid], service: "nextUrls", method: "put" },
+                                        [d[nsid]],
+                                        { node: nsidToNode[nsid], service: "newUrls", method: "put" },
                                         (e, v) => {
                                             resolve({ [key]: true });
                                         })
