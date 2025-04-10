@@ -66,11 +66,11 @@ function del(configuration, callback) {
     let key;
     let gid = "local";
     if (typeof configuration === "object") {
-        if (!Object.hasOwn(configuration, "key") || !Object.hasOwn(configuration, "gid")) {
+        if (!Object.hasOwn(configuration, "gid")) {
             callback(new Error("Configuration is an object but is missing key or gid field"))
             return;
         }
-        key = configuration.key;
+        key = configuration.key || null;
         gid = configuration.gid;
     } else if (typeof configuration === "string") {
         key = configuration;
@@ -83,6 +83,15 @@ function del(configuration, callback) {
         callback(new Error(`Key ${key} was not found.`));
         return;
     }
+
+    if (key === null) {
+        // case: delete all (key = null)
+        memMap.delete(gid);
+        memMap.set(gid, new Map());
+        callback(null, null);
+        return;
+    }
+    
     if (!memMap.get(gid).has(key)) {
         callback(new Error(`Key ${key} was not found.`));
         return;
@@ -93,4 +102,29 @@ function del(configuration, callback) {
     callback(null, deleted);
 };
 
-module.exports = {put, get, del};
+/**
+ * Helper function which returns the map of a gid as an object 
+ * @param {* * configuration that contains gid spec} configuration 
+ * @param {* * callback function} callback 
+ * @returns 
+ */
+function getAll(configuration, callback) {
+    let gid = "local";
+    if (typeof configuration === "object") {
+        if (!Object.hasOwn(configuration, "key") || !Object.hasOwn(configuration, "gid")) {
+            callback(new Error("Configuration is an object but is missing key or gid field"))
+            return;
+        }
+        gid = configuration.gid;
+    } else {
+        callback(new Error("Unknown format for configuration object"))
+        return;
+    }
+    if (!memMap.has(gid)) {
+        callback(new Error(`GID ${gid} was not found.`));
+        return;
+    }
+    callback(null, Object.fromEntries(memMap.get(gid)));
+}
+
+module.exports = {put, get, del, getAll};
