@@ -1,6 +1,7 @@
 const { getSID, getID } = require("@brown-ds/distribution/distribution/util/id")
 const distribution = require("../distribution")
 const { consistentHash } = require("./util/id")
+const { config } = require("yargs")
 
 /**
  * USE THIS COMMAND:
@@ -32,27 +33,54 @@ const startTests = () => {
         const { execSync } = require("child_process");
 
         const resultPromise = new Promise((resolve, reject) => {
-            const out = {};
-            try {
-                // Step 2: Retrieve text from page
-                const capturedText = execSync(`./crawl.sh ${value}`, { encoding: 'utf-8'} );
-
-                // Step 3: Store text for one node (for now just do it in the same folder)
-                distribution.crawl.store.put(capturedText, `${key}-text`, (e, v) => {
-                    // Value doesn't matter; what matters here is that we stored the text
-                    out[value] = true;
-                    resolve(out);
-                })
-            } catch (e) {
-                console.log("Something went wrong while trying to run execSync:", e);
-            }
+            // Step 1: Get text from page
+            const capturedText = execSync(`./getText.js`, { encoding: 'utf-8' });
+            // Step 2: Build up object with page data
+            const data = { url: value, text: capturedText }
+            // Step 3: Store content under hashURL(value)
+            distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, v) => {
+                // Step 4: Get URLs from page
+                const urlsRaw = execSync('./getURLs.js', { encoding: 'utf-8' });
+                const urlList = urlsRaw.split('\n');
+                // Step 5: Go through each URL to determine which node it should be sent to
+                let count = 0;
+                const d = {};
+                for (let url in urlList) {
+                    const nsidToNode = {};
+                    distribution.crawl.store.getNode(url, (e, v) => {
+                        count++;
+                        // Add to per node batch of URLs
+                        const sid = getSID(v);
+                        if (!Object.hasOwn(d, sid)) {
+                            d[sid] = [];
+                        }
+                        d[sid].push({ key: url })
+                        nsidToNode[sid] = v;
+                        if (count === urlList.length) {
+                            // We've gone through all URLs. Let's send through the nextURLs service
+                            for (let nsid in d) {
+                                if (nsid === getSID(global.nodeConfig)) {
+                                    // Call own service for this
+                                    distribution.local.nextUrls.put(d[nsid], (e, v) => {
+                                        resolve([{ [key]: true }]);
+                                    })
+                                } else {
+                                    // Use comm.send to give it to peer nodes
+                                    distribution.local.comm.send(
+                                        [nextUrls],
+                                        { node: nsidToNode[nsid], service: "nextUrls", method: "put" },
+                                        (e, v) => {
+                                            resolve({ [key]: true });
+                                        })
+                                }
+                            }
+                        }
+                    })
+                }
+            })
         })
 
         return resultPromise;
-        // Step 1: Retrieve URLs from page
-        // Step 4: Store URLs in the base folder to be able to start a MR again
-        // Return a promise which will be resolved at the end of the put callback
-
     }
 
     const reducer = (key, values) => {
