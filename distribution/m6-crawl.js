@@ -47,7 +47,7 @@ const startTests = () => {
             const data = { url: value, text: capturedText }
             // Step 3: Store content under hashURL(value)
             // console.log("key:", key);
-            
+
             distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, v) => {
                 console.log("e:", e);
                 console.log("v:", v);
