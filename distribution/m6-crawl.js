@@ -100,7 +100,8 @@ const startTests = () => {
                                         [d[nsid]],
                                         { node: nsidToNode[nsid], service: "newUrls", method: "put" },
                                         (e, v) => {
-                                            resolve({ [key]: true });
+                                            //keys need to be the ngrams of every text
+                                            resolve(indexed);
                                         })
                                 }
                             }
