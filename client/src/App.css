@@ -1,0 +1,29 @@
+/* Add styling for your page here */
+
+.App {
+  font-family: "Nunito", sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.BakeryItem {
+}
+
+#menu-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+}
+
+#scrollable-container {
+  width: 900px;
+}
+
+#cart-container {
+  width: 300px;
+}

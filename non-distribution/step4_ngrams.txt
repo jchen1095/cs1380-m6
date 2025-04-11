@@ -1,61 +1,9 @@
-address
-address
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-align
-alt
-alt
-alt
-alt
-alt
-alt
-alt
-alt
-alt
-alt
-alt
-alt
-alt
-alt
-alt
-alt
 apach
 atla
 blank
-bodi
-bodi
 book
 book
 brown
-colspan
-colspan
-data
 data
 data
 debian
@@ -72,12 +20,8 @@ dir
 dir
 dir
 directori
-doctyp
 donat
 donat
-dtd
-en
-final
 folder
 folder
 folder
@@ -106,30 +50,8 @@ gif
 gif
 gif
 gutenberg
-gutenberg
-head
-head
 howto
 howto
-href
-href
-href
-href
-href
-href
-href
-href
-href
-href
-href
-href
-href
-href
-href
-href
-href
-href
-href
 ico
 icon
 icon
@@ -147,69 +69,16 @@ icon
 icon
 icon
 icon
-img
-img
-img
-img
-img
-img
-img
-img
-img
-img
-img
-img
-img
-img
-img
-img
 indextre
 indextre
 modifi
-nbsp
-nbsp
-nbsp
-nbsp
-nbsp
-nbsp
-nbsp
-nbsp
-nbsp
-nbsp
-nbsp
-nbsp
-nbsp
-nbsp
-nbsp
-nbsp
 parent
 parentdir
 port
-public
 retir
 retir
 server
 size
-src
-src
-src
-src
-src
-src
-src
-src
-src
-src
-src
-src
-src
-src
-src
-src
-tabl
-tabl
-titl
-titl
 txt
 txt
 txt
@@ -219,102 +88,30 @@ txt
 txt
 txt
 txt
-valign
-valign
-valign
-valign
-valign
-valign
-valign
-valign
-valign
-valign
-valign
-valign
-valign
-valign
-valign
-valign
-address	apach
-address	bodi
-align	align
-align	align
-align	align
-align	align
-align	align
-align	align
-align	align
-align	align
-align	align
-align	align
-align	align
-align	align
-align	align
-align	align
-align	nbsp
-align	nbsp
-align	nbsp
-align	nbsp
-align	nbsp
-align	nbsp
-align	nbsp
-align	nbsp
-align	nbsp
-align	nbsp
-align	nbsp
-align	nbsp
-align	nbsp
-align	nbsp
-align	nbsp
-alt	dir
-alt	dir
-alt	dir
-alt	dir
-alt	dir
-alt	dir
-alt	dir
-alt	dir
-alt	dir
-alt	dir
-alt	dir
-alt	ico
-alt	parentdir
-alt	txt
-alt	txt
-alt	txt
 apach	debian
 atla	brown
 blank	gif
-bodi	
-bodi	data
 book	txt
 book	txt
 brown	port
-colspan	tabl
-colspan	valign
+data	dir
 data	gutenberg
-data	gutenberg
-data	parent
 debian	server
-descript	colspan
-dir	href
-dir	href
-dir	href
-dir	href
-dir	href
-dir	href
-dir	href
-dir	href
-dir	href
-dir	href
-dir	href
-directori	nbsp
-doctyp	public
+descript	parentdir
+dir	icon
+dir	icon
+dir	icon
+dir	icon
+dir	icon
+dir	icon
+dir	icon
+dir	icon
+dir	icon
+dir	icon
+dir	icon
+directori	data
 donat	howto
 donat	howto
-dtd	final
-en	head
-final	en
 folder	gif
 folder	gif
 folder	gif
@@ -326,48 +123,26 @@ folder	gif
 folder	gif
 folder	gif
 folder	gif
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gif	alt
-gutenberg	tabl
-gutenberg	titl
-head	bodi
-head	titl
+gif	book
+gif	dir
+gif	dir
+gif	dir
+gif	dir
+gif	dir
+gif	dir
+gif	dir
+gif	dir
+gif	dir
+gif	donat
+gif	indextre
+gif	modifi
+gif	parent
+gif	retir
+gif	txt
+gutenberg	ico
 howto	txt
 howto	txt
-href	align
-href	align
-href	align
-href	align
-href	align
-href	align
-href	align
-href	align
-href	align
-href	align
-href	book
-href	data
-href	descript
-href	donat
-href	href
-href	indextre
-href	modifi
-href	retir
-href	size
-ico	href
+ico	icon
 icon	blank
 icon	folder
 icon	folder
@@ -384,227 +159,80 @@ icon	gif
 icon	gif
 icon	gif
 icon	gif
-img	src
-img	src
-img	src
-img	src
-img	src
-img	src
-img	src
-img	src
-img	src
-img	src
-img	src
-img	src
-img	src
-img	src
-img	src
-img	src
 indextre	txt
 indextre	txt
-modifi	href
-nbsp	align
-nbsp	colspan
-nbsp	valign
-nbsp	valign
-nbsp	valign
-nbsp	valign
-nbsp	valign
-nbsp	valign
-nbsp	valign
-nbsp	valign
-nbsp	valign
-nbsp	valign
-nbsp	valign
-nbsp	valign
-nbsp	valign
-nbsp	valign
+modifi	size
 parent	directori
-parentdir	href
-port	address
-public	dtd
-retir	align
+parentdir	icon
+port	
+retir	apach
 retir	retir
 server	atla
-size	href
-src	icon
-src	icon
-src	icon
-src	icon
-src	icon
-src	icon
-src	icon
-src	icon
-src	icon
-src	icon
-src	icon
-src	icon
-src	icon
-src	icon
-src	icon
-src	icon
-tabl	address
-tabl	valign
-titl	data
-titl	head
-txt	align
-txt	align
-txt	align
+size	descript
 txt	book
+txt	dir
 txt	donat
-txt	href
-txt	href
-txt	href
+txt	icon
+txt	icon
+txt	icon
 txt	indextre
-valign	img
-valign	img
-valign	img
-valign	img
-valign	img
-valign	img
-valign	img
-valign	img
-valign	img
-valign	img
-valign	img
-valign	img
-valign	img
-valign	img
-valign	img
-valign	img
-address	apach	debian
-address	bodi	
-align	align	nbsp
-align	align	nbsp
-align	align	nbsp
-align	align	nbsp
-align	align	nbsp
-align	align	nbsp
-align	align	nbsp
-align	align	nbsp
-align	align	nbsp
-align	align	nbsp
-align	align	nbsp
-align	align	nbsp
-align	align	nbsp
-align	align	nbsp
-align	nbsp	colspan
-align	nbsp	valign
-align	nbsp	valign
-align	nbsp	valign
-align	nbsp	valign
-align	nbsp	valign
-align	nbsp	valign
-align	nbsp	valign
-align	nbsp	valign
-align	nbsp	valign
-align	nbsp	valign
-align	nbsp	valign
-align	nbsp	valign
-align	nbsp	valign
-align	nbsp	valign
-alt	dir	href
-alt	dir	href
-alt	dir	href
-alt	dir	href
-alt	dir	href
-alt	dir	href
-alt	dir	href
-alt	dir	href
-alt	dir	href
-alt	dir	href
-alt	dir	href
-alt	ico	href
-alt	parentdir	href
-alt	txt	href
-alt	txt	href
-alt	txt	href
+txt	txt
+txt	txt
 apach	debian	server
 atla	brown	port
-blank	gif	alt
-bodi		
-bodi	data	gutenberg
-book	txt	align
+blank	gif	modifi
 book	txt	book
-brown	port	address
-colspan	tabl	address
-colspan	valign	img
-data	gutenberg	tabl
-data	gutenberg	titl
-data	parent	directori
+book	txt	txt
+brown	port	
+data	dir	icon
+data	gutenberg	ico
 debian	server	atla
-descript	colspan	valign
-dir	href	align
-dir	href	align
-dir	href	align
-dir	href	align
-dir	href	align
-dir	href	align
-dir	href	align
-dir	href	align
-dir	href	align
-dir	href	align
-dir	href	retir
-directori	nbsp	align
-doctyp	public	dtd
+descript	parentdir	icon
+dir	icon	folder
+dir	icon	folder
+dir	icon	folder
+dir	icon	folder
+dir	icon	folder
+dir	icon	folder
+dir	icon	folder
+dir	icon	folder
+dir	icon	folder
+dir	icon	folder
+dir	icon	folder
+directori	data	dir
 donat	howto	txt
 donat	howto	txt
-dtd	final	en
-en	head	titl
-final	en	head
-folder	gif	alt
-folder	gif	alt
-folder	gif	alt
-folder	gif	alt
-folder	gif	alt
-folder	gif	alt
-folder	gif	alt
-folder	gif	alt
-folder	gif	alt
-folder	gif	alt
-folder	gif	alt
-gif	alt	dir
-gif	alt	dir
-gif	alt	dir
-gif	alt	dir
-gif	alt	dir
-gif	alt	dir
-gif	alt	dir
-gif	alt	dir
-gif	alt	dir
-gif	alt	dir
-gif	alt	dir
-gif	alt	ico
-gif	alt	parentdir
-gif	alt	txt
-gif	alt	txt
-gif	alt	txt
-gutenberg	tabl	valign
-gutenberg	titl	head
-head	bodi	data
-head	titl	data
-howto	txt	align
+folder	gif	dir
+folder	gif	dir
+folder	gif	dir
+folder	gif	dir
+folder	gif	dir
+folder	gif	dir
+folder	gif	dir
+folder	gif	dir
+folder	gif	dir
+folder	gif	retir
+folder	gif	txt
+gif	book	txt
+gif	dir	icon
+gif	dir	icon
+gif	dir	icon
+gif	dir	icon
+gif	dir	icon
+gif	dir	icon
+gif	dir	icon
+gif	dir	icon
+gif	dir	icon
+gif	donat	howto
+gif	indextre	txt
+gif	modifi	size
+gif	parent	directori
+gif	retir	retir
+gif	txt	icon
+gutenberg	ico	icon
 howto	txt	donat
-href	align	align
-href	align	align
-href	align	align
-href	align	align
-href	align	align
-href	align	align
-href	align	align
-href	align	align
-href	align	align
-href	align	align
-href	book	txt
-href	data	parent
-href	descript	colspan
-href	donat	howto
-href	href	modifi
-href	indextre	txt
-href	modifi	href
-href	retir	retir
-href	size	href
-ico	href	href
+howto	txt	txt
+ico	icon	blank
 icon	blank	gif
 icon	folder	gif
 icon	folder	gif
@@ -617,95 +245,26 @@ icon	folder	gif
 icon	folder	gif
 icon	folder	gif
 icon	folder	gif
-icon	gif	alt
-icon	gif	alt
-icon	gif	alt
-icon	gif	alt
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-img	src	icon
-indextre	txt	align
+icon	gif	book
+icon	gif	donat
+icon	gif	indextre
+icon	gif	parent
+indextre	txt	dir
 indextre	txt	indextre
-modifi	href	size
-nbsp	align	nbsp
-nbsp	colspan	tabl
-nbsp	valign	img
-nbsp	valign	img
-nbsp	valign	img
-nbsp	valign	img
-nbsp	valign	img
-nbsp	valign	img
-nbsp	valign	img
-nbsp	valign	img
-nbsp	valign	img
-nbsp	valign	img
-nbsp	valign	img
-nbsp	valign	img
-nbsp	valign	img
-nbsp	valign	img
-parent	directori	nbsp
-parentdir	href	data
-port	address	bodi
-public	dtd	final
-retir	align	align
-retir	retir	align
+modifi	size	descript
+parent	directori	data
+parentdir	icon	gif
+port		
+retir	apach	debian
+retir	retir	apach
 server	atla	brown
-size	href	descript
-src	icon	blank
-src	icon	folder
-src	icon	folder
-src	icon	folder
-src	icon	folder
-src	icon	folder
-src	icon	folder
-src	icon	folder
-src	icon	folder
-src	icon	folder
-src	icon	folder
-src	icon	folder
-src	icon	gif
-src	icon	gif
-src	icon	gif
-src	icon	gif
-tabl	address	apach
-tabl	valign	img
-titl	data	gutenberg
-titl	head	bodi
-txt	align	align
-txt	align	align
-txt	align	align
+size	descript	parentdir
 txt	book	txt
+txt	dir	icon
 txt	donat	howto
-txt	href	book
-txt	href	donat
-txt	href	indextre
+txt	icon	gif
+txt	icon	gif
+txt	icon	gif
 txt	indextre	txt
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
-valign	img	src
+txt	txt	icon
+txt	txt	icon

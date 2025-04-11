@@ -1,29 +1,23 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
-<html>
- <head>
-  <title>Index of /data/gutenberg</title>
- </head>
- <body>
-<h1>Index of /data/gutenberg</h1>
-  <table>
-   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=D">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
-   <tr><th colspan="5"><hr></th></tr>
-<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/data/">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="0/">0/</a></td><td align="right">2015-04-14 13:21  </td><td align="right">  - </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="1/">1/</a></td><td align="right">2017-01-01 10:41  </td><td align="right">  - </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="2/">2/</a></td><td align="right">2017-01-02 11:58  </td><td align="right">  - </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="3/">3/</a></td><td align="right">2017-01-01 10:41  </td><td align="right">  - </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="4/">4/</a></td><td align="right">2017-01-01 10:41  </td><td align="right">  - </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="5/">5/</a></td><td align="right">2017-01-01 10:41  </td><td align="right">  - </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="6/">6/</a></td><td align="right">2022-06-03 16:54  </td><td align="right">  - </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="7/">7/</a></td><td align="right">2017-01-01 10:41  </td><td align="right">  - </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="8/">8/</a></td><td align="right">2017-01-01 10:41  </td><td align="right">  - </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="9/">9/</a></td><td align="right">2024-02-21 00:27  </td><td align="right">  - </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="books.txt">books.txt</a></td><td align="right">2024-03-07 21:25  </td><td align="right">3.0M</td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="donate-howto.txt">donate-howto.txt</a></td><td align="right">2017-01-01 10:56  </td><td align="right">132 </td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="indextree.txt">indextree.txt</a></td><td align="right">2024-03-07 21:18  </td><td align="right"> 10M</td><td>&nbsp;</td></tr>
-<tr><td valign="top"><img src="/icons/folder.gif" alt="[DIR]"></td><td><a href="retired/">retired/</a></td><td align="right">2024-03-05 14:26  </td><td align="right">  - </td><td>&nbsp;</td></tr>
-   <tr><th colspan="5"><hr></th></tr>
-</table>
-<address>Apache/2.4.62 (Debian) Server at atlas.cs.brown.edu Port 443</address>
-</body></html>
+INDEX OF /DATA/GUTENBERG
+
+[ICO] [/icons/blank.gif]Name [?C=N;O=D]Last modified [?C=M;O=A]Size
+[?C=S;O=A]Description [?C=D;O=A]
+
+--------------------------------------------------------------------------------
+
+[PARENTDIR] [/icons/back.gif]Parent Directory [/data/]  -  [DIR]
+[/icons/folder.gif]0/ [0/]2015-04-14 13:21 -  [DIR] [/icons/folder.gif]1/
+[1/]2017-01-01 10:41 -  [DIR] [/icons/folder.gif]2/ [2/]2017-01-02 11:58 -
+ [DIR] [/icons/folder.gif]3/ [3/]2017-01-01 10:41 -  [DIR] [/icons/folder.gif]4/
+[4/]2017-01-01 10:41 -  [DIR] [/icons/folder.gif]5/ [5/]2017-01-01 10:41 -
+ [DIR] [/icons/folder.gif]6/ [6/]2022-06-03 16:54 -  [DIR] [/icons/folder.gif]7/
+[7/]2017-01-01 10:41 -  [DIR] [/icons/folder.gif]8/ [8/]2017-01-01 10:41 -
+ [DIR] [/icons/folder.gif]9/ [9/]2024-02-21 00:27 -  [TXT]
+[/icons/text.gif]books.txt [books.txt]2024-03-07 21:25 3.0M [TXT]
+[/icons/text.gif]donate-howto.txt [donate-howto.txt]2017-01-01 10:56 132  [TXT]
+[/icons/text.gif]indextree.txt [indextree.txt]2024-03-07 21:18 10M [DIR]
+[/icons/folder.gif]retired/ [retired/]2024-03-05 14:26 -  
+
+--------------------------------------------------------------------------------
+
+Apache/2.4.62 (Debian) Server at atlas.cs.brown.edu Port 443
