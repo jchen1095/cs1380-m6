@@ -32,7 +32,7 @@ const startTests = () => {
         console.log("Mapper key:", key);
         console.log("Mapper value:", value);
         // Import execSync
-        const { execSync, spawnSync } = require("child_process");
+        const { execSync, spawnSync, exec } = require("child_process");
 
         const resultPromise = new Promise((resolve, reject) => {
             // Step 0: Curl the URL
@@ -132,10 +132,30 @@ const startTests = () => {
                 //     }
                     // console.log("e:", e);
                     // console.log("v:", v);
-                    distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, v) => {
-                        // console.log("Done w/ crawl MapReduce!");
-                        stopNodes(() => { });
-                    })
+                    const execFunction = () => {
+                        distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, v) => {
+                            global.distribution.crawl.comm.send([], {service: "newUrls", method: "status"}, (es,vs) => {
+                                // 
+                                if (es.length) {
+                                    console.log("CODE RED");
+                                    return;
+                                }
+                                counts = vs.map((v) => v.count);
+                                sum = counts.reduce((acc, curr) => acc + curr, 0);
+                                console.log("[MR ITERATION] Count: " + sum);
+                                const notDone = vs.filter((v) => !v.isDone);
+                                if (notDone.length) {
+                                    execFunction()
+                                } else {
+                                    console.log("DONT COME NEAR ME OR MY FAMILY EVER AGAIN.")
+                                }
+                            })
+                            
+                            // // console.log("Done w/ crawl MapReduce!");
+                            // stopNodes(() => { });
+                        })
+                    }
+                    
                 // })
             })
         })
