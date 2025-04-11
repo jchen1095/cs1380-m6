@@ -109,12 +109,28 @@ const startTests = () => {
 
     const doMapReduce = (cb) => {
         // Putting own value due to transformation which loses non-alphanumerical characters
-        distribution.crawl.store.put(CRAWL_URL, hashURL(CRAWL_URL), (e, v) => {
-            // console.log("e:", e);
-            // console.log("v:", v);
-            distribution.crawl.mr.exec({ keys: [hashURL(CRAWL_URL)], map: mapper, reduce: reducer }, (e, v) => {
-                console.log("Done w/ crawl MapReduce!");
-                stopNodes(() => { });
+        global.distribution.crawl.store.getNode(CRAWL_URL, (e,v) => {
+            if(e) {
+                cb(e);
+                return;
+            }
+            global.distribution.local.comm.send([{[hashURL(CRAWL_URL)]:CRAWL_URL}], {node: v, service: "newUrls", "method": "put"}, (e,v) => {
+                if(e) {
+                    cb(e);
+                    return;
+                }
+                // distribution.crawl.store.put(CRAWL_URL, hashURL(CRAWL_URL), (e, v) => {
+                //     if(e) {
+                //         cb(e);
+                //         return;
+                //     }
+                    // console.log("e:", e);
+                    // console.log("v:", v);
+                    distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, v) => {
+                        console.log("Done w/ crawl MapReduce!");
+                        stopNodes(() => { });
+                    })
+                // })
             })
         })
     }

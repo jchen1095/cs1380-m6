@@ -28,21 +28,30 @@ newUrls.put = function(urls, callback) {
     // assumption -> each url is {hash: url}
     let count = 0;
     // console.log("URLS:", urls);
-    for (const url of urls) {
-        // console.log(url)
-        global.distribution.local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0] }, (e,v) => {
+    if(Array.isArray(urls)) {
+        for (const url of urls) {
+            // console.log(url)
+            global.distribution.local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0] }, (e,v) => {
+                if (e) {
+                    callback(e);
+                    return;
+                }
+                // console.log("mem v:", v);
+                count++;
+                if (count >= urls.length) {
+                    callback(null, count);
+                }
+            })
+        }
+    } else if (typeof urls == 'string') {
+        global.distribution.local.mem.put(urls, {gid: "newUrls", key: Object.keys(urls)[0] }, (e,v) => {
             if (e) {
                 callback(e);
                 return;
             }
-            // console.log("mem v:", v);
-            count++;
-            if (count >= urls.length) {
-                callback(null, count);
-            }
-        })
+            callback(null, count);       
+        });
     }
-    
 }
 
 newUrls.clear = function(callback) {

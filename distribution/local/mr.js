@@ -185,41 +185,47 @@ function _mr(config) {
                 if (localKeys.length === 0) {
                     callback(null, true);
                 }
-
+                
                 // read each key from local.store, and use mapper
                 let localKeyCounts = 0;
-                localKeys.forEach((key, index) => {
-                    global.distribution.local.store.get({ key: key, gid: context.gid }, (e, v) => {
-                        let outMappingCounts = 0;
-                        const outMappingsPromise = mrLocalStorage.get("map")(key, v, global.distribution.util.require);
-                        // outMappings is now a promise
-                        outMappingsPromise.then((outMappings) => {
-                            console.log("Promise resolved! Going to rest of the stuff;", outMappings);
-                            for (let i = 0; i < outMappings.length; i++) {
-                                const mapKey = Object.keys(outMappings[i])[0]
-                                const mapValue = outMappings[i][mapKey];
-                                mrLocalStorage.set("mapKeys", mrLocalStorage.get("mapKeys").add(mapKey))
-                                global.distribution.local.store.batchAppend(mapValue, { key: mapKey, gid: `${context.gid}-map` }, (e, v) => {
-                                    outMappingCounts++;
-                                    if (outMappingCounts === outMappings.length) {
-                                        // We're done with adding all the intermediate mappings for this specific key
-                                        localKeyCounts++;
+                const execMap = (e, v) => {
+                    let outMappingCounts = 0;
+                    const outMappingsPromise = mrLocalStorage.get("map")(key, v, global.distribution.util.require);
+                    // outMappings is now a promise
+                    outMappingsPromise.then((outMappings) => {
+                        console.log("Promise resolved! Going to rest of the stuff;", outMappings);
+                        for (let i = 0; i < outMappings.length; i++) {
+                            const mapKey = Object.keys(outMappings[i])[0]
+                            const mapValue = outMappings[i][mapKey];
+                            mrLocalStorage.set("mapKeys", mrLocalStorage.get("mapKeys").add(mapKey))
+                            global.distribution.local.store.batchAppend(mapValue, { key: mapKey, gid: `${context.gid}-map` }, (e, v) => {
+                                outMappingCounts++;
+                                if (outMappingCounts === outMappings.length) {
+                                    // We're done with adding all the intermediate mappings for this specific key
+                                    localKeyCounts++;
 
-                                        // If we're done with all keys, send done notification
-                                        if (localKeyCounts === localKeys.length) {
-                                            // We're done mapping, we can notify the orchestrator
-                                            callback(null, true);
-                                        }
+                                    // If we're done with all keys, send done notification
+                                    if (localKeyCounts === localKeys.length) {
+                                        // We're done mapping, we can notify the orchestrator
+                                        callback(null, true);
                                     }
-                                });
-                            }
-                        })
-                    })
-                })
+                                }
+                            });
+                        }
+                    });
+                }
+                if (args.length == 1) {
+                    localKeys.forEach((key, index) => {
+                        global.distribution.local.store.get({ key: key, gid: context.gid }, execMap);
+                    });
+                } else if (args.length == 2 && args[2] == true) {
+                        // get the keys from the newUrls route
+                        global.distribution.local.newUrls.get(execMap);
+                    }
                 break;
+            }
         }
-    }
-
+    
     function _registerFunctions(primitives) {
         const { map, reduce } = primitives;
         mrLocalStorage.set("map", map);
@@ -236,6 +242,6 @@ function _mr(config) {
         const nodeId = id.consistentHash(kid, allNids)
         return nodeId;
     }
-
     return { notify }
 }
+
