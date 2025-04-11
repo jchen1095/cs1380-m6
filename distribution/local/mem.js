@@ -1,4 +1,5 @@
 const { getID } = require("../util/id");
+const { id } = require("../util/util");
 
 const memMap = new Map();
 
@@ -28,6 +29,8 @@ function put(state, configuration, callback) {
         memMap.set(gid, new Map());
     }
     memMap.get(gid).set(key, state);
+
+    console.log("memMap from put", memMap, "SID is:", id.getSID(global.nodeConfig));
 
     // callback to return
     callback(null, memMap.get(gid).get(key));
@@ -109,10 +112,12 @@ function del(configuration, callback) {
  * @returns 
  */
 function getAll(configuration, callback) {
+    // console.log("gid from getAll: ", configuration.gid);
+    console.log("memMap from getAll:", memMap, "sid is:", id.getSID(global.nodeConfig));
     let gid = "local";
     if (typeof configuration === "object") {
-        if (!Object.hasOwn(configuration, "key") || !Object.hasOwn(configuration, "gid")) {
-            callback(new Error("Configuration is an object but is missing key or gid field"))
+        if (!Object.hasOwn(configuration, "gid")) {
+            callback(new Error("Configuration is an object but is missing gid field"))
             return;
         }
         gid = configuration.gid;

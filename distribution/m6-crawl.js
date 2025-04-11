@@ -29,6 +29,8 @@ const startTests = () => {
     // See https://edstem.org/us/courses/69551/discussion/6470553 for explanation of the
     // "require" argument
     const mapper = (key, value, require) => {
+        console.log("Mapper key:", key);
+        console.log("Mapper value:", value);
         // Import execSync
         const { execSync, spawnSync } = require("child_process");
 
@@ -49,8 +51,8 @@ const startTests = () => {
             // console.log("key:", key);
 
             distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, v) => {
-                console.log("e:", e);
-                console.log("v:", v);
+                // console.log("e:", e);
+                // console.log("v:", v);
                 // Step 4: Get URLs from page
                 const urlsRaw = spawnSync('node', [`./c/getURLs.js`, value], {
                     input: rawURLContent,
@@ -114,7 +116,11 @@ const startTests = () => {
                 cb(e);
                 return;
             }
+            // console.log("does getNode return?");
             global.distribution.local.comm.send([{[hashURL(CRAWL_URL)]:CRAWL_URL}], {node: v, service: "newUrls", "method": "put"}, (e,v) => {
+                // console.log("does this get sent?");
+                // console.log("newUrls put e:", e);
+                // console.log("newUrls put v:", v);
                 if(e) {
                     cb(e);
                     return;
@@ -127,7 +133,7 @@ const startTests = () => {
                     // console.log("e:", e);
                     // console.log("v:", v);
                     distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, v) => {
-                        console.log("Done w/ crawl MapReduce!");
+                        // console.log("Done w/ crawl MapReduce!");
                         stopNodes(() => { });
                     })
                 // })

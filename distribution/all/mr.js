@@ -59,7 +59,8 @@ function mr(config) {
       global.distribution.local.mr.setup({ instanceId: instanceId, isOrchestrator: true, gid: context.gid, group: groupInfo }, (e, v) => {
         global.distribution[context.gid].comm.send([{ instanceId: instanceId, isOrchestrator: false, gid: context.gid, group: groupInfo }], { service: "mr", method: "setup" }, (e, v) => {
           global.distribution[context.gid].comm.send([{ operation: NotifyOps.REGISTER_FUNCTIONS, args: [{ map: configuration.map, reduce: configuration.reduce }] }], { service: instanceId, method: "notify" }, (e, v) => {
-            global.distribution[context.gid].comm.send([{ operation: NotifyOps.COMMAND_MAP, args: [configuration.keys] }], { service: instanceId, method: "notify" }, (e, v) => { 
+            // TODO - should pass in!
+            global.distribution[context.gid].comm.send([{ operation: NotifyOps.COMMAND_MAP, args: [configuration.keys, true] }], { service: instanceId, method: "notify" }, (e, v) => { 
               global.distribution[context.gid].comm.send([{ operation: NotifyOps.COMMAND_SHUFFLE, args: [] }], { service: instanceId, method: "notify" }, (e, v) => {
                 global.distribution[context.gid].comm.send([{ operation: NotifyOps.COMMAND_REDUCE, args: [] }], { service: instanceId, method: "notify" }, (e, v) => {
                   global.distribution[context.gid].comm.send([ instanceId ], { service: "mr", method: "teardown" }, (e, _) => {
