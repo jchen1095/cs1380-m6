@@ -22,7 +22,8 @@ group[getSID(n2)] = n2;
 group[getSID(n3)] = n3;
 
 let localServer = null;
-const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/"
+// const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/"
+const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/6/4/3/3/64333/"
 
 const startTests = () => {
 
@@ -35,10 +36,10 @@ const startTests = () => {
         const { execSync, spawnSync, exec } = require("child_process");
 
         const resultPromise = new Promise((resolve, reject) => {
-            if (value === "https://atlas.cs.brown.edu/data/gutenberg//indextree.txt") {
-                resolve({ [key]: true })
-                return;
-            }
+            // if (value === "https://atlas.cs.brown.edu/data/gutenberg//indextree.txt") {
+            //     resolve({ [key]: true })
+            //     return;
+            // }
             // Step 0: Curl the URL
             // const rawURLContent = execSync(`curl -skL ${value}`, { encoding: 'utf-8' })
 
@@ -50,7 +51,8 @@ const startTests = () => {
             // console.log("value: ", value)
             try {
                 temp = spawnSync('bash', ['./jen-crawl.sh', value], {
-                    encoding: 'utf-8'
+                    encoding: 'utf-8',
+                    maxBuffer: 1024 * 1024 * 64
                 });
                 // const temp = execSync(`./jen-crawl.sh ${value}`, {
                 //     encoding: 'utf-8',
