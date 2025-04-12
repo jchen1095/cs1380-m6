@@ -1,5 +1,6 @@
 const {getID} = require('../util/id');
 const {execSync} = require('child_process');
+const { id } = require('../util/util');
 const newUrls = {};
 const meta = {
     count: 0,
@@ -8,17 +9,28 @@ const meta = {
 
 // Just calls getAll from local.mem -> gets all url objects and reformats to output
 newUrls.get = function(callback) {
+    // console.log("newURLS get was called!")
     global.distribution.local.mem.getAll({gid: "newUrls"}, (e,v) => {
+        console.log("getAll Result is: ", v, "sid is:", id.getSID(global.nodeConfig))
+        // console.log("e:", e);
+        // console.log("v:", v);
         if (e) {
             callback(e);
             return;
         }
         // Maybe I don't need to reformat? What if I just return the output and we can iterate
         if (typeof v == 'object')  {
+            console.log("typeof v is object...!");
             let out = [];
             for (const key of Object.keys(v)) {
-                out.append({[key]: v[key]})
+                console.log("key is:", key);
+                out.push(v[key])
+                // try {
+                // } catch (e) {
+                //     console.log("error while appending!", e);
+                // }
             }
+            console.log("out is:", out);
             callback(null, out);
         }
     });
@@ -26,23 +38,47 @@ newUrls.get = function(callback) {
 
 newUrls.put = function(urls, callback) {
     // assumption -> each url is {hash: url}
+    // console.log("START NEWURLS PUT!");
     let count = 0;
     // console.log("URLS:", urls);
-    for (const url of urls) {
-        // console.log(url)
-        global.distribution.local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0] }, (e,v) => {
+    if(Array.isArray(urls)) {
+        for (const url of urls) {
+            // console.log("START ITERATION");
+            // if (url === "https://atlas.cs.brown.edu/data/gutenberg//indextree.txt") {
+            //     count++;
+            //     if (count >= urls.length) {
+            //         console.log("count reached")
+            //         callback(null, count);
+            //     }
+            //     return;
+            // }
+            global.distribution.local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0] }, (e,v) => {
+                // console.log("returned from mem put");
+                if (e) {
+                    callback(e);
+                    return;
+                }
+                // console.log("mem v:", v);
+                count++;
+                // console.log("INCREMENT COUNT!");
+                if (count >= urls.length) {
+                    console.log("count reached")
+                    callback(null, count);
+                }
+            })
+        }
+    } else if (typeof urls == 'object') {
+        // console.log("HI??")
+        global.distribution.local.mem.put(urls, {gid: "newUrls", key: Object.keys(urls)[0] }, (e,v) => {
+            // console.log("local mem put e:", e);
+            // console.log("local mem put v:", v);
             if (e) {
                 callback(e);
                 return;
             }
-            // console.log("mem v:", v);
-            count++;
-            if (count >= urls.length) {
-                callback(null, count);
-            }
-        })
+            callback(null, null);       
+        });
     }
-    
 }
 
 newUrls.clear = function(callback) {

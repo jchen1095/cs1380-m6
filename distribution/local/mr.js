@@ -36,7 +36,7 @@ function teardown(instanceId, callback) {
 
     // Delete the route
     global.distribution.local.routes.rem(instanceId, (e, v) => {
-        console.log("ROUTE WAS DELETED!");
+        // console.log("ROUTE WAS DELETED!");
         // Clear the store
         global.distribution.local.store.batchDelete({ gid: `${gid}-map` }, (e, v) => {
             global.distribution.local.store.batchDelete({ gid: `${gid}-shuffle` }, (e, v) => {
@@ -168,6 +168,7 @@ function _mr(config) {
                 break;
 
             case NotifyOps.COMMAND_MAP:
+                // console.log("COMMAND MAP???")
                 // re-run the hashing to determine which keys belong to this node solely.
                 // rationale is that checking for membership involves i/o ops., which will be very slow.
                 // alternative is to only send the set of relevant keys, but this requires changing
@@ -182,40 +183,59 @@ function _mr(config) {
                 })
 
                 // Edge case: no keys were given to me
-                if (localKeys.length === 0) {
+                // TODO - clean up the logic to handle the search case.
+                if (localKeys.length === 0 && args.length !== 2 && !args[1]) {
                     callback(null, true);
+                    return;
                 }
 
                 // read each key from local.store, and use mapper
                 let localKeyCounts = 0;
-                localKeys.forEach((key, index) => {
-                    global.distribution.local.store.get({ key: key, gid: context.gid }, (e, v) => {
-                        let outMappingCounts = 0;
-                        const outMappingsPromise = mrLocalStorage.get("map")(key, v, global.distribution.util.require);
-                        // outMappings is now a promise
-                        outMappingsPromise.then((outMappings) => {
-                            console.log("Promise resolved! Going to rest of the stuff;", outMappings);
-                            for (let i = 0; i < outMappings.length; i++) {
-                                const mapKey = Object.keys(outMappings[i])[0]
-                                const mapValue = outMappings[i][mapKey];
-                                mrLocalStorage.set("mapKeys", mrLocalStorage.get("mapKeys").add(mapKey))
-                                global.distribution.local.store.batchAppend(mapValue, { key: mapKey, gid: `${context.gid}-map` }, (e, v) => {
-                                    outMappingCounts++;
-                                    if (outMappingCounts === outMappings.length) {
-                                        // We're done with adding all the intermediate mappings for this specific key
-                                        localKeyCounts++;
+                const execMap = (key, e, v) => {
+                    console.log("Called execMap!, sid is:", id.getSID(global.nodeConfig));
+                    if (e) {
+                        callback(e);
+                        return;
+                    }
+                    let outMappingCounts = 0;
+                    const outMappingsPromise = mrLocalStorage.get("map")(key, v, global.distribution.util.require);
+                    // outMappings is now a promise
+                    outMappingsPromise.then((outMappings) => {
+                        // console.log("Promise resolved! Going to rest of the stuff;", outMappings);
+                        for (let i = 0; i < outMappings.length; i++) {
+                            const mapKey = Object.keys(outMappings[i])[0]
+                            const mapValue = outMappings[i][mapKey];
+                            mrLocalStorage.set("mapKeys", mrLocalStorage.get("mapKeys").add(mapKey))
+                            global.distribution.local.store.batchAppend(mapValue, { key: mapKey, gid: `${context.gid}-map` }, (e, v) => {
+                                outMappingCounts++;
+                                if (outMappingCounts === outMappings.length) {
+                                    // We're done with adding all the intermediate mappings for this specific key
+                                    localKeyCounts++;
 
-                                        // If we're done with all keys, send done notification
-                                        if (localKeyCounts === localKeys.length) {
-                                            // We're done mapping, we can notify the orchestrator
-                                            callback(null, true);
-                                        }
+                                    // If we're done with all keys, send done notification
+                                    if (localKeyCounts === localKeys.length) {
+                                        // We're done mapping, we can notify the orchestrator
+                                        callback(null, true);
                                     }
-                                });
-                            }
+                                }
+                            });
+                        }
+                    });
+                }
+                // console.log(args.length);
+                if (args.length == 1) {
+                    localKeys.forEach((key, index) => {
+                        global.distribution.local.store.get({ key: key, gid: context.gid }, (e, v) => execMap(key, e, v));;
+                    });
+                } else if (args.length == 2 && args[1] == true) {
+                    // get the keys from the newUrls route
+                    // console.log("DO WE EVER GET HERE???????");
+                    global.distribution.local.newUrls.get((e, v) => {
+                        v.forEach((obj) => {
+                            execMap(Object.keys(obj)[0], e, Object.values(obj)[0]);
                         })
-                    })
-                })
+                    });
+                }
                 break;
         }
     }
@@ -236,6 +256,6 @@ function _mr(config) {
         const nodeId = id.consistentHash(kid, allNids)
         return nodeId;
     }
-
     return { notify }
 }
+
