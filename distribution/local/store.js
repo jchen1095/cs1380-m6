@@ -37,10 +37,10 @@ function put(state, configuration, callback) {
   // make a file with the alphanumeric key as the name
   const filePath = path.join(gidStoreFolder, key);
   try {
-    console.log("WRITE SYNC DATA IN STORE!", state)
-    console.log("FILEPATH: ", filePath);
+    // console.log("WRITE SYNC DATA IN STORE!", state)
+    // console.log("FILEPATH: ", filePath);
     fs.writeFileSync(filePath, serialize(state));
-    console.log("wrote the file!")
+    // console.log("wrote the file!")
     callback(null, state);
   } catch (err) {
     callback(err);

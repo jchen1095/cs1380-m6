@@ -35,32 +35,37 @@ const startTests = () => {
         const { execSync, spawnSync, exec } = require("child_process");
 
         const resultPromise = new Promise((resolve, reject) => {
+            if (value === "https://atlas.cs.brown.edu/data/gutenberg//indextree.txt") {
+                resolve({ [key]: true })
+                return;
+            }
             // Step 0: Curl the URL
-            const rawURLContent = execSync(`curl -skL ${value}`, { encoding: 'utf-8' })
+            // const rawURLContent = execSync(`curl -skL ${value}`, { encoding: 'utf-8' })
 
-            const capturedText = spawnSync('node', ['./c/getText.js'], {
-                input: rawURLContent,
-                encoding: 'utf-8'
-            }).stdout;
-
+            // const capturedText = spawnSync('node', ['./c/getText.js'], {
+            //     input: rawURLContent,
+            //     encoding: 'utf-8'
+            // }).stdout;
+            var temp = {};
+            // console.log("value: ", value)
             try {
-                const temp = execSync(`curl -skL ${value} |
-                tee >(c/process.sh | c/stem.js | c/combine.sh |
-                    c/invert.sh step4_ngrams.txt | tee step5_inverted.txt) |
-                c/getText.js`, {
-                    encoding: 'utf-8',
-                    shell: '/bin/bash',
-                    stdio: 'inherit',
+                temp = spawnSync('bash', ['./jen-crawl.sh', value], {
+                    encoding: 'utf-8'
                 });
+                // const temp = execSync(`./jen-crawl.sh ${value}`, {
+                //     encoding: 'utf-8',
+                //     // shell: '/bin/bash',
+                //     // stdio: 'inherit',
+                // });
                 console.log("temp:", temp);
             } catch (e) {
                 console.log("error:", e.message);
             }
-            
+
             // Step 1: Get text from page
             // const capturedText = execSync(`./c/getText.js`, { encoding: 'utf-8' });
             // Step 2: Build up object with page data
-            const data = { url: value, text: capturedText }
+            const data = { url: value, text: temp.stdout }
             // Step 3: Store content under hashURL(value)
             // console.log("key:", key);
 
@@ -68,10 +73,11 @@ const startTests = () => {
                 // console.log("e:", e);
                 // console.log("v:", v);
                 // Step 4: Get URLs from page
-                const urlsRaw = spawnSync('node', [`./c/getURLs.js`, value], {
-                    input: rawURLContent,
-                    encoding: 'utf-8'
-                }).output[1];
+                // const urlsRaw = spawnSync('node', [`./c/getURLs.js`, value], {
+                //     input: rawURLContent,
+                //     encoding: 'utf-8'
+                // }).output[1];
+                const urlsRaw = temp.stderr;
                 // console.log("URLSRAW:", urlsRaw)
                 const urlList = urlsRaw.split('\n');
                 // Step 5: Go through each URL to determine which node it should be sent to
@@ -125,17 +131,17 @@ const startTests = () => {
 
     const doMapReduce = (cb) => {
         // Putting own value due to transformation which loses non-alphanumerical characters
-        global.distribution.crawl.store.getNode(CRAWL_URL, (e,v) => {
-            if(e) {
+        global.distribution.crawl.store.getNode(CRAWL_URL, (e, v) => {
+            if (e) {
                 cb(e);
                 return;
             }
             // console.log("does getNode return?");
-            global.distribution.local.comm.send([{[hashURL(CRAWL_URL)]:CRAWL_URL}], {node: v, service: "newUrls", "method": "put"}, (e,v) => {
+            global.distribution.local.comm.send([{ [hashURL(CRAWL_URL)]: CRAWL_URL }], { node: v, service: "newUrls", "method": "put" }, (e, v) => {
                 // console.log("does this get sent?");
                 // console.log("newUrls put e:", e);
                 // console.log("newUrls put v:", v);
-                if(e) {
+                if (e) {
                     cb(e);
                     return;
                 }
@@ -144,36 +150,36 @@ const startTests = () => {
                 //         cb(e);
                 //         return;
                 //     }
-                    // console.log("e:", e);
-                    // console.log("v:", v);
-                    const execFunction = () => {
-                        distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, v) => {
-                            console.log("do we ever get back to here?")
-                            global.distribution.crawl.comm.send([], {service: "newUrls", method: "status"}, (es,vs) => {
-                                console.log("vs:", vs);
-                                console.log("es:", es);
-                                // 
-                                if (es.length > 0) {
-                                    console.log("CODE RED");
-                                    return;
-                                }
-                                counts = Object.values(vs).map((v) => v.count);
-                                sum = counts.reduce((acc, curr) => acc + curr, 0);
-                                console.log("[MR ITERATION] Count: " + sum);
-                                const notDone = Object.values(vs).filter((v) => !v.isDone);
-                                if (notDone.length) {
-                                    // execFunction()
-                                } else {
-                                    console.log("DONT COME NEAR ME OR MY FAMILY EVER AGAIN.")
-                                }
-                            })
-                            
-                            // // console.log("Done w/ crawl MapReduce!");
-                            // stopNodes(() => { });
+                // console.log("e:", e);
+                // console.log("v:", v);
+                const execFunction = () => {
+                    distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, v) => {
+                        console.log("do we ever get back to here?")
+                        global.distribution.crawl.comm.send([], { service: "newUrls", method: "status" }, (es, vs) => {
+                            console.log("vs:", vs);
+                            console.log("es:", es);
+                            // 
+                            if (es.length > 0) {
+                                console.log("CODE RED");
+                                return;
+                            }
+                            counts = Object.values(vs).map((v) => v.count);
+                            sum = counts.reduce((acc, curr) => acc + curr, 0);
+                            console.log("[MR ITERATION] Count: " + sum);
+                            const notDone = Object.values(vs).filter((v) => !v.isDone);
+                            if (notDone.length) {
+                                execFunction()
+                            } else {
+                                console.log("DONT COME NEAR ME OR MY FAMILY EVER AGAIN.")
+                            }
                         })
-                    }
-                    execFunction();
-                    
+
+                        // // console.log("Done w/ crawl MapReduce!");
+                        // stopNodes(() => { });
+                    })
+                }
+                execFunction();
+
                 // })
             })
         })

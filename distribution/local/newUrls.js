@@ -44,8 +44,16 @@ newUrls.put = function(urls, callback) {
     if(Array.isArray(urls)) {
         for (const url of urls) {
             // console.log("START ITERATION");
+            // if (url === "https://atlas.cs.brown.edu/data/gutenberg//indextree.txt") {
+            //     count++;
+            //     if (count >= urls.length) {
+            //         console.log("count reached")
+            //         callback(null, count);
+            //     }
+            //     return;
+            // }
             global.distribution.local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0] }, (e,v) => {
-                console.log("returned from mem put");
+                // console.log("returned from mem put");
                 if (e) {
                     callback(e);
                     return;
