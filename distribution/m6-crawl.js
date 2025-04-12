@@ -41,7 +41,7 @@ const startTests = () => {
             const capturedText = spawnSync('node', ['./c/getText.js'], {
                 input: rawURLContent,
                 encoding: 'utf-8'
-            }).output[1];
+            }).stdout;
 
             // Step 1: Get text from page
             // const capturedText = execSync(`./c/getText.js`, { encoding: 'utf-8' });
@@ -134,16 +134,19 @@ const startTests = () => {
                     // console.log("v:", v);
                     const execFunction = () => {
                         distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, v) => {
+                            console.log("do we ever get back to here?")
                             global.distribution.crawl.comm.send([], {service: "newUrls", method: "status"}, (es,vs) => {
+                                console.log("vs:", vs);
+                                console.log("es:", es);
                                 // 
                                 if (es.length) {
                                     console.log("CODE RED");
                                     return;
                                 }
-                                counts = vs.map((v) => v.count);
+                                counts = Object.values(vs).map((v) => v.count);
                                 sum = counts.reduce((acc, curr) => acc + curr, 0);
                                 console.log("[MR ITERATION] Count: " + sum);
-                                const notDone = vs.filter((v) => !v.isDone);
+                                const notDone = Object.values(vs).filter((v) => !v.isDone);
                                 if (notDone.length) {
                                     execFunction()
                                 } else {
@@ -155,6 +158,7 @@ const startTests = () => {
                             // stopNodes(() => { });
                         })
                     }
+                    execFunction();
                     
                 // })
             })
