@@ -81,23 +81,23 @@ newUrls.put = function(urls, callback) {
     }
 }
 
-newUrls.clear = function(callback) {
-    global.distribution.local.mem.getAll({gid: "newUrls"}, (e,newUrls) => {
-        // add previous urls to visited.txt
-        const urls = Object.values(newUrls).join('\n');
-        execSync(`echo "${urls}" >> d/visited.txt`, {encoding: 'utf-8'});
+// newUrls.clear = function(callback) {
+//     global.distribution.local.mem.getAll({gid: "newUrls"}, (e,newUrls) => {
+//         // add previous urls to visited.txt
+//         const urls = Object.values(newUrls).join('\n');
+//         execSync(`echo "${urls}" >> d/visited.txt`, {encoding: 'utf-8'});
 
-        // delete all urls to clear local mapping
-        global.distribution.local.mem.del({gid: "newUrls", key: null}, (e,v) => {
-            if (e) {
-                callback(e);
-                return;
-            }
-            callback(null, null);
-        });
-    })
+//         // delete all urls to clear local mapping
+//         global.distribution.local.mem.del({gid: "newUrls", key: null}, (e,v) => {
+//             if (e) {
+//                 callback(e);
+//                 return;
+//             }
+//             callback(null, null);
+//         });
+//     })
     
-}
+// }
 
 newUrls.flush = function(callback) {
     // check visited.txt (grep) -> if not in visited.txt -> add to newUrls.txt
@@ -111,16 +111,19 @@ newUrls.flush = function(callback) {
         if (newUrlsArr.length == 0) {
             meta.isDone = true;
         }
-        newUrlsArr.forEach((url) => {
-            local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0]}, (e,v) => {
-                if(e) {
-                    callback(e);
-                    return;
-                }
-                meta.count++;
+        global.distribution.local.mem.del({gid: "newUrls", key: null}, (e,v) => {
+            newUrlsArr.forEach((url) => {
+                local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0]}, (e,v) => {
+                    if(e) {
+                        callback(e);
+                        return;
+                    }
+                    meta.count++;
+                });
             });
+            callback(null, null);
         });
-        callback(null, null);
+        
     });
 }
 
