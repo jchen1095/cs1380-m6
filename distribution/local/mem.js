@@ -30,7 +30,7 @@ function put(state, configuration, callback) {
     }
     memMap.get(gid).set(key, state);
 
-    console.log("memMap from put", memMap, "SID is:", id.getSID(global.nodeConfig));
+    // console.log("memMap from put", memMap, "SID is:", id.getSID(global.nodeConfig));
 
     // callback to return
     callback(null, memMap.get(gid).get(key));
