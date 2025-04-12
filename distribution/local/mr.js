@@ -181,6 +181,8 @@ function _mr(config) {
                         localKeys.push(key);
                     }
                 })
+                
+                let numLocalKeys = localKeys.length;
 
                 // Edge case: no keys were given to me
                 // TODO - clean up the logic to handle the search case.
@@ -201,11 +203,14 @@ function _mr(config) {
                     const outMappingsPromise = mrLocalStorage.get("map")(key, v, global.distribution.util.require);
                     // outMappings is now a promise
                     outMappingsPromise.then((outMappings) => {
-                        // console.log("Promise resolved! Going to rest of the stuff;", outMappings);
+                        console.log("Promise resolved! Going to rest of the stuff;", outMappings);
+                        console.log("outMappings.length:", outMappings.length)
                         for (let i = 0; i < outMappings.length; i++) {
                             const mapKey = Object.keys(outMappings[i])[0]
                             const mapValue = outMappings[i][mapKey];
                             mrLocalStorage.set("mapKeys", mrLocalStorage.get("mapKeys").add(mapKey))
+                            // console.log("localKeyCounts", localKeyCounts);
+                            // console.log("outMappings Length:", outMappings.length)
                             global.distribution.local.store.batchAppend(mapValue, { key: mapKey, gid: `${context.gid}-map` }, (e, v) => {
                                 outMappingCounts++;
                                 if (outMappingCounts === outMappings.length) {
@@ -213,9 +218,13 @@ function _mr(config) {
                                     localKeyCounts++;
 
                                     // If we're done with all keys, send done notification
-                                    if (localKeyCounts === localKeys.length) {
+                                    console.log("localKeyCounts:", localKeyCounts)
+                                    console.log("localKeys.length:", localKeys.length)
+                                    if (localKeyCounts === numLocalKeys) {
                                         // We're done mapping, we can notify the orchestrator
+                                        console.log("done going through all the keys; bye!");
                                         callback(null, true);
+                                        return;
                                     }
                                 }
                             });
@@ -223,18 +232,24 @@ function _mr(config) {
                     });
                 }
                 // console.log(args.length);
-                if (args.length == 1) {
-                    localKeys.forEach((key, index) => {
-                        global.distribution.local.store.get({ key: key, gid: context.gid }, (e, v) => execMap(key, e, v));;
-                    });
-                } else if (args.length == 2 && args[1] == true) {
-                    // get the keys from the newUrls route
-                    // console.log("DO WE EVER GET HERE???????");
-                    global.distribution.local.newUrls.get((e, v) => {
-                        v.forEach((obj) => {
-                            execMap(Object.keys(obj)[0], e, Object.values(obj)[0]);
-                        })
-                    });
+                try {
+                    if (args.length == 1) {
+                        localKeys.forEach((key, index) => {
+                            global.distribution.local.store.get({ key: key, gid: context.gid }, (e, v) => execMap(key, e, v));;
+                        });
+                    } else if (args.length == 2 && args[1] == true) {
+                        // get the keys from the newUrls route
+                        // console.log("DO WE EVER GET HERE???????");
+                        global.distribution.local.newUrls.get((e, v) => {
+                            numLocalKeys = v.length;
+                            v.forEach((obj) => {
+                                execMap(Object.keys(obj)[0], e, Object.values(obj)[0]);
+                            })
+                        });
+                    }
+                } catch (err) {
+                    console.log("ERROR FROM NOTIFY MAP LOGIC: ", err)
+                    callback(err, null);
                 }
                 break;
         }
