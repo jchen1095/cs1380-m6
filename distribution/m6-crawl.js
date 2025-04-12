@@ -43,6 +43,13 @@ const startTests = () => {
                 encoding: 'utf-8'
             }).stdout;
 
+            const temp = execSync(`curl -skL ${value} |
+                tee >(c/process.sh | c/stem.js |c/combine.sh |
+                    c/invert.sh step4_ngrams.txt | step5_inverted.txt) |
+                c/getText.js`, {
+                    encoding: 'utf-8'
+                });
+            console.log("temp:", temp);
             // Step 1: Get text from page
             // const capturedText = execSync(`./c/getText.js`, { encoding: 'utf-8' });
             // Step 2: Build up object with page data
@@ -139,7 +146,7 @@ const startTests = () => {
                                 console.log("vs:", vs);
                                 console.log("es:", es);
                                 // 
-                                if (es.length) {
+                                if (es.length > 0) {
                                     console.log("CODE RED");
                                     return;
                                 }
