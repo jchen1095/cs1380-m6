@@ -1,3 +1,4 @@
+
 const { getSID, getID } = require("@brown-ds/distribution/distribution/util/id")
 const distribution = require("../distribution")
 const { consistentHash } = require("./util/id")
@@ -70,17 +71,8 @@ const startTests = () => {
             const data = { url: value, text: temp.stdout }
             // Step 3: Store content under hashURL(value)
             // console.log("key:", key);
-            // Step 2: Check if capturedText is empty
-            if (!capturedText) {
-                console.error('Error: Captured text is empty.');
-                return;  // Exit early or handle as needed
-            }
-
-            const indexed = spawnSync('bash', [`./index_map.sh`, value], { 
-                input: capturedText,
-                encoding: 'utf-8'
-            });
-            console.log('finished index test', indexed);
+            // filter into keys/values 
+            // return an array of kv pairs
             distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, v) => {
                 // console.log("e:", e);
                 // console.log("v:", v);
@@ -120,12 +112,14 @@ const startTests = () => {
                                     })
                                 } else {
                                     // Use comm.send to give it to peer nodes
+                                    //use a script to parse out every ngram in th file 
+                                    //key is ngram, value is obj w the freq and the url 
+                                    //
                                     distribution.local.comm.send(
                                         [d[nsid]],
                                         { node: nsidToNode[nsid], service: "newUrls", method: "put" },
                                         (e, v) => {
-                                            //keys need to be the ngrams of every text
-                                            resolve(indexed);
+                                            resolve({ [key]: true });
                                         })
                                 }
                             }
@@ -139,7 +133,47 @@ const startTests = () => {
     }
 
     const reducer = (key, values) => {
-        return [];
+        console.log("Reducer key:", key);
+        console.log("Reducer value:", values);
+        // Import execSync
+        const { execSync, spawnSync, exec } = require("child_process");
+
+        const resultPromise = new Promise((resolve, reject) => {
+            
+            var temp = {};
+            // console.log("value: ", value)
+            try {
+                temp = spawnSync('bash', ['./index_reduce.sh', values], {
+                    encoding: 'utf-8',
+                    maxBuffer: 1024 * 1024 * 64
+                });
+                
+                console.log("[reduce] temp:", temp);
+            } catch (e) {
+                console.log("[reduce] error:", e.message);
+            }
+
+            // Step 1: Get text from page
+            // const capturedText = execSync(`./c/getText.js`, { encoding: 'utf-8' });
+            // Step 2: Build up object with page data
+            const data = temp.stdout;
+            console.log(data);
+            distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, v) => {
+                if (e) {
+                    console.log(e);
+                    reject(e);
+                    return;
+                }
+                console.log('[reduce] ran:', v);
+                resolve([{ [key]: true }]);
+            });
+            // Step 3: Store content under hashURL(value)
+            // console.log("key:", key);
+            
+            
+        });
+
+        return resultPromise;
     }
 
     const doMapReduce = (cb) => {
