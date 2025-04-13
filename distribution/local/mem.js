@@ -113,7 +113,7 @@ function del(configuration, callback) {
  */
 function getAll(configuration, callback) {
     // console.log("gid from getAll: ", configuration.gid);
-    console.log("memMap from getAll:", memMap, "sid is:", id.getSID(global.nodeConfig));
+    // console.log("memMap from getAll:", memMap, "sid is:", id.getSID(global.nodeConfig));
     let gid = "local";
     if (typeof configuration === "object") {
         if (!Object.hasOwn(configuration, "gid")) {

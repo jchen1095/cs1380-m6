@@ -194,7 +194,7 @@ function _mr(config) {
                 // read each key from local.store, and use mapper
                 let localKeyCounts = 0;
                 const execMap = (key, e, v) => {
-                    console.log("Called execMap!, sid is:", id.getSID(global.nodeConfig));
+                    // console.log("Called execMap!, sid is:", id.getSID(global.nodeConfig));
                     if (e) {
                         callback(e);
                         return;
@@ -241,16 +241,31 @@ function _mr(config) {
                         // get the keys from the newUrls route
                         // console.log("DO WE EVER GET HERE???????");
                         global.distribution.local.newUrls.get((e, v) => {
+                            let result = v;
+                            if (e) {
+                                result = []
+                            }
+                            // console.log("e:", e);
+                            // console.log("v:", v);
                             numLocalKeys = v.length;
-                            console.log('v:');
-                            console.log(v);
+                            if (numLocalKeys === 0) {
+                                // No keys to be found, just return
+                                callback(null, true);
+                                return;
+                            }
+                            // console.log('v:');
+                            // console.log(v);
+                            console.log(`${id.getSID(global.nodeConfig)}: result from newUrls get:`, result);
                             v.forEach((obj) => {
+                                console.log(`${id.getSID(global.nodeConfig)}: execMap is called with: `, Object.keys(obj)[0], Object.values(obj)[0]);
+                                console.log(`${id.getSID(global.nodeConfig)}: Object.keys(obj), Object.values(obj): `, Object.keys(obj), Object.values(obj));
+                                // console.log("Object.key")
                                 execMap(Object.keys(obj)[0], e, Object.values(obj)[0]);
                             })
                         });
                     }
                 } catch (err) {
-                    console.log("ERROR FROM NOTIFY MAP LOGIC: ", err)
+                    // console.log("ERROR FROM NOTIFY MAP LOGIC: ", err)
                     callback(err, null);
                 }
                 break;
