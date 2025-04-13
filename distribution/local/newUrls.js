@@ -11,7 +11,7 @@ const meta = {
 newUrls.get = function(callback) {
     // console.log("newURLS get was called!")
     global.distribution.local.mem.getAll({gid: "newUrls"}, (e,v) => {
-        console.log("getAll Result is: ", v, "sid is:", id.getSID(global.nodeConfig))
+        console.log(`${id.getSID(global.nodeConfig)}: getAll result: `, v);
         // console.log("e:", e);
         // console.log("v:", v);
         if (e) {
@@ -20,17 +20,17 @@ newUrls.get = function(callback) {
         }
         // Maybe I don't need to reformat? What if I just return the output and we can iterate
         if (typeof v == 'object')  {
-            console.log("typeof v is object...!");
+            // console.log("typeof v is object...!");
             let out = [];
             for (const key of Object.keys(v)) {
-                console.log("key is:", key);
-                out.push(v[key])
+                // console.log("key is:", key);
+                out.push({[key]: v[key]})
                 // try {
                 // } catch (e) {
                 //     console.log("error while appending!", e);
                 // }
             }
-            console.log("out is:", out);
+            // console.log("out is:", out);
             callback(null, out);
         }
     });
@@ -39,19 +39,10 @@ newUrls.get = function(callback) {
 newUrls.put = function(urls, callback) {
     // assumption -> each url is {hash: url}
     // console.log("START NEWURLS PUT!");
+    console.log(`${id.getSID(global.nodeConfig)}: newUrls.put urls: `, urls);
     let count = 0;
-    // console.log("URLS:", urls);
     if(Array.isArray(urls)) {
         for (const url of urls) {
-            // console.log("START ITERATION");
-            // if (url === "https://atlas.cs.brown.edu/data/gutenberg//indextree.txt") {
-            //     count++;
-            //     if (count >= urls.length) {
-            //         console.log("count reached")
-            //         callback(null, count);
-            //     }
-            //     return;
-            // }
             global.distribution.local.mem.put(Object.values(url)[0], {gid: "newUrls", key: Object.keys(url)[0] }, (e,v) => {
                 // console.log("returned from mem put");
                 if (e) {
