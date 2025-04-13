@@ -204,7 +204,7 @@ function _mr(config) {
                     // outMappings is now a promise
                     outMappingsPromise.then((outMappings) => {
                         console.log("Promise resolved! Going to rest of the stuff;", outMappings);
-                        console.log("outMappings.length:", outMappings.length)
+                        // console.log("outMappings.length:", outMappings.length)
                         for (let i = 0; i < outMappings.length; i++) {
                             const mapKey = Object.keys(outMappings[i])[0]
                             const mapValue = outMappings[i][mapKey];
