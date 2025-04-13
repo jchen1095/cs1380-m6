@@ -1,0 +1,6378 @@
+ef47f: newUrls.put urls:  { e71890ee407776518c69: 'https://atlas.cs.brown.edu/data/gutenberg' }
+ef47f: getAll result:  { e71890ee407776518c69: 'https://atlas.cs.brown.edu/data/gutenberg' }
+93959: getAll result:  undefined
+ef47f: result from newUrls get: [
+  { e71890ee407776518c69: 'https://atlas.cs.brown.edu/data/gutenberg' }
+]
+ef47f: execMap is called with:  e71890ee407776518c69 https://atlas.cs.brown.edu/data/gutenberg
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e71890ee407776518c69' ] [ 'https://atlas.cs.brown.edu/data/gutenberg' ]
+e0854: getAll result:  undefined
+Sending to newUrls.put: [
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "79ccb7a2844283d086a5": "https://atlas.cs.brown.edu/data/"
+  },
+  {
+    "925bb111b96f124a45aa": "https://atlas.cs.brown.edu/data/gutenberg/0/"
+  },
+  {
+    "2ae163acad6522ca6c14": "https://atlas.cs.brown.edu/data/gutenberg/1/"
+  },
+  {
+    "6a0d2c61a9f9454e3a4b": "https://atlas.cs.brown.edu/data/gutenberg/2/"
+  },
+  {
+    "71be4a32112f0d31525d": "https://atlas.cs.brown.edu/data/gutenberg/4/"
+  },
+  {
+    "68eddc5b20829d6d7733": "https://atlas.cs.brown.edu/data/gutenberg/5/"
+  },
+  {
+    "6037210139c526ef49f9": "https://atlas.cs.brown.edu/data/gutenberg/6/"
+  },
+  {
+    "4021fb37a69eac4be360": "https://atlas.cs.brown.edu/data/gutenberg/7/"
+  },
+  {
+    "2e1ac8b38cc3bc34874b": "https://atlas.cs.brown.edu/data/gutenberg/8/"
+  },
+  {
+    "87b8251b60a5236986ee": "https://atlas.cs.brown.edu/data/gutenberg/9/"
+  },
+  {
+    "23410ae4cf70ee0ee0d2": "https://atlas.cs.brown.edu/data/gutenberg/books.txt"
+  }
+]
+Sending to newUrls.put: [
+  {
+    "ee94fb36ecc062a4cd5d": "https://atlas.cs.brown.edu/data/gutenberg/3/"
+  }
+]
+ef47f: newUrls.put urls:  [
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "d52c05b38ba5d8bf0bb1": "https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt"
+  },
+  {
+    "c4f9a8e2dc80057a45d9": "https://atlas.cs.brown.edu/data/gutenberg/indextree.txt"
+  },
+  {
+    "9e025d9e69e2ad77f6a4": "https://atlas.cs.brown.edu/data/gutenberg/retired/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+e0854: newUrls.put urls:  [
+  {
+    d52c05b38ba5d8bf0bb1: 'https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt'
+  },
+  {
+    c4f9a8e2dc80057a45d9: 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+count reached
+localKeyCounts: 1
+localKeys.length: 0
+done going through all the keys; bye!
+DONE MAPPING!
+93959: newUrls.put urls:  [
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  { '79ccb7a2844283d086a5': 'https://atlas.cs.brown.edu/data/' },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '23410ae4cf70ee0ee0d2': 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  }
+]
+count reached
+[MR ITERATION] Count: 0
+ef47f: getAll result:  {
+  e71890ee407776518c69: 'https://atlas.cs.brown.edu/data/gutenberg',
+  ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+}
+ef47f: result from newUrls get: [
+  { e71890ee407776518c69: 'https://atlas.cs.brown.edu/data/gutenberg' },
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  }
+]
+ef47f: execMap is called with:  e71890ee407776518c69 https://atlas.cs.brown.edu/data/gutenberg
+e0854: getAll result:  {
+  d52c05b38ba5d8bf0bb1: 'https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt',
+  c4f9a8e2dc80057a45d9: 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt',
+  '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/',
+  '12ae32cb1ec02d01eda3': ''
+}
+e0854: result from newUrls get: [
+  {
+    d52c05b38ba5d8bf0bb1: 'https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt'
+  },
+  {
+    c4f9a8e2dc80057a45d9: 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+93959: getAll result:  {
+  '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/',
+  '79ccb7a2844283d086a5': 'https://atlas.cs.brown.edu/data/',
+  '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/',
+  '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/',
+  '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/',
+  '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/',
+  '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/',
+  '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/',
+  '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/',
+  '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/',
+  '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/',
+  '23410ae4cf70ee0ee0d2': 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+}
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e71890ee407776518c69' ] [ 'https://atlas.cs.brown.edu/data/gutenberg' ]
+e0854: execMap is called with:  d52c05b38ba5d8bf0bb1 https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt
+e0854: Object.keys(obj), Object.values(obj):  [ 'd52c05b38ba5d8bf0bb1' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt' ]
+93959: result from newUrls get: [
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  { '79ccb7a2844283d086a5': 'https://atlas.cs.brown.edu/data/' },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '23410ae4cf70ee0ee0d2': 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  }
+]
+93959: execMap is called with:  24d40372efa1cfc87c6d https://atlas.cs.brown.edu/data/gutenberg/
+93959: Object.keys(obj), Object.values(obj):  [ '24d40372efa1cfc87c6d' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/' ]
+e0854: execMap is called with:  c4f9a8e2dc80057a45d9 https://atlas.cs.brown.edu/data/gutenberg/indextree.txt
+e0854: Object.keys(obj), Object.values(obj):  [ 'c4f9a8e2dc80057a45d9' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt' ]
+93959: execMap is called with:  79ccb7a2844283d086a5 https://atlas.cs.brown.edu/data/
+93959: Object.keys(obj), Object.values(obj):  [ '79ccb7a2844283d086a5' ] [ 'https://atlas.cs.brown.edu/data/' ]
+ef47f: execMap is called with:  ee94fb36ecc062a4cd5d https://atlas.cs.brown.edu/data/gutenberg/3/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'ee94fb36ecc062a4cd5d' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/3/' ]
+93959: execMap is called with:  925bb111b96f124a45aa https://atlas.cs.brown.edu/data/gutenberg/0/
+93959: Object.keys(obj), Object.values(obj):  [ '925bb111b96f124a45aa' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/0/' ]
+93959: execMap is called with:  2ae163acad6522ca6c14 https://atlas.cs.brown.edu/data/gutenberg/1/
+93959: Object.keys(obj), Object.values(obj):  [ '2ae163acad6522ca6c14' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/1/' ]
+93959: execMap is called with:  6a0d2c61a9f9454e3a4b https://atlas.cs.brown.edu/data/gutenberg/2/
+93959: Object.keys(obj), Object.values(obj):  [ '6a0d2c61a9f9454e3a4b' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/2/' ]
+93959: execMap is called with:  71be4a32112f0d31525d https://atlas.cs.brown.edu/data/gutenberg/4/
+93959: Object.keys(obj), Object.values(obj):  [ '71be4a32112f0d31525d' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/4/' ]
+93959: execMap is called with:  68eddc5b20829d6d7733 https://atlas.cs.brown.edu/data/gutenberg/5/
+93959: Object.keys(obj), Object.values(obj):  [ '68eddc5b20829d6d7733' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/5/' ]
+93959: execMap is called with:  6037210139c526ef49f9 https://atlas.cs.brown.edu/data/gutenberg/6/
+93959: Object.keys(obj), Object.values(obj):  [ '6037210139c526ef49f9' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/6/' ]
+e0854: execMap is called with:  9e025d9e69e2ad77f6a4 https://atlas.cs.brown.edu/data/gutenberg/retired/
+e0854: Object.keys(obj), Object.values(obj):  [ '9e025d9e69e2ad77f6a4' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/retired/' ]
+93959: execMap is called with:  4021fb37a69eac4be360 https://atlas.cs.brown.edu/data/gutenberg/7/
+93959: Object.keys(obj), Object.values(obj):  [ '4021fb37a69eac4be360' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/7/' ]
+e0854: execMap is called with:  12ae32cb1ec02d01eda3 
+e0854: Object.keys(obj), Object.values(obj):  [ '12ae32cb1ec02d01eda3' ] [ '' ]
+93959: execMap is called with:  2e1ac8b38cc3bc34874b https://atlas.cs.brown.edu/data/gutenberg/8/
+93959: Object.keys(obj), Object.values(obj):  [ '2e1ac8b38cc3bc34874b' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/8/' ]
+Promise resolved! Going to rest of the stuff; [ { '[object Object]': null } ]
+outMappings.length: 1
+localKeyCounts: 1
+localKeys.length: 0
+93959: execMap is called with:  87b8251b60a5236986ee https://atlas.cs.brown.edu/data/gutenberg/9/
+93959: Object.keys(obj), Object.values(obj):  [ '87b8251b60a5236986ee' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/9/' ]
+93959: execMap is called with:  23410ae4cf70ee0ee0d2 https://atlas.cs.brown.edu/data/gutenberg/books.txt
+93959: Object.keys(obj), Object.values(obj):  [ '23410ae4cf70ee0ee0d2' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/books.txt' ]
+Sending to newUrls.put: [
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "07e6dfb5a23e02cd018c": "https://atlas.cs.brown.edu/data/gutenberg/3/0/"
+  },
+  {
+    "558309a097cfbd23560c": "https://atlas.cs.brown.edu/data/gutenberg/3/1/"
+  },
+  {
+    "652c1f420976ff189c8b": "https://atlas.cs.brown.edu/data/gutenberg/3/6/"
+  },
+  {
+    "214a822de89d054f424e": "https://atlas.cs.brown.edu/data/gutenberg/3/7/"
+  },
+  {
+    "792e6ea54bf08ee46cba": "https://atlas.cs.brown.edu/data/gutenberg/3/8/"
+  },
+  {
+    "363d3cd828af65ac09c0": "https://atlas.cs.brown.edu/data/gutenberg/3/33/"
+  },
+  {
+    "ff2c94e76c3e6d100081": "https://atlas.cs.brown.edu/data/gutenberg/3/35/"
+  },
+  {
+    "37ff10c18a888ef2e8a0": "https://atlas.cs.brown.edu/data/gutenberg/3/36/"
+  },
+  {
+    "0657661a6d22ca173a78": "https://atlas.cs.brown.edu/data/gutenberg/3/37/"
+  }
+]
+Sending to newUrls.put: [
+  {
+    "ee94fb36ecc062a4cd5d": "https://atlas.cs.brown.edu/data/gutenberg/3/"
+  },
+  {
+    "ee94fb36ecc062a4cd5d": "https://atlas.cs.brown.edu/data/gutenberg/3/"
+  },
+  {
+    "ee94fb36ecc062a4cd5d": "https://atlas.cs.brown.edu/data/gutenberg/3/"
+  },
+  {
+    "ee94fb36ecc062a4cd5d": "https://atlas.cs.brown.edu/data/gutenberg/3/"
+  },
+  {
+    "e1f22b459e453c621bc9": "https://atlas.cs.brown.edu/data/gutenberg/3/4/"
+  },
+  {
+    "eb5c306092daee3f0c66": "https://atlas.cs.brown.edu/data/gutenberg/3/30/"
+  },
+  {
+    "e58523a2bdc5f910b0c1": "https://atlas.cs.brown.edu/data/gutenberg/3/39/"
+  }
+]
+ef47f: newUrls.put urls:  [
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  },
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  },
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  },
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  },
+  {
+    e1f22b459e453c621bc9: 'https://atlas.cs.brown.edu/data/gutenberg/3/4/'
+  },
+  {
+    eb5c306092daee3f0c66: 'https://atlas.cs.brown.edu/data/gutenberg/3/30/'
+  },
+  {
+    e58523a2bdc5f910b0c1: 'https://atlas.cs.brown.edu/data/gutenberg/3/39/'
+  }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "0fb329f20cca6ffb314e": "https://atlas.cs.brown.edu/data/gutenberg/3/2/"
+  },
+  {
+    "cb58ee41d91f57e8ffa4": "https://atlas.cs.brown.edu/data/gutenberg/3/3/"
+  },
+  {
+    "945da9e5fe096b764a20": "https://atlas.cs.brown.edu/data/gutenberg/3/5/"
+  },
+  {
+    "97dea2cf784cdbca8eb6": "https://atlas.cs.brown.edu/data/gutenberg/3/9/"
+  },
+  {
+    "d6a28636cb1e283a9ea1": "https://atlas.cs.brown.edu/data/gutenberg/3/31/"
+  },
+  {
+    "d79b1c9e65b13fe7c872": "https://atlas.cs.brown.edu/data/gutenberg/3/32/"
+  },
+  {
+    "cc5f26d56b6f2ae5b8cb": "https://atlas.cs.brown.edu/data/gutenberg/3/34/"
+  },
+  {
+    "0fd69383e9560ae6ce03": "https://atlas.cs.brown.edu/data/gutenberg/3/38/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+localKeyCounts: 1
+localKeys.length: 0
+Sending to newUrls.put: [
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "79ccb7a2844283d086a5": "https://atlas.cs.brown.edu/data/"
+  },
+  {
+    "925bb111b96f124a45aa": "https://atlas.cs.brown.edu/data/gutenberg/0/"
+  },
+  {
+    "2ae163acad6522ca6c14": "https://atlas.cs.brown.edu/data/gutenberg/1/"
+  },
+  {
+    "6a0d2c61a9f9454e3a4b": "https://atlas.cs.brown.edu/data/gutenberg/2/"
+  },
+  {
+    "71be4a32112f0d31525d": "https://atlas.cs.brown.edu/data/gutenberg/4/"
+  },
+  {
+    "68eddc5b20829d6d7733": "https://atlas.cs.brown.edu/data/gutenberg/5/"
+  },
+  {
+    "6037210139c526ef49f9": "https://atlas.cs.brown.edu/data/gutenberg/6/"
+  },
+  {
+    "4021fb37a69eac4be360": "https://atlas.cs.brown.edu/data/gutenberg/7/"
+  },
+  {
+    "2e1ac8b38cc3bc34874b": "https://atlas.cs.brown.edu/data/gutenberg/8/"
+  },
+  {
+    "87b8251b60a5236986ee": "https://atlas.cs.brown.edu/data/gutenberg/9/"
+  },
+  {
+    "23410ae4cf70ee0ee0d2": "https://atlas.cs.brown.edu/data/gutenberg/books.txt"
+  }
+]
+Sending to newUrls.put: [
+  {
+    "ee94fb36ecc062a4cd5d": "https://atlas.cs.brown.edu/data/gutenberg/3/"
+  }
+]
+ef47f: newUrls.put urls:  [
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "d52c05b38ba5d8bf0bb1": "https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt"
+  },
+  {
+    "c4f9a8e2dc80057a45d9": "https://atlas.cs.brown.edu/data/gutenberg/indextree.txt"
+  },
+  {
+    "9e025d9e69e2ad77f6a4": "https://atlas.cs.brown.edu/data/gutenberg/retired/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+localKeyCounts: 2
+localKeys.length: 0
+done going through all the keys; bye!
+Promise resolved! Going to rest of the stuff; [ { '[object Object]': null } ]
+outMappings.length: 1
+localKeyCounts: 1
+localKeys.length: 1
+Sending to newUrls.put: [
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "79ccb7a2844283d086a5": "https://atlas.cs.brown.edu/data/"
+  },
+  {
+    "925bb111b96f124a45aa": "https://atlas.cs.brown.edu/data/gutenberg/0/"
+  },
+  {
+    "2ae163acad6522ca6c14": "https://atlas.cs.brown.edu/data/gutenberg/1/"
+  },
+  {
+    "6a0d2c61a9f9454e3a4b": "https://atlas.cs.brown.edu/data/gutenberg/2/"
+  },
+  {
+    "71be4a32112f0d31525d": "https://atlas.cs.brown.edu/data/gutenberg/4/"
+  },
+  {
+    "68eddc5b20829d6d7733": "https://atlas.cs.brown.edu/data/gutenberg/5/"
+  },
+  {
+    "6037210139c526ef49f9": "https://atlas.cs.brown.edu/data/gutenberg/6/"
+  },
+  {
+    "4021fb37a69eac4be360": "https://atlas.cs.brown.edu/data/gutenberg/7/"
+  },
+  {
+    "2e1ac8b38cc3bc34874b": "https://atlas.cs.brown.edu/data/gutenberg/8/"
+  },
+  {
+    "87b8251b60a5236986ee": "https://atlas.cs.brown.edu/data/gutenberg/9/"
+  },
+  {
+    "23410ae4cf70ee0ee0d2": "https://atlas.cs.brown.edu/data/gutenberg/books.txt"
+  }
+]
+93959: newUrls.put urls:  [
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  { '79ccb7a2844283d086a5': 'https://atlas.cs.brown.edu/data/' },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '23410ae4cf70ee0ee0d2': 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "ee94fb36ecc062a4cd5d": "https://atlas.cs.brown.edu/data/gutenberg/3/"
+  }
+]
+Sending to newUrls.put: [
+  {
+    "d52c05b38ba5d8bf0bb1": "https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt"
+  },
+  {
+    "c4f9a8e2dc80057a45d9": "https://atlas.cs.brown.edu/data/gutenberg/indextree.txt"
+  },
+  {
+    "9e025d9e69e2ad77f6a4": "https://atlas.cs.brown.edu/data/gutenberg/retired/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+localKeyCounts: 2
+localKeys.length: 1
+Promise resolved! Going to rest of the stuff; [ { '[object Object]': null }, { '[object Object]': null } ]
+outMappings.length: 2
+localKeyCounts: 2
+localKeys.length: 0
+e0854: newUrls.put urls:  [
+  {
+    d52c05b38ba5d8bf0bb1: 'https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt'
+  },
+  {
+    c4f9a8e2dc80057a45d9: 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "37af9f09ecf8cdcb801b": "https://atlas.cs.brown.edu/data/gutenberg/retired/etext05/"
+  }
+]
+Sending to newUrls.put: [
+  {
+    "9e025d9e69e2ad77f6a4": "https://atlas.cs.brown.edu/data/gutenberg/retired/"
+  },
+  {
+    "9e025d9e69e2ad77f6a4": "https://atlas.cs.brown.edu/data/gutenberg/retired/"
+  },
+  {
+    "9e025d9e69e2ad77f6a4": "https://atlas.cs.brown.edu/data/gutenberg/retired/"
+  },
+  {
+    "9e025d9e69e2ad77f6a4": "https://atlas.cs.brown.edu/data/gutenberg/retired/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+e0854: newUrls.put urls:  [
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+count reached
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+localKeyCounts: 3
+93959: newUrls.put urls:  [
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '37af9f09ecf8cdcb801b': 'https://atlas.cs.brown.edu/data/gutenberg/retired/etext05/'
+  }
+]
+localKeys.length: 0
+count reached
+Sending to newUrls.put: [
+  {
+    "925bb111b96f124a45aa": "https://atlas.cs.brown.edu/data/gutenberg/0/"
+  },
+  {
+    "925bb111b96f124a45aa": "https://atlas.cs.brown.edu/data/gutenberg/0/"
+  },
+  {
+    "925bb111b96f124a45aa": "https://atlas.cs.brown.edu/data/gutenberg/0/"
+  },
+  {
+    "925bb111b96f124a45aa": "https://atlas.cs.brown.edu/data/gutenberg/0/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "fad3b6c68a4528df9103": "https://atlas.cs.brown.edu/data/gutenberg/0/4/"
+  },
+  {
+    "0060c41bdc9889e5292a": "https://atlas.cs.brown.edu/data/gutenberg/0/7/"
+  },
+  {
+    "8d97cf0504dff47195a5": "https://atlas.cs.brown.edu/data/gutenberg/0/8/"
+  },
+  {
+    "2719be0ccb98e9251b6a": "https://atlas.cs.brown.edu/data/gutenberg/0/9/"
+  }
+]
+e0854: newUrls.put urls:  [
+  {
+    '0fb329f20cca6ffb314e': 'https://atlas.cs.brown.edu/data/gutenberg/3/2/'
+  },
+  {
+    cb58ee41d91f57e8ffa4: 'https://atlas.cs.brown.edu/data/gutenberg/3/3/'
+  },
+  {
+    '945da9e5fe096b764a20': 'https://atlas.cs.brown.edu/data/gutenberg/3/5/'
+  },
+  {
+    '97dea2cf784cdbca8eb6': 'https://atlas.cs.brown.edu/data/gutenberg/3/9/'
+  },
+  {
+    d6a28636cb1e283a9ea1: 'https://atlas.cs.brown.edu/data/gutenberg/3/31/'
+  },
+  {
+    d79b1c9e65b13fe7c872: 'https://atlas.cs.brown.edu/data/gutenberg/3/32/'
+  },
+  {
+    cc5f26d56b6f2ae5b8cb: 'https://atlas.cs.brown.edu/data/gutenberg/3/34/'
+  },
+  {
+    '0fd69383e9560ae6ce03': 'https://atlas.cs.brown.edu/data/gutenberg/3/38/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+count reached
+93959: newUrls.put urls:  [
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    fad3b6c68a4528df9103: 'https://atlas.cs.brown.edu/data/gutenberg/0/4/'
+  },
+  {
+    '0060c41bdc9889e5292a': 'https://atlas.cs.brown.edu/data/gutenberg/0/7/'
+  },
+  {
+    '8d97cf0504dff47195a5': 'https://atlas.cs.brown.edu/data/gutenberg/0/8/'
+  },
+  {
+    '2719be0ccb98e9251b6a': 'https://atlas.cs.brown.edu/data/gutenberg/0/9/'
+  }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "a3829cd8538e1c9cb173": "https://atlas.cs.brown.edu/data/gutenberg/0/1/"
+  },
+  {
+    "1574cb7d9556ea3ba20b": "https://atlas.cs.brown.edu/data/gutenberg/0/2/"
+  },
+  {
+    "ba6f94037c5456888fb0": "https://atlas.cs.brown.edu/data/gutenberg/0/3/"
+  },
+  {
+    "9e13a3e4b87ad2d22ecd": "https://atlas.cs.brown.edu/data/gutenberg/0/5/"
+  },
+  {
+    "c7e5b80a0c7e1a377481": "https://atlas.cs.brown.edu/data/gutenberg/0/6/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+localKeyCounts: 3
+localKeys.length: 1
+e0854: newUrls.put urls:  [
+  {
+    'aacom txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aadow txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    aadow: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aareadm txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aarn txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    aarn: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aarnd txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    aaso: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abbnw: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abbot: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abchr: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abft: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abhf txt ipen': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abhf txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abit txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abit txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abit: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abko: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abomb readm': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abomb txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aboyr txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abreadm txt file': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abreadm: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'achar txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'acho readm': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'acho txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'achr txt achr': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'achr txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'achr txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    acrdi: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'acro txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    act: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'actr txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    actr: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adam txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adfrc txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    adfrc: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adi txt rn': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    adi: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    adieu: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adjut txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    adjut: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adlf txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adolph txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    adolph: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adotl txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    adpap: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adpo txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    adrwn: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'advbk txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'advjd txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'advlr txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'advnt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'advsh readm txt': {
+      freq: 3,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'advsh readm': {
+      freq: 3,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'advsh txt txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'advsh txt': {
+      freq: 3,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    advul: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aeotp txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aesop readm': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aesop txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    aesop: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aeutt txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aeutt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'afbl txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    afbl: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'agaap txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'agaap txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    agaap: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'agent readm txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'agent txt txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'agin txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'agin txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    agin: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'agino txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'agnsg txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    agrrd: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'agst txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'agypt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'ah txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'ah txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'ahc txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'ahc txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    ahc: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'ahero txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aiken txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    aiken: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'ajiow txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'ajtl txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    ajtl: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'akag txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    akag: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'akba txt akba': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    akba: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aken txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'ala txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    alad: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'alamo txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    alast: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'alatu txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  ... 5043 more items
+]
+count reached
+e0854: newUrls.put urls:  [
+  {
+    d52c05b38ba5d8bf0bb1: 'https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt'
+  },
+  {
+    c4f9a8e2dc80057a45d9: 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+count reached
+e0854: newUrls.put urls:  [
+  {
+    a3829cd8538e1c9cb173: 'https://atlas.cs.brown.edu/data/gutenberg/0/1/'
+  },
+  {
+    '1574cb7d9556ea3ba20b': 'https://atlas.cs.brown.edu/data/gutenberg/0/2/'
+  },
+  {
+    ba6f94037c5456888fb0: 'https://atlas.cs.brown.edu/data/gutenberg/0/3/'
+  },
+  {
+    '9e13a3e4b87ad2d22ecd': 'https://atlas.cs.brown.edu/data/gutenberg/0/5/'
+  },
+  {
+    c7e5b80a0c7e1a377481: 'https://atlas.cs.brown.edu/data/gutenberg/0/6/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+count reached
+ef47f: newUrls.put urls:  [
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  }
+]
+count reached
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+Sending to newUrls.put: [
+  {
+    "2ae163acad6522ca6c14": "https://atlas.cs.brown.edu/data/gutenberg/1/"
+  },
+  {
+    "2ae163acad6522ca6c14": "https://atlas.cs.brown.edu/data/gutenberg/1/"
+  },
+  {
+    "2ae163acad6522ca6c14": "https://atlas.cs.brown.edu/data/gutenberg/1/"
+  },
+  {
+    "2ae163acad6522ca6c14": "https://atlas.cs.brown.edu/data/gutenberg/1/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "18f34994f896b1ff4e9b": "https://atlas.cs.brown.edu/data/gutenberg/1/0/"
+  },
+  {
+    "07f604d92f309bbffd63": "https://atlas.cs.brown.edu/data/gutenberg/1/2/"
+  },
+  {
+    "60853b42d5bbfe70d9dd": "https://atlas.cs.brown.edu/data/gutenberg/1/7/"
+  },
+  {
+    "74bd467fa010950f93de": "https://atlas.cs.brown.edu/data/gutenberg/1/8/"
+  },
+  {
+    "5bdb6476e9567182bdfe": "https://atlas.cs.brown.edu/data/gutenberg/1/9/"
+  },
+  {
+    "2a00056b247c7ac7182d": "https://atlas.cs.brown.edu/data/gutenberg/1/10/"
+  },
+  {
+    "f228a52b88a1d19d3095": "https://atlas.cs.brown.edu/data/gutenberg/1/11/"
+  },
+  {
+    "54acd23fc056a4c708e7": "https://atlas.cs.brown.edu/data/gutenberg/1/14/"
+  },
+  {
+    "876a21fe1c3630bd1f36": "https://atlas.cs.brown.edu/data/gutenberg/1/17/"
+  },
+  {
+    "f2a67b1647e70bb10fd8": "https://atlas.cs.brown.edu/data/gutenberg/1/18/"
+  },
+  {
+    "0ab5dcfe317800e1af73": "https://atlas.cs.brown.edu/data/gutenberg/1/19/"
+  }
+]
+93959: newUrls.put urls:  [
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '18f34994f896b1ff4e9b': 'https://atlas.cs.brown.edu/data/gutenberg/1/0/'
+  },
+  {
+    '07f604d92f309bbffd63': 'https://atlas.cs.brown.edu/data/gutenberg/1/2/'
+  },
+  {
+    '60853b42d5bbfe70d9dd': 'https://atlas.cs.brown.edu/data/gutenberg/1/7/'
+  },
+  {
+    '74bd467fa010950f93de': 'https://atlas.cs.brown.edu/data/gutenberg/1/8/'
+  },
+  {
+    '5bdb6476e9567182bdfe': 'https://atlas.cs.brown.edu/data/gutenberg/1/9/'
+  },
+  {
+    '2a00056b247c7ac7182d': 'https://atlas.cs.brown.edu/data/gutenberg/1/10/'
+  },
+  {
+    f228a52b88a1d19d3095: 'https://atlas.cs.brown.edu/data/gutenberg/1/11/'
+  },
+  {
+    '54acd23fc056a4c708e7': 'https://atlas.cs.brown.edu/data/gutenberg/1/14/'
+  },
+  {
+    '876a21fe1c3630bd1f36': 'https://atlas.cs.brown.edu/data/gutenberg/1/17/'
+  },
+  {
+    f2a67b1647e70bb10fd8: 'https://atlas.cs.brown.edu/data/gutenberg/1/18/'
+  },
+  {
+    '0ab5dcfe317800e1af73': 'https://atlas.cs.brown.edu/data/gutenberg/1/19/'
+  }
+]
+count reached
+localKeyCounts: 4
+localKeys.length: 0
+done going through all the keys; bye!
+Sending to newUrls.put: [
+  {
+    "acfc60dda4919a2a1b71": "https://atlas.cs.brown.edu/data/gutenberg/1/1/"
+  },
+  {
+    "d47d10190c8d87cb450f": "https://atlas.cs.brown.edu/data/gutenberg/1/3/"
+  },
+  {
+    "c16585a695850f0bfe4c": "https://atlas.cs.brown.edu/data/gutenberg/1/4/"
+  },
+  {
+    "cdb48ca76e23a16fb393": "https://atlas.cs.brown.edu/data/gutenberg/1/5/"
+  },
+  {
+    "c1e9e1b7fc43778c4601": "https://atlas.cs.brown.edu/data/gutenberg/1/6/"
+  },
+  {
+    "d12cd122adb071cdeb8c": "https://atlas.cs.brown.edu/data/gutenberg/1/12/"
+  },
+  {
+    "dffb6a9d392df88e5102": "https://atlas.cs.brown.edu/data/gutenberg/1/16/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Sending to newUrls.put: [
+  {
+    "e49a5b40feeb4ce735a5": "https://atlas.cs.brown.edu/data/gutenberg/1/13/"
+  },
+  {
+    "e82010edfd042d2523bb": "https://atlas.cs.brown.edu/data/gutenberg/1/15/"
+  }
+]
+e0854: newUrls.put urls:  [
+  {
+    acfc60dda4919a2a1b71: 'https://atlas.cs.brown.edu/data/gutenberg/1/1/'
+  },
+  {
+    d47d10190c8d87cb450f: 'https://atlas.cs.brown.edu/data/gutenberg/1/3/'
+  },
+  {
+    c16585a695850f0bfe4c: 'https://atlas.cs.brown.edu/data/gutenberg/1/4/'
+  },
+  {
+    cdb48ca76e23a16fb393: 'https://atlas.cs.brown.edu/data/gutenberg/1/5/'
+  },
+  {
+    c1e9e1b7fc43778c4601: 'https://atlas.cs.brown.edu/data/gutenberg/1/6/'
+  },
+  {
+    d12cd122adb071cdeb8c: 'https://atlas.cs.brown.edu/data/gutenberg/1/12/'
+  },
+  {
+    dffb6a9d392df88e5102: 'https://atlas.cs.brown.edu/data/gutenberg/1/16/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+count reached
+ef47f: newUrls.put urls:  [
+  {
+    e49a5b40feeb4ce735a5: 'https://atlas.cs.brown.edu/data/gutenberg/1/13/'
+  },
+  {
+    e82010edfd042d2523bb: 'https://atlas.cs.brown.edu/data/gutenberg/1/15/'
+  }
+]
+count reached
+localKeyCounts: 4
+localKeys.length: 1
+Sending to newUrls.put: [
+  {
+    "6a0d2c61a9f9454e3a4b": "https://atlas.cs.brown.edu/data/gutenberg/2/"
+  },
+  {
+    "6a0d2c61a9f9454e3a4b": "https://atlas.cs.brown.edu/data/gutenberg/2/"
+  },
+  {
+    "6a0d2c61a9f9454e3a4b": "https://atlas.cs.brown.edu/data/gutenberg/2/"
+  },
+  {
+    "6a0d2c61a9f9454e3a4b": "https://atlas.cs.brown.edu/data/gutenberg/2/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "fe3f599706f58d4f40bf": "https://atlas.cs.brown.edu/data/gutenberg/2/1/"
+  },
+  {
+    "40edd85b9597fe917ad5": "https://atlas.cs.brown.edu/data/gutenberg/2/2/"
+  },
+  {
+    "05af6a568eb728afe55f": "https://atlas.cs.brown.edu/data/gutenberg/2/3/"
+  },
+  {
+    "0add4df77ac304e1b7bd": "https://atlas.cs.brown.edu/data/gutenberg/2/4/"
+  },
+  {
+    "76cf225a4d57b0d42831": "https://atlas.cs.brown.edu/data/gutenberg/2/5/"
+  },
+  {
+    "70bf58cddf9e2ba29f21": "https://atlas.cs.brown.edu/data/gutenberg/2/6/"
+  },
+  {
+    "912e6cabe664a53e8b47": "https://atlas.cs.brown.edu/data/gutenberg/2/8/"
+  },
+  {
+    "92b14f808cc51f25c056": "https://atlas.cs.brown.edu/data/gutenberg/2/9/"
+  },
+  {
+    "4a99eda79507f390c309": "https://atlas.cs.brown.edu/data/gutenberg/2/21/"
+  },
+  {
+    "899e8392eaaf26415ebb": "https://atlas.cs.brown.edu/data/gutenberg/2/23/"
+  },
+  {
+    "6b3258fef07c9c44681c": "https://atlas.cs.brown.edu/data/gutenberg/2/28/"
+  },
+  {
+    "8ecb61f5434e15145e1c": "https://atlas.cs.brown.edu/data/gutenberg/2/29/"
+  }
+]
+93959: newUrls.put urls:  [
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    fe3f599706f58d4f40bf: 'https://atlas.cs.brown.edu/data/gutenberg/2/1/'
+  },
+  {
+    '40edd85b9597fe917ad5': 'https://atlas.cs.brown.edu/data/gutenberg/2/2/'
+  },
+  {
+    '05af6a568eb728afe55f': 'https://atlas.cs.brown.edu/data/gutenberg/2/3/'
+  },
+  {
+    '0add4df77ac304e1b7bd': 'https://atlas.cs.brown.edu/data/gutenberg/2/4/'
+  },
+  {
+    '76cf225a4d57b0d42831': 'https://atlas.cs.brown.edu/data/gutenberg/2/5/'
+  },
+  {
+    '70bf58cddf9e2ba29f21': 'https://atlas.cs.brown.edu/data/gutenberg/2/6/'
+  },
+  {
+    '912e6cabe664a53e8b47': 'https://atlas.cs.brown.edu/data/gutenberg/2/8/'
+  },
+  {
+    '92b14f808cc51f25c056': 'https://atlas.cs.brown.edu/data/gutenberg/2/9/'
+  },
+  {
+    '4a99eda79507f390c309': 'https://atlas.cs.brown.edu/data/gutenberg/2/21/'
+  },
+  {
+    '899e8392eaaf26415ebb': 'https://atlas.cs.brown.edu/data/gutenberg/2/23/'
+  },
+  {
+    '6b3258fef07c9c44681c': 'https://atlas.cs.brown.edu/data/gutenberg/2/28/'
+  },
+  {
+    '8ecb61f5434e15145e1c': 'https://atlas.cs.brown.edu/data/gutenberg/2/29/'
+  }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "c32fc780ca9d958d33f9": "https://atlas.cs.brown.edu/data/gutenberg/2/0/"
+  },
+  {
+    "db376f6d2467aca1897a": "https://atlas.cs.brown.edu/data/gutenberg/2/7/"
+  },
+  {
+    "98ce792586f99e45a8ab": "https://atlas.cs.brown.edu/data/gutenberg/2/20/"
+  },
+  {
+    "a2247c3cf41c911e8da6": "https://atlas.cs.brown.edu/data/gutenberg/2/22/"
+  },
+  {
+    "c4fcbc33183d5917b7f9": "https://atlas.cs.brown.edu/data/gutenberg/2/24/"
+  },
+  {
+    "b991425798e6a0097f02": "https://atlas.cs.brown.edu/data/gutenberg/2/25/"
+  },
+  {
+    "a9ed9f210692f4f54293": "https://atlas.cs.brown.edu/data/gutenberg/2/27/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Sending to newUrls.put: [
+  {
+    "e10b345bf5d4ec7dec72": "https://atlas.cs.brown.edu/data/gutenberg/2/26/"
+  }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+ef47f: newUrls.put urls:  [
+  {
+    e10b345bf5d4ec7dec72: 'https://atlas.cs.brown.edu/data/gutenberg/2/26/'
+  }
+]
+count reached
+e0854: newUrls.put urls:  [
+  {
+    c32fc780ca9d958d33f9: 'https://atlas.cs.brown.edu/data/gutenberg/2/0/'
+  },
+  {
+    db376f6d2467aca1897a: 'https://atlas.cs.brown.edu/data/gutenberg/2/7/'
+  },
+  {
+    '98ce792586f99e45a8ab': 'https://atlas.cs.brown.edu/data/gutenberg/2/20/'
+  },
+  {
+    a2247c3cf41c911e8da6: 'https://atlas.cs.brown.edu/data/gutenberg/2/22/'
+  },
+  {
+    c4fcbc33183d5917b7f9: 'https://atlas.cs.brown.edu/data/gutenberg/2/24/'
+  },
+  {
+    b991425798e6a0097f02: 'https://atlas.cs.brown.edu/data/gutenberg/2/25/'
+  },
+  {
+    a9ed9f210692f4f54293: 'https://atlas.cs.brown.edu/data/gutenberg/2/27/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+count reached
+localKeyCounts: 5
+localKeys.length: 1
+Sending to newUrls.put: [
+  {
+    "71be4a32112f0d31525d": "https://atlas.cs.brown.edu/data/gutenberg/4/"
+  },
+  {
+    "71be4a32112f0d31525d": "https://atlas.cs.brown.edu/data/gutenberg/4/"
+  },
+  {
+    "71be4a32112f0d31525d": "https://atlas.cs.brown.edu/data/gutenberg/4/"
+  },
+  {
+    "71be4a32112f0d31525d": "https://atlas.cs.brown.edu/data/gutenberg/4/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "631d18e705a16451ddde": "https://atlas.cs.brown.edu/data/gutenberg/4/1/"
+  },
+  {
+    "f1fe539454175836cf0b": "https://atlas.cs.brown.edu/data/gutenberg/4/2/"
+  },
+  {
+    "28926636a810f2563722": "https://atlas.cs.brown.edu/data/gutenberg/4/3/"
+  },
+  {
+    "5a1648b512f8c4e0a8fc": "https://atlas.cs.brown.edu/data/gutenberg/4/4/"
+  },
+  {
+    "5f4590b7f406fc6b0b0f": "https://atlas.cs.brown.edu/data/gutenberg/4/5/"
+  },
+  {
+    "7f623a3522697c4a36c1": "https://atlas.cs.brown.edu/data/gutenberg/4/6/"
+  },
+  {
+    "780c4d7d7fe5ff3e85d9": "https://atlas.cs.brown.edu/data/gutenberg/4/7/"
+  },
+  {
+    "2d3643afb057c8eaa307": "https://atlas.cs.brown.edu/data/gutenberg/4/8/"
+  },
+  {
+    "1dc1ecd49a22c5ad8e90": "https://atlas.cs.brown.edu/data/gutenberg/4/41/"
+  },
+  {
+    "477b4307a7a55ce0e3c1": "https://atlas.cs.brown.edu/data/gutenberg/4/42/"
+  },
+  {
+    "fc6c7a12dc9c3589c714": "https://atlas.cs.brown.edu/data/gutenberg/4/43/"
+  },
+  {
+    "3269ea36c2cd53d10de6": "https://atlas.cs.brown.edu/data/gutenberg/4/44/"
+  },
+  {
+    "0b9767d65ba8e3f88d03": "https://atlas.cs.brown.edu/data/gutenberg/4/46/"
+  },
+  {
+    "433af42dd4fa486cb189": "https://atlas.cs.brown.edu/data/gutenberg/4/47/"
+  },
+  {
+    "0097e81d783d765fc8ba": "https://atlas.cs.brown.edu/data/gutenberg/4/48/"
+  },
+  {
+    "8f624f5d73ea47957180": "https://atlas.cs.brown.edu/data/gutenberg/4/49/"
+  }
+]
+93959: newUrls.put urls:  [
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '631d18e705a16451ddde': 'https://atlas.cs.brown.edu/data/gutenberg/4/1/'
+  },
+  {
+    f1fe539454175836cf0b: 'https://atlas.cs.brown.edu/data/gutenberg/4/2/'
+  },
+  {
+    '28926636a810f2563722': 'https://atlas.cs.brown.edu/data/gutenberg/4/3/'
+  },
+  {
+    '5a1648b512f8c4e0a8fc': 'https://atlas.cs.brown.edu/data/gutenberg/4/4/'
+  },
+  {
+    '5f4590b7f406fc6b0b0f': 'https://atlas.cs.brown.edu/data/gutenberg/4/5/'
+  },
+  {
+    '7f623a3522697c4a36c1': 'https://atlas.cs.brown.edu/data/gutenberg/4/6/'
+  },
+  {
+    '780c4d7d7fe5ff3e85d9': 'https://atlas.cs.brown.edu/data/gutenberg/4/7/'
+  },
+  {
+    '2d3643afb057c8eaa307': 'https://atlas.cs.brown.edu/data/gutenberg/4/8/'
+  },
+  {
+    '1dc1ecd49a22c5ad8e90': 'https://atlas.cs.brown.edu/data/gutenberg/4/41/'
+  },
+  {
+    '477b4307a7a55ce0e3c1': 'https://atlas.cs.brown.edu/data/gutenberg/4/42/'
+  },
+  {
+    fc6c7a12dc9c3589c714: 'https://atlas.cs.brown.edu/data/gutenberg/4/43/'
+  },
+  {
+    '3269ea36c2cd53d10de6': 'https://atlas.cs.brown.edu/data/gutenberg/4/44/'
+  },
+  {
+    '0b9767d65ba8e3f88d03': 'https://atlas.cs.brown.edu/data/gutenberg/4/46/'
+  },
+  {
+    '433af42dd4fa486cb189': 'https://atlas.cs.brown.edu/data/gutenberg/4/47/'
+  },
+  {
+    '0097e81d783d765fc8ba': 'https://atlas.cs.brown.edu/data/gutenberg/4/48/'
+  },
+  {
+    '8f624f5d73ea47957180': 'https://atlas.cs.brown.edu/data/gutenberg/4/49/'
+  }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "aeef432ec96f5811aa68": "https://atlas.cs.brown.edu/data/gutenberg/4/0/"
+  },
+  {
+    "019c4a11ab30994cabff": "https://atlas.cs.brown.edu/data/gutenberg/4/9/"
+  },
+  {
+    "9637ae6521e32530dcfe": "https://atlas.cs.brown.edu/data/gutenberg/4/40/"
+  },
+  {
+    "db247a60e3ab0aa68475": "https://atlas.cs.brown.edu/data/gutenberg/4/45/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+e0854: newUrls.put urls:  [
+  {
+    aeef432ec96f5811aa68: 'https://atlas.cs.brown.edu/data/gutenberg/4/0/'
+  },
+  {
+    '019c4a11ab30994cabff': 'https://atlas.cs.brown.edu/data/gutenberg/4/9/'
+  },
+  {
+    '9637ae6521e32530dcfe': 'https://atlas.cs.brown.edu/data/gutenberg/4/40/'
+  },
+  {
+    db247a60e3ab0aa68475: 'https://atlas.cs.brown.edu/data/gutenberg/4/45/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+count reached
+localKeyCounts: 6
+localKeys.length: 1
+Sending to newUrls.put: [
+  {
+    "68eddc5b20829d6d7733": "https://atlas.cs.brown.edu/data/gutenberg/5/"
+  },
+  {
+    "68eddc5b20829d6d7733": "https://atlas.cs.brown.edu/data/gutenberg/5/"
+  },
+  {
+    "68eddc5b20829d6d7733": "https://atlas.cs.brown.edu/data/gutenberg/5/"
+  },
+  {
+    "68eddc5b20829d6d7733": "https://atlas.cs.brown.edu/data/gutenberg/5/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "8a4beb3ffc19cb5e71b6": "https://atlas.cs.brown.edu/data/gutenberg/5/0/"
+  },
+  {
+    "fb10a07e5b4315584079": "https://atlas.cs.brown.edu/data/gutenberg/5/1/"
+  },
+  {
+    "6cb2470169d80ec706af": "https://atlas.cs.brown.edu/data/gutenberg/5/2/"
+  },
+  {
+    "6ff6143614d58a791429": "https://atlas.cs.brown.edu/data/gutenberg/5/3/"
+  },
+  {
+    "0c119db9821fb75bf9ee": "https://atlas.cs.brown.edu/data/gutenberg/5/4/"
+  },
+  {
+    "70169f86d65d89b7062c": "https://atlas.cs.brown.edu/data/gutenberg/5/5/"
+  },
+  {
+    "fefaa542d66175ef6fde": "https://atlas.cs.brown.edu/data/gutenberg/5/8/"
+  },
+  {
+    "888526dbcce45f1c2cc5": "https://atlas.cs.brown.edu/data/gutenberg/5/9/"
+  },
+  {
+    "76047b9950eac729d7cd": "https://atlas.cs.brown.edu/data/gutenberg/5/50/"
+  },
+  {
+    "85349c43f083d3189e2e": "https://atlas.cs.brown.edu/data/gutenberg/5/51/"
+  },
+  {
+    "74e10073b4b323ae4781": "https://atlas.cs.brown.edu/data/gutenberg/5/52/"
+  },
+  {
+    "89ea75c7fb6d095f8cde": "https://atlas.cs.brown.edu/data/gutenberg/5/54/"
+  },
+  {
+    "8aaae304fdaebe751cc2": "https://atlas.cs.brown.edu/data/gutenberg/5/57/"
+  },
+  {
+    "58db95013db808870c4c": "https://atlas.cs.brown.edu/data/gutenberg/5/58/"
+  },
+  {
+    "497773b29131e54ca0eb": "https://atlas.cs.brown.edu/data/gutenberg/5/59/"
+  }
+]
+93959: newUrls.put urls:  [
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '8a4beb3ffc19cb5e71b6': 'https://atlas.cs.brown.edu/data/gutenberg/5/0/'
+  },
+  {
+    fb10a07e5b4315584079: 'https://atlas.cs.brown.edu/data/gutenberg/5/1/'
+  },
+  {
+    '6cb2470169d80ec706af': 'https://atlas.cs.brown.edu/data/gutenberg/5/2/'
+  },
+  {
+    '6ff6143614d58a791429': 'https://atlas.cs.brown.edu/data/gutenberg/5/3/'
+  },
+  {
+    '0c119db9821fb75bf9ee': 'https://atlas.cs.brown.edu/data/gutenberg/5/4/'
+  },
+  {
+    '70169f86d65d89b7062c': 'https://atlas.cs.brown.edu/data/gutenberg/5/5/'
+  },
+  {
+    fefaa542d66175ef6fde: 'https://atlas.cs.brown.edu/data/gutenberg/5/8/'
+  },
+  {
+    '888526dbcce45f1c2cc5': 'https://atlas.cs.brown.edu/data/gutenberg/5/9/'
+  },
+  {
+    '76047b9950eac729d7cd': 'https://atlas.cs.brown.edu/data/gutenberg/5/50/'
+  },
+  {
+    '85349c43f083d3189e2e': 'https://atlas.cs.brown.edu/data/gutenberg/5/51/'
+  },
+  {
+    '74e10073b4b323ae4781': 'https://atlas.cs.brown.edu/data/gutenberg/5/52/'
+  },
+  {
+    '89ea75c7fb6d095f8cde': 'https://atlas.cs.brown.edu/data/gutenberg/5/54/'
+  },
+  {
+    '8aaae304fdaebe751cc2': 'https://atlas.cs.brown.edu/data/gutenberg/5/57/'
+  },
+  {
+    '58db95013db808870c4c': 'https://atlas.cs.brown.edu/data/gutenberg/5/58/'
+  },
+  {
+    '497773b29131e54ca0eb': 'https://atlas.cs.brown.edu/data/gutenberg/5/59/'
+  }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "d1b7e4abe20fb3456700": "https://atlas.cs.brown.edu/data/gutenberg/5/6/"
+  },
+  {
+    "14ab9246142c0659edb7": "https://atlas.cs.brown.edu/data/gutenberg/5/7/"
+  },
+  {
+    "d8a526bd07161531653a": "https://atlas.cs.brown.edu/data/gutenberg/5/56/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Sending to newUrls.put: [
+  {
+    "e4e2f11bd8463f92aa4f": "https://atlas.cs.brown.edu/data/gutenberg/5/53/"
+  },
+  {
+    "e6d1508f4f343aa6338e": "https://atlas.cs.brown.edu/data/gutenberg/5/55/"
+  }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+e0854: newUrls.put urls:  [
+  {
+    d1b7e4abe20fb3456700: 'https://atlas.cs.brown.edu/data/gutenberg/5/6/'
+  },
+  {
+    '14ab9246142c0659edb7': 'https://atlas.cs.brown.edu/data/gutenberg/5/7/'
+  },
+  {
+    d8a526bd07161531653a: 'https://atlas.cs.brown.edu/data/gutenberg/5/56/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+count reached
+ef47f: newUrls.put urls:  [
+  {
+    e4e2f11bd8463f92aa4f: 'https://atlas.cs.brown.edu/data/gutenberg/5/53/'
+  },
+  {
+    e6d1508f4f343aa6338e: 'https://atlas.cs.brown.edu/data/gutenberg/5/55/'
+  }
+]
+count reached
+localKeyCounts: 7
+localKeys.length: 1
+Sending to newUrls.put: [
+  {
+    "6037210139c526ef49f9": "https://atlas.cs.brown.edu/data/gutenberg/6/"
+  },
+  {
+    "6037210139c526ef49f9": "https://atlas.cs.brown.edu/data/gutenberg/6/"
+  },
+  {
+    "6037210139c526ef49f9": "https://atlas.cs.brown.edu/data/gutenberg/6/"
+  },
+  {
+    "6037210139c526ef49f9": "https://atlas.cs.brown.edu/data/gutenberg/6/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "1c87064283a3cccb5346": "https://atlas.cs.brown.edu/data/gutenberg/6/0/"
+  },
+  {
+    "8e11c7bcfcb60b001506": "https://atlas.cs.brown.edu/data/gutenberg/6/1/"
+  },
+  {
+    "f3124b34da8a4ee5e86e": "https://atlas.cs.brown.edu/data/gutenberg/6/2/"
+  },
+  {
+    "6f09b598ec6f040487e6": "https://atlas.cs.brown.edu/data/gutenberg/6/3/"
+  },
+  {
+    "63baaa771a9c1a9cac47": "https://atlas.cs.brown.edu/data/gutenberg/6/5/"
+  },
+  {
+    "2b2af8ec5c5c4bdaada6": "https://atlas.cs.brown.edu/data/gutenberg/6/6/"
+  },
+  {
+    "9242b3d8dc0f154e7be1": "https://atlas.cs.brown.edu/data/gutenberg/6/8/"
+  },
+  {
+    "67fe394442576f0b8dcf": "https://atlas.cs.brown.edu/data/gutenberg/6/60/"
+  },
+  {
+    "7cd3d988912218167503": "https://atlas.cs.brown.edu/data/gutenberg/6/62/"
+  },
+  {
+    "6144557df45644e04936": "https://atlas.cs.brown.edu/data/gutenberg/6/63/"
+  },
+  {
+    "f1cc60e636904d07bb9d": "https://atlas.cs.brown.edu/data/gutenberg/6/64/"
+  },
+  {
+    "348c2ab411c0744f4230": "https://atlas.cs.brown.edu/data/gutenberg/6/65/"
+  },
+  {
+    "8f1f060148862b771103": "https://atlas.cs.brown.edu/data/gutenberg/6/67/"
+  },
+  {
+    "39c750f17d58725a2aa4": "https://atlas.cs.brown.edu/data/gutenberg/6/68/"
+  }
+]
+93959: newUrls.put urls:  [
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '1c87064283a3cccb5346': 'https://atlas.cs.brown.edu/data/gutenberg/6/0/'
+  },
+  {
+    '8e11c7bcfcb60b001506': 'https://atlas.cs.brown.edu/data/gutenberg/6/1/'
+  },
+  {
+    f3124b34da8a4ee5e86e: 'https://atlas.cs.brown.edu/data/gutenberg/6/2/'
+  },
+  {
+    '6f09b598ec6f040487e6': 'https://atlas.cs.brown.edu/data/gutenberg/6/3/'
+  },
+  {
+    '63baaa771a9c1a9cac47': 'https://atlas.cs.brown.edu/data/gutenberg/6/5/'
+  },
+  {
+    '2b2af8ec5c5c4bdaada6': 'https://atlas.cs.brown.edu/data/gutenberg/6/6/'
+  },
+  {
+    '9242b3d8dc0f154e7be1': 'https://atlas.cs.brown.edu/data/gutenberg/6/8/'
+  },
+  {
+    '67fe394442576f0b8dcf': 'https://atlas.cs.brown.edu/data/gutenberg/6/60/'
+  },
+  {
+    '7cd3d988912218167503': 'https://atlas.cs.brown.edu/data/gutenberg/6/62/'
+  },
+  {
+    '6144557df45644e04936': 'https://atlas.cs.brown.edu/data/gutenberg/6/63/'
+  },
+  {
+    f1cc60e636904d07bb9d: 'https://atlas.cs.brown.edu/data/gutenberg/6/64/'
+  },
+  {
+    '348c2ab411c0744f4230': 'https://atlas.cs.brown.edu/data/gutenberg/6/65/'
+  },
+  {
+    '8f1f060148862b771103': 'https://atlas.cs.brown.edu/data/gutenberg/6/67/'
+  },
+  {
+    '39c750f17d58725a2aa4': 'https://atlas.cs.brown.edu/data/gutenberg/6/68/'
+  }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "16e68b189f5e7bd49c65": "https://atlas.cs.brown.edu/data/gutenberg/6/4/"
+  }
+]
+Sending to newUrls.put: [
+  {
+    "a63163764a12fa73728d": "https://atlas.cs.brown.edu/data/gutenberg/6/7/"
+  },
+  {
+    "110c7885d89bae60f982": "https://atlas.cs.brown.edu/data/gutenberg/6/9/"
+  },
+  {
+    "d6b8e35dd48702eb8d58": "https://atlas.cs.brown.edu/data/gutenberg/6/61/"
+  },
+  {
+    "c292199b1c9b3dbc3cb4": "https://atlas.cs.brown.edu/data/gutenberg/6/66/"
+  },
+  {
+    "d99ffff1d1c323878379": "https://atlas.cs.brown.edu/data/gutenberg/6/69/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+ef47f: newUrls.put urls:  [
+  {
+    '16e68b189f5e7bd49c65': 'https://atlas.cs.brown.edu/data/gutenberg/6/4/'
+  }
+]
+count reached
+e0854: newUrls.put urls:  [
+  {
+    a63163764a12fa73728d: 'https://atlas.cs.brown.edu/data/gutenberg/6/7/'
+  },
+  {
+    '110c7885d89bae60f982': 'https://atlas.cs.brown.edu/data/gutenberg/6/9/'
+  },
+  {
+    d6b8e35dd48702eb8d58: 'https://atlas.cs.brown.edu/data/gutenberg/6/61/'
+  },
+  {
+    c292199b1c9b3dbc3cb4: 'https://atlas.cs.brown.edu/data/gutenberg/6/66/'
+  },
+  {
+    d99ffff1d1c323878379: 'https://atlas.cs.brown.edu/data/gutenberg/6/69/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+count reached
+localKeyCounts: 8
+localKeys.length: 1
+Sending to newUrls.put: [
+  {
+    "4021fb37a69eac4be360": "https://atlas.cs.brown.edu/data/gutenberg/7/"
+  },
+  {
+    "4021fb37a69eac4be360": "https://atlas.cs.brown.edu/data/gutenberg/7/"
+  },
+  {
+    "4021fb37a69eac4be360": "https://atlas.cs.brown.edu/data/gutenberg/7/"
+  },
+  {
+    "4021fb37a69eac4be360": "https://atlas.cs.brown.edu/data/gutenberg/7/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "2e534a4eb1521b23af36": "https://atlas.cs.brown.edu/data/gutenberg/7/0/"
+  },
+  {
+    "f9c9712304dd53e755e6": "https://atlas.cs.brown.edu/data/gutenberg/7/3/"
+  },
+  {
+    "5ae54f40fa557e1419c6": "https://atlas.cs.brown.edu/data/gutenberg/7/4/"
+  },
+  {
+    "f32893f7d2a11d0f0178": "https://atlas.cs.brown.edu/data/gutenberg/7/5/"
+  },
+  {
+    "42a4b4135e344e337051": "https://atlas.cs.brown.edu/data/gutenberg/7/6/"
+  },
+  {
+    "2bd172ecaf964c63d8d5": "https://atlas.cs.brown.edu/data/gutenberg/7/8/"
+  },
+  {
+    "f383ee8cb82f38e86004": "https://atlas.cs.brown.edu/data/gutenberg/7/9/"
+  },
+  {
+    "5f349e8f530bbd781a2b": "https://atlas.cs.brown.edu/data/gutenberg/7/70/"
+  },
+  {
+    "62c7a938bac457246c29": "https://atlas.cs.brown.edu/data/gutenberg/7/71/"
+  },
+  {
+    "7937f7acead126b3ccd9": "https://atlas.cs.brown.edu/data/gutenberg/7/73/"
+  },
+  {
+    "fb85ac250b7cdaa933c3": "https://atlas.cs.brown.edu/data/gutenberg/7/74/"
+  },
+  {
+    "81756cc2025b3cef0052": "https://atlas.cs.brown.edu/data/gutenberg/7/75/"
+  },
+  {
+    "4db330d1fa4874b6af54": "https://atlas.cs.brown.edu/data/gutenberg/7/77/"
+  }
+]
+93959: newUrls.put urls:  [
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '2e534a4eb1521b23af36': 'https://atlas.cs.brown.edu/data/gutenberg/7/0/'
+  },
+  {
+    f9c9712304dd53e755e6: 'https://atlas.cs.brown.edu/data/gutenberg/7/3/'
+  },
+  {
+    '5ae54f40fa557e1419c6': 'https://atlas.cs.brown.edu/data/gutenberg/7/4/'
+  },
+  {
+    f32893f7d2a11d0f0178: 'https://atlas.cs.brown.edu/data/gutenberg/7/5/'
+  },
+  {
+    '42a4b4135e344e337051': 'https://atlas.cs.brown.edu/data/gutenberg/7/6/'
+  },
+  {
+    '2bd172ecaf964c63d8d5': 'https://atlas.cs.brown.edu/data/gutenberg/7/8/'
+  },
+  {
+    f383ee8cb82f38e86004: 'https://atlas.cs.brown.edu/data/gutenberg/7/9/'
+  },
+  {
+    '5f349e8f530bbd781a2b': 'https://atlas.cs.brown.edu/data/gutenberg/7/70/'
+  },
+  {
+    '62c7a938bac457246c29': 'https://atlas.cs.brown.edu/data/gutenberg/7/71/'
+  },
+  {
+    '7937f7acead126b3ccd9': 'https://atlas.cs.brown.edu/data/gutenberg/7/73/'
+  },
+  {
+    fb85ac250b7cdaa933c3: 'https://atlas.cs.brown.edu/data/gutenberg/7/74/'
+  },
+  {
+    '81756cc2025b3cef0052': 'https://atlas.cs.brown.edu/data/gutenberg/7/75/'
+  },
+  {
+    '4db330d1fa4874b6af54': 'https://atlas.cs.brown.edu/data/gutenberg/7/77/'
+  }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "ef35b0a296b14c1804b3": "https://atlas.cs.brown.edu/data/gutenberg/7/1/"
+  }
+]
+Sending to newUrls.put: [
+  {
+    "bdb09342f6fb44fc81a8": "https://atlas.cs.brown.edu/data/gutenberg/7/2/"
+  },
+  {
+    "d0d60a68f184b0bc8989": "https://atlas.cs.brown.edu/data/gutenberg/7/7/"
+  },
+  {
+    "ba34011ca0b65bc8b317": "https://atlas.cs.brown.edu/data/gutenberg/7/72/"
+  },
+  {
+    "9feee2dc4cb11ea9691f": "https://atlas.cs.brown.edu/data/gutenberg/7/76/"
+  },
+  {
+    "16039ecb815d37320a2a": "https://atlas.cs.brown.edu/data/gutenberg/7/78/"
+  },
+  {
+    "df81d07e06cf9fbd1348": "https://atlas.cs.brown.edu/data/gutenberg/7/79/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+e0854: newUrls.put urls:  [
+  {
+    bdb09342f6fb44fc81a8: 'https://atlas.cs.brown.edu/data/gutenberg/7/2/'
+  },
+  {
+    d0d60a68f184b0bc8989: 'https://atlas.cs.brown.edu/data/gutenberg/7/7/'
+  },
+  {
+    ba34011ca0b65bc8b317: 'https://atlas.cs.brown.edu/data/gutenberg/7/72/'
+  },
+  {
+    '9feee2dc4cb11ea9691f': 'https://atlas.cs.brown.edu/data/gutenberg/7/76/'
+  },
+  {
+    '16039ecb815d37320a2a': 'https://atlas.cs.brown.edu/data/gutenberg/7/78/'
+  },
+  {
+    df81d07e06cf9fbd1348: 'https://atlas.cs.brown.edu/data/gutenberg/7/79/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+count reached
+ef47f: newUrls.put urls:  [
+  {
+    ef35b0a296b14c1804b3: 'https://atlas.cs.brown.edu/data/gutenberg/7/1/'
+  }
+]
+count reached
+localKeyCounts: 9
+localKeys.length: 1
+Sending to newUrls.put: [
+  {
+    "2e1ac8b38cc3bc34874b": "https://atlas.cs.brown.edu/data/gutenberg/8/"
+  },
+  {
+    "2e1ac8b38cc3bc34874b": "https://atlas.cs.brown.edu/data/gutenberg/8/"
+  },
+  {
+    "2e1ac8b38cc3bc34874b": "https://atlas.cs.brown.edu/data/gutenberg/8/"
+  },
+  {
+    "2e1ac8b38cc3bc34874b": "https://atlas.cs.brown.edu/data/gutenberg/8/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "7c3ce0c9391e34741509": "https://atlas.cs.brown.edu/data/gutenberg/8/1/"
+  },
+  {
+    "3b4671d0c8957b57e704": "https://atlas.cs.brown.edu/data/gutenberg/8/2/"
+  },
+  {
+    "faef51c99e6e4142f8c4": "https://atlas.cs.brown.edu/data/gutenberg/8/3/"
+  },
+  {
+    "f50520d674e8d490f51c": "https://atlas.cs.brown.edu/data/gutenberg/8/4/"
+  },
+  {
+    "f3a8b3b99af2b1c5bc84": "https://atlas.cs.brown.edu/data/gutenberg/8/5/"
+  },
+  {
+    "6e971b931f8f5f3e29d7": "https://atlas.cs.brown.edu/data/gutenberg/8/6/"
+  },
+  {
+    "20e576732acb12ff1e60": "https://atlas.cs.brown.edu/data/gutenberg/8/8/"
+  },
+  {
+    "0778de00c493b5f92f74": "https://atlas.cs.brown.edu/data/gutenberg/8/9/"
+  },
+  {
+    "4f3176071090e0993ce5": "https://atlas.cs.brown.edu/data/gutenberg/8/82/"
+  },
+  {
+    "4ab45f2958d55e5f4636": "https://atlas.cs.brown.edu/data/gutenberg/8/83/"
+  },
+  {
+    "77f66e27b1e87ebb272a": "https://atlas.cs.brown.edu/data/gutenberg/8/85/"
+  },
+  {
+    "658d0f10ccf9ae1c3b95": "https://atlas.cs.brown.edu/data/gutenberg/8/86/"
+  },
+  {
+    "f6b7ca3822c2bd94e941": "https://atlas.cs.brown.edu/data/gutenberg/8/88/"
+  }
+]
+93959: newUrls.put urls:  [
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '7c3ce0c9391e34741509': 'https://atlas.cs.brown.edu/data/gutenberg/8/1/'
+  },
+  {
+    '3b4671d0c8957b57e704': 'https://atlas.cs.brown.edu/data/gutenberg/8/2/'
+  },
+  {
+    faef51c99e6e4142f8c4: 'https://atlas.cs.brown.edu/data/gutenberg/8/3/'
+  },
+  {
+    f50520d674e8d490f51c: 'https://atlas.cs.brown.edu/data/gutenberg/8/4/'
+  },
+  {
+    f3a8b3b99af2b1c5bc84: 'https://atlas.cs.brown.edu/data/gutenberg/8/5/'
+  },
+  {
+    '6e971b931f8f5f3e29d7': 'https://atlas.cs.brown.edu/data/gutenberg/8/6/'
+  },
+  {
+    '20e576732acb12ff1e60': 'https://atlas.cs.brown.edu/data/gutenberg/8/8/'
+  },
+  {
+    '0778de00c493b5f92f74': 'https://atlas.cs.brown.edu/data/gutenberg/8/9/'
+  },
+  {
+    '4f3176071090e0993ce5': 'https://atlas.cs.brown.edu/data/gutenberg/8/82/'
+  },
+  {
+    '4ab45f2958d55e5f4636': 'https://atlas.cs.brown.edu/data/gutenberg/8/83/'
+  },
+  {
+    '77f66e27b1e87ebb272a': 'https://atlas.cs.brown.edu/data/gutenberg/8/85/'
+  },
+  {
+    '658d0f10ccf9ae1c3b95': 'https://atlas.cs.brown.edu/data/gutenberg/8/86/'
+  },
+  {
+    f6b7ca3822c2bd94e941: 'https://atlas.cs.brown.edu/data/gutenberg/8/88/'
+  }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "cc3f68d697c23eb1ee3d": "https://atlas.cs.brown.edu/data/gutenberg/8/0/"
+  },
+  {
+    "1628e7d11b5b5918a1eb": "https://atlas.cs.brown.edu/data/gutenberg/8/80/"
+  },
+  {
+    "11ac52a53fc443a18bc0": "https://atlas.cs.brown.edu/data/gutenberg/8/81/"
+  },
+  {
+    "c854ea7fbefd83ac597a": "https://atlas.cs.brown.edu/data/gutenberg/8/84/"
+  },
+  {
+    "a6e0b9458fb5721bdd3f": "https://atlas.cs.brown.edu/data/gutenberg/8/89/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Sending to newUrls.put: [
+  {
+    "e6076005e6c2ef74aa76": "https://atlas.cs.brown.edu/data/gutenberg/8/7/"
+  },
+  {
+    "e47ca8c0b06d6b67a74b": "https://atlas.cs.brown.edu/data/gutenberg/8/87/"
+  }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+e0854: newUrls.put urls:  [
+  {
+    cc3f68d697c23eb1ee3d: 'https://atlas.cs.brown.edu/data/gutenberg/8/0/'
+  },
+  {
+    '1628e7d11b5b5918a1eb': 'https://atlas.cs.brown.edu/data/gutenberg/8/80/'
+  },
+  {
+    '11ac52a53fc443a18bc0': 'https://atlas.cs.brown.edu/data/gutenberg/8/81/'
+  },
+  {
+    c854ea7fbefd83ac597a: 'https://atlas.cs.brown.edu/data/gutenberg/8/84/'
+  },
+  {
+    a6e0b9458fb5721bdd3f: 'https://atlas.cs.brown.edu/data/gutenberg/8/89/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+ef47f: newUrls.put urls:  [
+  {
+    e6076005e6c2ef74aa76: 'https://atlas.cs.brown.edu/data/gutenberg/8/7/'
+  },
+  {
+    e47ca8c0b06d6b67a74b: 'https://atlas.cs.brown.edu/data/gutenberg/8/87/'
+  }
+]
+count reached
+count reached
+localKeyCounts: 10
+localKeys.length: 1
+Sending to newUrls.put: [
+  {
+    "87b8251b60a5236986ee": "https://atlas.cs.brown.edu/data/gutenberg/9/"
+  },
+  {
+    "87b8251b60a5236986ee": "https://atlas.cs.brown.edu/data/gutenberg/9/"
+  },
+  {
+    "87b8251b60a5236986ee": "https://atlas.cs.brown.edu/data/gutenberg/9/"
+  },
+  {
+    "87b8251b60a5236986ee": "https://atlas.cs.brown.edu/data/gutenberg/9/"
+  },
+  {
+    "24d40372efa1cfc87c6d": "https://atlas.cs.brown.edu/data/gutenberg/"
+  },
+  {
+    "012b0beb76e95df95068": "https://atlas.cs.brown.edu/data/gutenberg/9/0/"
+  },
+  {
+    "213184d63aedd588a422": "https://atlas.cs.brown.edu/data/gutenberg/9/1/"
+  },
+  {
+    "550b0ee6405498cd39f5": "https://atlas.cs.brown.edu/data/gutenberg/9/2/"
+  },
+  {
+    "907efd30c3a09cd0b14a": "https://atlas.cs.brown.edu/data/gutenberg/9/3/"
+  },
+  {
+    "38fc380c97e4f69c5d81": "https://atlas.cs.brown.edu/data/gutenberg/9/4/"
+  },
+  {
+    "3c5aea115a6c227658f7": "https://atlas.cs.brown.edu/data/gutenberg/9/5/"
+  },
+  {
+    "91953d29b88ab3f633fc": "https://atlas.cs.brown.edu/data/gutenberg/9/90/"
+  },
+  {
+    "fd066cbc8f7daf35d65f": "https://atlas.cs.brown.edu/data/gutenberg/9/91/"
+  },
+  {
+    "42a79f7b45dc3f31a124": "https://atlas.cs.brown.edu/data/gutenberg/9/92/"
+  },
+  {
+    "0d2f4f12d925ee7b5ff5": "https://atlas.cs.brown.edu/data/gutenberg/9/93/"
+  },
+  {
+    "7b616482e1fedb131eea": "https://atlas.cs.brown.edu/data/gutenberg/9/94/"
+  },
+  {
+    "56f4d4bec71ac2085b55": "https://atlas.cs.brown.edu/data/gutenberg/9/95/"
+  },
+  {
+    "5a7a5b553a4b7d0a9bc3": "https://atlas.cs.brown.edu/data/gutenberg/9/97/"
+  },
+  {
+    "4c8e59ccb4dad0e0090a": "https://atlas.cs.brown.edu/data/gutenberg/9/98/"
+  }
+]
+93959: newUrls.put urls:  [
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '012b0beb76e95df95068': 'https://atlas.cs.brown.edu/data/gutenberg/9/0/'
+  },
+  {
+    '213184d63aedd588a422': 'https://atlas.cs.brown.edu/data/gutenberg/9/1/'
+  },
+  {
+    '550b0ee6405498cd39f5': 'https://atlas.cs.brown.edu/data/gutenberg/9/2/'
+  },
+  {
+    '907efd30c3a09cd0b14a': 'https://atlas.cs.brown.edu/data/gutenberg/9/3/'
+  },
+  {
+    '38fc380c97e4f69c5d81': 'https://atlas.cs.brown.edu/data/gutenberg/9/4/'
+  },
+  {
+    '3c5aea115a6c227658f7': 'https://atlas.cs.brown.edu/data/gutenberg/9/5/'
+  },
+  {
+    '91953d29b88ab3f633fc': 'https://atlas.cs.brown.edu/data/gutenberg/9/90/'
+  },
+  {
+    fd066cbc8f7daf35d65f: 'https://atlas.cs.brown.edu/data/gutenberg/9/91/'
+  },
+  {
+    '42a79f7b45dc3f31a124': 'https://atlas.cs.brown.edu/data/gutenberg/9/92/'
+  },
+  {
+    '0d2f4f12d925ee7b5ff5': 'https://atlas.cs.brown.edu/data/gutenberg/9/93/'
+  },
+  {
+    '7b616482e1fedb131eea': 'https://atlas.cs.brown.edu/data/gutenberg/9/94/'
+  },
+  {
+    '56f4d4bec71ac2085b55': 'https://atlas.cs.brown.edu/data/gutenberg/9/95/'
+  },
+  {
+    '5a7a5b553a4b7d0a9bc3': 'https://atlas.cs.brown.edu/data/gutenberg/9/97/'
+  },
+  {
+    '4c8e59ccb4dad0e0090a': 'https://atlas.cs.brown.edu/data/gutenberg/9/98/'
+  }
+]
+count reached
+Sending to newUrls.put: [
+  {
+    "baf8d2498c39b0c1e35a": "https://atlas.cs.brown.edu/data/gutenberg/9/6/"
+  },
+  {
+    "9bb424f5818f48dca191": "https://atlas.cs.brown.edu/data/gutenberg/9/7/"
+  },
+  {
+    "d0e15a8c58cb4386ac95": "https://atlas.cs.brown.edu/data/gutenberg/9/8/"
+  },
+  {
+    "b77daf631b2812779ea6": "https://atlas.cs.brown.edu/data/gutenberg/9/9/"
+  },
+  {
+    "ac7b395a9620ee7fdd60": "https://atlas.cs.brown.edu/data/gutenberg/9/96/"
+  },
+  {
+    "aad2ac1e84cfddb36302": "https://atlas.cs.brown.edu/data/gutenberg/9/99/"
+  },
+  {
+    "12ae32cb1ec02d01eda3": ""
+  }
+]
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+e0854: newUrls.put urls:  [
+  {
+    baf8d2498c39b0c1e35a: 'https://atlas.cs.brown.edu/data/gutenberg/9/6/'
+  },
+  {
+    '9bb424f5818f48dca191': 'https://atlas.cs.brown.edu/data/gutenberg/9/7/'
+  },
+  {
+    d0e15a8c58cb4386ac95: 'https://atlas.cs.brown.edu/data/gutenberg/9/8/'
+  },
+  {
+    b77daf631b2812779ea6: 'https://atlas.cs.brown.edu/data/gutenberg/9/9/'
+  },
+  {
+    ac7b395a9620ee7fdd60: 'https://atlas.cs.brown.edu/data/gutenberg/9/96/'
+  },
+  {
+    aad2ac1e84cfddb36302: 'https://atlas.cs.brown.edu/data/gutenberg/9/99/'
+  },
+  { '12ae32cb1ec02d01eda3': '' }
+]
+count reached
+localKeyCounts: 11
+localKeys.length: 1
+93959: newUrls.put urls:  [
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '07e6dfb5a23e02cd018c': 'https://atlas.cs.brown.edu/data/gutenberg/3/0/'
+  },
+  {
+    '558309a097cfbd23560c': 'https://atlas.cs.brown.edu/data/gutenberg/3/1/'
+  },
+  {
+    '652c1f420976ff189c8b': 'https://atlas.cs.brown.edu/data/gutenberg/3/6/'
+  },
+  {
+    '214a822de89d054f424e': 'https://atlas.cs.brown.edu/data/gutenberg/3/7/'
+  },
+  {
+    '792e6ea54bf08ee46cba': 'https://atlas.cs.brown.edu/data/gutenberg/3/8/'
+  },
+  {
+    '363d3cd828af65ac09c0': 'https://atlas.cs.brown.edu/data/gutenberg/3/33/'
+  },
+  {
+    ff2c94e76c3e6d100081: 'https://atlas.cs.brown.edu/data/gutenberg/3/35/'
+  },
+  {
+    '37ff10c18a888ef2e8a0': 'https://atlas.cs.brown.edu/data/gutenberg/3/36/'
+  },
+  {
+    '0657661a6d22ca173a78': 'https://atlas.cs.brown.edu/data/gutenberg/3/37/'
+  }
+]
+count reached
+93959: newUrls.put urls:  [
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  { '79ccb7a2844283d086a5': 'https://atlas.cs.brown.edu/data/' },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '23410ae4cf70ee0ee0d2': 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  }
+]
+count reached
+93959: newUrls.put urls:  [
+  {
+    'aaard txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aaard txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    aaard: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aacom txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    aacom: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aafrm txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aafrm txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    aafrm: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aareadm txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    aareadm: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aarn txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aarnd readm txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aarnd readm': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aarnd txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    aarnd: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aaso txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aaso txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'ab txt pgwab': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'ab txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    ab: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abam txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abam txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abam: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abbnw txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abbnw txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abbot txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abbot txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abchr txt abchr': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abchr txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abchr txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abel txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abel: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abft txt abft': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abft txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abgh txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abgh txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abgh: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abhf txt abhf': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abhf: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abko txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abko txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abomb readm txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abomb txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abomb: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aboyr txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    aboyr: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abpt txt abpt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abpt txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abpt: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abreadm txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abridg txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'abridg txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    abridg: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aca txt txt': {
+      freq: 3,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'aca txt': {
+      freq: 3,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    aca: {
+      freq: 3,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'accrc txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'acdhb txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'acdhb txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'achar txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    achar: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'acho readm txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'acho txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    acho: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    achr: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'acrdi txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'acrdi txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'acro txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    acro: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'act txt come': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'act txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'actr txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'acw txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    acw: {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adam txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    adam: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adamb readm txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adamb readm': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adamb txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adamb txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adi txt adi': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adi txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adieu txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adjut txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adlf txt': {
+      freq: 2,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adlr txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adlr txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    adlr: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adolph txt irish': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adotl txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    adotl: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adpap txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adpap txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adpo txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    adpo: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adrwn txt txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'adrwn txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'advbk txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    advbk: {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  {
+    'advjd txt': {
+      freq: 1,
+      url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+    }
+  },
+  ... 9210 more items
+]
+count reached
+Promise resolved! Going to rest of the stuff; [
+  { '[object Object]': null },
+  { '[object Object]': null },
+  { '[object Object]': null }
+]
+outMappings.length: 3
+localKeyCounts: 12
+localKeys.length: 1
+done going through all the keys; bye!
+DONE MAPPING!
+count reached
+[MR ITERATION] Count: 5144
+ef47f: getAll result:  {
+  e71890ee407776518c69: 'https://atlas.cs.brown.edu/data/gutenberg',
+  ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/',
+  e1f22b459e453c621bc9: 'https://atlas.cs.brown.edu/data/gutenberg/3/4/',
+  eb5c306092daee3f0c66: 'https://atlas.cs.brown.edu/data/gutenberg/3/30/',
+  e58523a2bdc5f910b0c1: 'https://atlas.cs.brown.edu/data/gutenberg/3/39/',
+  e49a5b40feeb4ce735a5: 'https://atlas.cs.brown.edu/data/gutenberg/1/13/',
+  e82010edfd042d2523bb: 'https://atlas.cs.brown.edu/data/gutenberg/1/15/',
+  e10b345bf5d4ec7dec72: 'https://atlas.cs.brown.edu/data/gutenberg/2/26/',
+  e4e2f11bd8463f92aa4f: 'https://atlas.cs.brown.edu/data/gutenberg/5/53/',
+  e6d1508f4f343aa6338e: 'https://atlas.cs.brown.edu/data/gutenberg/5/55/',
+  '16e68b189f5e7bd49c65': 'https://atlas.cs.brown.edu/data/gutenberg/6/4/',
+  ef35b0a296b14c1804b3: 'https://atlas.cs.brown.edu/data/gutenberg/7/1/',
+  e6076005e6c2ef74aa76: 'https://atlas.cs.brown.edu/data/gutenberg/8/7/',
+  e47ca8c0b06d6b67a74b: 'https://atlas.cs.brown.edu/data/gutenberg/8/87/'
+}
+e0854: getAll result:  {
+  a84825a47165f38b9994: { a84825a47165f38b9994: '[object Object]' },
+  '12ae32cb1ec02d01eda3': { '12ae32cb1ec02d01eda3': '' }
+}
+e0854: result from newUrls get: [
+  { a84825a47165f38b9994: { a84825a47165f38b9994: '[object Object]' } },
+  { '12ae32cb1ec02d01eda3': { '12ae32cb1ec02d01eda3': '' } }
+]
+e0854: execMap is called with:  a84825a47165f38b9994 { a84825a47165f38b9994: '[object Object]' }
+e0854: Object.keys(obj), Object.values(obj):  [ 'a84825a47165f38b9994' ] [ { a84825a47165f38b9994: '[object Object]' } ]
+ef47f: result from newUrls get: [
+  { e71890ee407776518c69: 'https://atlas.cs.brown.edu/data/gutenberg' },
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  },
+  {
+    e1f22b459e453c621bc9: 'https://atlas.cs.brown.edu/data/gutenberg/3/4/'
+  },
+  {
+    eb5c306092daee3f0c66: 'https://atlas.cs.brown.edu/data/gutenberg/3/30/'
+  },
+  {
+    e58523a2bdc5f910b0c1: 'https://atlas.cs.brown.edu/data/gutenberg/3/39/'
+  },
+  {
+    e49a5b40feeb4ce735a5: 'https://atlas.cs.brown.edu/data/gutenberg/1/13/'
+  },
+  {
+    e82010edfd042d2523bb: 'https://atlas.cs.brown.edu/data/gutenberg/1/15/'
+  },
+  {
+    e10b345bf5d4ec7dec72: 'https://atlas.cs.brown.edu/data/gutenberg/2/26/'
+  },
+  {
+    e4e2f11bd8463f92aa4f: 'https://atlas.cs.brown.edu/data/gutenberg/5/53/'
+  },
+  {
+    e6d1508f4f343aa6338e: 'https://atlas.cs.brown.edu/data/gutenberg/5/55/'
+  },
+  {
+    '16e68b189f5e7bd49c65': 'https://atlas.cs.brown.edu/data/gutenberg/6/4/'
+  },
+  {
+    ef35b0a296b14c1804b3: 'https://atlas.cs.brown.edu/data/gutenberg/7/1/'
+  },
+  {
+    e6076005e6c2ef74aa76: 'https://atlas.cs.brown.edu/data/gutenberg/8/7/'
+  },
+  {
+    e47ca8c0b06d6b67a74b: 'https://atlas.cs.brown.edu/data/gutenberg/8/87/'
+  }
+]
+ef47f: execMap is called with:  e71890ee407776518c69 https://atlas.cs.brown.edu/data/gutenberg
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e71890ee407776518c69' ] [ 'https://atlas.cs.brown.edu/data/gutenberg' ]
+93959: getAll result:  {
+  '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/',
+  '79ccb7a2844283d086a5': 'https://atlas.cs.brown.edu/data/',
+  '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/',
+  '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/',
+  '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/',
+  '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/',
+  '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/',
+  '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/',
+  '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/',
+  '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/',
+  '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/',
+  '23410ae4cf70ee0ee0d2': 'https://atlas.cs.brown.edu/data/gutenberg/books.txt',
+  '37af9f09ecf8cdcb801b': 'https://atlas.cs.brown.edu/data/gutenberg/retired/etext05/',
+  fad3b6c68a4528df9103: 'https://atlas.cs.brown.edu/data/gutenberg/0/4/',
+  '0060c41bdc9889e5292a': 'https://atlas.cs.brown.edu/data/gutenberg/0/7/',
+  '8d97cf0504dff47195a5': 'https://atlas.cs.brown.edu/data/gutenberg/0/8/',
+  '2719be0ccb98e9251b6a': 'https://atlas.cs.brown.edu/data/gutenberg/0/9/',
+  '18f34994f896b1ff4e9b': 'https://atlas.cs.brown.edu/data/gutenberg/1/0/',
+  '07f604d92f309bbffd63': 'https://atlas.cs.brown.edu/data/gutenberg/1/2/',
+  '60853b42d5bbfe70d9dd': 'https://atlas.cs.brown.edu/data/gutenberg/1/7/',
+  '74bd467fa010950f93de': 'https://atlas.cs.brown.edu/data/gutenberg/1/8/',
+  '5bdb6476e9567182bdfe': 'https://atlas.cs.brown.edu/data/gutenberg/1/9/',
+  '2a00056b247c7ac7182d': 'https://atlas.cs.brown.edu/data/gutenberg/1/10/',
+  f228a52b88a1d19d3095: 'https://atlas.cs.brown.edu/data/gutenberg/1/11/',
+  '54acd23fc056a4c708e7': 'https://atlas.cs.brown.edu/data/gutenberg/1/14/',
+  '876a21fe1c3630bd1f36': 'https://atlas.cs.brown.edu/data/gutenberg/1/17/',
+  f2a67b1647e70bb10fd8: 'https://atlas.cs.brown.edu/data/gutenberg/1/18/',
+  '0ab5dcfe317800e1af73': 'https://atlas.cs.brown.edu/data/gutenberg/1/19/',
+  fe3f599706f58d4f40bf: 'https://atlas.cs.brown.edu/data/gutenberg/2/1/',
+  '40edd85b9597fe917ad5': 'https://atlas.cs.brown.edu/data/gutenberg/2/2/',
+  '05af6a568eb728afe55f': 'https://atlas.cs.brown.edu/data/gutenberg/2/3/',
+  '0add4df77ac304e1b7bd': 'https://atlas.cs.brown.edu/data/gutenberg/2/4/',
+  '76cf225a4d57b0d42831': 'https://atlas.cs.brown.edu/data/gutenberg/2/5/',
+  '70bf58cddf9e2ba29f21': 'https://atlas.cs.brown.edu/data/gutenberg/2/6/',
+  '912e6cabe664a53e8b47': 'https://atlas.cs.brown.edu/data/gutenberg/2/8/',
+  '92b14f808cc51f25c056': 'https://atlas.cs.brown.edu/data/gutenberg/2/9/',
+  '4a99eda79507f390c309': 'https://atlas.cs.brown.edu/data/gutenberg/2/21/',
+  '899e8392eaaf26415ebb': 'https://atlas.cs.brown.edu/data/gutenberg/2/23/',
+  '6b3258fef07c9c44681c': 'https://atlas.cs.brown.edu/data/gutenberg/2/28/',
+  '8ecb61f5434e15145e1c': 'https://atlas.cs.brown.edu/data/gutenberg/2/29/',
+  '631d18e705a16451ddde': 'https://atlas.cs.brown.edu/data/gutenberg/4/1/',
+  f1fe539454175836cf0b: 'https://atlas.cs.brown.edu/data/gutenberg/4/2/',
+  '28926636a810f2563722': 'https://atlas.cs.brown.edu/data/gutenberg/4/3/',
+  '5a1648b512f8c4e0a8fc': 'https://atlas.cs.brown.edu/data/gutenberg/4/4/',
+  '5f4590b7f406fc6b0b0f': 'https://atlas.cs.brown.edu/data/gutenberg/4/5/',
+  '7f623a3522697c4a36c1': 'https://atlas.cs.brown.edu/data/gutenberg/4/6/',
+  '780c4d7d7fe5ff3e85d9': 'https://atlas.cs.brown.edu/data/gutenberg/4/7/',
+  '2d3643afb057c8eaa307': 'https://atlas.cs.brown.edu/data/gutenberg/4/8/',
+  '1dc1ecd49a22c5ad8e90': 'https://atlas.cs.brown.edu/data/gutenberg/4/41/',
+  '477b4307a7a55ce0e3c1': 'https://atlas.cs.brown.edu/data/gutenberg/4/42/',
+  fc6c7a12dc9c3589c714: 'https://atlas.cs.brown.edu/data/gutenberg/4/43/',
+  '3269ea36c2cd53d10de6': 'https://atlas.cs.brown.edu/data/gutenberg/4/44/',
+  '0b9767d65ba8e3f88d03': 'https://atlas.cs.brown.edu/data/gutenberg/4/46/',
+  '433af42dd4fa486cb189': 'https://atlas.cs.brown.edu/data/gutenberg/4/47/',
+  '0097e81d783d765fc8ba': 'https://atlas.cs.brown.edu/data/gutenberg/4/48/',
+  '8f624f5d73ea47957180': 'https://atlas.cs.brown.edu/data/gutenberg/4/49/',
+  '8a4beb3ffc19cb5e71b6': 'https://atlas.cs.brown.edu/data/gutenberg/5/0/',
+  fb10a07e5b4315584079: 'https://atlas.cs.brown.edu/data/gutenberg/5/1/',
+  '6cb2470169d80ec706af': 'https://atlas.cs.brown.edu/data/gutenberg/5/2/',
+  '6ff6143614d58a791429': 'https://atlas.cs.brown.edu/data/gutenberg/5/3/',
+  '0c119db9821fb75bf9ee': 'https://atlas.cs.brown.edu/data/gutenberg/5/4/',
+  '70169f86d65d89b7062c': 'https://atlas.cs.brown.edu/data/gutenberg/5/5/',
+  fefaa542d66175ef6fde: 'https://atlas.cs.brown.edu/data/gutenberg/5/8/',
+  '888526dbcce45f1c2cc5': 'https://atlas.cs.brown.edu/data/gutenberg/5/9/',
+  '76047b9950eac729d7cd': 'https://atlas.cs.brown.edu/data/gutenberg/5/50/',
+  '85349c43f083d3189e2e': 'https://atlas.cs.brown.edu/data/gutenberg/5/51/',
+  '74e10073b4b323ae4781': 'https://atlas.cs.brown.edu/data/gutenberg/5/52/',
+  '89ea75c7fb6d095f8cde': 'https://atlas.cs.brown.edu/data/gutenberg/5/54/',
+  '8aaae304fdaebe751cc2': 'https://atlas.cs.brown.edu/data/gutenberg/5/57/',
+  '58db95013db808870c4c': 'https://atlas.cs.brown.edu/data/gutenberg/5/58/',
+  '497773b29131e54ca0eb': 'https://atlas.cs.brown.edu/data/gutenberg/5/59/',
+  '1c87064283a3cccb5346': 'https://atlas.cs.brown.edu/data/gutenberg/6/0/',
+  '8e11c7bcfcb60b001506': 'https://atlas.cs.brown.edu/data/gutenberg/6/1/',
+  f3124b34da8a4ee5e86e: 'https://atlas.cs.brown.edu/data/gutenberg/6/2/',
+  '6f09b598ec6f040487e6': 'https://atlas.cs.brown.edu/data/gutenberg/6/3/',
+  '63baaa771a9c1a9cac47': 'https://atlas.cs.brown.edu/data/gutenberg/6/5/',
+  '2b2af8ec5c5c4bdaada6': 'https://atlas.cs.brown.edu/data/gutenberg/6/6/',
+  '9242b3d8dc0f154e7be1': 'https://atlas.cs.brown.edu/data/gutenberg/6/8/',
+  '67fe394442576f0b8dcf': 'https://atlas.cs.brown.edu/data/gutenberg/6/60/',
+  '7cd3d988912218167503': 'https://atlas.cs.brown.edu/data/gutenberg/6/62/',
+  '6144557df45644e04936': 'https://atlas.cs.brown.edu/data/gutenberg/6/63/',
+  f1cc60e636904d07bb9d: 'https://atlas.cs.brown.edu/data/gutenberg/6/64/',
+  '348c2ab411c0744f4230': 'https://atlas.cs.brown.edu/data/gutenberg/6/65/',
+  '8f1f060148862b771103': 'https://atlas.cs.brown.edu/data/gutenberg/6/67/',
+  '39c750f17d58725a2aa4': 'https://atlas.cs.brown.edu/data/gutenberg/6/68/',
+  '2e534a4eb1521b23af36': 'https://atlas.cs.brown.edu/data/gutenberg/7/0/',
+  f9c9712304dd53e755e6: 'https://atlas.cs.brown.edu/data/gutenberg/7/3/',
+  '5ae54f40fa557e1419c6': 'https://atlas.cs.brown.edu/data/gutenberg/7/4/',
+  f32893f7d2a11d0f0178: 'https://atlas.cs.brown.edu/data/gutenberg/7/5/',
+  '42a4b4135e344e337051': 'https://atlas.cs.brown.edu/data/gutenberg/7/6/',
+  '2bd172ecaf964c63d8d5': 'https://atlas.cs.brown.edu/data/gutenberg/7/8/',
+  f383ee8cb82f38e86004: 'https://atlas.cs.brown.edu/data/gutenberg/7/9/',
+  '5f349e8f530bbd781a2b': 'https://atlas.cs.brown.edu/data/gutenberg/7/70/',
+  '62c7a938bac457246c29': 'https://atlas.cs.brown.edu/data/gutenberg/7/71/',
+  '7937f7acead126b3ccd9': 'https://atlas.cs.brown.edu/data/gutenberg/7/73/',
+  fb85ac250b7cdaa933c3: 'https://atlas.cs.brown.edu/data/gutenberg/7/74/',
+  '81756cc2025b3cef0052': 'https://atlas.cs.brown.edu/data/gutenberg/7/75/',
+  '4db330d1fa4874b6af54': 'https://atlas.cs.brown.edu/data/gutenberg/7/77/',
+  '7c3ce0c9391e34741509': 'https://atlas.cs.brown.edu/data/gutenberg/8/1/',
+  '3b4671d0c8957b57e704': 'https://atlas.cs.brown.edu/data/gutenberg/8/2/',
+  faef51c99e6e4142f8c4: 'https://atlas.cs.brown.edu/data/gutenberg/8/3/',
+  f50520d674e8d490f51c: 'https://atlas.cs.brown.edu/data/gutenberg/8/4/',
+  f3a8b3b99af2b1c5bc84: 'https://atlas.cs.brown.edu/data/gutenberg/8/5/',
+  '6e971b931f8f5f3e29d7': 'https://atlas.cs.brown.edu/data/gutenberg/8/6/',
+  '20e576732acb12ff1e60': 'https://atlas.cs.brown.edu/data/gutenberg/8/8/',
+  '0778de00c493b5f92f74': 'https://atlas.cs.brown.edu/data/gutenberg/8/9/',
+  '4f3176071090e0993ce5': 'https://atlas.cs.brown.edu/data/gutenberg/8/82/',
+  '4ab45f2958d55e5f4636': 'https://atlas.cs.brown.edu/data/gutenberg/8/83/',
+  '77f66e27b1e87ebb272a': 'https://atlas.cs.brown.edu/data/gutenberg/8/85/',
+  '658d0f10ccf9ae1c3b95': 'https://atlas.cs.brown.edu/data/gutenberg/8/86/',
+  f6b7ca3822c2bd94e941: 'https://atlas.cs.brown.edu/data/gutenberg/8/88/',
+  '012b0beb76e95df95068': 'https://atlas.cs.brown.edu/data/gutenberg/9/0/',
+  '213184d63aedd588a422': 'https://atlas.cs.brown.edu/data/gutenberg/9/1/',
+  '550b0ee6405498cd39f5': 'https://atlas.cs.brown.edu/data/gutenberg/9/2/',
+  '907efd30c3a09cd0b14a': 'https://atlas.cs.brown.edu/data/gutenberg/9/3/',
+  '38fc380c97e4f69c5d81': 'https://atlas.cs.brown.edu/data/gutenberg/9/4/',
+  '3c5aea115a6c227658f7': 'https://atlas.cs.brown.edu/data/gutenberg/9/5/',
+  '91953d29b88ab3f633fc': 'https://atlas.cs.brown.edu/data/gutenberg/9/90/',
+  fd066cbc8f7daf35d65f: 'https://atlas.cs.brown.edu/data/gutenberg/9/91/',
+  '42a79f7b45dc3f31a124': 'https://atlas.cs.brown.edu/data/gutenberg/9/92/',
+  '0d2f4f12d925ee7b5ff5': 'https://atlas.cs.brown.edu/data/gutenberg/9/93/',
+  '7b616482e1fedb131eea': 'https://atlas.cs.brown.edu/data/gutenberg/9/94/',
+  '56f4d4bec71ac2085b55': 'https://atlas.cs.brown.edu/data/gutenberg/9/95/',
+  '5a7a5b553a4b7d0a9bc3': 'https://atlas.cs.brown.edu/data/gutenberg/9/97/',
+  '4c8e59ccb4dad0e0090a': 'https://atlas.cs.brown.edu/data/gutenberg/9/98/',
+  '07e6dfb5a23e02cd018c': 'https://atlas.cs.brown.edu/data/gutenberg/3/0/',
+  '558309a097cfbd23560c': 'https://atlas.cs.brown.edu/data/gutenberg/3/1/',
+  '652c1f420976ff189c8b': 'https://atlas.cs.brown.edu/data/gutenberg/3/6/',
+  '214a822de89d054f424e': 'https://atlas.cs.brown.edu/data/gutenberg/3/7/',
+  '792e6ea54bf08ee46cba': 'https://atlas.cs.brown.edu/data/gutenberg/3/8/',
+  '363d3cd828af65ac09c0': 'https://atlas.cs.brown.edu/data/gutenberg/3/33/',
+  ff2c94e76c3e6d100081: 'https://atlas.cs.brown.edu/data/gutenberg/3/35/',
+  '37ff10c18a888ef2e8a0': 'https://atlas.cs.brown.edu/data/gutenberg/3/36/',
+  '0657661a6d22ca173a78': 'https://atlas.cs.brown.edu/data/gutenberg/3/37/',
+  'aaard txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aaard txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aaard: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aacom txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aacom: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aafrm txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aafrm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aafrm: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aareadm txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aareadm: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aarn txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aarnd readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aarnd readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aarnd txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aarnd: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aaso txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aaso txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ab txt pgwab': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ab txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ab: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abam txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abam txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  abam: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abbnw txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abbnw txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abbot txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abbot txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abchr txt abchr': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abchr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abchr txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abel txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  abel: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abft txt abft': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abft txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abgh txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abgh txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  abgh: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abhf txt abhf': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  abhf: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abko txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abko txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abomb readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abomb txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  abomb: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aboyr txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aboyr: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abpt txt abpt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abpt txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  abpt: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abreadm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abridg txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'abridg txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  abridg: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aca txt txt': {
+    freq: 3,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aca txt': {
+    freq: 3,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aca: {
+    freq: 3,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'accrc txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'acdhb txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'acdhb txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'achar txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  achar: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'acho readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'acho txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  acho: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  achr: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'acrdi txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'acrdi txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'acro txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  acro: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'act txt come': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'act txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'actr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'acw txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  acw: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adam txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  adam: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adamb readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adamb readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adamb txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adamb txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adi txt adi': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adi txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adieu txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adjut txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adlf txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adlr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adlr txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  adlr: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adolph txt irish': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adotl txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  adotl: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adpap txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adpap txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adpo txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  adpo: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adrwn txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'adrwn txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'advbk txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  advbk: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'advjd txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  advjd: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'advlr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  advlr: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'advnt txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'advsh txt advsh': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  advsh: {
+    freq: 6,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'advul txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'advul txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aeotp txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aeotp: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aesop readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aesop txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aesopa txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aesopa txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aesopa: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'afbl txt afbl': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'afbl txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'affot txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'affot txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  affot: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'afgh txt afgh': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'afgh txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'afgh txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'afost readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'afost readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'afost txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  afost: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agebb txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  agebb: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agent txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  agent: {
+    freq: 3,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agin txt agin': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agino readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agino readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agino txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  agino: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agnsg txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  agnsg: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agord txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agord txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  agord: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agrcr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  agrcr: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agrrd readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agrrd readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agrrd txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agsl txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agsl txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  agsl: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agst txt agst': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agst txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  agst: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'agypt txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  agypt: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ah txt ah': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ah: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ahero txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ahero: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aiken txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ajiow txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ajiow: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ajtl txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'akag txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'akba txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'akba txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aken txt aken': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aken txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aken: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ala: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aladm txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aladm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aladm: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alamo txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alast txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alast txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alatu txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  alatu: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alcma txt bbtre': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aldat readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aldat readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aldat txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aldat txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aldat: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aldsc txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aldsc: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alexb txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  alexb: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alfonso txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alftn txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'algex txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'algex txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  alic: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alif txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alif txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  alif: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'allah txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'allhf txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'allhf txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  allhf: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alli txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alli txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  alli: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'allk txt allk': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'allk txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  allk: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'allnq txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  allnq: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'allsb txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'allsb txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'allyr readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'allyr readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'allyr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'allyr txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  allyr: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alm txt alm': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  alm: {
+    freq: 6,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'almi txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  almi: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'almwg txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  almwg: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alon txt alon': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alon txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alon txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  alpac: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alpn txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alpsn txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alpsn txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  alpsn: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alrhd txt mutt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alrhd txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  alrhd: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'altdd txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  altdd: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alvr txt alvr': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alvr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alvra txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alvra txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alxsc txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  alxsc: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alyr txt alyr': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alyr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'alyr txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  alyss: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amaid txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amaid txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  amaid: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amanz txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  amanz: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amar txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  amar: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amatc txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  amatc: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amba txt lazro': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  amba: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ambk txt ambk': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ambk txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ambk txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ambk: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ambr txt ambr': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ambr txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ambr: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ambw txt ambw': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ambw txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ambw txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ambw: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amdag txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amdag txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amft readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amft readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amft txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amgn txt amgn': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amgn txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amgn txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amjd txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amjd txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  amjd: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amlac txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amlac txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  amlac: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ammn txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ammn: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amnt readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amnt txt txt': {
+    freq: 3,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amor txt amor': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amor txt txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  amor: {
+    freq: 3,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amphi txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  amphi: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amrep txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  amrep: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  amrnr: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amrnt txt spne': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amrnt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amsc txt amsc': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  amsc: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amsdg txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'amsdg txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'analmd txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anapr txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  anapr: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anat txt anat': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anat txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anbss txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ancf txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ancim txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'and txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  and: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'andro txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  andro: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'andsj txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  andsj: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'andvl txt andvl': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  andvl: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'angau txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'angau txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  angau: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'angel txt angel': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'angel txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'angel txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  angel: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'angh txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'angh txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  angh: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'angi txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'angi txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  angi: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anglh txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anglh txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  anglh: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'angsx txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  angsx: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  anhro: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anid txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anidl txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  anidl: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anman txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anman txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  anman: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'annaj txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'annaj txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  annaj: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'annexi txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'annexi txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'annhd txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  annhd: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anot txt anot': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anot txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  anphb: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anrgm txt uciti': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anrgm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  anrgm: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ansi txt woordenlijst': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ansi txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ant txt txt': {
+    freq: 3,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ant: {
+    freq: 3,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anthm txt anthm': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  anthm: {
+    freq: 4,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'antip txt antip': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'antip txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anver txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anver txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  anver: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'anyci txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aoaph txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aoaph: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aobll: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aofbt txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aofbt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aomr txt txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aomr txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aomr: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aovnn txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aovnn txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aovnn: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'apcjb txt apcjb': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'apcjb txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'apcjb txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  apcjb: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aph txt aph': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aph txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aph txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aph: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'apitd txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'apitd txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aplgi txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aplgi txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aplgi: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'apoc txt txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  apoc: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'apoet txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  apoet: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'apol txt apol': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'apol txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  apol: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'apot txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  apot: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'april txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'april txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aprjc readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aprjc txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aprjc: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'apuol txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  apuol: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aqsb txt txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aqsb: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arabn txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  arabn: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arbgh txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  arbgh: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arci txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arci txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  arci: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arcru txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'areop txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'areop txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  areop: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'argld readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'argld txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  argld: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'argn txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  argn: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'argnt txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'argnt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  argnt: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  argo: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arist txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'armal txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'armal txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  armal: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'armdl txt armdl': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'armdl txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'armdl txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  armdl: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'armyl txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  armyl: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arnsc txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arnsc txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  arnsc: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arntr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arntr txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arpn txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arshp txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arshp txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  arshp: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arsl txt arsl': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arsl txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arspk txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'arspk txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  arspk: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'artow txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'artow txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  artp: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'asbbb txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'asbod txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'asc txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  asc: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ascii txt mikko': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ascii: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ascru txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aseth txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aseth: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ashl txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ashl: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aslit txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'asmhg txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'asmhg txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'asmr txt spar': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'asmr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  asmr: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'asog txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'asprn txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'asprn txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'asth txt asth': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'asth txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  asth: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'astrl txt wnt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'atcor txt atcor': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'atcor txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'atr txt atr': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'atr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'atr txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'atrai txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'atrai txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  atrai: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'atshr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  atshr: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'attbh txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aubin txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aucnc: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'auglg txt gulvm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'auglg txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'augsb txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'auqak txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'auqak txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ausvi txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ausvi: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'auto txt txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'auto txt': {
+    freq: 3,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  auto: {
+    freq: 3,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'avar txt avar': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'avar txt': {
+    freq: 3,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'avnl txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  avnl: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'avon txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'awa txt awa': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'awa txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'awa txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  awa: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'awakn txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  awif: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'awil txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  awil: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  awkbi: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'awoni txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'awotp txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'awotp txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ayogi txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ayogi txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ayogi: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ayrlg txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aysha txt pa': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'azeng txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'azeng txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  azeng: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'aznit txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  aznit: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'azsk txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'azsk txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bab txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'babb txt txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  babb: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  babfc: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'babi txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'babi txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  babi: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'babit txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'babs txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  babs: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'babsu txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'babsu txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  babsu: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'badam readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'badam txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  badam: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'badg txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'badmd txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  badmd: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bahif txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bahif: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bakch txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bakch: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'balen txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'balen txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ball txt ball': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'ball txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  ball: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'balza txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  balza: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  balzc: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'barb txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  barb: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'barba txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  barba: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'barcarol txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'barcarol txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  barcarol: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  barch: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bard txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bard txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bard: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bare txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bare: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'barnm txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'batbk readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'batbk txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'batbk txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'batd txt batd': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'batd txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'batlf readm txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'batlf readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'batlf txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'batlf txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  batlf: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bausc txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bausc: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bautf: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbbfc txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbbfc txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bbbfc: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbbrb txt bbbrb': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbbrb txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbbrb txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bbbrb: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbdl txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbdl txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bbdl: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbeau txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbeau txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbetc txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbetc txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bbetc: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbill txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bbill: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbldn txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbldn txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbldo txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbldo txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bbldo: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbng txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bboi txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bboi: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bbrit: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbsca txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbsca txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bbsca: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbss txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bbss: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bbstk txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bbstk: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bbtre: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bcgsp: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bchee txt godku': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bchgr txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bchgr txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bcil txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bcil txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bcil: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bciti txt bciti': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bciti txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bciti: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bckhm: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bcptv txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bct txt bct': {
+    freq: 4,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bct txt txt': {
+    freq: 4,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bct: {
+    freq: 8,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bdadm txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bdadm: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bdfrc readm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bdfrc txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bdfrc txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bdho txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bdho txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bdlit txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bdlit: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bdsm txt bdsm': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bdsm txt': {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bdsm: {
+    freq: 2,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'bdwrf txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  bdwrf: {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'beajo txt txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'beajo txt': {
+    freq: 1,
+    url: 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  },
+  'beast txt txe0854: execMap is called with:  12ae32cb1ec02d01eda3 { '12ae32cb1ec02d01eda3': '' }
+e0854: Object.keys(obj), Object.values(obj):  [ '12ae32cb1ec02d01eda3' ] [ { '12ae32cb1ec02d01eda3': '' } ]
+ef47f: execMap is called with:  ee94fb36ecc062a4cd5d https://atlas.cs.brown.edu/data/gutenberg/3/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'ee94fb36ecc062a4cd5d' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/3/' ]
+Promise resolved! Going to rest of the stuff; [ { '[object Object]': null } ]
+outMappings.length: 1
+localKeyCounts: 1
+localKeys.length: 0
+Promise resolved! Going to rest of the stuff; [ { '[object Object]': null } ]
+outMappings.length: 1
+localKeyCounts: 2
+localKeys.length: 0
+done going through all the keys; bye!
+ef47f: execMap is called with:  e1f22b459e453c621bc9 https://atlas.cs.brown.edu/data/gutenberg/3/4/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e1f22b459e453c621bc9' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/3/4/' ]
+ef47f: execMap is called with:  eb5c306092daee3f0c66 https://atlas.cs.brown.edu/data/gutenberg/3/30/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'eb5c306092daee3f0c66' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/3/30/' ]
+ef47f: execMap is called with:  e58523a2bdc5f910b0c1 https://atlas.cs.brown.edu/data/gutenberg/3/39/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e58523a2bdc5f910b0c1' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/3/39/' ]
+ef47f: execMap is called with:  e49a5b40feeb4ce735a5 https://atlas.cs.brown.edu/data/gutenberg/1/13/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e49a5b40feeb4ce735a5' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/1/13/' ]
+ef47f: execMap is called with:  e82010edfd042d2523bb https://atlas.cs.brown.edu/data/gutenberg/1/15/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e82010edfd042d2523bb' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/1/15/' ]
+ef47f: execMap is called with:  e10b345bf5d4ec7dec72 https://atlas.cs.brown.edu/data/gutenberg/2/26/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e10b345bf5d4ec7dec72' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/2/26/' ]
+ef47f: execMap is called with:  e4e2f11bd8463f92aa4f https://atlas.cs.brown.edu/data/gutenberg/5/53/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e4e2f11bd8463f92aa4f' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/5/53/' ]
+ef47f: execMap is called with:  e6d1508f4f343aa6338e https://atlas.cs.brown.edu/data/gutenberg/5/55/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e6d1508f4f343aa6338e' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/5/55/' ]
+ef47f: execMap is called with:  16e68b189f5e7bd49c65 https://atlas.cs.brown.edu/data/gutenberg/6/4/
+ef47f: Object.keys(obj), Object.values(obj):  [ '16e68b189f5e7bd49c65' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/6/4/' ]
+ef47f: execMap is called with:  ef35b0a296b14c1804b3 https://atlas.cs.brown.edu/data/gutenberg/7/1/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'ef35b0a296b14c1804b3' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/7/1/' ]
+ef47f: execMap is called with:  e6076005e6c2ef74aa76 https://atlas.cs.brown.edu/data/gutenberg/8/7/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e6076005e6c2ef74aa76' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/8/7/' ]
+ef47f: execMap is called with:  e47ca8c0b06d6b67a74b https://atlas.cs.brown.edu/data/gutenberg/8/87/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e47ca8c0b06d6b67a74b' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/8/87/' ]
