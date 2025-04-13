@@ -23,6 +23,8 @@
   "license": "ISC",
   "dependencies": {
     "@brown-ds/distribution": "latest",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "yargs": "^17.7.2"
