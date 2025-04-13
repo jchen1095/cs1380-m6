@@ -22,7 +22,7 @@ group[getSID(n2)] = n2;
 group[getSID(n3)] = n3;
 
 let localServer = null;
-const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/"
+const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg"
 
 const startTests = () => {
 
@@ -70,6 +70,7 @@ const startTests = () => {
             // console.log("key:", key);
 
             distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, v) => {
+                console.log("successful put in the crawl text");
                 // console.log("e:", e);
                 // console.log("v:", v);
                 // Step 4: Get URLs from page
@@ -84,40 +85,49 @@ const startTests = () => {
                 let count = 0;
                 const d = {};
                 const nsidToNode = {};
-                for (const url of urlList) {
-                    distribution.crawl.store.getNode(url, (e, v) => {
-                        count++;
-                        // Add to per node batch of URLs
-                        const sid = distribution.util.id.getSID(v);
-                        if (!Object.hasOwn(d, sid)) {
-                            d[sid] = [];
-                        }
+                console.log("URL LIST: ", urlList)
+                console.log("URL LIST LENGTH: ", urlList.length)
+                if (urlList.length === 1 && urlList[0] === '') {
+                    // console.log("urlList[0] === ''", urlList[0] === '')
+                    // console.log("Gets")
+                    resolve([{ [key]: true }]);
+                        // return resultPromise;
+                } else {
+                    for (const url of urlList) {
+                        distribution.crawl.store.getNode(url, (e, v) => {
+                            count++;
+                            // Add to per node batch of URLs
+                            const sid = distribution.util.id.getSID(v);
+                            if (!Object.hasOwn(d, sid)) {
+                                d[sid] = [];
+                            }
 
-                        const newUrlKey = distribution.util.id.getID(url).slice(0, 20);;
-                        d[sid].push({ [newUrlKey]: url })
-                        // console.log("v NODE:", v);
-                        nsidToNode[sid] = v;
-                        // console.log("nsidToNode:", nsidToNode)
-                        if (count === urlList.length) {
-                            // We've gone through all URLs. Let's send through the nextURLs service
-                            for (let nsid in d) {
-                                if (nsid === distribution.util.id.getSID(global.nodeConfig)) {
-                                    // Call own service for this
-                                    distribution.local.newUrls.put(d[nsid], (e, v) => {
-                                        resolve([{ [key]: true }]);
-                                    })
-                                } else {
-                                    // Use comm.send to give it to peer nodes
-                                    distribution.local.comm.send(
-                                        [d[nsid]],
-                                        { node: nsidToNode[nsid], service: "newUrls", method: "put" },
-                                        (e, v) => {
-                                            resolve({ [key]: true });
+                            const newUrlKey = distribution.util.id.getID(url).slice(0, 20);;
+                            d[sid].push({ [newUrlKey]: url })
+                            // console.log("v NODE:", v);
+                            nsidToNode[sid] = v;
+                            // console.log("nsidToNode:", nsidToNode)
+                            if (count === urlList.length) {
+                                // We've gone through all URLs. Let's send through the nextURLs service
+                                for (let nsid in d) {
+                                    if (nsid === distribution.util.id.getSID(global.nodeConfig)) {
+                                        // Call own service for this
+                                        distribution.local.newUrls.put(d[nsid], (e, v) => {
+                                            resolve([{ [key]: true }]);
                                         })
+                                    } else {
+                                        // Use comm.send to give it to peer nodes
+                                        distribution.local.comm.send(
+                                            [d[nsid]],
+                                            { node: nsidToNode[nsid], service: "newUrls", method: "put" },
+                                            (e, v) => {
+                                                resolve([{ [key]: true }]);
+                                            })
+                                    }
                                 }
                             }
-                        }
-                    })
+                        })
+                    }
                 }
             })
         })
