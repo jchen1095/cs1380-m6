@@ -1,0 +1,118 @@
+apach   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+apach debian  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+apach debian server | 1 | https://atlas.cs.brown.edu/data/gutenberg
+atla   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+atla brown  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+atla brown port | 1 | https://atlas.cs.brown.edu/data/gutenberg
+blank   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+blank gif  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+blank gif modifi | 1 | https://atlas.cs.brown.edu/data/gutenberg
+book   | 2 | https://atlas.cs.brown.edu/data/gutenberg
+book txt  | 2 | https://atlas.cs.brown.edu/data/gutenberg
+book txt book | 1 | https://atlas.cs.brown.edu/data/gutenberg
+book txt txt | 1 | https://atlas.cs.brown.edu/data/gutenberg
+brown   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+brown port  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+brown port  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+data   | 2 | https://atlas.cs.brown.edu/data/gutenberg
+data dir  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+data dir icon | 1 | https://atlas.cs.brown.edu/data/gutenberg
+data gutenberg  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+data gutenberg ico | 1 | https://atlas.cs.brown.edu/data/gutenberg
+debian   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+debian server  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+debian server atla | 1 | https://atlas.cs.brown.edu/data/gutenberg
+descript   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+descript parentdir  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+descript parentdir icon | 1 | https://atlas.cs.brown.edu/data/gutenberg
+dir   | 11 | https://atlas.cs.brown.edu/data/gutenberg
+dir icon  | 11 | https://atlas.cs.brown.edu/data/gutenberg
+dir icon folder | 11 | https://atlas.cs.brown.edu/data/gutenberg
+directori   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+directori data  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+directori data dir | 1 | https://atlas.cs.brown.edu/data/gutenberg
+donat   | 2 | https://atlas.cs.brown.edu/data/gutenberg
+donat howto  | 2 | https://atlas.cs.brown.edu/data/gutenberg
+donat howto txt | 2 | https://atlas.cs.brown.edu/data/gutenberg
+folder   | 11 | https://atlas.cs.brown.edu/data/gutenberg
+folder gif  | 11 | https://atlas.cs.brown.edu/data/gutenberg
+folder gif dir | 9 | https://atlas.cs.brown.edu/data/gutenberg
+folder gif retir | 1 | https://atlas.cs.brown.edu/data/gutenberg
+folder gif txt | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif   | 16 | https://atlas.cs.brown.edu/data/gutenberg
+gif book  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif book txt | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif dir  | 9 | https://atlas.cs.brown.edu/data/gutenberg
+gif dir icon | 9 | https://atlas.cs.brown.edu/data/gutenberg
+gif donat  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif donat howto | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif indextre  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif indextre txt | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif modifi  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif modifi size | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif parent  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif parent directori | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif retir  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif retir retir | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif txt  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gif txt icon | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gutenberg   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gutenberg ico  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+gutenberg ico icon | 1 | https://atlas.cs.brown.edu/data/gutenberg
+howto   | 2 | https://atlas.cs.brown.edu/data/gutenberg
+howto txt  | 2 | https://atlas.cs.brown.edu/data/gutenberg
+howto txt donat | 1 | https://atlas.cs.brown.edu/data/gutenberg
+howto txt txt | 1 | https://atlas.cs.brown.edu/data/gutenberg
+ico   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+ico icon  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+ico icon blank | 1 | https://atlas.cs.brown.edu/data/gutenberg
+icon   | 16 | https://atlas.cs.brown.edu/data/gutenberg
+icon blank  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+icon blank gif | 1 | https://atlas.cs.brown.edu/data/gutenberg
+icon folder  | 11 | https://atlas.cs.brown.edu/data/gutenberg
+icon folder gif | 11 | https://atlas.cs.brown.edu/data/gutenberg
+icon gif  | 4 | https://atlas.cs.brown.edu/data/gutenberg
+icon gif book | 1 | https://atlas.cs.brown.edu/data/gutenberg
+icon gif donat | 1 | https://atlas.cs.brown.edu/data/gutenberg
+icon gif indextre | 1 | https://atlas.cs.brown.edu/data/gutenberg
+icon gif parent | 1 | https://atlas.cs.brown.edu/data/gutenberg
+indextre   | 2 | https://atlas.cs.brown.edu/data/gutenberg
+indextre txt  | 2 | https://atlas.cs.brown.edu/data/gutenberg
+indextre txt dir | 1 | https://atlas.cs.brown.edu/data/gutenberg
+indextre txt indextre | 1 | https://atlas.cs.brown.edu/data/gutenberg
+modifi   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+modifi size  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+modifi size descript | 1 | https://atlas.cs.brown.edu/data/gutenberg
+parent   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+parent directori  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+parent directori data | 1 | https://atlas.cs.brown.edu/data/gutenberg
+parentdir   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+parentdir icon  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+parentdir icon gif | 1 | https://atlas.cs.brown.edu/data/gutenberg
+port   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+port   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+port   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+retir   | 2 | https://atlas.cs.brown.edu/data/gutenberg
+retir apach  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+retir apach debian | 1 | https://atlas.cs.brown.edu/data/gutenberg
+retir retir  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+retir retir apach | 1 | https://atlas.cs.brown.edu/data/gutenberg
+server   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+server atla  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+server atla brown | 1 | https://atlas.cs.brown.edu/data/gutenberg
+size   | 1 | https://atlas.cs.brown.edu/data/gutenberg
+size descript  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+size descript parentdir | 1 | https://atlas.cs.brown.edu/data/gutenberg
+txt   | 9 | https://atlas.cs.brown.edu/data/gutenberg
+txt book  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+txt book txt | 1 | https://atlas.cs.brown.edu/data/gutenberg
+txt dir  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+txt dir icon | 1 | https://atlas.cs.brown.edu/data/gutenberg
+txt donat  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+txt donat howto | 1 | https://atlas.cs.brown.edu/data/gutenberg
+txt icon  | 3 | https://atlas.cs.brown.edu/data/gutenberg
+txt icon gif | 3 | https://atlas.cs.brown.edu/data/gutenberg
+txt indextre  | 1 | https://atlas.cs.brown.edu/data/gutenberg
+txt indextre txt | 1 | https://atlas.cs.brown.edu/data/gutenberg
+txt txt  | 2 | https://atlas.cs.brown.edu/data/gutenberg
+txt txt icon | 2 | https://atlas.cs.brown.edu/data/gutenberg

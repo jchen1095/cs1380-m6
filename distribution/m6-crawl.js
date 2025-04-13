@@ -23,8 +23,7 @@ group[getSID(n2)] = n2;
 group[getSID(n3)] = n3;
 
 let localServer = null;
-// const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/"
-const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/6/4/3/3/64333/"
+const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg"
 
 const startTests = () => {
 
@@ -33,21 +32,12 @@ const startTests = () => {
     const mapper = (key, value, require) => {
         console.log("Mapper key:", key);
         console.log("Mapper value:", value);
+        console.log(value);
         // Import execSync
         const { execSync, spawnSync, exec } = require("child_process");
 
         const resultPromise = new Promise((resolve, reject) => {
-            // if (value === "https://atlas.cs.brown.edu/data/gutenberg//indextree.txt") {
-            //     resolve({ [key]: true })
-            //     return;
-            // }
-            // Step 0: Curl the URL
-            // const rawURLContent = execSync(`curl -skL ${value}`, { encoding: 'utf-8' })
-
-            // const capturedText = spawnSync('node', ['./c/getText.js'], {
-            //     input: rawURLContent,
-            //     encoding: 'utf-8'
-            // }).stdout;
+         
             var temp = {};
             // console.log("value: ", value)
             try {
@@ -55,11 +45,7 @@ const startTests = () => {
                     encoding: 'utf-8',
                     maxBuffer: 1024 * 1024 * 64
                 });
-                // const temp = execSync(`./jen-crawl.sh ${value}`, {
-                //     encoding: 'utf-8',
-                //     // shell: '/bin/bash',
-                //     // stdio: 'inherit',
-                // });
+               
                 console.log("temp:", temp);
             } catch (e) {
                 console.log("error:", e.message);
@@ -85,6 +71,7 @@ const startTests = () => {
             console.log('Result:',result);
 
             distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, v) => {
+                console.log("successful put in the crawl text");
                 // console.log("e:", e);
                 // console.log("v:", v);
                 // Step 4: Get URLs from page
@@ -99,43 +86,49 @@ const startTests = () => {
                 let count = 0;
                 const d = {};
                 const nsidToNode = {};
-                for (const url of urlList) {
-                    distribution.crawl.store.getNode(url, (e, v) => {
-                        count++;
-                        // Add to per node batch of URLs
-                        const sid = distribution.util.id.getSID(v);
-                        if (!Object.hasOwn(d, sid)) {
-                            d[sid] = [];
-                        }
+                console.log("URL LIST: ", urlList)
+                console.log("URL LIST LENGTH: ", urlList.length)
+                if (urlList.length === 1 && urlList[0] === '') {
+                    // console.log("urlList[0] === ''", urlList[0] === '')
+                    // console.log("Gets")
+                    resolve([{ [key]: true }]);
+                        // return resultPromise;
+                } else {
+                    for (const url of urlList) {
+                        distribution.crawl.store.getNode(url, (e, v) => {
+                            count++;
+                            // Add to per node batch of URLs
+                            const sid = distribution.util.id.getSID(v);
+                            if (!Object.hasOwn(d, sid)) {
+                                d[sid] = [];
+                            }
 
-                        const newUrlKey = distribution.util.id.getID(url).slice(0, 20);;
-                        d[sid].push({ [newUrlKey]: url })
-                        // console.log("v NODE:", v);
-                        nsidToNode[sid] = v;
-                        // console.log("nsidToNode:", nsidToNode)
-                        if (count === urlList.length) {
-                            // We've gone through all URLs. Let's send through the nextURLs service
-                            for (let nsid in d) {
-                                if (nsid === distribution.util.id.getSID(global.nodeConfig)) {
-                                    // Call own service for this
-                                    distribution.local.newUrls.put(d[nsid], (e, v) => {
-                                        resolve(result);
-                                    })
-                                } else {
-                                    // Use comm.send to give it to peer nodes
-                                    //use a script to parse out every ngram in th file 
-                                    //key is ngram, value is obj w the freq and the url 
-                                    //
-                                    distribution.local.comm.send(
-                                        [d[nsid]],
-                                        { node: nsidToNode[nsid], service: "newUrls", method: "put" },
-                                        (e, v) => {
-                                            resolve(result);
+                            const newUrlKey = distribution.util.id.getID(url).slice(0, 20);;
+                            d[sid].push({ [newUrlKey]: url })
+                            // console.log("v NODE:", v);
+                            nsidToNode[sid] = v;
+                            // console.log("nsidToNode:", nsidToNode)
+                            if (count === urlList.length) {
+                                // We've gone through all URLs. Let's send through the nextURLs service
+                                for (let nsid in d) {
+                                    if (nsid === distribution.util.id.getSID(global.nodeConfig)) {
+                                        // Call own service for this
+                                        distribution.local.newUrls.put(d[nsid], (e, v) => {
+                                            resolve([{ [key]: true }]);
                                         })
+                                    } else {
+                                        // Use comm.send to give it to peer nodes
+                                        distribution.local.comm.send(
+                                            [d[nsid]],
+                                            { node: nsidToNode[nsid], service: "newUrls", method: "put" },
+                                            (e, v) => {
+                                                resolve([{ [key]: true }]);
+                                            })
+                                    }
                                 }
                             }
-                        }
-                    })
+                        })
+                    }
                 }
             })
         })
@@ -213,25 +206,31 @@ const startTests = () => {
                 const execFunction = () => {
                     distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, v) => {
                         console.log("do we ever get back to here?")
-                        global.distribution.crawl.comm.send([], { service: "newUrls", method: "status" }, (es, vs) => {
-                            console.log("vs:", vs);
-                            console.log("es:", es);
-                            // 
-                            if (es.length > 0) {
-                                console.log("CODE RED");
+                        global.distribution.crawl.comm.send([], {service: "newUrls", method: "flush"}, (e,v) => {
+                            if (e.length > 0) {
+                                console.log("FLUSH FAILED...");
                                 return;
                             }
-                            counts = Object.values(vs).map((v) => v.count);
-                            sum = counts.reduce((acc, curr) => acc + curr, 0);
-                            console.log("[MR ITERATION] Count: " + sum);
-                            const notDone = Object.values(vs).filter((v) => !v.isDone);
-                            if (notDone.length) {
-                                execFunction()
-                            } else {
-                                console.log("DONT COME NEAR ME OR MY FAMILY EVER AGAIN.")
-                            }
+                            console.log("FLUSHED");
+                            global.distribution.crawl.comm.send([], { service: "newUrls", method: "status" }, (es, vs) => {
+                                console.log("vs:", vs);
+                                console.log("es:", es);
+                                // 
+                                if (es.length > 0) {
+                                    console.log("CODE RED");
+                                    return;
+                                }
+                                counts = Object.values(vs).map((v) => v.count);
+                                sum = counts.reduce((acc, curr) => acc + curr, 0);
+                                console.log("[MR ITERATION] Count: " + sum);
+                                const notDone = Object.values(vs).filter((v) => !v.isDone);
+                                if (notDone.length) {
+                                    execFunction()
+                                } else {
+                                    console.log("DONT COME NEAR ME OR MY FAMILY EVER AGAIN.")
+                                }
+                            })
                         })
-
                         // // console.log("Done w/ crawl MapReduce!");
                         // stopNodes(() => { });
                     })

@@ -52,7 +52,7 @@ newUrls.put = function(urls, callback) {
             //     }
             //     return;
             // }
-            global.distribution.local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0] }, (e,v) => {
+            global.distribution.local.mem.put(Object.values(url)[0], {gid: "newUrls", key: Object.keys(url)[0] }, (e,v) => {
                 // console.log("returned from mem put");
                 if (e) {
                     callback(e);
@@ -106,22 +106,30 @@ newUrls.flush = function(callback) {
         const urlStr = urlArr.join('\n');
         // get all the non-visited urls
         const newUrls = execSync(`echo "${urlStr}" | grep -vxf d/visited.txt`, {encoding: 'utf-8'});    
+        execSync(`echo "${newUrls}" >> d/visited.txt`, {encoding: 'utf-8'});    
         // add new Urls to local.mem
-        const newUrlsArr = newUrls.split('\n').map(url => ({[getID(url)]: url}))
+        const newUrlsArr = newUrls.split('\n').map(url => ({[getID(url).slice(0,20)]: url}))
         if (newUrlsArr.length == 0) {
             meta.isDone = true;
         }
         global.distribution.local.mem.del({gid: "newUrls", key: null}, (e,v) => {
+            let count = 0;
             newUrlsArr.forEach((url) => {
-                local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0]}, (e,v) => {
+                global.distribution.local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0]}, (e,v) => {
                     if(e) {
                         callback(e);
                         return;
                     }
-                    meta.count++;
+                    count++;
+                    if (count >= newUrlsArr.length) {
+                        console.log("count reached")
+                        meta.count += count;
+                        callback(null, count);
+                        return;
+                    }
                 });
             });
-            callback(null, null);
+            
         });
         
     });
