@@ -69,10 +69,21 @@ const startTests = () => {
             // const capturedText = execSync(`./c/getText.js`, { encoding: 'utf-8' });
             // Step 2: Build up object with page data
             const data = { url: value, text: temp.stdout }
-            // Step 3: Store content under hashURL(value)
-            // console.log("key:", key);
-            // filter into keys/values 
-            // return an array of kv pairs
+            // Make an array of data objects of key value entries
+            const result = temp.stdout.trim()
+                .split("\n")
+                .map(line => {
+                    const [ngram, freq, url] = line.split("|").map(s => s.trim());
+                    return {
+                    key: ngram,
+                    value: {
+                        freq: parseInt(freq, 10),
+                        url: url
+                    }
+                    };
+                });
+            console.log('Result:',result);
+
             distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, v) => {
                 // console.log("e:", e);
                 // console.log("v:", v);
@@ -108,7 +119,7 @@ const startTests = () => {
                                 if (nsid === distribution.util.id.getSID(global.nodeConfig)) {
                                     // Call own service for this
                                     distribution.local.newUrls.put(d[nsid], (e, v) => {
-                                        resolve([{ [key]: true }]);
+                                        resolve(result);
                                     })
                                 } else {
                                     // Use comm.send to give it to peer nodes
@@ -119,7 +130,7 @@ const startTests = () => {
                                         [d[nsid]],
                                         { node: nsidToNode[nsid], service: "newUrls", method: "put" },
                                         (e, v) => {
-                                            resolve({ [key]: true });
+                                            resolve(result);
                                         })
                                 }
                             }
