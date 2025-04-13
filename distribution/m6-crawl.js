@@ -69,16 +69,61 @@ const startTests = () => {
                     };
                 });
             console.log('Result:',result);
+            
+            var send_batch = {};
+            result.forEach(item => {
+                console.log(`Key: ${item.key}`);
+                console.log(`Freq: ${item.value.freq}`);
+                console.log(`URL: ${item.value.url}`);
+                const ngram = item.key;
+                const freq = item.value.freq;
+                const url = item.value.url;
+                const sid_to_node = {};
+                global.distribution.crawl.store.getNode(ngram, (e, node) => {
+                    if (e) {
+                        console.log("Error getting node:", e);
+                        return;
+                    }
+                    const sid = distribution.util.id.getSID(node);
+                    sid_to_node[sid]=node;
+                    if (!Object.hasOwn(send_batch, sid)) {
+                        send_batch[node] = [];
+                    }
+                    send_batch[sid].push({ngram: {freq: freq, url: url}});
 
-            distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, v) => {
+                });
+              });
+
+            send_batch.forEach((sid, piece) => {
+                distribution.local.comm.send([piece, { gid: "ngrams" }], { node: sid_to_node[sid], service: "store", method: "appendForBatch"}, (e, v) => {
+
+                });
+
+            })
+            // We need to resolve the promise with the trick key
+            const sids = Object.keys(send_batch);
+            const out = [];
+            for (sid of sids) {
+                out.push({ [send_batch[sid][0]]: null });
+            }
+            resolve(out);
+
+            
+            
+            
+        //     distribution.local.comm.send(
+        //         [d[nsid]],
+        //         { node: nsidToNode[nsid], service: "newUrls", method: "put" },
+        //         (e, node) => {
+        //             resolve(result);
+        //         })
+        // }
+            // const nid = _getNodeIdForKey(key);
+            // const nodeToSendKeyTo = context.group[nid.substring(0, 5)];
+
+            distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, node) => {
                 console.log("successful put in the crawl text");
-                // console.log("e:", e);
-                // console.log("v:", v);
-                // Step 4: Get URLs from page
-                // const urlsRaw = spawnSync('node', [`./c/getURLs.js`, value], {
-                //     input: rawURLContent,
-                //     encoding: 'utf-8'
-                // }).output[1];
+                
                 const urlsRaw = temp.stderr;
                 // console.log("URLSRAW:", urlsRaw)
                 const urlList = urlsRaw.split('\n');
@@ -91,29 +136,29 @@ const startTests = () => {
                 if (urlList.length === 1 && urlList[0] === '') {
                     // console.log("urlList[0] === ''", urlList[0] === '')
                     // console.log("Gets")
-                    resolve([{ [key]: true }]);
+                    resolve(result);
                         // return resultPromise;
                 } else {
                     for (const url of urlList) {
-                        distribution.crawl.store.getNode(url, (e, v) => {
+                        distribution.crawl.store.getNode(url, (e, node) => {
                             count++;
                             // Add to per node batch of URLs
-                            const sid = distribution.util.id.getSID(v);
+                            const sid = distribution.util.id.getSID(node);
                             if (!Object.hasOwn(d, sid)) {
                                 d[sid] = [];
                             }
 
                             const newUrlKey = distribution.util.id.getID(url).slice(0, 20);;
                             d[sid].push({ [newUrlKey]: url })
-                            // console.log("v NODE:", v);
-                            nsidToNode[sid] = v;
+                            // console.log("node NODE:", node);
+                            nsidToNode[sid] = node;
                             // console.log("nsidToNode:", nsidToNode)
                             if (count === urlList.length) {
                                 // We've gone through all URLs. Let's send through the nextURLs service
                                 for (let nsid in d) {
                                     if (nsid === distribution.util.id.getSID(global.nodeConfig)) {
                                         // Call own service for this
-                                        distribution.local.newUrls.put(d[nsid], (e, v) => {
+                                        distribution.local.newUrls.put(d[nsid], (e, node) => {
                                             resolve([{ [key]: true }]);
                                         })
                                     } else {
@@ -121,8 +166,8 @@ const startTests = () => {
                                         distribution.local.comm.send(
                                             [d[nsid]],
                                             { node: nsidToNode[nsid], service: "newUrls", method: "put" },
-                                            (e, v) => {
-                                                resolve([{ [key]: true }]);
+                                            (e, node) => {
+                                                resolve(result);
                                             })
                                     }
                                 }
@@ -162,13 +207,13 @@ const startTests = () => {
             // Step 2: Build up object with page data
             const data = temp.stdout;
             console.log(data);
-            distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, v) => {
+            distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, node) => {
                 if (e) {
                     console.log(e);
                     reject(e);
                     return;
                 }
-                console.log('[reduce] ran:', v);
+                console.log('[reduce] ran:', node);
                 resolve([{ [key]: true }]);
             });
             // Step 3: Store content under hashURL(value)
@@ -182,31 +227,31 @@ const startTests = () => {
 
     const doMapReduce = (cb) => {
         // Putting own value due to transformation which loses non-alphanumerical characters
-        global.distribution.crawl.store.getNode(CRAWL_URL, (e, v) => {
+        global.distribution.crawl.store.getNode(CRAWL_URL, (e, node) => {
             if (e) {
                 cb(e);
                 return;
             }
             // console.log("does getNode return?");
-            global.distribution.local.comm.send([{ [hashURL(CRAWL_URL)]: CRAWL_URL }], { node: v, service: "newUrls", "method": "put" }, (e, v) => {
+            global.distribution.local.comm.send([{ [hashURL(CRAWL_URL)]: CRAWL_URL }], { node: node, service: "newUrls", "method": "put" }, (e, node) => {
                 // console.log("does this get sent?");
                 // console.log("newUrls put e:", e);
-                // console.log("newUrls put v:", v);
+                // console.log("newUrls put node:", node);
                 if (e) {
                     cb(e);
                     return;
                 }
-                // distribution.crawl.store.put(CRAWL_URL, hashURL(CRAWL_URL), (e, v) => {
+                // distribution.crawl.store.put(CRAWL_URL, hashURL(CRAWL_URL), (e, node) => {
                 //     if(e) {
                 //         cb(e);
                 //         return;
                 //     }
                 // console.log("e:", e);
-                // console.log("v:", v);
+                // console.log("node:", node);
                 const execFunction = () => {
-                    distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, v) => {
+                    distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, node) => {
                         console.log("do we ever get back to here?")
-                        global.distribution.crawl.comm.send([], {service: "newUrls", method: "flush"}, (e,v) => {
+                        global.distribution.crawl.comm.send([], {service: "newUrls", method: "flush"}, (e,node) => {
                             if (e.length > 0) {
                                 console.log("FLUSH FAILED...");
                                 return;
@@ -220,10 +265,10 @@ const startTests = () => {
                                     console.log("CODE RED");
                                     return;
                                 }
-                                counts = Object.values(vs).map((v) => v.count);
+                                counts = Object.values(vs).map((node) => node.count);
                                 sum = counts.reduce((acc, curr) => acc + curr, 0);
                                 console.log("[MR ITERATION] Count: " + sum);
-                                const notDone = Object.values(vs).filter((v) => !v.isDone);
+                                const notDone = Object.values(vs).filter((node) => !node.isDone);
                                 if (notDone.length) {
                                     execFunction()
                                 } else {
@@ -248,8 +293,8 @@ const startTests = () => {
 distribution.node.start((server) => {
     localServer = server
     startNodes(() => {
-        distribution.local.groups.put({ gid: "crawl", hash: consistentHash }, group, (e, v) => {
-            distribution.crawl.groups.put({ gid: "crawl" }, group, (e, v) => {
+        distribution.local.groups.put({ gid: "crawl", hash: consistentHash }, group, (e, node) => {
+            distribution.crawl.groups.put({ gid: "crawl" }, group, (e, node) => {
                 startTests();
             })
         })
@@ -265,9 +310,9 @@ const hashURL = (url) => {
  * USED FOR RUNNING LOCALLY
  */
 const startNodes = (cb) => {
-    distribution.local.status.spawn(n1, (e, v) => {
-        distribution.local.status.spawn(n2, (e, v) => {
-            distribution.local.status.spawn(n3, (e, v) => {
+    distribution.local.status.spawn(n1, (e, node) => {
+        distribution.local.status.spawn(n2, (e, node) => {
+            distribution.local.status.spawn(n3, (e, node) => {
                 cb();
             });
         });
@@ -277,11 +322,11 @@ const startNodes = (cb) => {
 const stopNodes = (cb) => {
     const remote = { service: 'status', method: 'stop' };
     remote.node = n1;
-    distribution.local.comm.send([], remote, (e, v) => {
+    distribution.local.comm.send([], remote, (e, node) => {
         remote.node = n2;
-        distribution.local.comm.send([], remote, (e, v) => {
+        distribution.local.comm.send([], remote, (e, node) => {
             remote.node = n3;
-            distribution.local.comm.send([], remote, (e, v) => {
+            distribution.local.comm.send([], remote, (e, node) => {
                 localServer.close();
             });
         });
