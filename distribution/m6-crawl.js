@@ -22,7 +22,7 @@ group[getSID(n2)] = n2;
 group[getSID(n3)] = n3;
 
 let localServer = null;
-const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/"
+const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg"
 // const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/6/4/3/3/64333/"
 
 const startTests = () => {
