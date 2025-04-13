@@ -40,7 +40,7 @@ const startTests = () => {
         const resultPromise = new Promise((resolve, reject) => {
             let spawnSyncOutput = {};
             try {
-                temp = spawnSync('bash', ['./jen-crawl.sh', value], {
+                spawnSyncOutput = spawnSync('bash', ['./jen-crawl.sh', value], {
                     encoding: 'utf-8',
                     maxBuffer: 1024 * 1024 * 64
                 });
@@ -50,7 +50,7 @@ const startTests = () => {
                 return;
             }
 
-            const result = spawnSyncOutput.stdout.trim()
+            const ngramParsingResult = spawnSyncOutput.stdout.trim()
                 .split("\n")
                 .map(line => {
                     const [ngram, freq, url] = line.split("|").map(s => s.trim());
@@ -66,7 +66,7 @@ const startTests = () => {
             let sendBatch = {};
             let sid_to_node = {};
             let resultCount = 0;
-            result.forEach(item => {
+            ngramParsingResult.forEach(item => {
                 const ngram = item.key;
                 const freq = item.value.freq;
                 const url = item.value.url;
@@ -77,14 +77,14 @@ const startTests = () => {
                         return;
                     }
                     resultCount++;
-                    const sid = distribution.util.id.getSID(node);
-                    sid_to_node[sid] = node;
-                    if (!Object.hasOwn(sendBatch, sid)) {
-                        sendBatch[sid] = [];
+                    const sidForNgram = distribution.util.id.getSID(node);
+                    sid_to_node[sidForNgram] = node;
+                    if (!Object.hasOwn(sendBatch, sidForNgram)) {
+                        sendBatch[sidForNgram] = [];
                     }
-                    sendBatch[sid].push({ [ngram]: { freq: freq, url: url } });
+                    sendBatch[sidForNgram].push({ [ngram]: { freq: freq, url: url } });
 
-                    if (resultCount === Object.keys(result).length) {
+                    if (resultCount === Object.keys(ngramParsingResult).length) {
                         let sendBatchCount = 0;
                         Object.entries(sendBatch).forEach(([iterSid, piece]) => {
                             // console.log("PIECE:", piece);
@@ -94,12 +94,15 @@ const startTests = () => {
                                     // URL Parsing
                                     const sids = Object.keys(sendBatch);
                                     const out = [];
-                                    for (iterSid of sids) {
+                                    sids.forEach(() => {
                                         out.push({ "a": null });
-                                    }
-                                    const urlsRaw = spawnSyncOutput.stderr;
+                                    })
+                                    // const urlsRaw = spawnSyncOutput.stderr;
                                     fs.appendFileSync('stderr.log', spawnSyncOutput.stderr);
-                                    const urlList = urlsRaw.split('\n');
+                                    const urlList = spawnSyncOutput.stderr
+                                        .split('\n')
+                                        .map(s => s.trim())
+                                        .filter(s => /^https?:\/\//.test(s)); // crude but works
                                     // console.log("URLLIST:", urlList)
                                     // Step 5: Go through each URL to determine which node it should be sent to
                                     let count = 0;
@@ -112,23 +115,24 @@ const startTests = () => {
                                             distribution.crawl.store.getNode(rawUrl, (e, nodeToSend) => {
                                                 count++;
                                                 // Add to per node batch of URLs
-                                                const sid = distribution.util.id.getSID(nodeToSend);
-                                                if (!Object.hasOwn(sidToURLList, sid)) {
-                                                    sidToURLList[sid] = [];
+                                                const sidForUrl = distribution.util.id.getSID(nodeToSend);
+                                                if (!Object.hasOwn(sidToURLList, sidForUrl)) {
+                                                    sidToURLList[sidForUrl] = [];
                                                 }
 
                                                 const newUrlKey = distribution.util.id.getID(rawUrl).slice(0, 20);;
-                                                sidToURLList[sid].push({ [newUrlKey]: rawUrl })
+                                                sidToURLList[sidForUrl].push({ [newUrlKey]: rawUrl })
                                                 // console.log("v NODE:", v);
-                                                nsidToNode[sid] = nodeToSend;
+                                                nsidToNode[sidForUrl] = nodeToSend;
                                                 // console.log("nsidToNode:", nsidToNode)
                                                 if (count === urlList.length) {
                                                     let nodesReceivingURLList = 0;
                                                     // We've gone through all URLs. Let's send through the nextURLs service
                                                     for (let nsid in sidToURLList) {
+                                                        console.log("sidToURLList[nsid]:", sidToURLList[nsid]);
                                                         distribution.local.comm.send(
                                                             [sidToURLList[nsid]],
-                                                            { node: nsidToNode[nsid], service: "newUrls", method: "put" },
+                                                            { node: nsidToNode[nsid], service: "newUrls", method: "putURLS" },
                                                             (e, v) => {
                                                                 nodesReceivingURLList++;
                                                                 if (nodesReceivingURLList === Object.keys(sidToURLList).length) {
@@ -176,7 +180,7 @@ const startTests = () => {
         const { execSync, spawnSync, exec } = require("child_process");
 
         const resultPromise = new Promise((resolve, reject) => {
-            
+
             var temp = {};
             // console.log("value: ", value)
             try {
@@ -184,7 +188,7 @@ const startTests = () => {
                     encoding: 'utf-8',
                     maxBuffer: 1024 * 1024 * 64
                 });
-                
+
                 console.log("[reduce] temp:", temp);
             } catch (e) {
                 console.log("[reduce] error:", e.message);
@@ -206,8 +210,8 @@ const startTests = () => {
             });
             // Step 3: Store content under hashURL(value)
             // console.log("key:", key);
-            
-            
+
+
         });
 
         return resultPromise;
@@ -221,7 +225,7 @@ const startTests = () => {
                 return;
             }
             // console.log("does getNode return?");
-            global.distribution.local.comm.send([{ [hashURL(CRAWL_URL)]: CRAWL_URL }], { node: node, service: "newUrls", "method": "put" }, (e, node) => {
+            global.distribution.local.comm.send([{ [hashURL(CRAWL_URL)]: CRAWL_URL }], { node: node, service: "newUrls", "method": "putURLS" }, (e, node) => {
                 // console.log("does this get sent?");
                 // console.log("newUrls put e:", e);
                 // console.log("newUrls put node:", node);

@@ -42,7 +42,7 @@ const store = require('./store');
 const mr = require('./mr');
 
 /* Next URLs Service */
-const newUrls = require("./newUrls")
+const newUrls = require("./newUrls");
 
 module.exports = {
   status: status,

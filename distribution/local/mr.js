@@ -241,9 +241,9 @@ function _mr(config) {
                         // get the keys from the newUrls route
                         // console.log("DO WE EVER GET HERE???????");
                         global.distribution.local.newUrls.get((e, v) => {
-                            let result = v;
+                            let newUrlsResult = v;
                             if (e) {
-                                result = []
+                                newUrlsResult = []
                             }
                             // console.log("e:", e);
                             // console.log("v:", v);
@@ -255,7 +255,7 @@ function _mr(config) {
                             }
                             // console.log('v:');
                             // console.log(v);
-                            console.log(`${id.getSID(global.nodeConfig)}: result from newUrls get:`, result);
+                            console.log(`${id.getSID(global.nodeConfig)}: result from newUrls get:`, newUrlsResult);
                             v.forEach((obj) => {
                                 console.log(`${id.getSID(global.nodeConfig)}: execMap is called with: `, Object.keys(obj)[0], Object.values(obj)[0]);
                                 console.log(`${id.getSID(global.nodeConfig)}: Object.keys(obj), Object.values(obj): `, Object.keys(obj), Object.values(obj));

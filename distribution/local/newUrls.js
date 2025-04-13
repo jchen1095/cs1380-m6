@@ -36,7 +36,7 @@ newUrls.get = function(callback) {
     });
 }
 
-newUrls.put = function(urls, callback) {
+newUrls.putURLS = function(urls, callback) {
     // assumption -> each url is {hash: url}
     // console.log("START NEWURLS PUT!");
     console.log(`${id.getSID(global.nodeConfig)}: newUrls.put urls: `, urls);
