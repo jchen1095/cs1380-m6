@@ -1,3 +1,4 @@
+
 const { getSID, getID } = require("@brown-ds/distribution/distribution/util/id")
 const distribution = require("../distribution")
 const { consistentHash } = require("./util/id")
@@ -40,9 +41,10 @@ const startTests = () => {
             // console.log("value: ", value)
             try {
                 temp = spawnSync('bash', ['./jen-crawl.sh', value], {
-                    encoding: 'utf-8'
+                    encoding: 'utf-8',
+                    maxBuffer: 1024 * 1024 * 64
                 });
-                // console.log("temp:", temp);
+
             } catch (e) {
                 console.log("error:", e.message);
             }
@@ -151,34 +153,74 @@ const startTests = () => {
     }
 
     const reducer = (key, values) => {
-        return [];
+        console.log("Reducer key:", key);
+        console.log("Reducer value:", values);
+        // Import execSync
+        const { execSync, spawnSync, exec } = require("child_process");
+
+        const resultPromise = new Promise((resolve, reject) => {
+            
+            var temp = {};
+            // console.log("value: ", value)
+            try {
+                temp = spawnSync('bash', ['./index_reduce.sh', values], {
+                    encoding: 'utf-8',
+                    maxBuffer: 1024 * 1024 * 64
+                });
+                
+                console.log("[reduce] temp:", temp);
+            } catch (e) {
+                console.log("[reduce] error:", e.message);
+            }
+
+            // Step 1: Get text from page
+            // const capturedText = execSync(`./c/getText.js`, { encoding: 'utf-8' });
+            // Step 2: Build up object with page data
+            const data = temp.stdout;
+            console.log(data);
+            distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, node) => {
+                if (e) {
+                    console.log(e);
+                    reject(e);
+                    return;
+                }
+                console.log('[reduce] ran:', node);
+                resolve([{ [key]: true }]);
+            });
+            // Step 3: Store content under hashURL(value)
+            // console.log("key:", key);
+            
+            
+        });
+
+        return resultPromise;
     }
 
     const doMapReduce = (cb) => {
         // Putting own value due to transformation which loses non-alphanumerical characters
-        global.distribution.crawl.store.getNode(CRAWL_URL, (e, v) => {
+        global.distribution.crawl.store.getNode(CRAWL_URL, (e, node) => {
             if (e) {
                 cb(e);
                 return;
             }
             // console.log("does getNode return?");
-            global.distribution.local.comm.send([{ [hashURL(CRAWL_URL)]: CRAWL_URL }], { node: v, service: "newUrls", "method": "put" }, (e, v) => {
+            global.distribution.local.comm.send([{ [hashURL(CRAWL_URL)]: CRAWL_URL }], { node: node, service: "newUrls", "method": "put" }, (e, node) => {
                 // console.log("does this get sent?");
                 // console.log("newUrls put e:", e);
-                // console.log("newUrls put v:", v);
+                // console.log("newUrls put node:", node);
                 if (e) {
                     cb(e);
                     return;
                 }
-                // distribution.crawl.store.put(CRAWL_URL, hashURL(CRAWL_URL), (e, v) => {
+                // distribution.crawl.store.put(CRAWL_URL, hashURL(CRAWL_URL), (e, node) => {
                 //     if(e) {
                 //         cb(e);
                 //         return;
                 //     }
                 // console.log("e:", e);
-                // console.log("v:", v);
+                // console.log("node:", node);
                 const execFunction = () => {
-                    distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, v) => {
+                    distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, node) => {
                         console.log("do we ever get back to here?")
                         global.distribution.crawl.comm.send([], { service: "newUrls", method: "flush" }, (e, v) => {
                             if (e.length > 0) {
@@ -194,10 +236,10 @@ const startTests = () => {
                                     console.log("CODE RED");
                                     return;
                                 }
-                                counts = Object.values(vs).map((v) => v.count);
+                                counts = Object.values(vs).map((node) => node.count);
                                 sum = counts.reduce((acc, curr) => acc + curr, 0);
                                 console.log("[MR ITERATION] Count: " + sum);
-                                const notDone = Object.values(vs).filter((v) => !v.isDone);
+                                const notDone = Object.values(vs).filter((node) => !node.isDone);
                                 if (notDone.length) {
                                     execFunction()
                                 } else {
@@ -222,8 +264,8 @@ const startTests = () => {
 distribution.node.start((server) => {
     localServer = server
     startNodes(() => {
-        distribution.local.groups.put({ gid: "crawl", hash: consistentHash }, group, (e, v) => {
-            distribution.crawl.groups.put({ gid: "crawl" }, group, (e, v) => {
+        distribution.local.groups.put({ gid: "crawl", hash: consistentHash }, group, (e, node) => {
+            distribution.crawl.groups.put({ gid: "crawl" }, group, (e, node) => {
                 startTests();
             })
         })
@@ -239,9 +281,9 @@ const hashURL = (url) => {
  * USED FOR RUNNING LOCALLY
  */
 const startNodes = (cb) => {
-    distribution.local.status.spawn(n1, (e, v) => {
-        distribution.local.status.spawn(n2, (e, v) => {
-            distribution.local.status.spawn(n3, (e, v) => {
+    distribution.local.status.spawn(n1, (e, node) => {
+        distribution.local.status.spawn(n2, (e, node) => {
+            distribution.local.status.spawn(n3, (e, node) => {
                 cb();
             });
         });
@@ -251,11 +293,11 @@ const startNodes = (cb) => {
 const stopNodes = (cb) => {
     const remote = { service: 'status', method: 'stop' };
     remote.node = n1;
-    distribution.local.comm.send([], remote, (e, v) => {
+    distribution.local.comm.send([], remote, (e, node) => {
         remote.node = n2;
-        distribution.local.comm.send([], remote, (e, v) => {
+        distribution.local.comm.send([], remote, (e, node) => {
             remote.node = n3;
-            distribution.local.comm.send([], remote, (e, v) => {
+            distribution.local.comm.send([], remote, (e, node) => {
                 localServer.close();
             });
         });

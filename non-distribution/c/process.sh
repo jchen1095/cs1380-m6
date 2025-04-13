@@ -8,5 +8,5 @@
 tr '[:space:]' '\n' |
 tr -c '[:alpha:]\n' '\n'|
 tr '[:upper:]' '[:lower:]' |
-iconv -f UTF-8 -t ASCII//TRANSLIIT |
+iconv -f UTF-8 -t ASCII//TRANSLIT |
 grep -vxFf d/stopwords.txt
