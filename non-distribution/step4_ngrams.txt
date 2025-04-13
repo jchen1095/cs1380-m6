@@ -1,0 +1,93 @@
+apach	debian	server
+atla	brown	port
+blank	gif	modifi
+brown	port	
+data	gutenberg	ico
+data	gutenberg	txt
+debian	server	atla
+descript	parentdir	icon
+dir	icon	folder
+directori	data	gutenberg
+folder	gif	apach
+gif	apach	debian
+gif	modifi	size
+gif	parent	directori
+gif	txt	txt
+gutenberg	ico	icon
+gutenberg	txt	icon
+ico	icon	blank
+icon	blank	gif
+icon	folder	gif
+icon	gif	parent
+icon	gif	txt
+modifi	size	descript
+parent	directori	data
+parentdir	icon	gif
+port		
+server	atla	brown
+size	descript	parentdir
+txt	dir	icon
+txt	icon	gif
+txt	txt	dir
+apach	debian
+atla	brown
+blank	gif
+brown	port
+data	gutenberg
+data	gutenberg
+debian	server
+descript	parentdir
+dir	icon
+directori	data
+folder	gif
+gif	apach
+gif	modifi
+gif	parent
+gif	txt
+gutenberg	ico
+gutenberg	txt
+ico	icon
+icon	blank
+icon	folder
+icon	gif
+icon	gif
+modifi	size
+parent	directori
+parentdir	icon
+port	
+server	atla
+size	descript
+txt	dir
+txt	icon
+txt	txt
+apach
+atla
+blank
+brown
+data
+data
+debian
+descript
+dir
+directori
+folder
+gif
+gif
+gif
+gif
+gutenberg
+gutenberg
+ico
+icon
+icon
+icon
+icon
+modifi
+parent
+parentdir
+port
+server
+size
+txt
+txt
+txt

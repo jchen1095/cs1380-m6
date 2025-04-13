@@ -31,6 +31,7 @@ const startTests = () => {
     const mapper = (key, value, require) => {
         console.log("Mapper key:", key);
         console.log("Mapper value:", value);
+        console.log(value);
         // Import execSync
         const { execSync, spawnSync, exec } = require("child_process");
 
@@ -165,25 +166,31 @@ const startTests = () => {
                 const execFunction = () => {
                     distribution.crawl.mr.exec({ keys: [null], map: mapper, reduce: reducer }, (e, v) => {
                         console.log("do we ever get back to here?")
-                        global.distribution.crawl.comm.send([], { service: "newUrls", method: "status" }, (es, vs) => {
-                            console.log("vs:", vs);
-                            console.log("es:", es);
-                            // 
-                            if (es.length > 0) {
-                                console.log("CODE RED");
+                        global.distribution.crawl.comm.send([], {service: "newUrls", method: "flush"}, (e,v) => {
+                            if (e.length > 0) {
+                                console.log("FLUSH FAILED...");
                                 return;
                             }
-                            counts = Object.values(vs).map((v) => v.count);
-                            sum = counts.reduce((acc, curr) => acc + curr, 0);
-                            console.log("[MR ITERATION] Count: " + sum);
-                            const notDone = Object.values(vs).filter((v) => !v.isDone);
-                            if (notDone.length) {
-                                execFunction()
-                            } else {
-                                console.log("DONT COME NEAR ME OR MY FAMILY EVER AGAIN.")
-                            }
+                            console.log("FLUSHED");
+                            global.distribution.crawl.comm.send([], { service: "newUrls", method: "status" }, (es, vs) => {
+                                console.log("vs:", vs);
+                                console.log("es:", es);
+                                // 
+                                if (es.length > 0) {
+                                    console.log("CODE RED");
+                                    return;
+                                }
+                                counts = Object.values(vs).map((v) => v.count);
+                                sum = counts.reduce((acc, curr) => acc + curr, 0);
+                                console.log("[MR ITERATION] Count: " + sum);
+                                const notDone = Object.values(vs).filter((v) => !v.isDone);
+                                if (notDone.length) {
+                                    execFunction()
+                                } else {
+                                    console.log("DONT COME NEAR ME OR MY FAMILY EVER AGAIN.")
+                                }
+                            })
                         })
-
                         // // console.log("Done w/ crawl MapReduce!");
                         // stopNodes(() => { });
                     })

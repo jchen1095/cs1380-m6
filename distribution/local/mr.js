@@ -242,6 +242,8 @@ function _mr(config) {
                         // console.log("DO WE EVER GET HERE???????");
                         global.distribution.local.newUrls.get((e, v) => {
                             numLocalKeys = v.length;
+                            console.log('v:');
+                            console.log(v);
                             v.forEach((obj) => {
                                 execMap(Object.keys(obj)[0], e, Object.values(obj)[0]);
                             })
