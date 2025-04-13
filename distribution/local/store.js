@@ -309,4 +309,4 @@ function _alphaNumericizeKey(key) {
   return key.replace(/[^a-zA-Z0-9]/g, '')
 }
 
-module.exports = { put, get, del, append, batchAppend, batchDelete, search, clear };
+module.exports = { put, get, del, append, appendForBatch, batchAppend, batchDelete, search, clear };
