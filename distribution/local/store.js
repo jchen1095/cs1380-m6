@@ -133,6 +133,32 @@ function batchDelete(configuration, callback) {
 
 }
 
+// expect state = array of {k,v}
+function appendForBatch(state, configuration, callback) {
+  if (Array.isArray(state)) {
+    const gid = configuration.gid;
+    let count = 0;
+    for (const o of state) {
+      if (typeof o == 'object') {
+        const key = Object.keys(o)[0];
+        const value = Object.values(o)[0];
+        append(value, {gid: gid, key: key}, (e,v) => {
+          if (e) {
+            callback(new Error("[Store.AppendForBatch] E: " + e.message));
+            return;
+          }
+          count++;
+          if (count >= state.length) {
+            callback(null, count);
+          }
+        });
+      } 
+    }
+  } else {
+    callback(new Error("[Store.AppendForBatch] State is not an array"));
+  }
+}
+
 function get(configuration, callback) {
   let key;
   let gid = "local";
