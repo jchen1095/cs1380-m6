@@ -1,5 +1,6 @@
 data
 gutenberg
+retired
 ico
 icons
 blank
@@ -94,6 +95,8 @@ dir
 icons
 folder
 gif
+etext
+etext
 apache
 debian
 server

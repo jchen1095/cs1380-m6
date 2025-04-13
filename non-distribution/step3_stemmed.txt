@@ -1,5 +1,6 @@
 data
 gutenberg
+retir
 ico
 icon
 blank
@@ -94,6 +95,8 @@ dir
 icon
 folder
 gif
+etext
+etext
 apach
 debian
 server
