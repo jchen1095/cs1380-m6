@@ -69,7 +69,7 @@ newUrls.put = function(urls, callback) {
         }
     } else if (typeof urls == 'object') {
         // console.log("HI??")
-        global.distribution.local.mem.put(urls, {gid: "newUrls", key: Object.keys(urls)[0] }, (e,v) => {
+        global.distribution.local.mem.put(Object.values(urls)[0], {gid: "newUrls", key: Object.keys(urls)[0] }, (e,v) => {
             // console.log("local mem put e:", e);
             // console.log("local mem put v:", v);
             if (e) {

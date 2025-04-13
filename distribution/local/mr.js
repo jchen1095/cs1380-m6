@@ -241,6 +241,8 @@ function _mr(config) {
                         // get the keys from the newUrls route
                         // console.log("DO WE EVER GET HERE???????");
                         global.distribution.local.newUrls.get((e, v) => {
+                            console.log("e:", e);
+                            console.log("v:", v);
                             numLocalKeys = v.length;
                             console.log('v:');
                             console.log(v);

@@ -87,40 +87,49 @@ const startTests = () => {
             // console.log('Result:', result);
 
             var send_batch = {};
+            let sid_to_node = {};
+            let resultCount = 0;
             result.forEach(item => {
-                console.log(`Key: ${item.key}`);
-                console.log(`Freq: ${item.value.freq}`);
-                console.log(`URL: ${item.value.url}`);
+                // console.log(`Key: ${item.key}`);
+                // console.log(`Freq: ${item.value.freq}`);
+                // console.log(`URL: ${item.value.url}`);
                 const ngram = item.key;
                 const freq = item.value.freq;
                 const url = item.value.url;
-                const sid_to_node = {};
-                let resultCount = 0;
-                global.distribution.crawl.store.getNode(ngram, (e, node) => {
+                distribution.crawl.store.getNode(ngram, (e, node) => {
+                    // console.log("RETURNED FROM GETNODE!!", e, node);
                     if (e) {
                         console.log("Error getting node:", e);
+                        reject(e);
                         return;
                     }
                     resultCount++;
                     const sid = distribution.util.id.getSID(node);
                     sid_to_node[sid] = node;
                     if (!Object.hasOwn(send_batch, sid)) {
-                        send_batch[node] = [];
+                        send_batch[sid] = [];
                     }
-                    send_batch[sid].push({ ngram: { freq: freq, url: url } });
+                    send_batch[sid].push({ [ngram]: { freq: freq, url: url } });
+                    // console.log("PUSHED INTO APPROPRIATE SEND BATCH!")
+                    // console.log("resultCount:", resultCount)
+                    // console.log(Object.keys(result).length)
 
                     if (resultCount === Object.keys(result).length) {
-                        console.log("We added all results, yay!")
+                        // console.log("We added all results, yay!")
                         let sendBatchCount = 0;
-                        send_batch.forEach((sid, piece) => {
-                            distribution.local.comm.send([piece, { gid: "ngrams" }], { node: sid_to_node[sid], service: "store", method: "appendForBatch" }, (e, v) => {
+                        Object.entries(send_batch).forEach(([iterSid, piece]) => {
+                            // console.log("sid:", iterSid);
+                            // console.log("sid_to_node[sid]", sid_to_node[iterSid])
+                            // console.log("sid_to_node:", sid_to_node)
+                            console.log("PIECE:", piece);
+                            distribution.local.comm.send([piece, { gid: "ngrams" }], { node: sid_to_node[iterSid], service: "store", method: "appendForBatch" }, (e, v) => {
                                 sendBatchCount++;
                                 if (sendBatchCount === Object.keys(send_batch).length) {
                                     // URL Parsing
                                     const sids = Object.keys(send_batch);
                                     const out = [];
-                                    for (sid of sids) {
-                                        out.push({ [send_batch[sid][0]]: null });
+                                    for (iterSid of sids) {
+                                        out.push({ [send_batch[iterSid][0]]: null });
                                     }
                                     const urlsRaw = temp.stderr;
                                     // console.log("URLSRAW:", urlsRaw)
