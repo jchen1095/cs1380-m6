@@ -142,107 +142,49 @@ const startTests = () => {
                     const ngram = item.key;
                     const freq = item.value.freq;
                     const url = item.value.url;
-                    distribution.crawl.store.getNode(ngram, (e, node) => {
+                    const ngramInfo = { [ngram]: { freq: freq, url: url } }
+                    distribution.local.store.appendForBatch(piece, {gid: "ngrams"}, (e,v) => {
                         if (e) {
-                            console.log("Error getting node:", e);
-                            reject(e);
-                            return;
+                            console.log("Error in append for batch: ", e);
                         }
-                        resultCount++;
-                        const sid = distribution.util.id.getSID(node);
-                        sid_to_node[sid] = node;
-                        if (!Object.hasOwn(sendBatch, sid)) {
-                            sendBatch[sid] = [];
-                        }
-                        sendBatch[sid].push({ [ngram]: { freq: freq, url: url } });
+                    })
+                    
+                    
+                    
 
-                        if (resultCount === Object.keys(result).length) {
-                            let sendBatchCount = 0;
-                            Object.entries(sendBatch).forEach(([iterSid, piece]) => {
-                                // console.log("PIECE:", piece);
-                                distribution.local.comm.send([piece, { gid: "ngrams" }], { node: sid_to_node[iterSid], service: "store", method: "appendForBatch" }, (e, v) => {
-                                    console.log("Extracted and appended ngrams! Error:", e);
-                                    sendBatchCount++;
-                                    if (sendBatchCount === Object.keys(sendBatch).length) {
-                                        const endTime2 = performance.now();
-                                        console.log(`${distribution.util.id.getSID(global.nodeConfig)} Sending n-grams elapsed:`, endTime2-startTime2)
-                                    }
-                                    // resolve(null);
-                                    // sendBatchCount++;
-                                    // if (sendBatchCount === Object.keys(sendBatch).length) {
-                                    //     // URL Parsing
-                                    //     const sids = Object.keys(sendBatch);
-                                    //     const out = [];
-                                    //     for (iterSid of sids) {
-                                    //         out.push({ "a": null });
-                                    //     }
-                                    //     const urlsRaw = spawnSyncOutput.stderr;
-                                    //     fs.appendFileSync('stderr.log', spawnSyncOutput.stderr);
-                                    //     const urlList = urlsRaw.split('\n');
-                                    //     // console.log("URLLIST:", urlList)
-                                    //     // Step 5: Go through each URL to determine which node it should be sent to
-                                    //     let count = 0;
-                                    //     const sidToURLList = {};
-                                    //     const nsidToNode = {};
-                                    //     if (urlList.length === 1 && urlList[0] === '') {
-                                    //         resolve(out);
-                                    //     } else {
-                                    //         for (const rawUrl of urlList) {
-                                    //             distribution.crawl.store.getNode(rawUrl, (e, nodeToSend) => {
-                                    //                 count++;
-                                    //                 // Add to per node batch of URLs
-                                    //                 const sid = distribution.util.id.getSID(nodeToSend);
-                                    //                 if (!Object.hasOwn(sidToURLList, sid)) {
-                                    //                     sidToURLList[sid] = [];
-                                    //                 }
+                    // distribution.crawl.store.getNode(ngram, (e, node) => {
+                    //     if (e) {
+                    //         console.log("Error getting node:", e);
+                    //         reject(e);
+                    //         return;
+                    //     }
+                    //     resultCount++;
+                    //     const sid = distribution.util.id.getSID(node);
+                    //     sid_to_node[sid] = node;
+                    //     if (!Object.hasOwn(sendBatch, sid)) {
+                    //         sendBatch[sid] = [];
+                    //     }
+                    //     sendBatch[sid].push({ [ngram]: { freq: freq, url: url } });
 
-                                    //                 const newUrlKey = distribution.util.id.getID(rawUrl).slice(0, 20);;
-                                    //                 sidToURLList[sid].push({ [newUrlKey]: rawUrl })
-                                    //                 // console.log("v NODE:", v);
-                                    //                 nsidToNode[sid] = nodeToSend;
-                                    //                 // console.log("nsidToNode:", nsidToNode)
-                                    //                 if (count === urlList.length) {
-                                    //                     let nodesReceivingURLList = 0;
-                                    //                     // We've gone through all URLs. Let's send through the nextURLs service
-                                    //                     for (let nsid in sidToURLList) {
-                                    //                         distribution.local.comm.send(
-                                    //                             [sidToURLList[nsid]],
-                                    //                             { node: nsidToNode[nsid], service: "newUrls", method: "put" },
-                                    //                             (e, v) => {
-                                    //                                 nodesReceivingURLList++;
-                                    //                                 if (nodesReceivingURLList === Object.keys(sidToURLList).length) {
-                                    //                                     console.log("SEND ALL URLS FOR NEXT ROUND");
-                                    //                                     resolve(out);
-                                    //                                 }
-                                    //                             })
-
-                                    //                     // if (nsid === distribution.util.id.getSID(global.nodeConfig)) {
-                                    //                     //     // Call own service for this
-                                    //                     //     console.log("Sending to newUrls.put:", JSON.stringify(sidToURLList[nsid], null, 2));
-                                    //                     //     distribution.local.newUrls.put(sidToURLList[nsid], (e, v) => {
-                                    //                     //         resolve(out);
-                                    //                     //     })
-                                    //                     // } else {
-                                    //                     //     // Use comm.send to give it to peer nodes
-                                    //                     //     console.log("Sending to newUrls.put:", JSON.stringify(sidToURLList[nsid], null, 2));
-                                    //                     //     distribution.local.comm.send(
-                                    //                     //         [sidToURLList[nsid]],
-                                    //                     //         { node: nsidToNode[nsid], service: "newUrls", method: "put" },
-                                    //                     //         (e, v) => {
-                                    //                     //             resolve(out);
-                                    //                     //         })
-                                    //                     // }
-                                    //                     }
-                                    //                 }
-                                    //             })
-                                    //         }
-                                    //     }
-                                    // }
-                                });
-                            })
-                        }
-                    });
+                    //     if (resultCount === Object.keys(result).length) {
+                    //         let sendBatchCount = 0;
+                    //         Object.entries(sendBatch).forEach(([iterSid, piece]) => {
+                    //             // console.log("PIECE:", piece);
+                    //             distribution.local.comm.send([piece, { gid: "ngrams" }], { node: sid_to_node[iterSid], service: "store", method: "appendForBatch" }, (e, v) => {
+                    //                 console.log("Extracted and appended ngrams! Error:", e);
+                    //                 sendBatchCount++;
+                    //                 if (sendBatchCount === Object.keys(sendBatch).length) {
+                    //                     const endTime2 = performance.now();
+                    //                     console.log(`${distribution.util.id.getSID(global.nodeConfig)} Sending n-grams elapsed:`, endTime2-startTime2)
+                    //                 }
+                    //             });
+                    //         })
+                    //     }
+                    // });
                 });
+                const endTime2 = performance.now();
+                console.log(`${distribution.util.id.getSID(global.nodeConfig)} Sending n-grams elapsed:`, endTime2-startTime2)
+                resolve([{ [key]: true}]);
             }
         })
 
