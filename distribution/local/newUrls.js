@@ -11,7 +11,7 @@ const meta = {
 newUrls.get = function(callback) {
     // console.log("newURLS get was called!")
     global.distribution.local.mem.getAll({gid: "newUrls"}, (e,v) => {
-        console.log(`${id.getSID(global.nodeConfig)}: getAll result: `, v);
+        // console.log(`${id.getSID(global.nodeConfig)}: getAll result: `, v);
         // console.log("e:", e);
         // console.log("v:", v);
         if (e) {
@@ -39,7 +39,7 @@ newUrls.get = function(callback) {
 newUrls.putURLS = function(urls, callback) {
     // assumption -> each url is {hash: url}
     // console.log("START NEWURLS PUT!");
-    console.log(`${id.getSID(global.nodeConfig)}: newUrls.put urls: `, urls);
+    // console.log(`${id.getSID(global.nodeConfig)}: newUrls.put urls: `, urls);
     let count = 0;
     if(Array.isArray(urls)) {
         for (const url of urls) {

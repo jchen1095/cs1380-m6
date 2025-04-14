@@ -204,7 +204,7 @@ function _mr(config) {
                     // outMappings is now a promise
                     outMappingsPromise.then((outMappings) => {
                         console.log("Promise resolved! Going to rest of the stuff;", outMappings);
-                        console.log("outMappings.length:", outMappings.length)
+                        // console.log("outMappings.length:", outMappings.length)
                         for (let i = 0; i < outMappings.length; i++) {
                             const mapKey = Object.keys(outMappings[i])[0]
                             const mapValue = outMappings[i][mapKey];
@@ -255,10 +255,10 @@ function _mr(config) {
                             }
                             // console.log('v:');
                             // console.log(v);
-                            console.log(`${id.getSID(global.nodeConfig)}: result from newUrls get:`, newUrlsResult);
+                            console.log(`${id.getSID(global.nodeConfig)}: result from newUrls get:`, result);
                             v.forEach((obj) => {
-                                console.log(`${id.getSID(global.nodeConfig)}: execMap is called with: `, Object.keys(obj)[0], Object.values(obj)[0]);
-                                console.log(`${id.getSID(global.nodeConfig)}: Object.keys(obj), Object.values(obj): `, Object.keys(obj), Object.values(obj));
+                                // console.log(`${id.getSID(global.nodeConfig)}: execMap is called with: `, Object.keys(obj)[0], Object.values(obj)[0]);
+                                // console.log(`${id.getSID(global.nodeConfig)}: Object.keys(obj), Object.values(obj): `, Object.keys(obj), Object.values(obj));
                                 // console.log("Object.key")
                                 execMap(Object.keys(obj)[0], e, Object.values(obj)[0]);
                             })
