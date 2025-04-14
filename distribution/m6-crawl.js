@@ -30,15 +30,14 @@ const startTests = () => {
     // See https://edstem.org/us/courses/69551/discussion/6470553 for explanation of the
     // "require" argument
     const mapper = (key, value, require) => {
-        // console.log("Mapper Key:", key);
-        // console.log("Mapper Value:", value);
+        console.log("Mapper Key:", key);
+        console.log("Mapper Value:", value);
         // console.log(value);
         // Import execSync
         const { execSync, spawnSync } = require("child_process");
         const fs = require("fs");
 
         const resultPromise = new Promise((resolve, reject) => {
-            let spawnSyncOutput = {};
             let temp = {};
             try {
                 temp = spawnSync('bash', ['./jen-crawl.sh', value], {
@@ -133,7 +132,12 @@ const startTests = () => {
                             Object.entries(sendBatch).forEach(([iterSid, piece]) => {
                                 // console.log("PIECE:", piece);
                                 distribution.local.comm.send([piece, { gid: "ngrams" }], { node: sid_to_node[iterSid], service: "store", method: "appendForBatch" }, (e, v) => {
-                                    resolve(null);
+                                    console.log("Extracted and appended ngrams! Error:", e);
+                                    sendBatchCount++;
+                                    if (sendBatchCount === Object.keys(sendBatch).length) {
+                                        resolve([{[key]: true}])
+                                    }
+                                    // resolve(null);
                                     // sendBatchCount++;
                                     // if (sendBatchCount === Object.keys(sendBatch).length) {
                                     //     // URL Parsing

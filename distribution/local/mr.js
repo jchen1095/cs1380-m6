@@ -255,10 +255,10 @@ function _mr(config) {
                             }
                             // console.log('v:');
                             // console.log(v);
-                            console.log(`${id.getSID(global.nodeConfig)}: result from newUrls get:`, result);
+                            // console.log(`${id.getSID(global.nodeConfig)}: result from newUrls get:`, result);
                             v.forEach((obj) => {
-                                console.log(`${id.getSID(global.nodeConfig)}: execMap is called with: `, Object.keys(obj)[0], Object.values(obj)[0]);
-                                console.log(`${id.getSID(global.nodeConfig)}: Object.keys(obj), Object.values(obj): `, Object.keys(obj), Object.values(obj));
+                                // console.log(`${id.getSID(global.nodeConfig)}: execMap is called with: `, Object.keys(obj)[0], Object.values(obj)[0]);
+                                // console.log(`${id.getSID(global.nodeConfig)}: Object.keys(obj), Object.values(obj): `, Object.keys(obj), Object.values(obj));
                                 // console.log("Object.key")
                                 execMap(Object.keys(obj)[0], e, Object.values(obj)[0]);
                             })
