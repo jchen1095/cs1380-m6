@@ -1,0 +1,164 @@
+newURLS get was called!
+newURLS get was called!
+Mapper Key: e71890ee407776518c69
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg
+newURLS get was called!
+count reached
+count reached
+count reached
+SEND ALL URLS FOR NEXT ROUND
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+DONE MAPPING!
+Reducer key: e71890ee407776518c69
+Reducer value: [ true, true ]
+[reduce] temp: {
+  status: 0,
+  signal: null,
+  output: [
+    null,
+    '',
+    'true,true\n' +
+      "Error reading file: [Error: ENOENT: no such file or directory, open 'true,true'] {\n" +
+      '  errno: -2,\n' +
+      "  code: 'ENOENT',\n" +
+      "  syscall: 'open',\n" +
+      "  path: 'true,true'\n" +
+      '}\n'
+  ],
+  pid: 25998,
+  stdout: '',
+  stderr: 'true,true\n' +
+    "Error reading file: [Error: ENOENT: no such file or directory, open 'true,true'] {\n" +
+    '  errno: -2,\n' +
+    "  code: 'ENOENT',\n" +
+    "  syscall: 'open',\n" +
+    "  path: 'true,true'\n" +
+    '}\n'
+}
+
+[reduce] ran: 
+[MR ITERATION] Count: 0
+newURLS get was called!
+newURLS get was called!
+Mapper Key: d52c05b38ba5d8bf0bb1
+newURLS get was called!
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt
+Mapper Key: e71890ee407776518c69
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg
+Mapper Key: 24d40372efa1cfc87c6d
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/
+Mapper Key: c4f9a8e2dc80057a45d9
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/indextree.txt
+count reached
+Mapper Key: 79ccb7a2844283d086a5
+Mapper Value: https://atlas.cs.brown.edu/data/
+count reached
+Mapper Key: ee94fb36ecc062a4cd5d
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/3/
+Mapper Key: 925bb111b96f124a45aa
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/0/
+count reached
+count reached
+Mapper Key: 2ae163acad6522ca6c14
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/1/
+count reached
+Mapper Key: 6a0d2c61a9f9454e3a4b
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/2/
+Mapper Key: 9e025d9e69e2ad77f6a4
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/retired/
+count reached
+Mapper Key: 71be4a32112f0d31525d
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/4/
+count reached
+count reached
+count reached
+count reached
+Mapper Key: 68eddc5b20829d6d7733
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/5/
+count reached
+Mapper Key: 6037210139c526ef49f9
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/6/
+count reached
+Mapper Key: 4021fb37a69eac4be360
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/7/
+count reached
+Mapper Key: 2e1ac8b38cc3bc34874b
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/8/
+count reached
+Mapper Key: 87b8251b60a5236986ee
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/9/
+count reached
+Mapper Key: 23410ae4cf70ee0ee0d2
+Mapper Value: https://atlas.cs.brown.edu/data/gutenberg/books.txt
+SEND ALL URLS FOR NEXT ROUND
+count reached
+count reached
+count reached
+count reached
+count reached
+count reached
+count reached
+count reached
+count reached
+count reached
+count reached
+SEND ALL URLS FOR NEXT ROUND
+SEND ALL URLS FOR NEXT ROUND
+SEND ALL URLS FOR NEXT ROUND
+SEND ALL URLS FOR NEXT ROUND
+count reached
+count reached
+count reached
+count reached
+count reached
+count reached
+count reached
+SEND ALL URLS FOR NEXT ROUND
+SEND ALL URLS FOR NEXT ROUND
+SEND ALL URLS FOR NEXT ROUND
+SEND ALL URLS FOR NEXT ROUND
+SEND ALL URLS FOR NEXT ROUND
+SEND ALL URLS FOR NEXT ROUND
+SEND ALL URLS FOR NEXT ROUND
+SEND ALL URLS FOR NEXT ROUND
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null
+Extracted and appended ngrams! Error: null

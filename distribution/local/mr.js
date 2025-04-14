@@ -203,7 +203,7 @@ function _mr(config) {
                     const outMappingsPromise = mrLocalStorage.get("map")(key, v, global.distribution.util.require);
                     // outMappings is now a promise
                     outMappingsPromise.then((outMappings) => {
-                        console.log("Promise resolved! Going to rest of the stuff;", outMappings);
+                        // console.log("Promise resolved! Going to rest of the stuff;", outMappings);
                         // console.log("outMappings.length:", outMappings.length)
                         for (let i = 0; i < outMappings.length; i++) {
                             const mapKey = Object.keys(outMappings[i])[0]
@@ -218,11 +218,11 @@ function _mr(config) {
                                     localKeyCounts++;
 
                                     // If we're done with all keys, send done notification
-                                    console.log("localKeyCounts:", localKeyCounts)
-                                    console.log("localKeys.length:", localKeys.length)
+                                    // console.log("localKeyCounts:", localKeyCounts)
+                                    // console.log("localKeys.length:", localKeys.length)
                                     if (localKeyCounts === numLocalKeys) {
                                         // We're done mapping, we can notify the orchestrator
-                                        console.log("done going through all the keys; bye!");
+                                        // console.log("done going through all the keys; bye!");
                                         callback(null, true);
                                         return;
                                     }

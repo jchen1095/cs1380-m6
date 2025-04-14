@@ -6,10 +6,11 @@ const meta = {
     count: 0,
     isDone: false
 }
+const fs = require("fs");
 
 // Just calls getAll from local.mem -> gets all url objects and reformats to output
 newUrls.get = function(callback) {
-    // console.log("newURLS get was called!")
+    console.log("newURLS get was called!")
     global.distribution.local.mem.getAll({gid: "newUrls"}, (e,v) => {
         // console.log(`${id.getSID(global.nodeConfig)}: getAll result: `, v);
         // console.log("e:", e);
@@ -49,6 +50,7 @@ newUrls.put = function(urls, callback) {
                     callback(e);
                     return;
                 }
+                // fs.appendFileSync('newUrlsPutList.txt', Object.values(url)[0] + "\n");
                 // console.log("mem v:", v);
                 count++;
                 // console.log("INCREMENT COUNT!");
@@ -93,10 +95,12 @@ newUrls.put = function(urls, callback) {
 newUrls.flush = function(callback) {
     // check visited.txt (grep) -> if not in visited.txt -> add to newUrls.txt
     global.distribution.local.mem.getAll({gid: "newUrls"}, (e,u) => {
+        // fs.appendFileSync("flush-output.txt", JSON.stringify(u));
         const urlArr = Object.values(u);
         const urlStr = urlArr.join('\n');
         // get all the non-visited urls
         const newUrls = execSync(`echo "${urlStr}" | grep -vxf d/visited.txt`, {encoding: 'utf-8'});    
+        // console.log("NEW URLS:", newUrls)
         execSync(`echo "${newUrls}" >> d/visited.txt`, {encoding: 'utf-8'});    
         // add new Urls to local.mem
         const newUrlsArr = newUrls.split('\n').map(url => ({[getID(url).slice(0,20)]: url}))
@@ -106,7 +110,7 @@ newUrls.flush = function(callback) {
         global.distribution.local.mem.del({gid: "newUrls", key: null}, (e,v) => {
             let count = 0;
             newUrlsArr.forEach((url) => {
-                global.distribution.local.mem.put(url, {gid: "newUrls", key: Object.keys(url)[0]}, (e,v) => {
+                global.distribution.local.mem.put(Object.values(url)[0], {gid: "newUrls", key: Object.keys(url)[0]}, (e,v) => {
                     if(e) {
                         callback(e);
                         return;
