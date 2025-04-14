@@ -31,8 +31,8 @@ const startTests = () => {
     // See https://edstem.org/us/courses/69551/discussion/6470553 for explanation of the
     // "require" argument
     const mapper = (key, value, require) => {
-        console.log("Mapper Key:", key);
-        console.log("Mapper Value:", value);
+        console.log(`${distribution.util.id.getSID(global.nodeConfig)} Mapper Key:`, key);
+        console.log(`${distribution.util.id.getSID(global.nodeConfig)} Mapper Value:`, value);
         // console.log(value);
         // Import execSync
         const { execSync, spawnSync } = require("child_process");
@@ -40,6 +40,7 @@ const startTests = () => {
 
         const resultPromise = new Promise((resolve, reject) => {
             let temp = {};
+            const startTime = performance.now();
             try {
                 temp = spawnSync('bash', ['./jen-crawl.sh', value], {
                     encoding: 'utf-8',
@@ -50,6 +51,8 @@ const startTests = () => {
                 console.log("error:", e.message);
                 return;
             }
+            const endTime = performance.now();
+            console.log(`${distribution.util.id.getSID(global.nodeConfig)}: jen-crawl.sh elapsed time:`, endTime-startTime);
             const urlsRaw = temp.stderr;
             // const urlList = urlsRaw.split('\n').map((link) => link.trim()).filter((link) => link !== '')
             const urlList = urlsRaw.split('\n');
@@ -109,6 +112,7 @@ const startTests = () => {
                 }
             }
             function processDocs() {
+                const startTime = performance.now();
                 const result = temp.stdout.trim()
                     .split("\n")
                     .map(line => {
@@ -121,10 +125,13 @@ const startTests = () => {
                             }
                         };
                     });
+                const endTime = performance.now();
+                console.log(`${distribution.util.id.getSID(global.nodeConfig)}: Process Docs elapsed:`, endTime-startTime);
 
                 let sendBatch = {};
                 let sid_to_node = {};
                 let resultCount = 0;
+                const startTime2 = performance.now();
                 result.forEach(item => {
                     const ngram = item.key;
                     const freq = item.value.freq;
@@ -151,6 +158,8 @@ const startTests = () => {
                                     console.log("Extracted and appended ngrams! Error:", e);
                                     sendBatchCount++;
                                     if (sendBatchCount === Object.keys(sendBatch).length) {
+                                        const endTime2 = performance.now();
+                                        console.log(`${distribution.util.id.getSID(global.nodeConfig)} Sending n-grams elapsed:`, endTime2-startTime2)
                                         resolve([{ [key]: true }])
                                     }
                                     // resolve(null);
