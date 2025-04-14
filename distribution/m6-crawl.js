@@ -364,13 +364,14 @@ const hashURL = (url) => {
  * USED FOR RUNNING LOCALLY
  */
 const startNodes = (cb) => {
-    distribution.local.status.spawn(n1, (e, node) => {
-        distribution.local.status.spawn(n2, (e, node) => {
-            distribution.local.status.spawn(n3, (e, node) => {
-                cb();
-            });
-        });
-    });
+    cb();
+    // distribution.local.status.spawn(n1, (e, node) => {
+    //     distribution.local.status.spawn(n2, (e, node) => {
+    //         distribution.local.status.spawn(n3, (e, node) => {
+    //             cb();
+    //         });
+    //     });
+    // });
 };
 
 const stopNodes = (cb) => {
