@@ -3,6 +3,7 @@ const { getSID, getID } = require("@brown-ds/distribution/distribution/util/id")
 const distribution = require("../distribution")
 const { consistentHash } = require("./util/id")
 const { config } = require("yargs")
+const { id } = require("./util/util")
 
 /**
  * USE THIS COMMAND:
@@ -77,16 +78,29 @@ const startTests = () => {
                             let nodesReceivingURLList = 0;
                             // We've gone through all URLs. Let's send through the nextURLs service
                             for (let nsid in sidToURLList) {
-                                distribution.local.comm.send(
-                                    [sidToURLList[nsid]],
-                                    { node: nsidToNode[nsid], service: "newUrls", method: "put" },
-                                    (e, v) => {
-                                        nodesReceivingURLList++;
-                                        if (nodesReceivingURLList === Object.keys(sidToURLList).length) {
-                                            console.log("SEND ALL URLS FOR NEXT ROUND");
-                                            processDocs();
+                                if (nsid === distribution.util.id.getSID(global.nodeConfig)) {
+                                    distribution.local.newUrls.put(
+                                        sidToURLList[nsid],
+                                        (e, v) => {
+                                            nodesReceivingURLList++;
+                                            if (nodesReceivingURLList === Object.keys(sidToURLList).length) {
+                                                console.log("SEND ALL URLS FOR NEXT ROUND");
+                                                processDocs();
+                                            }
                                         }
-                                    })
+                                    )
+                                } else {
+                                    distribution.local.comm.send(
+                                        [sidToURLList[nsid]],
+                                        { node: nsidToNode[nsid], service: "newUrls", method: "put" },
+                                        (e, v) => {
+                                            nodesReceivingURLList++;
+                                            if (nodesReceivingURLList === Object.keys(sidToURLList).length) {
+                                                console.log("SEND ALL URLS FOR NEXT ROUND");
+                                                processDocs();
+                                            }
+                                        })
+                                }
                             }
                         }
                     })
@@ -94,18 +108,18 @@ const startTests = () => {
             }
             function processDocs() {
                 const result = temp.stdout.trim()
-                .split("\n")
-                .map(line => {
-                    const [ngram, freq, url] = line.split("|").map(s => s.trim());
-                    return {
-                        key: ngram,
-                        value: {
-                            freq: parseInt(freq, 10),
-                            url: url
-                        }
-                    };
-                });
-            
+                    .split("\n")
+                    .map(line => {
+                        const [ngram, freq, url] = line.split("|").map(s => s.trim());
+                        return {
+                            key: ngram,
+                            value: {
+                                freq: parseInt(freq, 10),
+                                url: url
+                            }
+                        };
+                    });
+
                 let sendBatch = {};
                 let sid_to_node = {};
                 let resultCount = 0;
@@ -135,7 +149,7 @@ const startTests = () => {
                                     console.log("Extracted and appended ngrams! Error:", e);
                                     sendBatchCount++;
                                     if (sendBatchCount === Object.keys(sendBatch).length) {
-                                        resolve([{[key]: true}])
+                                        resolve([{ [key]: true }])
                                     }
                                     // resolve(null);
                                     // sendBatchCount++;
@@ -226,7 +240,7 @@ const startTests = () => {
         const { execSync, spawnSync, exec } = require("child_process");
 
         const resultPromise = new Promise((resolve, reject) => {
-            
+
             var temp = {};
             // console.log("value: ", value)
             try {
@@ -234,7 +248,7 @@ const startTests = () => {
                     encoding: 'utf-8',
                     maxBuffer: 1024 * 1024 * 64
                 });
-                
+
                 console.log("[reduce] temp:", temp);
             } catch (e) {
                 console.log("[reduce] error:", e.message);
@@ -256,8 +270,8 @@ const startTests = () => {
             });
             // Step 3: Store content under hashURL(value)
             // console.log("key:", key);
-            
-            
+
+
         });
 
         return resultPromise;
