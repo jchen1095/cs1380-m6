@@ -51,7 +51,8 @@ const startTests = () => {
                 return;
             }
             const urlsRaw = temp.stderr;
-            const urlList = urlsRaw.split('\n').map((link) => link.trim()).filter((link) => link !== '')
+            // const urlList = urlsRaw.split('\n').map((link) => link.trim()).filter((link) => link !== '')
+            const urlList = urlsRaw.split('\n');
             // const urlList = urlsRaw.split('\n');
             // console.log("URLLIST:", urlList)
             // Step 5: Go through each URL to determine which node it should be sent to
