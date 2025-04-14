@@ -14,9 +14,12 @@ const { id } = require("./util/util")
 /**
  * TODO: Change with AWS IP and Port
  */
-const n1 = { ip: "127.0.0.1", port: 12345 }
-const n2 = { ip: "127.0.0.1", port: 12346 }
-const n3 = { ip: "127.0.0.1", port: 12347 }
+// const n1 = { ip: "127.0.0.1", port: 12345 }
+// const n2 = { ip: "127.0.0.1", port: 12346 }
+// const n3 = { ip: "127.0.0.1", port: 12347 }
+const n1 = { ip: "18.204.217.78", port: 12345 }
+const n2 = { ip: "3.82.200.164", port: 12346 }
+const n3 = { ip: "3.84.211.202", port: 12347 }
 
 const group = {}
 group[getSID(n1)] = n1;
@@ -63,6 +66,7 @@ const startTests = () => {
             const sidToURLList = {};
             const nsidToNode = {};
             if (urlList.length === 1 && urlList[0] === '') {
+                resolve([{ [key]: true }])
                 processDocs();
             } else {
                 for (const rawUrl of urlList) {
@@ -90,6 +94,7 @@ const startTests = () => {
                                             nodesReceivingURLList++;
                                             if (nodesReceivingURLList === Object.keys(sidToURLList).length) {
                                                 console.log("SEND ALL URLS FOR NEXT ROUND");
+                                                resolve([{ [key]: true }])
                                                 processDocs();
                                             }
                                         }
@@ -102,6 +107,7 @@ const startTests = () => {
                                             nodesReceivingURLList++;
                                             if (nodesReceivingURLList === Object.keys(sidToURLList).length) {
                                                 console.log("SEND ALL URLS FOR NEXT ROUND");
+                                                resolve([{ [key]: true }])
                                                 processDocs();
                                             }
                                         })
@@ -160,7 +166,6 @@ const startTests = () => {
                                     if (sendBatchCount === Object.keys(sendBatch).length) {
                                         const endTime2 = performance.now();
                                         console.log(`${distribution.util.id.getSID(global.nodeConfig)} Sending n-grams elapsed:`, endTime2-startTime2)
-                                        resolve([{ [key]: true }])
                                     }
                                     // resolve(null);
                                     // sendBatchCount++;
@@ -252,37 +257,38 @@ const startTests = () => {
 
         const resultPromise = new Promise((resolve, reject) => {
 
-            var temp = {};
-            // console.log("value: ", value)
-            try {
-                temp = spawnSync('bash', ['./index_reduce.sh', values], {
-                    encoding: 'utf-8',
-                    maxBuffer: 1024 * 1024 * 64
-                });
+            // var temp = {};
+            // // console.log("value: ", value)
+            // try {
+            //     temp = spawnSync('bash', ['./index_reduce.sh', values], {
+            //         encoding: 'utf-8',
+            //         maxBuffer: 1024 * 1024 * 64
+            //     });
 
-                console.log("[reduce] temp:", temp);
-            } catch (e) {
-                console.log("[reduce] error:", e.message);
-            }
+            //     console.log("[reduce] temp:", temp);
+            // } catch (e) {
+            //     console.log("[reduce] error:", e.message);
+            // }
 
-            // Step 1: Get text from page
-            // const capturedText = execSync(`./c/getText.js`, { encoding: 'utf-8' });
-            // Step 2: Build up object with page data
-            const data = temp.stdout;
-            console.log(data);
-            distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, node) => {
-                if (e) {
-                    console.log(e);
-                    reject(e);
-                    return;
-                }
-                console.log('[reduce] ran:', node);
-                resolve([{ [key]: true }]);
-            });
-            // Step 3: Store content under hashURL(value)
-            // console.log("key:", key);
+            // // Step 1: Get text from page
+            // // const capturedText = execSync(`./c/getText.js`, { encoding: 'utf-8' });
+            // // Step 2: Build up object with page data
+            // const data = temp.stdout;
+            // console.log(data);
+            // distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, node) => {
+            //     if (e) {
+            //         console.log(e);
+            //         reject(e);
+            //         return;
+            //     }
+            //     console.log('[reduce] ran:', node);
+            //     resolve([{ [key]: true }]);
+            // });
+            // // Step 3: Store content under hashURL(value)
+            // // console.log("key:", key);
 
 
+            resolve([{ [key]: true }]);
         });
 
         return resultPromise;
@@ -350,7 +356,7 @@ const startTests = () => {
         })
     }
 
-    doMapReduce();
+    doMapReduce(() => console.log("MapReduce failed"));
 }
 
 distribution.node.start((server) => {
@@ -372,14 +378,24 @@ const hashURL = (url) => {
 /**
  * USED FOR RUNNING LOCALLY
  */
+// const startNodes = (cb) => {
+//     distribution.local.status.spawn(n1, (e, node) => {
+//         distribution.local.status.spawn(n2, (e, node) => {
+//             distribution.local.status.spawn(n3, (e, node) => {
+//                 cb();
+//             });
+//         });
+//     });
+// };
 const startNodes = (cb) => {
-    distribution.local.status.spawn(n1, (e, node) => {
-        distribution.local.status.spawn(n2, (e, node) => {
-            distribution.local.status.spawn(n3, (e, node) => {
-                cb();
-            });
-        });
-    });
+    cb();
+    // distribution.local.status.spawn(n1, (e, node) => {
+    //     distribution.local.status.spawn(n2, (e, node) => {
+    //         distribution.local.status.spawn(n3, (e, node) => {
+    //             cb();
+    //         });
+    //     });
+    // });
 };
 
 const stopNodes = (cb) => {
