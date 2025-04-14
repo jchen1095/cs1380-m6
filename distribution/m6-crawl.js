@@ -14,9 +14,9 @@ const { id } = require("./util/util")
 /**
  * TODO: Change with AWS IP and Port
  */
-const n1 = { ip: "18.204.217.78", port: 12345 }
-const n2 = { ip: "3.82.200.164", port: 12346 }
-const n3 = { ip: "3.84.211.202", port: 12347 }
+const n1 = { ip: "127.0.0.1", port: 12345 }
+const n2 = { ip: "127.0.0.1", port: 12346 }
+const n3 = { ip: "127.0.0.1", port: 12347 }
 
 const group = {}
 group[getSID(n1)] = n1;
@@ -341,7 +341,7 @@ const startTests = () => {
         })
     }
 
-    doMapReduce(() => console.log("MapReduce failed"));
+    doMapReduce();
 }
 
 distribution.node.start((server) => {
@@ -364,14 +364,13 @@ const hashURL = (url) => {
  * USED FOR RUNNING LOCALLY
  */
 const startNodes = (cb) => {
-    cb();
-    // distribution.local.status.spawn(n1, (e, node) => {
-    //     distribution.local.status.spawn(n2, (e, node) => {
-    //         distribution.local.status.spawn(n3, (e, node) => {
-    //             cb();
-    //         });
-    //     });
-    // });
+    distribution.local.status.spawn(n1, (e, node) => {
+        distribution.local.status.spawn(n2, (e, node) => {
+            distribution.local.status.spawn(n3, (e, node) => {
+                cb();
+            });
+        });
+    });
 };
 
 const stopNodes = (cb) => {

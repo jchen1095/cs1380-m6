@@ -194,48 +194,88 @@ function _mr(config) {
                 // read each key from local.store, and use mapper
                 let localKeyCounts = 0;
                 const execMap = (key, e, v) => {
-                    // console.log("Called execMap!, sid is:", id.getSID(global.nodeConfig));
-                    if (e) {
-                        callback(e);
-                        return;
-                    }
-                    let outMappingCounts = 0;
-                    const outMappingsPromise = mrLocalStorage.get("map")(key, v, global.distribution.util.require);
-                    // outMappings is now a promise
-                    outMappingsPromise.then((outMappings) => {
-                        // console.log("Promise resolved! Going to rest of the stuff;", outMappings);
-                        // console.log("outMappings.length:", outMappings.length)
-                        for (let i = 0; i < outMappings.length; i++) {
-                            const mapKey = Object.keys(outMappings[i])[0]
-                            const mapValue = outMappings[i][mapKey];
-                            mrLocalStorage.set("mapKeys", mrLocalStorage.get("mapKeys").add(mapKey))
-                            // console.log("localKeyCounts", localKeyCounts);
-                            // console.log("outMappings Length:", outMappings.length)
-                            global.distribution.local.store.batchAppend(mapValue, { key: mapKey, gid: `${context.gid}-map` }, (e, v) => {
-                                outMappingCounts++;
-                                if (outMappingCounts === outMappings.length) {
-                                    // We're done with adding all the intermediate mappings for this specific key
-                                    localKeyCounts++;
-
-                                    // If we're done with all keys, send done notification
-                                    // console.log("localKeyCounts:", localKeyCounts)
-                                    // console.log("localKeys.length:", localKeys.length)
-                                    if (localKeyCounts === numLocalKeys) {
-                                        // We're done mapping, we can notify the orchestrator
-                                        // console.log("done going through all the keys; bye!");
-                                        callback(null, true);
-                                        return;
-                                    }
-                                }
-                            });
+                    const resultPromise = new Promise((resolve, reject) => {
+                        if (e) {
+                            // callback(e);
+                            reject(e);
                         }
-                    });
+                        let outMappingCounts = 0;
+                        const outMappingsPromise = mrLocalStorage.get("map")(key, v, global.distribution.util.require);
+                        // outMappings is now a promise
+                        outMappingsPromise.then((outMappings) => {
+                            // console.log("Promise resolved! Going to rest of the stuff;", outMappings);
+                            // console.log("outMappings.length:", outMappings.length)
+                            for (let i = 0; i < outMappings.length; i++) {
+                                const mapKey = Object.keys(outMappings[i])[0]
+                                const mapValue = outMappings[i][mapKey];
+                                mrLocalStorage.set("mapKeys", mrLocalStorage.get("mapKeys").add(mapKey))
+                                // console.log("localKeyCounts", localKeyCounts);
+                                // console.log("outMappings Length:", outMappings.length)
+                                global.distribution.local.store.batchAppend(mapValue, { key: mapKey, gid: `${context.gid}-map` }, (e, v) => {
+                                    outMappingCounts++;
+                                    if (outMappingCounts === outMappings.length) {
+                                        // We're done with adding all the intermediate mappings for this specific key
+                                        // localKeyCounts++;
+                                        resolve(true);
+    
+                                        // If we're done with all keys, send done notification
+                                        // console.log("localKeyCounts:", localKeyCounts)
+                                        // console.log("localKeys.length:", localKeys.length)
+                                        // if (localKeyCounts === numLocalKeys) {
+                                            // We're done mapping, we can notify the orchestrator
+                                            // console.log("done going through all the keys; bye!");
+                                        // }
+                                    }
+                                });
+                            }
+                        });
+                    })
+                    return resultPromise;
+                    // console.log("Called execMap!, sid is:", id.getSID(global.nodeConfig));
+                    // if (e) {
+                    //     callback(e);
+                    //     return;
+                    // }
+                    // let outMappingCounts = 0;
+                    // const outMappingsPromise = mrLocalStorage.get("map")(key, v, global.distribution.util.require);
+                    // // outMappings is now a promise
+                    // outMappingsPromise.then((outMappings) => {
+                    //     // console.log("Promise resolved! Going to rest of the stuff;", outMappings);
+                    //     // console.log("outMappings.length:", outMappings.length)
+                    //     for (let i = 0; i < outMappings.length; i++) {
+                    //         const mapKey = Object.keys(outMappings[i])[0]
+                    //         const mapValue = outMappings[i][mapKey];
+                    //         mrLocalStorage.set("mapKeys", mrLocalStorage.get("mapKeys").add(mapKey))
+                    //         // console.log("localKeyCounts", localKeyCounts);
+                    //         // console.log("outMappings Length:", outMappings.length)
+                    //         global.distribution.local.store.batchAppend(mapValue, { key: mapKey, gid: `${context.gid}-map` }, (e, v) => {
+                    //             outMappingCounts++;
+                    //             if (outMappingCounts === outMappings.length) {
+                    //                 // We're done with adding all the intermediate mappings for this specific key
+                    //                 localKeyCounts++;
+
+                    //                 // If we're done with all keys, send done notification
+                    //                 // console.log("localKeyCounts:", localKeyCounts)
+                    //                 // console.log("localKeys.length:", localKeys.length)
+                    //                 if (localKeyCounts === numLocalKeys) {
+                    //                     // We're done mapping, we can notify the orchestrator
+                    //                     // console.log("done going through all the keys; bye!");
+                    //                     callback(null, true);
+                    //                     return;
+                    //                 }
+                    //             }
+                    //         });
+                    //     }
+                    // });
                 }
                 // console.log(args.length);
                 try {
                     if (args.length == 1) {
                         localKeys.forEach((key, index) => {
-                            global.distribution.local.store.get({ key: key, gid: context.gid }, (e, v) => execMap(key, e, v));;
+                            global.distribution.local.store.get({ key: key, gid: context.gid }, async (e, v) => {
+                                await execMap(key, e, v);
+                                resolve(true);
+                            });;
                         });
                     } else if (args.length == 2 && args[1] == true) {
                         // get the keys from the newUrls route
@@ -256,12 +296,33 @@ function _mr(config) {
                             // console.log('v:');
                             // console.log(v);
                             // console.log(`${id.getSID(global.nodeConfig)}: result from newUrls get:`, result);
-                            v.forEach((obj) => {
-                                // console.log(`${id.getSID(global.nodeConfig)}: execMap is called with: `, Object.keys(obj)[0], Object.values(obj)[0]);
-                                // console.log(`${id.getSID(global.nodeConfig)}: Object.keys(obj), Object.values(obj): `, Object.keys(obj), Object.values(obj));
-                                // console.log("Object.key")
-                                execMap(Object.keys(obj)[0], e, Object.values(obj)[0]);
+                            async function processSequentially(v, e, callback) {
+                                for (const obj of v) {
+                                    console.log("call execMap!");
+                                    await execMap(Object.keys(obj)[0], e, Object.values(obj)[0]);
+                                    console.log("returned from execMap!");
+                                }
+                                // try {
+                                //     // callback(null, true);  // Call once after everything completes
+                                // } catch (error) {
+                                //     // callback(error);
+                                // }
+                            }
+                            processSequentially(result, e, callback).then(() => {
+                                console.log("done processing sequentially")
+                                callback(null, true);
                             })
+                            // v.forEach(async (obj) => {
+                            //     // console.log(`${id.getSID(global.nodeConfig)}: execMap is called with: `, Object.keys(obj)[0], Object.values(obj)[0]);
+                            //     // console.log(`${id.getSID(global.nodeConfig)}: Object.keys(obj), Object.values(obj): `, Object.keys(obj), Object.values(obj));
+                            //     // console.log("Object.key")
+                            //     try {
+                            //         await execMap(Object.keys(obj)[0], e, Object.values(obj)[0]);
+                            //         callback(null, true);
+                            //     } catch (e) {
+                            //         callback(e);
+                            //     }
+                            // })
                         });
                     }
                 } catch (err) {
