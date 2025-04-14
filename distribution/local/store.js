@@ -140,14 +140,18 @@ function appendForBatch(state, configuration, callback) {
     let count = 0;
     for (const o of state) {
       if (typeof o == 'object') {
+        count++;
         const key = Object.keys(o)[0];
         const value = Object.values(o)[0];
+        if (value == '' || value == undefined) {
+          continue;
+        }
         append(value, {gid: gid, key: key}, (e,v) => {
           if (e) {
             callback(new Error("[Store.AppendForBatch] E: " + e.message));
             return;
           }
-          count++;
+          
           if (count >= state.length) {
             callback(null, count);
           }

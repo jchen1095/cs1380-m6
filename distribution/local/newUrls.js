@@ -117,7 +117,7 @@ newUrls.flush = function(callback) {
                     }
                     count++;
                     if (count >= newUrlsArr.length) {
-                        console.log("count reached")
+                        // console.log("count reached")
                         meta.count += count;
                         callback(null, count);
                         return;
