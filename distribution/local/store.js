@@ -143,7 +143,7 @@ function appendForBatch(state, configuration, callback) {
         count++;
         const key = Object.keys(o)[0];
         const value = Object.values(o)[0];
-        if (value == '' || value == undefined) {
+        if (key == '' || key == undefined) {
           continue;
         }
         append(value, {gid: gid, key: key}, (e,v) => {
