@@ -41,7 +41,7 @@ const startTests = () => {
         const resultPromise = new Promise((resolve, reject) => {
             let temp = {};
             try {
-                spawnSyncOutput = spawnSync('bash', ['./jen-crawl.sh', value], {
+                temp = spawnSync('bash', ['./jen-crawl.sh', value], {
                     encoding: 'utf-8',
                     maxBuffer: 1024 * 1024 * 64
                 });
@@ -51,7 +51,7 @@ const startTests = () => {
                 return;
             }
             const urlsRaw = temp.stderr;
-            const urlList = urlsRaw.split('\n');
+            const urlList = urlsRaw.split('\n').map((link) => link.trim()).filter((link) => link !== '')
             // console.log("URLLIST:", urlList)
             // Step 5: Go through each URL to determine which node it should be sent to
             let urlCount = 0;
@@ -285,14 +285,14 @@ const startTests = () => {
                 return;
             }
             // console.log("does getNode return?");
-            global.distribution.local.comm.send([{ [hashURL(CRAWL_URL)]: CRAWL_URL }], { node: node, service: "newUrls", "method": "putURLS" }, (e, node) => {
+            global.distribution.local.comm.send([{ [hashURL(CRAWL_URL)]: CRAWL_URL }], { node: node, service: "newUrls", "method": "put" }, (e, node) => {
                 // console.log("does this get sent?");
                 // console.log("newUrls put e:", e);
                 // console.log("newUrls put node:", node);
-                if (e) {
-                    cb(e);
-                    return;
-                }
+                // if (e) {
+                //     cb(e);
+                //     return;
+                // }
                 // distribution.crawl.store.put(CRAWL_URL, hashURL(CRAWL_URL), (e, node) => {
                 //     if(e) {
                 //         cb(e);
