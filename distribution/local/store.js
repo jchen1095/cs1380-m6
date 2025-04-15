@@ -153,7 +153,7 @@ function appendForBatch(state, configuration, callback) {
             continue;
           }
         }
-        append(value, {gid: gid, key: key}, (e,v) => {
+        batchAppend(value, {gid: gid, key: key}, (e,v) => {
           if (e) {
             callback(new Error("[Store.AppendForBatch] E: " + e.message));
             return;
