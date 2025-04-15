@@ -34,8 +34,8 @@ const startTests = () => {
     // See https://edstem.org/us/courses/69551/discussion/6470553 for explanation of the
     // "require" argument
     const mapper = (key, value, require) => {
-        console.log(`${distribution.util.id.getSID(global.nodeConfig)} Mapper Key:`, key);
-        console.log(`${distribution.util.id.getSID(global.nodeConfig)} Mapper Value:`, value);
+        // console.log(`${distribution.util.id.getSID(global.nodeConfig)} Mapper Key:`, key);
+        // console.log(`${distribution.util.id.getSID(global.nodeConfig)} Mapper Value:`, value);
         // console.log(value);
         // Import execSync
         const { execSync, spawnSync } = require("child_process");
