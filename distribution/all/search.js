@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 function search(config) {
     const context = {};
     context.gid = config.gid || "all";
@@ -11,6 +13,7 @@ function search(config) {
         },
 
         start: () => {
+            fs.writeFileSync("url-queue.txt");
             setInterval(() => {
                 _poll(context.gid);
             }, 2000);
@@ -31,3 +34,5 @@ function _poll(gid) {
         })
     })
 }
+
+module.exports = search;

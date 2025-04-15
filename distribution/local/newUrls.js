@@ -1,135 +1,38 @@
 const {getID} = require('../util/id');
 const {execSync} = require('child_process');
 const { id } = require('../util/util');
+const path = require("path");
 const newUrls = {};
 const meta = {
     count: 0,
     isDone: false
 }
-const fs = require("fs");
+const APP_ROOT = process.cwd();
 
 // Just calls getAll from local.mem -> gets all url objects and reformats to output
 newUrls.get = function(callback) {
-    console.log("newURLS get was called!")
-    global.distribution.local.mem.getAll({gid: "newUrls"}, (e,v) => {
-        // console.log(`${id.getSID(global.nodeConfig)}: getAll result: `, v);
-        // console.log("e:", e);
-        // console.log("v:", v);
-        if (e) {
-            callback(e);
-            return;
-        }
-        // Maybe I don't need to reformat? What if I just return the output and we can iterate
-        if (typeof v == 'object')  {
-            // console.log("typeof v is object...!");
-            let out = [];
-            for (const key of Object.keys(v)) {
-                // console.log("key is:", key);
-                out.push({[key]: v[key]})
-                // try {
-                // } catch (e) {
-                //     console.log("error while appending!", e);
-                // }
-            }
-            // console.log("out is:", out);
-            callback(null, out);
-        }
-    });
-}
-
-newUrls.put = function(urls, callback) {
-    // assumption -> each url is {hash: url}
-    // console.log("START NEWURLS PUT!");
-    // console.log(`${id.getSID(global.nodeConfig)}: newUrls.put urls: `, urls);
-    let count = 0;
-    if(Array.isArray(urls)) {
-        for (const url of urls) {
-            global.distribution.local.mem.put(Object.values(url)[0], {gid: "newUrls", key: Object.keys(url)[0] }, (e,v) => {
-                // console.log("returned from mem put");
-                if (e) {
-                    callback(e);
-                    return;
-                }
-                // fs.appendFileSync('newUrlsPutList.txt', Object.values(url)[0] + "\n");
-                // console.log("mem v:", v);
-                count++;
-                // console.log("INCREMENT COUNT!");
-                if (count >= urls.length) {
-                    console.log("count reached")
-                    callback(null, count);
-                }
-            })
-        }
-    } else if (typeof urls == 'object') {
-        // console.log("HI??")
-        global.distribution.local.mem.put(Object.values(urls)[0], {gid: "newUrls", key: Object.keys(urls)[0] }, (e,v) => {
-            // console.log("local mem put e:", e);
-            // console.log("local mem put v:", v);
-            if (e) {
-                callback(e);
-                return;
-            }
-            callback(null, null);       
-        });
+    const urlQueue = path.join(path.join(APP_ROOT, "non-distribution"), "url-queue.txt");
+    try {
+        const url = execSync(`head -n 1 ${urlQueue}`, { encoding: 'utf-8' }).trim();
+        // NOTE: Works only on Linux.
+        execSync(`sed -i '1d' ${urlQueue}`);
+        callback(null, url);
+    } catch (e) {
+        callback(e);
     }
 }
 
-// newUrls.clear = function(callback) {
-//     global.distribution.local.mem.getAll({gid: "newUrls"}, (e,newUrls) => {
-//         // add previous urls to visited.txt
-//         const urls = Object.values(newUrls).join('\n');
-//         execSync(`echo "${urls}" >> d/visited.txt`, {encoding: 'utf-8'});
-
-//         // delete all urls to clear local mapping
-//         global.distribution.local.mem.del({gid: "newUrls", key: null}, (e,v) => {
-//             if (e) {
-//                 callback(e);
-//                 return;
-//             }
-//             callback(null, null);
-//         });
-//     })
-    
-// }
-
-newUrls.flush = function(callback) {
-    // check visited.txt (grep) -> if not in visited.txt -> add to newUrls.txt
-    global.distribution.local.mem.getAll({gid: "newUrls"}, (e,u) => {
-        // fs.appendFileSync("flush-output.txt", JSON.stringify(u));
-        const urlArr = Object.values(u);
-        const urlStr = urlArr.join('\n');
-        // get all the non-visited urls
-        const newUrls = execSync(`echo "${urlStr}" | grep -vxf d/visited.txt`, {encoding: 'utf-8'});    
-        // console.log("NEW URLS:", newUrls)
-        execSync(`echo "${newUrls}" >> d/visited.txt`, {encoding: 'utf-8'});    
-        // add new Urls to local.mem
-        const newUrlsArr = newUrls.split('\n').map(url => ({[getID(url).slice(0,20)]: url}))
-        if (newUrlsArr.length == 0) {
-            meta.isDone = true;
-        }
-        global.distribution.local.mem.del({gid: "newUrls", key: null}, (e,v) => {
-            let count = 0;
-            newUrlsArr.forEach((url) => {
-                global.distribution.local.mem.put(Object.values(url)[0], {gid: "newUrls", key: Object.keys(url)[0]}, (e,v) => {
-                    if(e) {
-                        callback(e);
-                        return;
-                    }
-                    count++;
-                    if (count >= newUrlsArr.length) {
-                        // console.log("count reached")
-                        meta.count += count;
-                        callback(null, count);
-                        return;
-                    }
-                });
-            });
-            
-        });
-        
-    });
+newUrls.put = function(urls, callback) {
+    const urlQueue = path.join(path.join(APP_ROOT, "non-distribution"), "url-queue.txt");
+    const visited = path.join(path.join(APP_ROOT, "non-distribution"), "d/visited.txt");
+    try {
+        const urlStr = urls.join('\n');
+        const newUrls = execSync(`echo "${urlStr}" | grep -vxf ${visited} | tee -a ${urlQueue} >> ${visited}`, {encoding: 'utf-8'});    
+        callback(null, newUrls)
+    } catch (e) {
+        callback(e);
+    }
 }
-
 
 /**
  * Returns 1) count of urls that have been crawled, and 2) if crawling is done
