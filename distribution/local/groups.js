@@ -27,6 +27,7 @@ groups.get = function(name, callback) {
 };
 
 groups.put = function(config, group, callback) {
+    // console.log("groups put called!");
     // console.log(config)
     // groupMapping[config.gid || config] = group;
     const hashFunc = config.hash || id.consistentHash;
@@ -42,6 +43,7 @@ groups.put = function(config, group, callback) {
     global.distribution[config.gid || config].comm = require("../all/comm.js")({gid: config.gid || config});
     global.distribution[config.gid || config].store = require("../all/store.js")({gid: config.gid || config, hash: hashFunc});
     global.distribution[config.gid || config].mr = require("../all/mr.js")({gid: config.gid || config});
+    global.distribution[config.gid || config].search = require("../all/search.js")({gid: config.gid || config});
     if (typeof callback == 'function') {
         callback(null, group);
     }

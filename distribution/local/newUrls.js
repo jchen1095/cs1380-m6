@@ -8,10 +8,11 @@ const meta = {
     isDone: false
 }
 const APP_ROOT = process.cwd();
+const fs = require("fs");
 
 // Just calls getAll from local.mem -> gets all url objects and reformats to output
 newUrls.get = function(callback) {
-    const urlQueue = path.join(path.join(APP_ROOT, "non-distribution"), "url-queue.txt");
+    const urlQueue = path.join(APP_ROOT, `${id.getSID(global.nodeConfig)}-url-queue.txt`);
     try {
         const url = execSync(`head -n 1 ${urlQueue}`, { encoding: 'utf-8' }).trim();
         // NOTE: Works only on Linux.
@@ -23,12 +24,21 @@ newUrls.get = function(callback) {
 }
 
 newUrls.put = function(urls, callback) {
-    const urlQueue = path.join(path.join(APP_ROOT, "non-distribution"), "url-queue.txt");
-    const visited = path.join(path.join(APP_ROOT, "non-distribution"), "d/visited.txt");
+    const urlQueue = path.join(APP_ROOT, `${id.getSID(global.nodeConfig)}-url-queue.txt`);
+    const visited = path.join(APP_ROOT, `d/${id.getSID(global.nodeConfig)}-visited.txt`);
+    // if (!fs.existsSync(urlQueue)) {
+    //     fs.writeFileSync(urlQueue, "");
+    // }
+    // if (!fs.existsSync(visited)) {
+    //     fs.writeFileSync(visited, "");
+    // }
+    // console.log("put was called! urls is:", urls);
     try {
         const urlStr = urls.join('\n');
-        const newUrls = execSync(`echo "${urlStr}" | grep -vxf ${visited} | tee -a ${urlQueue} >> ${visited}`, {encoding: 'utf-8'});    
-        callback(null, newUrls)
+        // console.log("put was called! urlStr is:", urlStr);
+        const out = execSync(`echo "${urlStr}" | grep -vxf ${visited} | tee -a ${urlQueue} >> ${visited}`, {encoding: 'utf-8'});    
+        // console.log("execSync output!:", out);
+        callback(null, true)
     } catch (e) {
         callback(e);
     }

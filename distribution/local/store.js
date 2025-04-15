@@ -138,8 +138,8 @@ function appendForBatch(state, configuration, callback) {
   if (Array.isArray(state)) {
     const gid = configuration.gid;
     let count = 0;
-    console.log(`${id.getSID(global.nodeConfig)} About to append ${state.length} values`)
-    const appendStart = performance.now();
+    // console.log(`${id.getSID(global.nodeConfig)} About to append ${state.length} values`)
+    // const appendStart = performance.now();
     for (const o of state) {
       if (typeof o == 'object') {
         count++;
@@ -160,8 +160,8 @@ function appendForBatch(state, configuration, callback) {
           }
           
           if (count >= state.length) {
-            const appendEnd = performance.now();
-            console.log(`${id.getSID(global.nodeConfig)} Appending files time elapsed:`, appendEnd-appendStart)
+            // const appendEnd = performance.now();
+            // console.log(`${id.getSID(global.nodeConfig)} Appending files time elapsed:`, appendEnd-appendStart)
             callback(null, count);
           }
         });

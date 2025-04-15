@@ -1,5 +1,3 @@
-const fs = require("fs");
-
 function search(config) {
     const context = {};
     context.gid = config.gid || "all";
@@ -12,27 +10,15 @@ function search(config) {
             })
         },
 
-        start: () => {
-            fs.writeFileSync("url-queue.txt");
-            setInterval(() => {
-                _poll(context.gid);
-            }, 2000);
+        start: (callback) => {
+            callback = callback || function () { };
+            // console.log("gets here!222")
+            global.distribution[context.gid].comm.send([ context.gid ], { service: "search", method: "start" }, (e, v) => {
+                callback(e, v);
+            })
         }
     }
 }
 
-let currIters = 0;
-function _poll(gid) {
-    global.distribution.local.newUrls.get((e, v) => {
-        if (e) {
-            console.log("Error while polling!");
-            return;
-        }
-        currIters++;
-        global.distribution.local.search.crawl({ gid: gid, url: v }, (e, v) => {
-            // Do something to stop polling maybe?
-        })
-    })
-}
 
 module.exports = search;
