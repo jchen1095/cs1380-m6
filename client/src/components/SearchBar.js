@@ -13,6 +13,7 @@ function SearchBar() {
       const res = await axios.get('http://localhost:3001/search', {
         params: { q: query },
       });
+      console.log(res.data.result);
       setResults(res.data.result);
     } catch (err) {
       console.error('Search failed:', err);
@@ -22,12 +23,12 @@ function SearchBar() {
   return (
     <div>
       <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search..." />
-      <button onClick={handleSearch}>Search</button>
-      <p>{results}</p>
+      <button id="search-button" onClick={handleSearch}>Search</button>
+      <div id="results">{results.map(result => <SearchItem url={result.url} />)}</div>
       {/* TODO assume results are in a list */}
       {/* <ul>
-        {results.map((url, i) => (
-          <li key={i}><a href={url}>{url}</a></li>
+        {results.map((item, i) => (
+          <li key={i}><SearchItem url={item.url} /></li>
         ))}
       </ul> */}
     </div>
