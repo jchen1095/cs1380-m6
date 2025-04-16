@@ -1,11 +1,5 @@
-/** @typedef {import("../types").Callback} Callback */
-/** @typedef {import("../types").Node} Node */
-
-const { link } = require("fs");
 const http2 = require('http2');
 const { serialize, deserialize } = require('../util/serialization');
-const { log } = require("console");
-const { equal } = require("assert");
 
 /**
  * @typedef {Object} Target
@@ -21,98 +15,75 @@ const { equal } = require("assert");
  * @return {void}
  */
 function send(message, remote, callback) {
-    // console.log(remote);
-    let gid = `${remote.gid || 'local'}`;
-    const path = `/${gid}/${remote.service}/${remote.method}`;
-    const host = `${remote.node.ip}:${remote.node.port}`;
+  const gid = `${remote.gid || 'local'}`;
+  const path = `/${gid}/${remote.service}/${remote.method}`;
+  const host = `${remote.node.ip}:${remote.node.port}`;
+  const authority = `http://${host}`;
 
-    const client = http2.connect(`http://${host}`);
-    const req = client.request({
+  const retryDelayMs = 3000;
+
+  function attemptConnect() {
+    let client;
+    try {
+      client = http2.connect(authority);
+    } catch (err) {
+      // unlikely to throw synchronously, but catch just in case
+      retryLater(err);
+      return;
+    }
+
+    let connected = false;
+
+    client.on('connect', () => {
+      connected = true;
+      const req = client.request({
         ':method': 'PUT',
         ':path': path,
         'content-type': 'application/json',
-    });
+      });
 
-    let responseData = '';
-    req.setEncoding('utf-8');
-    req.setTimeout(0); // disable stream timeout
+      let responseData = '';
+      req.setEncoding('utf-8');
+      req.setTimeout(0); // disable stream timeout
 
-    req.on('data', (chunk) => {
+      req.on('data', (chunk) => {
         responseData += chunk;
-    });
+      });
 
-    req.on('end', () => {
+      req.on('end', () => {
         const [err, val] = deserialize(responseData);
         if (typeof callback === 'function') {
-            callback(err, val);
+          callback(err, val);
         }
         client.close();
-    });
+      });
 
-    req.on('error', (error) => {
+      req.on('error', (error) => {
         if (callback) callback(error, null);
         client.close();
+      });
+
+      req.write(serialize(message));
+      req.end();
     });
 
-    req.write(serialize(message));
-    req.end();
+    client.on('error', (err) => {
+      if (!connected) {
+        retryLater(err);
+      } else {
+        // stream-level error already handled
+        client.close();
+      }
+    });
 
-    // console.log(path)
-    // const options = {
-    //     hostname: remote.node.ip,
-    //     port: remote.node.port,
-    //     path: path,
-    //     method: 'PUT',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         'Content-Length': Buffer.byteLength(serialize(message)),
-    //     },
-    // }
-    // throw new Error('stack trace')
-    // let req = http.request(options, (res) => {
-    //     let data = '';
-    //     res.on('data', (chunk) => {
-    //         data += chunk;
-    //     });
-    //     res.on('end', () => {
-    //         // console.log('response', data)
+    function retryLater(err) {
+      console.log(`Connection failed (${err.code || err.message}), retrying in ${retryDelayMs / 1000}s...`);
+      if (client) client.close();
+      setTimeout(attemptConnect, retryDelayMs);
+    }
+  }
 
-    //         const obj = deserialize(data);
-    //         // console.log(obj)
-    //         const err = obj[0];
-    //         // console.log(err)
-    //         const val = obj[1];
-    //         if (typeof callback == 'function') {
-    //             callback(err, val);
-    //         }
-    //         // if (res.statusCode !== 200) {
-    //         //     // console.log("bad times for the gang");
-
-    //         //     if (callback) {
-    //         //         callback(new Error("Error:", res.statusCode), null);
-    //         //     }
-    //         // } else {
-
-    //         //     // console.log(`err: ${err}\nval: ${val}`)
-    //         //     if (typeof callback == 'function') {
-    //         //         callback(err, val);
-    //         //     }
-    //         // }
-    //     });
-    //     res.on('error', (error) => {
-    //         if (callback) {
-    //             callback(error, null);
-    //         }
-    //     });
-    // });
-    // req.on('error', (error) => {
-    //     if (callback) {
-    //         callback(error, null);
-    //     }
-    // });
-    // req.write(serialize(message), () => { req.end(); });
-
-    // return
+  attemptConnect();
 }
 
 module.exports = { send };
