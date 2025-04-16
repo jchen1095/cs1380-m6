@@ -138,17 +138,30 @@ function appendForBatch(state, configuration, callback) {
   if (Array.isArray(state)) {
     const gid = configuration.gid;
     let count = 0;
+    // console.log(`${id.getSID(global.nodeConfig)} About to append ${state.length} values`)
+    // const appendStart = performance.now();
     for (const o of state) {
       if (typeof o == 'object') {
+        count++;
         const key = Object.keys(o)[0];
         const value = Object.values(o)[0];
+        if (key == '' || key == undefined) {
+          if (count >= state.length) {
+            callback(null, count);
+            return;
+          } else {
+            continue;
+          }
+        }
         append(value, {gid: gid, key: key}, (e,v) => {
           if (e) {
             callback(new Error("[Store.AppendForBatch] E: " + e.message));
             return;
           }
-          count++;
+          
           if (count >= state.length) {
+            // const appendEnd = performance.now();
+            // console.log(`${id.getSID(global.nodeConfig)} Appending files time elapsed:`, appendEnd-appendStart)
             callback(null, count);
           }
         });

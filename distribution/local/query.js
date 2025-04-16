@@ -10,7 +10,7 @@ function query(input, callback) {
         ngrams.forEach(ngram => {
             try {
                 local.store.get(ngram, (err, value) => {
-                    // output: array, value = {url: url, freq: freq}}
+                    // output: array, value = [{url: url, freq: freq}, {url: url, freq: freq}]
                     if (err) {
                         // if error, assume does not exist
                         return;

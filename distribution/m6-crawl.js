@@ -14,9 +14,12 @@ const { id } = require("./util/util")
 /**
  * TODO: Change with AWS IP and Port
  */
-const n1 = { ip: "127.0.0.1", port: 12345 }
-const n2 = { ip: "127.0.0.1", port: 12346 }
-const n3 = { ip: "127.0.0.1", port: 12347 }
+// const n1 = { ip: "127.0.0.1", port: 12345 }
+// const n2 = { ip: "127.0.0.1", port: 12346 }
+// const n3 = { ip: "127.0.0.1", port: 12347 }
+const n1 = { ip: "18.204.217.78", port: 12345 }
+const n2 = { ip: "3.82.200.164", port: 12346 }
+const n3 = { ip: "3.84.211.202", port: 12347 }
 
 const group = {}
 group[getSID(n1)] = n1;
@@ -31,8 +34,8 @@ const startTests = () => {
     // See https://edstem.org/us/courses/69551/discussion/6470553 for explanation of the
     // "require" argument
     const mapper = (key, value, require) => {
-        console.log("Mapper Key:", key);
-        console.log("Mapper Value:", value);
+        // console.log(`${distribution.util.id.getSID(global.nodeConfig)} Mapper Key:`, key);
+        // console.log(`${distribution.util.id.getSID(global.nodeConfig)} Mapper Value:`, value);
         // console.log(value);
         // Import execSync
         const { execSync, spawnSync } = require("child_process");
@@ -40,6 +43,7 @@ const startTests = () => {
 
         const resultPromise = new Promise((resolve, reject) => {
             let temp = {};
+            const startTime = performance.now();
             try {
                 temp = spawnSync('bash', ['./jen-crawl.sh', value], {
                     encoding: 'utf-8',
@@ -50,14 +54,19 @@ const startTests = () => {
                 console.log("error:", e.message);
                 return;
             }
+            const endTime = performance.now();
+            console.log(`${distribution.util.id.getSID(global.nodeConfig)}: jen-crawl.sh elapsed time:`, endTime-startTime);
             const urlsRaw = temp.stderr;
-            const urlList = urlsRaw.split('\n').map((link) => link.trim()).filter((link) => link !== '')
+            // const urlList = urlsRaw.split('\n').map((link) => link.trim()).filter((link) => link !== '')
+            const urlList = urlsRaw.split('\n');
+            // const urlList = urlsRaw.split('\n');
             // console.log("URLLIST:", urlList)
             // Step 5: Go through each URL to determine which node it should be sent to
             let urlCount = 0;
             const sidToURLList = {};
             const nsidToNode = {};
             if (urlList.length === 1 && urlList[0] === '') {
+                resolve([{ [key]: true }])
                 processDocs();
             } else {
                 for (const rawUrl of urlList) {
@@ -85,6 +94,7 @@ const startTests = () => {
                                             nodesReceivingURLList++;
                                             if (nodesReceivingURLList === Object.keys(sidToURLList).length) {
                                                 console.log("SEND ALL URLS FOR NEXT ROUND");
+                                                resolve([{ [key]: true }])
                                                 processDocs();
                                             }
                                         }
@@ -97,6 +107,7 @@ const startTests = () => {
                                             nodesReceivingURLList++;
                                             if (nodesReceivingURLList === Object.keys(sidToURLList).length) {
                                                 console.log("SEND ALL URLS FOR NEXT ROUND");
+                                                resolve([{ [key]: true }])
                                                 processDocs();
                                             }
                                         })
@@ -107,6 +118,7 @@ const startTests = () => {
                 }
             }
             function processDocs() {
+                const startTime = performance.now();
                 const result = temp.stdout.trim()
                     .split("\n")
                     .map(line => {
@@ -119,114 +131,60 @@ const startTests = () => {
                             }
                         };
                     });
+                const endTime = performance.now();
+                console.log(`${distribution.util.id.getSID(global.nodeConfig)}: Process Docs elapsed:`, endTime-startTime);
 
                 let sendBatch = {};
                 let sid_to_node = {};
                 let resultCount = 0;
+                const startTime2 = performance.now();
                 result.forEach(item => {
                     const ngram = item.key;
                     const freq = item.value.freq;
                     const url = item.value.url;
-                    distribution.crawl.store.getNode(ngram, (e, node) => {
+                    const ngramInfo = { [ngram]: { freq: freq, url: url } }
+                    distribution.local.store.appendForBatch(piece, {gid: "ngrams"}, (e,v) => {
                         if (e) {
-                            console.log("Error getting node:", e);
-                            reject(e);
-                            return;
+                            console.log("Error in append for batch: ", e);
                         }
-                        resultCount++;
-                        const sid = distribution.util.id.getSID(node);
-                        sid_to_node[sid] = node;
-                        if (!Object.hasOwn(sendBatch, sid)) {
-                            sendBatch[sid] = [];
-                        }
-                        sendBatch[sid].push({ [ngram]: { freq: freq, url: url } });
+                    })
+                    
+                    
+                    
 
-                        if (resultCount === Object.keys(result).length) {
-                            let sendBatchCount = 0;
-                            Object.entries(sendBatch).forEach(([iterSid, piece]) => {
-                                // console.log("PIECE:", piece);
-                                distribution.local.comm.send([piece, { gid: "ngrams" }], { node: sid_to_node[iterSid], service: "store", method: "appendForBatch" }, (e, v) => {
-                                    console.log("Extracted and appended ngrams! Error:", e);
-                                    sendBatchCount++;
-                                    if (sendBatchCount === Object.keys(sendBatch).length) {
-                                        resolve([{ [key]: true }])
-                                    }
-                                    // resolve(null);
-                                    // sendBatchCount++;
-                                    // if (sendBatchCount === Object.keys(sendBatch).length) {
-                                    //     // URL Parsing
-                                    //     const sids = Object.keys(sendBatch);
-                                    //     const out = [];
-                                    //     for (iterSid of sids) {
-                                    //         out.push({ "a": null });
-                                    //     }
-                                    //     const urlsRaw = spawnSyncOutput.stderr;
-                                    //     fs.appendFileSync('stderr.log', spawnSyncOutput.stderr);
-                                    //     const urlList = urlsRaw.split('\n');
-                                    //     // console.log("URLLIST:", urlList)
-                                    //     // Step 5: Go through each URL to determine which node it should be sent to
-                                    //     let count = 0;
-                                    //     const sidToURLList = {};
-                                    //     const nsidToNode = {};
-                                    //     if (urlList.length === 1 && urlList[0] === '') {
-                                    //         resolve(out);
-                                    //     } else {
-                                    //         for (const rawUrl of urlList) {
-                                    //             distribution.crawl.store.getNode(rawUrl, (e, nodeToSend) => {
-                                    //                 count++;
-                                    //                 // Add to per node batch of URLs
-                                    //                 const sid = distribution.util.id.getSID(nodeToSend);
-                                    //                 if (!Object.hasOwn(sidToURLList, sid)) {
-                                    //                     sidToURLList[sid] = [];
-                                    //                 }
+                    // distribution.crawl.store.getNode(ngram, (e, node) => {
+                    //     if (e) {
+                    //         console.log("Error getting node:", e);
+                    //         reject(e);
+                    //         return;
+                    //     }
+                    //     resultCount++;
+                    //     const sid = distribution.util.id.getSID(node);
+                    //     sid_to_node[sid] = node;
+                    //     if (!Object.hasOwn(sendBatch, sid)) {
+                    //         sendBatch[sid] = [];
+                    //     }
+                    //     sendBatch[sid].push({ [ngram]: { freq: freq, url: url } });
 
-                                    //                 const newUrlKey = distribution.util.id.getID(rawUrl).slice(0, 20);;
-                                    //                 sidToURLList[sid].push({ [newUrlKey]: rawUrl })
-                                    //                 // console.log("v NODE:", v);
-                                    //                 nsidToNode[sid] = nodeToSend;
-                                    //                 // console.log("nsidToNode:", nsidToNode)
-                                    //                 if (count === urlList.length) {
-                                    //                     let nodesReceivingURLList = 0;
-                                    //                     // We've gone through all URLs. Let's send through the nextURLs service
-                                    //                     for (let nsid in sidToURLList) {
-                                    //                         distribution.local.comm.send(
-                                    //                             [sidToURLList[nsid]],
-                                    //                             { node: nsidToNode[nsid], service: "newUrls", method: "put" },
-                                    //                             (e, v) => {
-                                    //                                 nodesReceivingURLList++;
-                                    //                                 if (nodesReceivingURLList === Object.keys(sidToURLList).length) {
-                                    //                                     console.log("SEND ALL URLS FOR NEXT ROUND");
-                                    //                                     resolve(out);
-                                    //                                 }
-                                    //                             })
-
-                                    //                     // if (nsid === distribution.util.id.getSID(global.nodeConfig)) {
-                                    //                     //     // Call own service for this
-                                    //                     //     console.log("Sending to newUrls.put:", JSON.stringify(sidToURLList[nsid], null, 2));
-                                    //                     //     distribution.local.newUrls.put(sidToURLList[nsid], (e, v) => {
-                                    //                     //         resolve(out);
-                                    //                     //     })
-                                    //                     // } else {
-                                    //                     //     // Use comm.send to give it to peer nodes
-                                    //                     //     console.log("Sending to newUrls.put:", JSON.stringify(sidToURLList[nsid], null, 2));
-                                    //                     //     distribution.local.comm.send(
-                                    //                     //         [sidToURLList[nsid]],
-                                    //                     //         { node: nsidToNode[nsid], service: "newUrls", method: "put" },
-                                    //                     //         (e, v) => {
-                                    //                     //             resolve(out);
-                                    //                     //         })
-                                    //                     // }
-                                    //                     }
-                                    //                 }
-                                    //             })
-                                    //         }
-                                    //     }
-                                    // }
-                                });
-                            })
-                        }
-                    });
+                    //     if (resultCount === Object.keys(result).length) {
+                    //         let sendBatchCount = 0;
+                    //         Object.entries(sendBatch).forEach(([iterSid, piece]) => {
+                    //             // console.log("PIECE:", piece);
+                    //             distribution.local.comm.send([piece, { gid: "ngrams" }], { node: sid_to_node[iterSid], service: "store", method: "appendForBatch" }, (e, v) => {
+                    //                 console.log("Extracted and appended ngrams! Error:", e);
+                    //                 sendBatchCount++;
+                    //                 if (sendBatchCount === Object.keys(sendBatch).length) {
+                    //                     const endTime2 = performance.now();
+                    //                     console.log(`${distribution.util.id.getSID(global.nodeConfig)} Sending n-grams elapsed:`, endTime2-startTime2)
+                    //                 }
+                    //             });
+                    //         })
+                    //     }
+                    // });
                 });
+                const endTime2 = performance.now();
+                console.log(`${distribution.util.id.getSID(global.nodeConfig)} Sending n-grams elapsed:`, endTime2-startTime2)
+                resolve([{ [key]: true}]);
             }
         })
 
@@ -241,37 +199,38 @@ const startTests = () => {
 
         const resultPromise = new Promise((resolve, reject) => {
 
-            var temp = {};
-            // console.log("value: ", value)
-            try {
-                temp = spawnSync('bash', ['./index_reduce.sh', values], {
-                    encoding: 'utf-8',
-                    maxBuffer: 1024 * 1024 * 64
-                });
+            // var temp = {};
+            // // console.log("value: ", value)
+            // try {
+            //     temp = spawnSync('bash', ['./index_reduce.sh', values], {
+            //         encoding: 'utf-8',
+            //         maxBuffer: 1024 * 1024 * 64
+            //     });
 
-                console.log("[reduce] temp:", temp);
-            } catch (e) {
-                console.log("[reduce] error:", e.message);
-            }
+            //     console.log("[reduce] temp:", temp);
+            // } catch (e) {
+            //     console.log("[reduce] error:", e.message);
+            // }
 
-            // Step 1: Get text from page
-            // const capturedText = execSync(`./c/getText.js`, { encoding: 'utf-8' });
-            // Step 2: Build up object with page data
-            const data = temp.stdout;
-            console.log(data);
-            distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, node) => {
-                if (e) {
-                    console.log(e);
-                    reject(e);
-                    return;
-                }
-                console.log('[reduce] ran:', node);
-                resolve([{ [key]: true }]);
-            });
-            // Step 3: Store content under hashURL(value)
-            // console.log("key:", key);
+            // // Step 1: Get text from page
+            // // const capturedText = execSync(`./c/getText.js`, { encoding: 'utf-8' });
+            // // Step 2: Build up object with page data
+            // const data = temp.stdout;
+            // console.log(data);
+            // distribution.local.store.put(data, { key: key, gid: 'crawl-text' }, (e, node) => {
+            //     if (e) {
+            //         console.log(e);
+            //         reject(e);
+            //         return;
+            //     }
+            //     console.log('[reduce] ran:', node);
+            //     resolve([{ [key]: true }]);
+            // });
+            // // Step 3: Store content under hashURL(value)
+            // // console.log("key:", key);
 
 
+            resolve([{ [key]: true }]);
         });
 
         return resultPromise;
@@ -339,7 +298,7 @@ const startTests = () => {
         })
     }
 
-    doMapReduce();
+    doMapReduce(() => console.log("MapReduce failed"));
 }
 
 distribution.node.start((server) => {
@@ -361,14 +320,24 @@ const hashURL = (url) => {
 /**
  * USED FOR RUNNING LOCALLY
  */
+// const startNodes = (cb) => {
+//     distribution.local.status.spawn(n1, (e, node) => {
+//         distribution.local.status.spawn(n2, (e, node) => {
+//             distribution.local.status.spawn(n3, (e, node) => {
+//                 cb();
+//             });
+//         });
+//     });
+// };
 const startNodes = (cb) => {
-    distribution.local.status.spawn(n1, (e, node) => {
-        distribution.local.status.spawn(n2, (e, node) => {
-            distribution.local.status.spawn(n3, (e, node) => {
-                cb();
-            });
-        });
-    });
+    cb();
+    // distribution.local.status.spawn(n1, (e, node) => {
+    //     distribution.local.status.spawn(n2, (e, node) => {
+    //         distribution.local.status.spawn(n3, (e, node) => {
+    //             cb();
+    //         });
+    //     });
+    // });
 };
 
 const stopNodes = (cb) => {
