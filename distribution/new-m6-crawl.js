@@ -17,17 +17,20 @@ const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/"
 
 const startTests = () => {
     // Get node for URL
-    global.distribution.crawl.store.getNode(CRAWL_URL, (e, node) => {
-        // console.log("gets after getNode");
-        global.distribution.local.comm.send([[CRAWL_URL]], { node: node, service: "newUrls", "method": "put" }, (e, v) => {
-            // console.log("comm send crawl url worked")
-            // console.log("v:", v);
-            global.distribution.crawl.search.start((e, v) => {
-                // console.log("gets here!");
-            });
-        })
+    global.distribution.crawl.comm.send([['https://atlas.cs.brown.edu/data/gutenberg/books.txt', 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt']], {service:'newUrls', method: 'blacklist'}, (e,v) => {
+        global.distribution.crawl.store.getNode(CRAWL_URL, (e, node) => {
+            // console.log("gets after getNode");
+            global.distribution.local.comm.send([[CRAWL_URL]], { node: node, service: "newUrls", "method": "put" }, (e, v) => {
+                // console.log("comm send crawl url worked")
+                // console.log("v:", v);
+                global.distribution.crawl.search.start((e, v) => {
+                    // console.log("gets here!");
+                });
+            })
 
+        })
     })
+    
 }
 
 distribution.node.start((server) => {

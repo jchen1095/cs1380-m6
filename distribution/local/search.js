@@ -1,6 +1,7 @@
 const fs = require("fs");
 const { spawnSync } = require("child_process");
 const { id } = require("../util/util");
+const distribution = require("@brown-ds/distribution");
 
 
 let currIters = 0;
@@ -126,21 +127,20 @@ const _processURLs = (scriptOutput) => {
 }
 
 const _processDocs = (scriptOutput, wc) => {
-    console.log("[CRAWLER] Processing documents...");
+    // console.log("[CRAWLER] Processing documents...");
     const result = scriptOutput.stdout.trim().split('\n').map(line => {
             const [ngram, freq, url] = line.split("|").map(s => s.trim());
             return { [ngram]: { freq: parseInt(freq, 10)/wc, url: url } }
         });
     
     console.log("Sending to store...");
-    distribution.local.store.appendForBatch(result, { gid: "ngrams" }, (e, v) => {
+    global.distribution.local.index.appendIndex(result, (e,v) => {
         console.log("finished writing to store!");
         changeCount(-1);
         if (e) {
-            console.log("Error in append for batch: ", e);
+            console.log("Error in append: ", e);
             return;
         }
-        
         incrementDocumentCount();
     })
 };
