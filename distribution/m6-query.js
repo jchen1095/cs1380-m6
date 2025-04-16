@@ -81,9 +81,11 @@ function processQuery(args) {
 distribution.node.start((server) => {
     localServer = server
     startNodes(() => {
-        distribution.local.groups.put({ gid: "query", hash: consistentHash }, group, (e, node) => {
-            distribution.query.groups.put({ gid: "query" }, group, (e, node) => {
+        distribution.local.groups.put({ gid: "queryg", hash: consistentHash }, group, (e, node) => {
+            distribution.queryg.groups.put({ gid: "queryg" }, group, (e, node) => {
                 const ngrams = processedQuery();
+                distribution.queryg.query.query(ngrams, (e, result) => {
+                });
             })
         })
     })
