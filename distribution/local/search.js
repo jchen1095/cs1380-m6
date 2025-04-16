@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { spawnSync } = require("child_process");
+const { execSync, spawnSync } = require("child_process");
 const { id } = require("../util/util");
 
 
@@ -138,6 +138,7 @@ const _processDocs = (scriptOutput) => {
 };
 
 const query = (args) => {
+    fs.appendFileSync('debug.log', '=QUERY=\n');
     // Step 1: Read the command-line arguments
     
     // const args = process.argv.slice(2); // Get command-line arguments
@@ -147,6 +148,7 @@ const query = (args) => {
     // }
     //input is a string
     const queryString = args;
+    fs.appendFileSync('debug.log', queryString);
 
     // process the string to one word per line
     const finalQueryUrls = {};

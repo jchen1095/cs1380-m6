@@ -1,4 +1,7 @@
 /* Add styling for your page here */
+html {
+  /* background-color: rgb(251, 238, 225); */
+}
 
 .App {
   font-family: "Nunito", sans-serif;
@@ -22,6 +25,7 @@
 
 #scrollable-container {
   width: 900px;
+  color: rgb(99, 77, 63);
 }
 
 #cart-container {

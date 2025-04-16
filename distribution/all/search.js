@@ -1,3 +1,4 @@
+
 function search(config) {
     const context = {};
     context.gid = config.gid || "all";
@@ -19,7 +20,6 @@ function search(config) {
         },
         query: (callback) => {
             callback = callback || function () { };
-            // console.log("gets here!222")
             global.distribution[context.gid].comm.send([ context.gid ], { service: "search", method: "query" }, (e, v) => {
                 callback(e, v);
             })
