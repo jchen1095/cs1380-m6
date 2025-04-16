@@ -43,9 +43,7 @@ const {execSync, spawnSync} = require('child_process');
 /**
  * TODO: Change with AWS IP and Port
  */
-// const n1 = { ip: "127.0.0.1", port: 12345 }
-// const n2 = { ip: "127.0.0.1", port: 12346 }
-// const n3 = { ip: "127.0.0.1", port: 12347 }
+
 const n1 = { ip: "18.204.217.78", port: 12345 }
 const n2 = { ip: "3.82.200.164", port: 12346 }
 const n3 = { ip: "3.84.211.202", port: 12347 }
@@ -58,7 +56,7 @@ group[getSID(n3)] = n3;
 let localServer = null;
 const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg"
 
-function query(args) {
+function processQuery(args) {
     // Step 1: Read the command-line arguments
     
     const args = process.argv.slice(2); // Get command-line arguments
@@ -76,14 +74,16 @@ function query(args) {
       );
     console.log("Processed Query:", processedQuery.trim());
 
+    return processedQuery.trim();
+    //call distributed local query and be good
 }
 
 distribution.node.start((server) => {
     localServer = server
     startNodes(() => {
-        distribution.local.groups.put({ gid: "crawl", hash: consistentHash }, group, (e, node) => {
-            distribution.crawl.groups.put({ gid: "crawl" }, group, (e, node) => {
-                startTests();
+        distribution.local.groups.put({ gid: "query", hash: consistentHash }, group, (e, node) => {
+            distribution.query.groups.put({ gid: "query" }, group, (e, node) => {
+                const ngrams = processedQuery();
             })
         })
     })
@@ -97,24 +97,15 @@ const hashURL = (url) => {
 /**
  * USED FOR RUNNING LOCALLY
  */
-// const startNodes = (cb) => {
-//     distribution.local.status.spawn(n1, (e, node) => {
-//         distribution.local.status.spawn(n2, (e, node) => {
-//             distribution.local.status.spawn(n3, (e, node) => {
-//                 cb();
-//             });
-//         });
-//     });
-// };
+
 const startNodes = (cb) => {
-    cb();
-    // distribution.local.status.spawn(n1, (e, node) => {
-    //     distribution.local.status.spawn(n2, (e, node) => {
-    //         distribution.local.status.spawn(n3, (e, node) => {
-    //             cb();
-    //         });
-    //     });
-    // });
+    distribution.local.status.spawn(n1, (e, node) => {
+        distribution.local.status.spawn(n2, (e, node) => {
+            distribution.local.status.spawn(n3, (e, node) => {
+                cb();
+            });
+        });
+    });
 };
 
 const stopNodes = (cb) => {
