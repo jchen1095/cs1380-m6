@@ -16,18 +16,18 @@ function start(gid, callback) {
         // console.log("successfully set interval for poll!")
         callback(null, true);
     } catch (e) {
-        console.log("error from staert:", e);
+        console.log("error from start:", e);
     }
 }
 
 function _poll(gid) {
     global.distribution.local.newUrls.get((e, v) => {
         if (e) {
-            console.log("No URL was polled!");
+            // console.log("No URL was polled!");
             return;
         }
         if (v === '') {
-            console.log("Empty URL was polled; exiting.")
+            // console.log("Empty URL was polled; exiting.")
             return;
         }
         changeCount(1);
@@ -42,19 +42,35 @@ function crawl(config, callback) {
     let scriptOutput;
     const { url, gid } = config;
     console.log("[CRAWLING]", url);
+    let count;
     try {
+        const wcFilepath = 'd/'+ id.getSID(global.nodeConfig) + '-wc.txt';
+        const wc = fs.openSync(wcFilepath, 'w+');
         scriptOutput = spawnSync('bash', ['jen-crawl.sh', url], {
             encoding: 'utf-8',
-            maxBuffer: 1024 * 1024 * 64
+            maxBuffer: 1024 * 1024 * 64,
+            stdio: ['pipe', 'pipe', 'pipe', wc],
         });
+        count = parseInt(fs.readFileSync(wcFilepath, 'utf-8').trim());
+        console.log("COUNT:", count);
+        fs.closeSync(wc);
+        if (!count) {
+            console.log("[CRAWLER] Error: No word count retrieved. Exiting");
+            changeCount(-1);
+            callback(new Error("[CRAWLER] error: no word count retrieved"), false);
+            return;
+        }
     } catch (e) {
         console.log("error:", e.message);
+        changeCount(-1);
+        callback(new Error("[CRAWLER] error: ", e.message), false);
         return;
     }
 
     _processURLs(scriptOutput);
     if (url.includes(".txt")) {
-        _processDocs(scriptOutput);
+        _processDocs(scriptOutput, count);
+        console.log("Processed docs!");
     } else {
         changeCount(-1);
     }
@@ -109,127 +125,29 @@ const _processURLs = (scriptOutput) => {
     }
 }
 
-const _processDocs = (scriptOutput) => {
-    const result = scriptOutput.stdout.trim()
-        .split("\n")
-        .map(line => {
+const _processDocs = (scriptOutput, wc) => {
+    console.log("[CRAWLER] Processing documents...");
+    const result = scriptOutput.stdout.trim().split('\n').map(line => {
             const [ngram, freq, url] = line.split("|").map(s => s.trim());
-            return {
-                key: ngram,
-                value: {
-                    freq: parseInt(freq, 10),
-                    url: url
-                }
-            };
+            return { [ngram]: { freq: parseInt(freq, 10)/wc, url: url } }
         });
-
-    result.map(item => {
-        const ngram = item.key;
-        const freq = item.value.freq;
-        const url = item.value.url;
-        return { [ngram]: { freq: freq, url: url } }
-    })
-    distribution.local.store.appendForBatch([ngramInfo], { gid: "ngrams" }, (e, v) => {
+    
+    console.log("Sending to store...");
+    distribution.local.store.appendForBatch(result, { gid: "ngrams" }, (e, v) => {
+        console.log("finished writing to store!");
+        changeCount(-1);
         if (e) {
             console.log("Error in append for batch: ", e);
+            return;
         }
-        changeCount(-1);
+        
+        incrementDocumentCount();
     })
 };
 
-function query(args, callback){
-    console.log('in local query', args);
-
-    // Step 1: Read the command-line arguments
-    
-    // const args = process.argv.slice(2); // Get command-line arguments
-    //     if (args.length < 1) {
-    //     console.error('Usage: ./query.js [query_strings...]');
-    //     process.exit(1);
-    // }
-    //input is a string
-    // const queryString = args;
-
-    // process the string to one word per line
-    const finalQueryUrls = {};
-    
-        // Build the command string:
-        // Surround each script's absolute path in double quotes
-        // and ensure proper spacing around pipe operators.
-        // const processScript = path.join(__dirname, '../../non-distribution', 'c', 'process.sh');
-        // const stemScript = path.join(__dirname, '../../non-distribution', 'c','stem.js');
-        // const combineScript = path.join(__dirname, '../../non-distribution', 'c','combine.sh');
-
-    const command = `echo`;
-    // Execute the pipeline in bash
-    let processedQuery;
-    try {
-        processedQuery = spawnSync('bash', ['-c', 'echo bible | ./c/process.sh | node ./c/stem.js | ./c/combine.sh'], {
-            encoding: 'utf-8'
-        }).stdout;        
-    } catch (e) {
-        console.log("the error!: ", e);
-        return;
-    }
-        // console.log("Processed Query:", processedQuery);
-
-        // distribution.local.query.process(processedQuery, (e, result) => {
-        //     if (e) {
-        //         console.log("Error in query:", e);
-        //     } else {
-        //         console.log("Query result:", result);
-        //     }
-        // });error("Error executing pipeline:", err);
-    
-    console.log("Processed Query:", processedQuery.trim());
-
-    distribution.local.query.process(processedQuery, (e, result) => {
-        if (e) {
-            console.log("Error in query: ", e);
-            return;
-        }
-        console.log("Query result: ", result);
-        distribution.local.newUrls.status( (e,amt_of_docs)=> {
-            if (e) {
-                console.log("Error in getting the idf: ", e);
-                return;
-            }
-            console.log("idf", amt_of_docs);
-            const idf_count = amt_of_docs.count;
-            result.forEach(entry => {
-                const ngram = Object.keys(entry)[0]; // key of ngram "best book"
-                const value = entry[ngram];          // value object of arrays of url objs
-                const length = ngram.split(' ').length;; // count the words in the ngram
-                const num_docs_returned = value.length;
-                const idf = Math.log(1 + (idf_count/(1+num_docs_returned)));
-                value.forEach((obj, indx) => {
-                    const url = obj.url;
-                    const freq = obj.freq;
-                    console.log(`N-gram: "${ngram}" (${length}-gram)`);
-                    console.log("Value:", value);
-
-                    const tfidf = freq * idf;
-                    if (!finalQueryUrls.has(url)) {
-                        // url is not in the map
-                        finalQueryUrls[url] = 0;
-                    }
-                    //log total num docs/ num docs for the specific ngram appears 
-                    finalQueryUrls[url] += length * tfidf;
-                    
-                });
-            });            
-
-
-        });
-    });
-    const resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
-        return { [url]: score };
-    });
-    
-    console.log("Final weighted URLs:", resultArray);
-
-    return resultArray;
+function changeCount(change) {
+    currIters += change;  
+    console.log("currIters:", currIters);
 }
 
-
-module.exports = { crawl, start, query }
+module.exports = { crawl, start }
