@@ -190,7 +190,6 @@ function query(args, callback){
     // Execute the pipeline in bash
     let processedQuery;
     try {
-        
         processedQuery = spawnSync('bash', ['-c', 'echo "bush txt"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'], {
             encoding: 'utf-8'
         }).stdout;        
@@ -199,15 +198,6 @@ function query(args, callback){
         console.log("the error!: ", e);
         return;
     }
-        // console.log("Processed Query:", processedQuery);
-
-        // distribution.local.query.process(processedQuery, (e, result) => {
-        //     if (e) {
-        //         console.log("Error in query:", e);
-        //     } else {
-        //         console.log("Query result:", result);
-        //     }
-        // });error("Error executing pipeline:", err);
     
     console.log("Processed Query:", processedQuery.trim());
 
@@ -223,21 +213,22 @@ function query(args, callback){
                 return;
             }
             console.log("idf", amt_of_docs);
-            const idf_count = amt_of_docs.count;
+            let idf_count = amt_of_docs.count;
             result.forEach(entry => {
-                const ngram = Object.keys(entry)[0]; // key of ngram "best book"
-                const value = entry[ngram];          // value object of arrays of url objs
-                const length = ngram.split(' ').length;; // count the words in the ngram
-                const num_docs_returned = value.length;
-                const idf = Math.log(1 + (idf_count/(1+num_docs_returned)));
+                let ngram = Object.keys(entry)[0]; // key of ngram "best book"
+                let value = entry[ngram];          // value object of arrays of url objs
+                let length = ngram.split(' ').length;; // count the words in the ngram
+                let num_docs_returned = value.length;
+                let idf = Math.log(1 + (idf_count/(1+num_docs_returned)));
                 value.forEach((obj, indx) => {
-                    const url = obj.url;
-                    const freq = obj.freq;
+                    let url = obj.url;
+                    let freq = obj.freq;
                     console.log(`N-gram: "${ngram}" (${length}-gram)`);
                     console.log("Value:", value);
 
-                    const tfidf = freq * idf;
-                    if (!finalQueryUrls.hasOwn(url)) {
+                    let tfidf = freq * idf;
+                    if (!(url in finalQueryUrls)) {
+
                         // url is not in the map
                         finalQueryUrls[url] = 0;
                     }
@@ -250,7 +241,7 @@ function query(args, callback){
 
         });
     });
-    const resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
+    let resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
         return { [url]: score };
     });
     

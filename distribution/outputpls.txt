@@ -110,6 +110,7 @@
 [2025-04-16T17:50:54.135Z] local group put done!
 [2025-04-16T17:50:54.145Z] about to start tests!
 [2025-04-16T17:50:54.145Z] start tests
+<<<<<<< HEAD
 [2025-04-16T18:30:49.133Z] Script started
 [2025-04-16T18:30:49.442Z] spawned everything!
 [2025-04-16T18:30:49.444Z] local group put done!
@@ -120,3 +121,21 @@
 [2025-04-16T18:31:07.487Z] local group put done!
 [2025-04-16T18:31:07.495Z] about to start tests!
 [2025-04-16T18:31:07.495Z] start tests
+=======
+[2025-04-16T17:58:57.140Z] Script started
+[2025-04-16T17:59:02.973Z] Script started
+[2025-04-16T17:59:03.530Z] spawned everything!
+[2025-04-16T17:59:03.533Z] local group put done!
+[2025-04-16T17:59:03.547Z] about to start tests!
+[2025-04-16T17:59:03.547Z] start tests
+[2025-04-16T18:00:48.974Z] Script started
+[2025-04-16T18:00:49.569Z] spawned everything!
+[2025-04-16T18:00:49.573Z] local group put done!
+[2025-04-16T18:00:49.590Z] about to start tests!
+[2025-04-16T18:00:49.591Z] start tests
+[2025-04-16T18:02:38.689Z] Script started
+[2025-04-16T18:02:39.262Z] spawned everything!
+[2025-04-16T18:02:39.265Z] local group put done!
+[2025-04-16T18:02:39.280Z] about to start tests!
+[2025-04-16T18:02:39.281Z] start tests
+>>>>>>> 0326bef6bf8f0a97c83242b6442f5eae87ac4eb3
