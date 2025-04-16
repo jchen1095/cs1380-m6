@@ -29,9 +29,11 @@ try {
     const fd1 = fs.openSync(`./d/${sid}-visited.txt`, 'w');
     const fd2 = fs.openSync(`./${sid}-url-queue.txt`, 'w');
     const fd3 = fs.openSync(`./d/${sid}-docCount.txt`, 'w');
+    const fd4 = fs.openSync(`./d/${sid}-totalCount.txt`, 'w');
     fs.closeSync(fd1);
     fs.closeSync(fd2);
     fs.closeSync(fd3);
+    fs.closeSync(fd4);
 } catch (e) {
     console.log("Error while opening visited and URL queue files.", e);
     process.exit(1);
