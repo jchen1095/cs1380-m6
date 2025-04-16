@@ -190,7 +190,7 @@ function query(args, callback){
     // Execute the pipeline in bash
     let processedQuery;
     try {
-        processedQuery = spawnSync('bash', ['-c', 'echo "gutenberg visted my house"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'], {
+        processedQuery = spawnSync('bash', ['-c', 'echo "gutenberg visited my house"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'], {
             encoding: 'utf-8'
         }).stdout;        
         
@@ -199,7 +199,7 @@ function query(args, callback){
         return;
     }
     
-    console.log("Processed Query:", processedQuery.trim());
+    // console.log("Processed Query:", processedQuery.trim());
 
     distribution.local.query.process(processedQuery.trim(), (e, result) => {
         if (e) {

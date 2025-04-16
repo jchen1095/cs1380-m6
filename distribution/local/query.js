@@ -25,15 +25,15 @@ const process = (input, callback) => {
                     console.log("value is:", value);
                     // const ngramData = JSON.parse(value);
                     results.push({[ngram]: value});
-                
+                    if (count == number){
+                        console.log('done w the ngrams in local query');
+                        callback(null, results);
+                    }
                 });
             } catch (err) {
                 console.log("issue with store get:", err);
             }
-            if (count == number){
-                console.log('done w the ngrams in local query');
-                callback(null, results);
-            }
+            
             
         });
         
