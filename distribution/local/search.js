@@ -4,7 +4,7 @@ const { id } = require("../util/util");
 
 
 let currIters = 0;
-const CAP = 30; // number of allowable concurrent execs per node
+const CAP = 15; // number of allowable concurrent execs per node
 
 function start(gid, callback) {
     try {
