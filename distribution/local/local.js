@@ -49,6 +49,8 @@ const search = require("./search");
 
 const query = require("./query.js")
 
+const index = require("./index.js");
+
 module.exports = {
   status: status,
   routes: routes,
@@ -61,4 +63,5 @@ module.exports = {
   newUrls: newUrls,
   search: search,
   query: query,
+  index: index,
 };

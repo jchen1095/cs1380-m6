@@ -5,6 +5,7 @@ package-lock.json
 *.pem
 
 store
+non-distribution/ngrams
 log.txt
 submission.zip
 

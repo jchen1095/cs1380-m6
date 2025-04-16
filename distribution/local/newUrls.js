@@ -60,6 +60,13 @@ newUrls.status = function(callback) {
     callback(null, count);
 }
 
+// function to automatically block (not read) specific urls -> expects arr
+newUrls.blacklist = function(ignore, callback) {
+    const visited = path.join(APP_ROOT, `d/${id.getSID(global.nodeConfig)}-visited.txt`);
+    ignore.foreach(link => {
+        execSync(`grep -Fxq "${link}" ${visited} || echo "${link}" >> ${visited}`, { encoding: 'utf-8' });
+    })
+}
 
 module.exports = newUrls;
 
