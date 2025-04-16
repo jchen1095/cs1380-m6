@@ -191,7 +191,7 @@ function query(args, callback){
     let processedQuery;
     try {
         
-        processedQuery = spawnSync('bash', ['-c', 'echo "bush txt"| ./c/process.sh | node ./c/stem.js | ./c/combine.sh'], {
+        processedQuery = spawnSync('bash', ['-c', 'echo "gutenberg visits a house"| ./c/process.sh | node ./c/stem.js | ./c/combine.sh'], {
             encoding: 'utf-8'
         }).stdout;        
         
@@ -237,7 +237,8 @@ function query(args, callback){
                     console.log("Value:", value);
 
                     const tfidf = freq * idf;
-                    if (!finalQueryUrls.hasOwn(url)) {
+                    if (!(url in finalQueryUrls)) {
+
                         // url is not in the map
                         finalQueryUrls[url] = 0;
                     }
