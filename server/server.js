@@ -20,22 +20,16 @@ app.get('/search', (req, res) => {
         // TODO point to actual script
         // currently, return a dummy result with a hardcoded url
         const result = [
-            { url: 'http://example.com/item1' },
-            { url: 'http://example.com/item2' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
-            { url: 'http://example.com/item3' },
+            { url: 'http://example.com/item1', relevancy: 0.9 },
+            { url: 'http://example.com/item2', relevancy: 0.8 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
         ];
         // const result = execSync(`./search.sh "${query}"`, { encoding: 'utf-8' });
         res.json({ result });

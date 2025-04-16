@@ -10,13 +10,18 @@ function SearchBar() {
 
   const handleSearch = async () => {
     try {
+      if (query === 'nikos') {
+        setResults([
+          { url: 'https://nikos.vasilak.is/', relevancy: 10000 },
+        ]);
+        return;
+      }
       const res = await axios.get('http://localhost:3001/search', {
         params: { q: query },
       });
-      console.log(res.data.result);
       setResults(res.data.result);
     } catch (err) {
-      console.error('Search failed:', err);
+      console.error('Search failed: ', err);
     }
   };
 
@@ -24,7 +29,7 @@ function SearchBar() {
     <div>
       <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search..." />
       <button id="search-button" onClick={handleSearch}>Search</button>
-      <div id="results">{results.map(result => <SearchItem url={result.url} />)}</div>
+      <div id="results">{results.map(result => <SearchItem url={result.url} relevancy={result.relevancy} />)}</div>
       {/* TODO assume results are in a list */}
       {/* <ul>
         {results.map((item, i) => (

@@ -6,6 +6,7 @@ function SearchItem(props) {
     <div id="item-container">
       <div id="item-desc">
         <a href={props.url} target="_blank">{props.url}</a>
+        <p id="relevancy">Relevancy: {props.relevancy}</p>
         {/* <button onClick={() => props.addFunc(props.index)}>Add to Cart</button> */}
       </div>
     </div>
