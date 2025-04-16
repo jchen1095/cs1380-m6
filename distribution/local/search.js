@@ -191,7 +191,7 @@ function query(args, callback){
     let processedQuery;
     try {
         
-        processedQuery = spawnSync('bash', ['-c', 'echo "bush txt"| ./c/process.sh | node ./c/stem.js | ./c/combine.sh'], {
+        processedQuery = spawnSync('bash', ['-c', 'echo "bush"| ./c/process.sh | node ./c/stem.js | ./c/combine.sh'], {
             encoding: 'utf-8'
         }).stdout;        
         

@@ -100,3 +100,13 @@
 [2025-04-16T17:34:23.583Z] local group put done!
 [2025-04-16T17:34:23.590Z] about to start tests!
 [2025-04-16T17:34:23.590Z] start tests
+[2025-04-16T17:45:02.324Z] Script started
+[2025-04-16T17:45:02.620Z] spawned everything!
+[2025-04-16T17:45:02.622Z] local group put done!
+[2025-04-16T17:45:02.629Z] about to start tests!
+[2025-04-16T17:45:02.630Z] start tests
+[2025-04-16T17:50:53.800Z] Script started
+[2025-04-16T17:50:54.134Z] spawned everything!
+[2025-04-16T17:50:54.135Z] local group put done!
+[2025-04-16T17:50:54.145Z] about to start tests!
+[2025-04-16T17:50:54.145Z] start tests
