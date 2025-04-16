@@ -1,5 +1,6 @@
 const { execSync } = require('child_process');
 const { id } = require('./util/util');
+const fs = require("fs");
 
 const IP_TO_PORT = {
     "172.31.86.118": 12345,
