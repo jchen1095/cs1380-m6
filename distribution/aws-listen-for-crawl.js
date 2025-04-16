@@ -1,4 +1,5 @@
 const { execSync } = require('child_process');
+const { id } = require('./util/util');
 
 const IP_TO_PORT = {
     "172.31.86.118": 12345,
@@ -17,12 +18,26 @@ const IP_TO_PORT = {
 const hostname = execSync("hostname -I | awk '{print $1}'", { encoding: 'utf-8' }).trim();
 
 if (!IP_TO_PORT[hostname]) {
-  console.error(`No port mapping found for IP ${hostname}`);
-  process.exit(1);
+    console.error(`No port mapping found for IP ${hostname}`);
+    process.exit(1);
+}
+
+// Reopen URL queue and stuff
+try {
+    const sid = id.getSID({ ip: "0.0.0.0", port: IP_TO_PORT[hostname] })
+    const fd1 = fs.openSync(`./d/${sid}-visited.txt`, 'w');
+    const fd2 = fs.openSync(`./${sid}-url-queue.txt`, 'w');
+    const fd3 = fs.openSync(`./d/${sid}-docCount.txt`, 'w');
+    fs.closeSync(fd1);
+    fs.closeSync(fd2);
+    fs.closeSync(fd3);
+} catch (e) {
+    console.log("Error while opening visited and URL queue files.", e);
+    process.exit(1);
 }
 
 console.log(`Running distribution.js on port ${IP_TO_PORT[hostname]}...`);
 
 execSync(`node ../distribution.js --ip 0.0.0.0 --port ${IP_TO_PORT[hostname]}`, {
-  stdio: 'inherit'
+    stdio: 'inherit'
 });
