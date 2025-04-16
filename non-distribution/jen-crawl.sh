@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -skL "$1" |
+curl --range 0-10485759 -skL "$1" |
 tee >(c/getURLs.js "$1" >&2) |
 c/getText.js |
 tee >(wc -w >&3) | 

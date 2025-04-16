@@ -58,9 +58,7 @@ distribution.node.start((server) => {
     });
 });
 
-const hashURL = (url) => {
-    return getID(url).slice(0, 20);
-};
+
 
 const startNodes = (cb) => {
     global.distribution.local.status.spawn(n1, (e, node) => {

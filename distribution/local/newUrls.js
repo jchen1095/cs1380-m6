@@ -26,13 +26,6 @@ newUrls.get = function(callback) {
 newUrls.put = function(urls, callback) {
     const urlQueue = path.join(APP_ROOT, `${id.getSID(global.nodeConfig)}-url-queue.txt`);
     const visited = path.join(APP_ROOT, `d/${id.getSID(global.nodeConfig)}-visited.txt`);
-    // if (!fs.existsSync(urlQueue)) {
-    //     fs.writeFileSync(urlQueue, "");
-    // }
-    // if (!fs.existsSync(visited)) {
-    //     fs.writeFileSync(visited, "");
-    // }
-    // console.log("put was called! urls is:", urls);
     try {
         const urlStr = urls.join('\n');
         // console.log("put was called! urlStr is:", urlStr);
@@ -49,14 +42,13 @@ newUrls.put = function(urls, callback) {
  * @param {} callback 
  */
 newUrls.status = function(callback) {
-    fs = require('fs');
+    const fs = require('fs');
     let count;
     try {
         count = Number(fs.readFileSync('d/'+ id.getSID(global.nodeConfig) + '-docCount.txt', 'utf-8'));
     } catch(e) {
         count = 0;
     }
-    
     callback(null, count);
 }
 

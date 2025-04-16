@@ -47,7 +47,7 @@ const newUrls = require("./newUrls");
 /* Search Service */
 const search = require("./search");
 
-const query = require("./query.js")
+const query = require("./query.js");
 
 const index = require("./index.js");
 

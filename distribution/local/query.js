@@ -1,6 +1,4 @@
-const { fs } = require('fs');
-const { path } = require('path');
-const local = require('./local');
+
 
 const process = (input, callback) => {
     try {
@@ -13,8 +11,8 @@ const process = (input, callback) => {
         ngrams.forEach(ngram => {
             count +=1;
             try {
-                distribution.local.store.get({key: ngram, gid: "ngrams"}, (err, value) => {
-
+                global.distribution.local.index.get(ngram, (err, value) => {
+                    // console.log("Index v:", value);
                     // output: array, value = [{url: url, freq: freq}, {url: url, freq: freq}]
                     if (err) {
                         return;
@@ -22,11 +20,11 @@ const process = (input, callback) => {
                         // if error, assume does not exist
                         // callback(null, null);
                     }
-                    console.log("value is:", value);
+                    // console.log("value is:", value);
                     // const ngramData = JSON.parse(value);
                     results.push({[ngram]: value});
                     if (count == number){
-                        console.log('done w the ngrams in local query');
+                        // console.log('done w the ngrams in local query');
                         callback(null, results);
                     }
                 });

@@ -1,7 +1,6 @@
 const fs = require("fs");
 const { spawnSync } = require("child_process");
 const { id } = require("../util/util");
-const distribution = require("@brown-ds/distribution");
 
 
 let currIters = 0;
@@ -67,7 +66,7 @@ function crawl(config, callback) {
         callback(new Error("[CRAWLER] error: ", e.message), false);
         return;
     }
-
+    incrementTotalCount();
     _processURLs(scriptOutput);
     if (url.includes(".txt")) {
         _processDocs(scriptOutput, count);
@@ -166,7 +165,23 @@ function incrementDocumentCount() {
     return;
 }
 
-function query(args, callback){
+function incrementTotalCount() {
+    const totalCount = 'd/'+ id.getSID(global.nodeConfig) + '-totalCount.txt';
+    let count;
+    try {
+        count = parseInt(fs.readFileSync(totalCount, 'utf-8').trim());
+        if (isNaN(count)) {
+            count = 0;
+        }
+    } catch(e) {
+        count = 0
+    }
+    fs.writeFileSync(totalCount, (count + 1).toString());
+    console.log("incremented total count to:", count + 1);
+    return;
+}
+
+function query(args, numDocs, callback){
     console.log('in local query', args);
 
     // Step 1: Read the command-line arguments
@@ -193,7 +208,7 @@ function query(args, callback){
     // Execute the pipeline in bash
     let processedQuery;
     try {
-        processedQuery = spawnSync('bash', ['-c', 'echo "gutenberg visited my house"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'], {
+        processedQuery = spawnSync('bash', ['-c', 'echo "amor txt"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'], {
             encoding: 'utf-8'
         }).stdout;        
         
@@ -203,53 +218,47 @@ function query(args, callback){
     }
     
     // console.log("Processed Query:", processedQuery.trim());
-
-    distribution.local.query.process(processedQuery.trim(), (e, result) => {
+    console.log("pre processed")
+    global.distribution.local.query.process(processedQuery.trim(), (e, result) => {
+        console.log('processed');
         if (e) {
             console.log("Error in query: ", e);
             return;
         }
         console.log("Query result: ", result);
-        
-        distribution.local.newUrls.status( (e,amt_of_docs)=> {
-            if (e) {
-                console.log("Error in getting the idf: ", e);
-                return;
-            }
-            console.log("idf", amt_of_docs);
-            let idf_count = amt_of_docs.count;
-            result.forEach(entry => {
-                let ngram_pls = Object.keys(entry)[0]; // key of ngram "best book"
-                let value = entry[ngram_pls];          // value object of arrays of url objs
-                let length = ngram_pls.split(' ').length;; // count the words in the ngram
-                let num_docs_returned = value.length;
-                let idf = Math.log(1 + (idf_count/(1+num_docs_returned)));
-                value.forEach((obj, indx) => {
-                    let url = obj.url;
-                    let freq = obj.freq;
-                    console.log(`N-gram: "${ngram_pls}" (${length}-gram)`);
-                    console.log("Value:", value);
+        console.log('hello')
+        result.forEach(r => console.log(r));
+        console.log("totalDocs", numDocs);
+        result.forEach(entry => {
+            let ngram_pls = Object.keys(entry)[0]; // key of ngram "best book"
+            let value = entry[ngram_pls];          // value object of arrays of url objs
+            let length = ngram_pls.split(' ').length;; // count the words in the ngram
+            let num_docs_returned = value.length;
+            let idf = Math.log(1 + (numDocs/(1+num_docs_returned)));
+            value.forEach((obj, indx) => {
+                let url = obj.url;
+                let freq = obj.freq;
+                console.log(`N-gram: "${ngram_pls}" (${length}-gram)`);
+                console.log("Value:", value);
 
-                    let tfidf = freq * idf;
-                    if (!(url in finalQueryUrls)) {
+                let tfidf = freq * idf;
+                if (!(url in finalQueryUrls)) {
 
-                        // url is not in the map
-                        finalQueryUrls[url] = 0;
-                    }
-                    //log total num docs/ num docs for the specific ngram appears 
-                    finalQueryUrls[url] += length * tfidf;
-                    
-                });
-            });            
-            let resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
-                return { [url]: score };
+                    // url is not in the map
+                    finalQueryUrls[url] = 0;
+                }
+                //log total num docs/ num docs for the specific ngram appears 
+                finalQueryUrls[url] += length * tfidf;
+                
             });
-            
-            console.log("Final weighted URLs:", resultArray);
-        
-            return resultArray;
-
+        });            
+        let resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
+            return { [url]: score };
         });
+        
+        console.log("Final weighted URLs:", resultArray);
+    
+        return resultArray;
     });
     
 }
