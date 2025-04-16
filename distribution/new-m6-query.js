@@ -14,23 +14,28 @@ let localServer = null;
 const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/"
 
 const startTests = () => {
+    console.log("start tests");
     // Get node for URL
-    const args = process.argv[0]; // Get command-line arguments
-        if (args.length < 1) {
+    // const args = process.argv[0]; // Get command-line arguments
+    const args = process.argv.slice(2);
+    if (args.length < 1) {
         console.error('Usage: ./query.js [query_strings...]');
         process.exit(1);
     }
-    global.distribution.crawl.store.getNode(CRAWL_URL, (e, node) => {
-        // console.log("gets after getNode");
-        global.distribution.local.comm.send([[CRAWL_URL]], { node: node, service: "newUrls", "method": "put" }, (e, v) => {
-            // console.log("comm send crawl url worked")
-            // console.log("v:", v);
-            global.distribution.crawl.search.query(args, (e, v) => {
-                // console.log("gets here!");
-            });
-        })
+    global.distribution.queryg.search.query(args, (e, v) => {
+        // console.log("gets here!");
+    });
+    // global.distribution.crawl.store.getNode(CRAWL_URL, (e, node) => {
+    //     // console.log("gets after getNode");
+    //     global.distribution.local.comm.send([[CRAWL_URL]], { node: node, service: "newUrls", "method": "put" }, (e, v) => {
+    //         // console.log("comm send crawl url worked")
+    //         // console.log("v:", v);
+    //         global.distribution.crawl.search.query(args, (e, v) => {
+    //             // console.log("gets here!");
+    //         });
+    //     })
 
-    })
+    // })
 }
 
 distribution.node.start((server) => {
@@ -60,7 +65,7 @@ const startNodes = (cb) => {
     global.distribution.local.status.spawn(n1, (e, node) => {
         global.distribution.local.status.spawn(n2, (e, node) => {
             global.distribution.local.status.spawn(n3, (e, node) => {
-                console.log("spawned everything!");
+                // console.log("spawned everything!");
                 cb();
             });
         });
@@ -80,3 +85,5 @@ const stopNodes = (cb) => {
         });
     });
 }
+
+// startTests();

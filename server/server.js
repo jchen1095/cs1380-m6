@@ -1,6 +1,7 @@
 const express = require('express');
 const { execSync } = require('child_process');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 const PORT = 3001;
@@ -31,7 +32,12 @@ app.get('/search', (req, res) => {
         //     { url: 'http://example.com/item3', relevancy: 0.7 },
         //     { url: 'http://example.com/item3', relevancy: 0.7 },
         // ];
-        const result = execSync(`./distribution/m6-query.js "${query}"`, { encoding: 'utf-8' });
+        const scriptPath = path.resolve(__dirname, '../distribution/new-m6-query.js');
+        console.log(scriptPath);
+        console.log("sup");
+        const result = execSync(`node "${scriptPath}" "${query}"`, { encoding: 'utf-8' });
+        console.log(result);
+
         res.json({ result });
     } catch (error) {
         console.error('Search script failed:', error);
