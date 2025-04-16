@@ -137,7 +137,7 @@ const _processDocs = (scriptOutput) => {
     })
 };
 
-const query = (args) => {
+function query(args, callback){
     console.log('in local query', args);
 
     // Step 1: Read the command-line arguments
@@ -159,10 +159,16 @@ const query = (args) => {
         const processScript = path.join(__dirname, '../../non-distribution', 'c', 'process.sh');
         const stemScript = path.join(__dirname, '../../non-distribution', 'c','stem.js');
         const combineScript = path.join(__dirname, '../../non-distribution', 'c','combine.sh');
-
-        const command = `echo`;
-        // Execute the pipeline in bash
-        const processedQuery = spawnSync('bash', [command, "hello"], {encoding: 'utf-8'});
+        var processedQuery;
+        try {
+            processedQuery = spawnSync('bash', ['jen-crawl.sh', args], {
+                encoding: 'utf-8',
+                maxBuffer: 1024 * 1024 * 64
+            });
+        } catch (e) {
+            console.log("error:", e.message);
+            callback(e, null);
+        }
         // const processedQuery = execSync(command, { encoding: 'utf-8', shell: '/bin/bash' }).trim();
         console.log("Processed Query:", processedQuery);
 
