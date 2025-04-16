@@ -156,14 +156,21 @@ const query = (args) => {
         // Build the command string:
         // Surround each script's absolute path in double quotes
         // and ensure proper spacing around pipe operators.
-        const processScript = path.join(__dirname, '../../non-distribution', 'c', 'process.sh');
-        const stemScript = path.join(__dirname, '../../non-distribution', 'c','stem.js');
-        const combineScript = path.join(__dirname, '../../non-distribution', 'c','combine.sh');
+        // const processScript = path.join(__dirname, '../../non-distribution', 'c', 'process.sh');
+        // const stemScript = path.join(__dirname, '../../non-distribution', 'c','stem.js');
+        // const combineScript = path.join(__dirname, '../../non-distribution', 'c','combine.sh');
 
         const command = `echo`;
         // Execute the pipeline in bash
-        const processedQuery = spawnSync('bash', [command, "hello"], {encoding: 'utf-8'});
-        // const processedQuery = execSync(command, { encoding: 'utf-8', shell: '/bin/bash' }).trim();
+        let processedQuery;
+        try {
+            processedQuery = spawnSync('bash', ['-c', 'echo etymology of knowledge of water | ./c/process.sh'], {
+                encoding: 'utf-8'
+            });        
+        } catch (e) {
+            console.log("the error!: ", e);
+            return;
+        }
         console.log("Processed Query:", processedQuery);
 
         distribution.local.query.process(processedQuery, (e, result) => {
