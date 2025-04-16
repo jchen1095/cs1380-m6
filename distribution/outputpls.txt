@@ -1,0 +1,102 @@
+[2025-04-16T17:08:21.847Z] Script started
+[2025-04-16T17:08:22.143Z] spawned everything!
+[2025-04-16T17:08:22.144Z] local group put done!
+[2025-04-16T17:08:22.151Z] about to start tests!
+[2025-04-16T17:08:22.152Z] start tests
+[2025-04-16T17:08:22.152Z] ERROR: Usage: ./query.js [query_strings...]
+[2025-04-16T17:08:45.442Z] Script started
+[2025-04-16T17:08:49.543Z] Script started
+[2025-04-16T17:08:49.825Z] spawned everything!
+[2025-04-16T17:08:49.827Z] local group put done!
+[2025-04-16T17:08:49.835Z] about to start tests!
+[2025-04-16T17:08:49.835Z] start tests
+[2025-04-16T17:08:50.326Z] ERROR: Search query error: [object Object]
+[2025-04-16T17:11:53.365Z] Script started
+[2025-04-16T17:11:53.642Z] spawned everything!
+[2025-04-16T17:11:53.643Z] local group put done!
+[2025-04-16T17:11:53.651Z] about to start tests!
+[2025-04-16T17:11:53.651Z] start tests
+[2025-04-16T17:13:30.477Z] Script started
+[2025-04-16T17:13:30.739Z] spawned everything!
+[2025-04-16T17:13:30.740Z] local group put done!
+[2025-04-16T17:13:30.747Z] about to start tests!
+[2025-04-16T17:13:30.747Z] start tests
+[2025-04-16T17:14:03.602Z] Script started
+[2025-04-16T17:14:03.887Z] spawned everything!
+[2025-04-16T17:14:03.888Z] local group put done!
+[2025-04-16T17:14:03.895Z] about to start tests!
+[2025-04-16T17:14:03.896Z] start tests
+[2025-04-16T17:14:41.577Z] Script started
+[2025-04-16T17:14:41.845Z] spawned everything!
+[2025-04-16T17:14:41.847Z] local group put done!
+[2025-04-16T17:14:41.854Z] about to start tests!
+[2025-04-16T17:14:41.855Z] start tests
+[2025-04-16T17:15:21.852Z] Script started
+[2025-04-16T17:15:22.128Z] spawned everything!
+[2025-04-16T17:15:22.129Z] local group put done!
+[2025-04-16T17:15:22.137Z] about to start tests!
+[2025-04-16T17:15:22.137Z] start tests
+[2025-04-16T17:15:22.137Z] ERROR: Usage: ./query.js [query_strings...]
+[2025-04-16T17:15:24.132Z] Script started
+[2025-04-16T17:15:28.585Z] Script started
+[2025-04-16T17:15:28.862Z] spawned everything!
+[2025-04-16T17:15:28.863Z] local group put done!
+[2025-04-16T17:15:28.870Z] about to start tests!
+[2025-04-16T17:15:28.870Z] start tests
+[2025-04-16T17:16:16.514Z] Script started
+[2025-04-16T17:16:16.795Z] spawned everything!
+[2025-04-16T17:16:16.796Z] local group put done!
+[2025-04-16T17:16:16.804Z] about to start tests!
+[2025-04-16T17:16:16.805Z] start tests
+[2025-04-16T17:17:56.303Z] Script started
+[2025-04-16T17:17:56.583Z] spawned everything!
+[2025-04-16T17:17:56.584Z] local group put done!
+[2025-04-16T17:17:56.591Z] about to start tests!
+[2025-04-16T17:17:56.591Z] start tests
+[2025-04-16T17:19:41.123Z] Script started
+[2025-04-16T17:19:41.394Z] spawned everything!
+[2025-04-16T17:19:41.395Z] local group put done!
+[2025-04-16T17:19:41.403Z] about to start tests!
+[2025-04-16T17:19:41.404Z] start tests
+[2025-04-16T17:23:51.644Z] Script started
+[2025-04-16T17:23:51.914Z] spawned everything!
+[2025-04-16T17:23:51.915Z] local group put done!
+[2025-04-16T17:23:51.922Z] about to start tests!
+[2025-04-16T17:23:51.923Z] start tests
+[2025-04-16T17:27:10.142Z] Script started
+[2025-04-16T17:27:10.435Z] spawned everything!
+[2025-04-16T17:27:10.436Z] local group put done!
+[2025-04-16T17:27:10.443Z] about to start tests!
+[2025-04-16T17:27:10.444Z] start tests
+[2025-04-16T17:28:01.060Z] Script started
+[2025-04-16T17:28:01.336Z] spawned everything!
+[2025-04-16T17:28:01.337Z] local group put done!
+[2025-04-16T17:28:01.344Z] about to start tests!
+[2025-04-16T17:28:01.345Z] start tests
+[2025-04-16T17:28:36.285Z] Script started
+[2025-04-16T17:28:36.567Z] spawned everything!
+[2025-04-16T17:28:36.569Z] local group put done!
+[2025-04-16T17:28:36.576Z] about to start tests!
+[2025-04-16T17:28:36.576Z] start tests
+[2025-04-16T17:31:20.766Z] Script started
+[2025-04-16T17:31:21.051Z] spawned everything!
+[2025-04-16T17:31:21.053Z] local group put done!
+[2025-04-16T17:31:21.060Z] about to start tests!
+[2025-04-16T17:31:21.060Z] start tests
+[2025-04-16T17:31:34.119Z] Script started
+[2025-04-16T17:31:34.405Z] spawned everything!
+[2025-04-16T17:31:34.407Z] local group put done!
+[2025-04-16T17:31:34.414Z] about to start tests!
+[2025-04-16T17:31:34.414Z] start tests
+[2025-04-16T17:34:15.466Z] Script started
+[2025-04-16T17:34:15.777Z] spawned everything!
+[2025-04-16T17:34:15.778Z] local group put done!
+[2025-04-16T17:34:15.786Z] about to start tests!
+[2025-04-16T17:34:15.787Z] start tests
+[2025-04-16T17:34:15.787Z] ERROR: Usage: ./query.js [query_strings...]
+[2025-04-16T17:34:18.940Z] Script started
+[2025-04-16T17:34:23.294Z] Script started
+[2025-04-16T17:34:23.582Z] spawned everything!
+[2025-04-16T17:34:23.583Z] local group put done!
+[2025-04-16T17:34:23.590Z] about to start tests!
+[2025-04-16T17:34:23.590Z] start tests

@@ -163,4 +163,101 @@ function incrementDocumentCount() {
     return;
 }
 
-module.exports = { crawl, start }
+function query(args, callback){
+    console.log('in local query', args);
+
+    // Step 1: Read the command-line arguments
+    
+    // const args = process.argv.slice(2); // Get command-line arguments
+    //     if (args.length < 1) {
+    //     console.error('Usage: ./query.js [query_strings...]');
+    //     process.exit(1);
+    // }
+    //input is a string
+    // const queryString = args;
+
+    // process the string to one word per line
+    const finalQueryUrls = {};
+    
+        // Build the command string:
+        // Surround each script's absolute path in double quotes
+        // and ensure proper spacing around pipe operators.
+        // const processScript = path.join(__dirname, '../../non-distribution', 'c', 'process.sh');
+        // const stemScript = path.join(__dirname, '../../non-distribution', 'c','stem.js');
+        // const combineScript = path.join(__dirname, '../../non-distribution', 'c','combine.sh');
+
+    const command = `echo`;
+    // Execute the pipeline in bash
+    let processedQuery;
+    try {
+        
+        processedQuery = spawnSync('bash', ['-c', 'echo "bush txt"| ./c/process.sh | node ./c/stem.js | ./c/combine.sh'], {
+            encoding: 'utf-8'
+        }).stdout;        
+        
+    } catch (e) {
+        console.log("the error!: ", e);
+        return;
+    }
+        // console.log("Processed Query:", processedQuery);
+
+        // distribution.local.query.process(processedQuery, (e, result) => {
+        //     if (e) {
+        //         console.log("Error in query:", e);
+        //     } else {
+        //         console.log("Query result:", result);
+        //     }
+        // });error("Error executing pipeline:", err);
+    
+    console.log("Processed Query:", processedQuery.trim());
+
+    distribution.local.query.process(processedQuery.trim(), (e, result) => {
+        if (e) {
+            console.log("Error in query: ", e);
+            return;
+        }
+        console.log("Query result: ", result);
+        distribution.local.newUrls.status( (e,amt_of_docs)=> {
+            if (e) {
+                console.log("Error in getting the idf: ", e);
+                return;
+            }
+            console.log("idf", amt_of_docs);
+            const idf_count = amt_of_docs.count;
+            result.forEach(entry => {
+                const ngram = Object.keys(entry)[0]; // key of ngram "best book"
+                const value = entry[ngram];          // value object of arrays of url objs
+                const length = ngram.split(' ').length;; // count the words in the ngram
+                const num_docs_returned = value.length;
+                const idf = Math.log(1 + (idf_count/(1+num_docs_returned)));
+                value.forEach((obj, indx) => {
+                    const url = obj.url;
+                    const freq = obj.freq;
+                    console.log(`N-gram: "${ngram}" (${length}-gram)`);
+                    console.log("Value:", value);
+
+                    const tfidf = freq * idf;
+                    if (!finalQueryUrls.hasOwn(url)) {
+                        // url is not in the map
+                        finalQueryUrls[url] = 0;
+                    }
+                    //log total num docs/ num docs for the specific ngram appears 
+                    finalQueryUrls[url] += length * tfidf;
+                    
+                });
+            });            
+
+
+        });
+    });
+    const resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
+        return { [url]: score };
+    });
+    
+    console.log("Final weighted URLs:", resultArray);
+
+    return resultArray;
+}
+
+
+module.exports = { crawl, start, query }
