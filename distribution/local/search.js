@@ -2,14 +2,17 @@ const fs = require("fs");
 const { spawnSync } = require("child_process");
 const { id } = require("../util/util");
 
+
 let currIters = 0;
+const CAP = 30; // number of allowable concurrent execs per node
+
 function start(gid, callback) {
     try {
-        // fs.writeFileSync(`${id.getSID(global.nodeConfig)}-url-queue.txt`, "");
-        // fs.writeFileSync(`./d/${id.getSID(global.nodeConfig)}-visited.txt`, "");
         setInterval(() => {
-            _poll(gid);
-        }, 2000);
+            if (currIters < CAP) {
+                _poll(gid);
+            }
+        }, 10);
         // console.log("successfully set interval for poll!")
         callback(null, true);
     } catch (e) {
@@ -23,11 +26,11 @@ function _poll(gid) {
             console.log("No URL was polled!");
             return;
         }
-        currIters++;
         if (v === '') {
             console.log("Empty URL was polled; exiting.")
             return;
         }
+        changeCount(1);
         // console.log("About to call crawl with URL: ", v);
         global.distribution.local.search.crawl({ gid: gid, url: v }, (e, v) => {
             // Do something to stop polling maybe?
@@ -50,7 +53,12 @@ function crawl(config, callback) {
     }
 
     _processURLs(scriptOutput);
-    _processDocs(scriptOutput);
+    if (url.includes(".txt")) {
+        _processDocs(scriptOutput);
+    } else {
+        changeCount(-1);
+    }
+    console.log(id.getSID(global.nodeConfig) + ': call: ' + currIters);
     // console.log("scriptOutput", scriptOutput);
     callback(null, true);
 }
@@ -115,30 +123,30 @@ const _processDocs = (scriptOutput) => {
             };
         });
 
-
-    result.forEach(item => {
+    result.map(item => {
         const ngram = item.key;
         const freq = item.value.freq;
         const url = item.value.url;
-        const ngramInfo = { [ngram]: { freq: freq, url: url } }
-        distribution.local.store.appendForBatch([ngramInfo], { gid: "ngrams" }, (e, v) => {
-            if (e) {
-                console.log("Error in append for batch: ", e);
-            }
-        })
+        return { [ngram]: { freq: freq, url: url } }
+    })
+    distribution.local.store.appendForBatch([ngramInfo], { gid: "ngrams" }, (e, v) => {
+        if (e) {
+            console.log("Error in append for batch: ", e);
+        }
+        changeCount(-1);
     })
 };
 
-const query = () => {
+const query = (args) => {
     // Step 1: Read the command-line arguments
     
-    const args = process.argv.slice(2); // Get command-line arguments
-        if (args.length < 1) {
-        console.error('Usage: ./query.js [query_strings...]');
-        process.exit(1);
-    }
-
-    const queryString = args.join(' ');
+    // const args = process.argv.slice(2); // Get command-line arguments
+    //     if (args.length < 1) {
+    //     console.error('Usage: ./query.js [query_strings...]');
+    //     process.exit(1);
+    // }
+    //input is a string
+    const queryString = args;
 
     // process the string to one word per line
     const finalQueryUrls = {};

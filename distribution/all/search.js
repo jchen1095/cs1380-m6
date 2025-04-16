@@ -16,6 +16,13 @@ function search(config) {
             global.distribution[context.gid].comm.send([ context.gid ], { service: "search", method: "start" }, (e, v) => {
                 callback(e, v);
             })
+        },
+        query: (callback) => {
+            callback = callback || function () { };
+            // console.log("gets here!222")
+            global.distribution[context.gid].comm.send([ context.gid ], { service: "search", method: "query" }, (e, v) => {
+                callback(e, v);
+            })
         }
     }
 }
