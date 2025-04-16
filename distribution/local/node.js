@@ -74,6 +74,11 @@ const start = function (callback) {
     });
   });
 
+  server.on('session', (session) => {
+    // 0 timeout
+    session.socket.setTimeout(0); 
+  });
+
   server.listen(global.nodeConfig.port, global.nodeConfig.ip, () => {
     log(`HTTP/2 server running at http://${global.nodeConfig.ip}:${global.nodeConfig.port}/`);
     global.distribution.node.server = server;
