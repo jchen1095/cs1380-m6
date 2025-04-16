@@ -152,7 +152,7 @@ function query(args, callback){
 
     // process the string to one word per line
     const finalQueryUrls = {};
-    try {
+    
         // Build the command string:
         // Surround each script's absolute path in double quotes
         // and ensure proper spacing around pipe operators.
@@ -160,29 +160,27 @@ function query(args, callback){
         // const stemScript = path.join(__dirname, '../../non-distribution', 'c','stem.js');
         // const combineScript = path.join(__dirname, '../../non-distribution', 'c','combine.sh');
 
-        const command = `echo`;
-        // Execute the pipeline in bash
-        let processedQuery;
-        try {
-            processedQuery = spawnSync('bash', ['-c', 'echo etymology of knowledge of water | ./c/process.sh'], {
-                encoding: 'utf-8'
-            });        
-        } catch (e) {
-            console.log("the error!: ", e);
-            return;
-        }
-        console.log("Processed Query:", processedQuery);
-
-        distribution.local.query.process(processedQuery, (e, result) => {
-            if (e) {
-                console.log("Error in query:", e);
-            } else {
-                console.log("Query result:", result);
-            }
-        });
-    } catch (err) {
-        console.error("Error executing pipeline:", err);
+    const command = `echo`;
+    // Execute the pipeline in bash
+    let processedQuery;
+    try {
+        processedQuery = spawnSync('bash', ['-c', 'echo bible | ./c/process.sh | node ./c/stem.js | ./c/combine.sh'], {
+            encoding: 'utf-8'
+        }).stdout;        
+    } catch (e) {
+        console.log("the error!: ", e);
+        return;
     }
+        // console.log("Processed Query:", processedQuery);
+
+        // distribution.local.query.process(processedQuery, (e, result) => {
+        //     if (e) {
+        //         console.log("Error in query:", e);
+        //     } else {
+        //         console.log("Query result:", result);
+        //     }
+        // });error("Error executing pipeline:", err);
+    
     console.log("Processed Query:", processedQuery.trim());
 
     distribution.local.query.process(processedQuery, (e, result) => {
@@ -197,13 +195,13 @@ function query(args, callback){
                 return;
             }
             console.log("idf", amt_of_docs);
-        
-            results.forEach(entry => {
+            const idf_count = amt_of_docs.count;
+            result.forEach(entry => {
                 const ngram = Object.keys(entry)[0]; // key of ngram "best book"
                 const value = entry[ngram];          // value object of arrays of url objs
                 const length = ngram.split(' ').length;; // count the words in the ngram
                 const num_docs_returned = value.length;
-                const idf = Math.log(1 + (amt_of_docs/(1+num_docs_returned)));
+                const idf = Math.log(1 + (idf_count/(1+num_docs_returned)));
                 value.forEach((obj, indx) => {
                     const url = obj.url;
                     const freq = obj.freq;
