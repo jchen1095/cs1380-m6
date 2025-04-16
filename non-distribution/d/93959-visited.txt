@@ -141,6 +141,14 @@ https://atlas.cs.brown.edu/data/gutenberg/8/83/
 https://atlas.cs.brown.edu/data/gutenberg/8/85/
 https://atlas.cs.brown.edu/data/gutenberg/8/86/
 https://atlas.cs.brown.edu/data/gutenberg/8/88/
+https://atlas.cs.brown.edu/data/gutenberg/3/4/2/1/34210/
+https://atlas.cs.brown.edu/data/gutenberg/3/4/2/1/34211/
+https://atlas.cs.brown.edu/data/gutenberg/3/4/2/1/34213/
+https://atlas.cs.brown.edu/data/gutenberg/3/4/2/1/34214/
+https://atlas.cs.brown.edu/data/gutenberg/3/4/2/1/34216/
+https://atlas.cs.brown.edu/data/gutenberg/3/4/2/1/34217/
+https://atlas.cs.brown.edu/data/gutenberg/3/4/2/1/34218/
+https://atlas.cs.brown.edu/data/gutenberg/3/4/2/1/34219/
 https://atlas.cs.brown.edu/data/gutenberg/9/0/
 https://atlas.cs.brown.edu/data/gutenberg/9/1/
 https://atlas.cs.brown.edu/data/gutenberg/9/2/
@@ -155,4 +163,5 @@ https://atlas.cs.brown.edu/data/gutenberg/9/94/
 https://atlas.cs.brown.edu/data/gutenberg/9/95/
 https://atlas.cs.brown.edu/data/gutenberg/9/97/
 https://atlas.cs.brown.edu/data/gutenberg/9/98/
-https://atlas.cs.brown.edu/data/gutenberg/1/15/15-0.txt
+https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3422/3422.txt
+https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3422/old/

@@ -1,0 +1,15 @@
+[2025-04-16T18:39:57.474Z] Script started
+[2025-04-16T18:39:58.103Z] spawned everything!
+[2025-04-16T18:39:58.107Z] local group put done!
+[2025-04-16T18:39:58.125Z] about to start tests!
+[2025-04-16T18:39:58.126Z] start tests
+[2025-04-16T18:42:30.323Z] Script started
+[2025-04-16T18:42:30.916Z] spawned everything!
+[2025-04-16T18:42:30.919Z] local group put done!
+[2025-04-16T18:42:30.944Z] about to start tests!
+[2025-04-16T18:42:30.944Z] start tests
+[2025-04-16T18:45:43.155Z] Script started
+[2025-04-16T18:45:43.454Z] spawned everything!
+[2025-04-16T18:45:43.456Z] local group put done!
+[2025-04-16T18:45:43.463Z] about to start tests!
+[2025-04-16T18:45:43.464Z] start tests

@@ -47,6 +47,8 @@ const newUrls = require("./newUrls");
 /* Search Service */
 const search = require("./search");
 
+const query = require("./query.js")
+
 module.exports = {
   status: status,
   routes: routes,
@@ -57,5 +59,6 @@ module.exports = {
   store: store,
   mr: mr,
   newUrls: newUrls,
-  search: search
+  search: search,
+  query: query,
 };
