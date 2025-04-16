@@ -41,7 +41,7 @@ distribution.node.start((server) => {
             global.distribution.local.groups.put({ gid: "crawl", hash: consistentHash }, group, (e, node) => {
                 // console.log("local group put done!");
                 global.distribution.crawl.groups.put({ gid: "crawl" }, group, (e, node) => {
-                    // console.log("about to start tests!");
+                    console.log("about to start tests!");
                     startTests();
                 })
             })
