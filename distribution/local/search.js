@@ -155,6 +155,9 @@ function incrementDocumentCount() {
     let count;
     try {
         count = parseInt(fs.readFileSync(docCount, 'utf-8').trim());
+        if (isNaN(count)) {
+            count = 0;
+        }
     } catch(e) {
         count = 0
     }
