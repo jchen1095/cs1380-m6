@@ -35,6 +35,7 @@ function send(message, remote, callback) {
 
     let responseData = '';
     req.setEncoding('utf-8');
+    req.setTimeout(0); // disable stream timeout
 
     req.on('data', (chunk) => {
         responseData += chunk;

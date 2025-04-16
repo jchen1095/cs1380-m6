@@ -17,6 +17,8 @@ const start = function (callback) {
   const server = http2.createServer();
 
   server.on('stream', (stream, headers) => {
+    // Disable timeout for this stream
+    stream.setTimeout(0);
     const method = headers[':method'];
     const pathName = headers[':path'];
 
