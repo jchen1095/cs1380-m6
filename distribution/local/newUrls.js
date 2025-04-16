@@ -45,11 +45,19 @@ newUrls.put = function(urls, callback) {
 }
 
 /**
- * Returns 1) count of urls that have been crawled, and 2) if crawling is done
+ * Returns count of urls that have been crawled
  * @param {} callback 
  */
 newUrls.status = function(callback) {
-    callback(null, {count: meta.count, isDone: meta.isDone});
+    fs = require('fs');
+    let count;
+    try {
+        count = Number(fs.readFileSync('d/'+ id.getSID(global.nodeConfig) + '-docCount.txt', 'utf-8'));
+    } catch(e) {
+        count = 0;
+    }
+    
+    callback(null, count);
 }
 
 
