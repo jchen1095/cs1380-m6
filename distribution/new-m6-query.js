@@ -1,71 +1,72 @@
+const fs = require('fs');
+const path = require('path');
+
+const logFilePath = path.join(__dirname, 'outputpls.txt');
+
+// Log "Script started"
+fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] Script started\n`);
+
+// Import modules
 const distribution = require("../distribution");
 const { getSID, getID, consistentHash } = require("./util/id");
 
-const n1 = { ip: "127.0.0.1", port: 12345 }
-const n2 = { ip: "127.0.0.1", port: 12346 }
-const n3 = { ip: "127.0.0.1", port: 12347 }
+const n1 = { ip: "127.0.0.1", port: 12345 };
+const n2 = { ip: "127.0.0.1", port: 12346 };
+const n3 = { ip: "127.0.0.1", port: 12347 };
 
-const group = {}
+const group = {};
 group[getSID(n1)] = n1;
 group[getSID(n2)] = n2;
 group[getSID(n3)] = n3;
 
 let localServer = null;
-const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/"
+const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/";
 
 const startTests = () => {
-    console.log("start tests");
-    // Get node for URL
-    // const args = process.argv[0]; // Get command-line arguments
+    fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] start tests\n`);
     const args = process.argv.slice(2);
     if (args.length < 1) {
-        console.error('Usage: ./query.js [query_strings...]');
+        fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] ERROR: Usage: ./query.js [query_strings...]\n`);
         process.exit(1);
     }
     global.distribution.queryg.search.query(args, (e, v) => {
-        // console.log("gets here!");
+        if (e) {
+            fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] ERROR: Search query error: ${e}\n`);
+        } else {
+            fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] Search query succeeded: ${JSON.stringify(v)}\n`);
+        }
     });
-    // global.distribution.crawl.store.getNode(CRAWL_URL, (e, node) => {
-    //     // console.log("gets after getNode");
-    //     global.distribution.local.comm.send([[CRAWL_URL]], { node: node, service: "newUrls", "method": "put" }, (e, v) => {
-    //         // console.log("comm send crawl url worked")
-    //         // console.log("v:", v);
-    //         global.distribution.crawl.search.query(args, (e, v) => {
-    //             // console.log("gets here!");
-    //         });
-    //     })
-
-    // })
-}
+};
 
 distribution.node.start((server) => {
-    localServer = server
+    localServer = server;
     startNodes(() => {
-        // console.log("start Nodes done!");
         try {
             global.distribution.local.groups.put({ gid: "queryg", hash: consistentHash }, group, (e, node) => {
-                // console.log("local group put done!");
+                fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] local group put done!\n`);
+                if (e) {
+                    fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] ERROR: Error putting local group: ${e}\n`);
+                }
                 global.distribution.queryg.groups.put({ gid: "queryg" }, group, (e, node) => {
-                    // console.log("about to start tests!");
+                    fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] about to start tests!\n`);
                     startTests();
-                })
-            })
+                });
+            });
         } catch (e) {
-            console.log("e???", e);
+            fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] Exception encountered: ${e}\n`);
         }
-    })
-})
-
+    });
+});
 
 const hashURL = (url) => {
     return getID(url).slice(0, 20);
-}
+};
 
 const startNodes = (cb) => {
     global.distribution.local.status.spawn(n1, (e, node) => {
         global.distribution.local.status.spawn(n2, (e, node) => {
             global.distribution.local.status.spawn(n3, (e, node) => {
-                // console.log("spawned everything!");
+                fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] spawned everything!\n`);
                 cb();
             });
         });
@@ -81,9 +82,11 @@ const stopNodes = (cb) => {
             remote.node = n3;
             distribution.local.comm.send([], remote, (e, node) => {
                 localServer.close();
+                if (cb) cb();
             });
         });
     });
-}
+};
 
+// Uncomment the line below to immediately start tests when this script runs
 // startTests();

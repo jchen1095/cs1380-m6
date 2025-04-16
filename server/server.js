@@ -35,8 +35,14 @@ app.get('/search', (req, res) => {
         const scriptPath = path.resolve(__dirname, '../distribution/new-m6-query.js');
         console.log(scriptPath);
         console.log("sup");
-        const result = execSync(`node "${scriptPath}" "${query}"`, { encoding: 'utf-8' });
-        console.log(result);
+        var result = "";
+        try {
+            console.log('trying query');
+            result = execSync(`node "${scriptPath}" "${query}"`, { encoding: 'utf-8' });
+            console.log(result);
+        } catch (e) {
+            console.error('eeee', e);
+        }
 
         res.json({ result });
     } catch (error) {

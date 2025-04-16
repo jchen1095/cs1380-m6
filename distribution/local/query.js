@@ -2,7 +2,7 @@ const { fs } = require('fs');
 const { path } = require('path');
 const local = require('./local');
 
-function query(input, callback) {
+const process = (input, callback) => {
     try {
         const ngrams = input?.ngrams || [];
         const results = [];
@@ -26,3 +26,5 @@ function query(input, callback) {
         callback(new Error('noooooooo ' + e), null);
     }
 }
+
+module.exports = { process }

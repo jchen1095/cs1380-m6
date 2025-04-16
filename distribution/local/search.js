@@ -1,8 +1,8 @@
 const fs = require("fs");
-const { spawnSync } = require("child_process");
+const { execSync, spawnSync } = require("child_process");
 const { id } = require("../util/util");
-
-
+const path = require('path');
+const local = require('./local');
 let currIters = 0;
 const CAP = 30; // number of allowable concurrent execs per node
 
@@ -138,6 +138,8 @@ const _processDocs = (scriptOutput) => {
 };
 
 const query = (args) => {
+    console.log('in local query', args);
+
     // Step 1: Read the command-line arguments
     
     // const args = process.argv.slice(2); // Get command-line arguments
@@ -146,17 +148,37 @@ const query = (args) => {
     //     process.exit(1);
     // }
     //input is a string
-    const queryString = args;
+    // const queryString = args;
 
     // process the string to one word per line
     const finalQueryUrls = {};
-    const processedQuery = execSync(
-        `echo "${queryString}" | ./c/process.sh | node ./c/stem.js | ./c/combine.sh`,
-        { encoding: 'utf-8' }
-      ).trim();
+    try {
+        // Build the command string:
+        // Surround each script's absolute path in double quotes
+        // and ensure proper spacing around pipe operators.
+        const processScript = path.join(__dirname, '../../non-distribution', 'c', 'process.sh');
+        const stemScript = path.join(__dirname, '../../non-distribution', 'c','stem.js');
+        const combineScript = path.join(__dirname, '../../non-distribution', 'c','combine.sh');
+
+        const command = `echo`;
+        // Execute the pipeline in bash
+        const processedQuery = spawnSync('bash', [command, "hello"], {encoding: 'utf-8'});
+        // const processedQuery = execSync(command, { encoding: 'utf-8', shell: '/bin/bash' }).trim();
+        console.log("Processed Query:", processedQuery);
+
+        distribution.local.query.process(processedQuery, (e, result) => {
+            if (e) {
+                console.log("Error in query:", e);
+            } else {
+                console.log("Query result:", result);
+            }
+        });
+    } catch (err) {
+        console.error("Error executing pipeline:", err);
+    }
     console.log("Processed Query:", processedQuery.trim());
 
-    distribution.local.query.query(processedQuery, (e, result) => {
+    distribution.local.query.process(processedQuery, (e, result) => {
         if (e) {
             console.log("Error in query: ", e);
             return;

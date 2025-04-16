@@ -17,10 +17,12 @@ function search(config) {
                 callback(e, v);
             })
         },
-        query: (callback) => {
+        query: (args, callback) => {
             callback = callback || function () { };
-            // console.log("gets here!222")
-            global.distribution[context.gid].comm.send([ context.gid ], { service: "search", method: "query" }, (e, v) => {
+            console.log('in distributed query', args);
+            global.distribution[context.gid].comm.send([args], { service: "search", method: "query" }, (e, v) => {
+                console.log(e);
+                console.log(v);
                 callback(e, v);
             })
         }
