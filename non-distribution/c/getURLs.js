@@ -27,12 +27,12 @@ let htmlString = '';
 const parseLink = (baseURL, link) => {
   if (link.startsWith('/')) {
     const baseURLStruct = new URL(baseURL);
-    return baseURLStruct.origin + link.split("?")[0].replace(/\/+/g, '/');
+    return baseURLStruct.origin + link.split('?')[0].replace(/\/+/g, '/');
   }
-  let prot = baseURL.slice(0,7);
-  let rest = baseURL.slice(7) + link;
-  return prot + rest.split("?")[0].replace(/\/+/g, '/');
-}
+  const prot = baseURL.slice(0, 7);
+  const rest = baseURL.slice(7) + link;
+  return prot + rest.split('?')[0].replace(/\/+/g, '/');
+};
 
 rl.on('line', (line) => {
   // 2. Read HTML input from standard input (stdin) line by line using the `readline` module.

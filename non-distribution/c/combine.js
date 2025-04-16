@@ -17,10 +17,16 @@ rl.on('line', (line)=>{
 
 rl.on('close', ()=>{
   console.error(tokens);
+  bigrams = [];
+  if (tokens.length >= 2) {
+    bigrams= nGram(tokens, 2);
+  }
+  trigrams = [];
+  if (tokens.length >= 3) {
+    trigrams= nGram(tokens, 3);
+  }
 
-  const bigrams= nGram(tokens, 2);
-
-  const trigrams = nGram(tokens, 3);
+  // const trigrams = nGram(tokens, 3);
 
   for (const word of tokens) {
     console.log(word);
