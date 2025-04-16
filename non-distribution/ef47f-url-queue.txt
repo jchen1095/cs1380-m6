@@ -1,3 +1,7 @@
-https://atlas.cs.brown.edu/data/gutenberg/3/5/6/0/
-https://atlas.cs.brown.edu/data/gutenberg/3/5/6/8/
-https://atlas.cs.brown.edu/data/gutenberg/3/5/6/3567/
+https://atlas.cs.brown.edu/data/gutenberg/3/2/8/6/
+https://atlas.cs.brown.edu/data/gutenberg/3/2/8/7/
+https://atlas.cs.brown.edu/data/gutenberg/3/2/8/3287/
+https://atlas.cs.brown.edu/data/gutenberg/1/7/0/1708/
+https://atlas.cs.brown.edu/data/gutenberg/1/8/7/
+https://atlas.cs.brown.edu/data/gutenberg/3/2/9/9/
+https://atlas.cs.brown.edu/data/gutenberg/3/2/9/3291/

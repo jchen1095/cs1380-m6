@@ -66,6 +66,7 @@ newUrls.blacklist = function(ignore, callback) {
     ignore.foreach(link => {
         execSync(`grep -Fxq "${link}" ${visited} || echo "${link}" >> ${visited}`, { encoding: 'utf-8' });
     })
+    callback(null, true);
 }
 
 module.exports = newUrls;
