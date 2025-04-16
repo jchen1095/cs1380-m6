@@ -19,19 +19,19 @@ app.get('/search', (req, res) => {
         // run script with search query
         // TODO point to actual script
         // currently, return a dummy result with a hardcoded url
-        const result = [
-            { url: 'http://example.com/item1', relevancy: 0.9 },
-            { url: 'http://example.com/item2', relevancy: 0.8 },
-            { url: 'http://example.com/item3', relevancy: 0.7 },
-            { url: 'http://example.com/item3', relevancy: 0.7 },
-            { url: 'http://example.com/item3', relevancy: 0.7 },
-            { url: 'http://example.com/item3', relevancy: 0.7 },
-            { url: 'http://example.com/item3', relevancy: 0.7 },
-            { url: 'http://example.com/item3', relevancy: 0.7 },
-            { url: 'http://example.com/item3', relevancy: 0.7 },
-            { url: 'http://example.com/item3', relevancy: 0.7 },
-        ];
-        // const result = execSync(`./search.sh "${query}"`, { encoding: 'utf-8' });
+        // const result = [
+        //     { url: 'http://example.com/item1', relevancy: 0.9 },
+        //     { url: 'http://example.com/item2', relevancy: 0.8 },
+        //     { url: 'http://example.com/item3', relevancy: 0.7 },
+        //     { url: 'http://example.com/item3', relevancy: 0.7 },
+        //     { url: 'http://example.com/item3', relevancy: 0.7 },
+        //     { url: 'http://example.com/item3', relevancy: 0.7 },
+        //     { url: 'http://example.com/item3', relevancy: 0.7 },
+        //     { url: 'http://example.com/item3', relevancy: 0.7 },
+        //     { url: 'http://example.com/item3', relevancy: 0.7 },
+        //     { url: 'http://example.com/item3', relevancy: 0.7 },
+        // ];
+        const result = execSync(`./distribution/m6-query.js "${query}"`, { encoding: 'utf-8' });
         res.json({ result });
     } catch (error) {
         console.error('Search script failed:', error);
