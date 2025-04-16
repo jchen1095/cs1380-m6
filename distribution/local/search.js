@@ -137,7 +137,7 @@ const _processDocs = (scriptOutput) => {
     })
 };
 
-const query = (args) => {
+function query(args, callback){
     console.log('in local query', args);
 
     // Step 1: Read the command-line arguments
