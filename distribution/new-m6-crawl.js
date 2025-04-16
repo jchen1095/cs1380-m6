@@ -1,5 +1,7 @@
 const distribution = require("../distribution");
 const { getSID, getID, consistentHash } = require("./util/id");
+const fs = require("fs");
+const { id } = require("./util/util");
 
 const n1 = { ip: "127.0.0.1", port: 12345 }
 const n2 = { ip: "127.0.0.1", port: 12346 }
@@ -52,15 +54,35 @@ const hashURL = (url) => {
 }
 
 const startNodes = (cb) => {
+    // console.log("hi??");
     global.distribution.local.status.spawn(n1, (e, node) => {
+        // console.log("spawn n1");
         global.distribution.local.status.spawn(n2, (e, node) => {
             global.distribution.local.status.spawn(n3, (e, node) => {
                 console.log("spawned everything!");
+                // Create all necessary files
+                makeTxtFiles();
+                console.log("hi??");
                 cb();
             });
         });
     });
 };
+
+const makeTxtFiles = () => {
+    try {
+        for (let sid of Object.keys(group)) {
+            const fd1 = fs.openSync(`./d/${sid}-visited.txt`, 'w');
+            const fd2 = fs.openSync(`./${sid}-url-queue.txt`, 'w');
+            const fd3 = fs.openSync(`./d/${sid}-docCount.txt`, 'w');
+            fs.closeSync(fd1);
+            fs.closeSync(fd2);
+            fs.closeSync(fd3);
+        }
+    } catch (e) {
+        console.log("Error while opening visited and URL queue files.", e);
+    }
+}
 
 const stopNodes = (cb) => {
     const remote = { service: 'status', method: 'stop' };
