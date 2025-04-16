@@ -24,9 +24,9 @@ function appendIndex(ngrams, callback) {
     callback(null, true);
 }
 
-function getIndex(ngram, callback) {
+function get(ngram, callback) {
     try {
-        const indices = fs.readFileSync(path.join(rootPath, ngram + '.txt'), 'utf-8')
+        indices = fs.readFileSync(path.join(rootPath, ngram + '.txt'), 'utf-8')
             .trim()
             .split('\n')
             .map(line => {
@@ -35,11 +35,12 @@ function getIndex(ngram, callback) {
             });
         callback(null, indices);
     } catch (e) {
+        // console.log('[Index] Error:', e.message)
         callback(e, []);
     }
 }
 
 module.exports = {
     appendIndex,
-    getIndex
+    get
 };
