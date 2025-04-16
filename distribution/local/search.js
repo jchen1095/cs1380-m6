@@ -147,6 +147,7 @@ const _processDocs = (scriptOutput, wc) => {
 
 function changeCount(change) {
     currIters += change;  
+    console.log("currIters:", currIters);
 }
 
 function incrementDocumentCount() {
