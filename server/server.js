@@ -18,7 +18,19 @@ app.get('/search', (req, res) => {
     try {
         // run script with search query
         // TODO point to actual script
-        const result = "wassup";
+        // currently, return a dummy result with a hardcoded url
+        const result = [
+            { url: 'http://example.com/item1', relevancy: 0.9 },
+            { url: 'http://example.com/item2', relevancy: 0.8 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+            { url: 'http://example.com/item3', relevancy: 0.7 },
+        ];
         // const result = execSync(`./search.sh "${query}"`, { encoding: 'utf-8' });
         res.json({ result });
     } catch (error) {

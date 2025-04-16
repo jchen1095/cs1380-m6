@@ -1,6 +1,39 @@
 input {
-    width: 100%;
+    width: 85%;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 12px;
+}
+
+#results {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#search-button {
+    border-radius: 5px;
+    background-color: #eeeeee;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    float: right;
+}
+
+#search-button:hover {
+    background-color: #dcdcdc;
+}
+
+#search-button:active {
+    background-color: #cccccc;
 }
