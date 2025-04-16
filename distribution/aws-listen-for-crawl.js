@@ -23,6 +23,6 @@ if (!IP_TO_PORT[hostname]) {
 
 console.log(`Running distribution.js on port ${IP_TO_PORT[hostname]}...`);
 
-execSync(`node ./distribution.js --ip 0.0.0.0 --port ${IP_TO_PORT[hostname]}`, {
+execSync(`node ../distribution.js --ip 0.0.0.0 --port ${IP_TO_PORT[hostname]}`, {
   stdio: 'inherit'
 });
