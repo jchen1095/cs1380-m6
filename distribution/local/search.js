@@ -5,7 +5,7 @@ const distribution = require("@brown-ds/distribution");
 
 
 let currIters = 0;
-const CAP = 5; // number of allowable concurrent execs per node
+const CAP = 15; // number of allowable concurrent execs per node
 
 function start(gid, callback) {
     try {
@@ -155,6 +155,9 @@ function incrementDocumentCount() {
     let count;
     try {
         count = parseInt(fs.readFileSync(docCount, 'utf-8').trim());
+        if (isNaN(count)) {
+            count = 0;
+        }
     } catch(e) {
         count = 0
     }
