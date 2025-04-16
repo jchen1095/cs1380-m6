@@ -16,18 +16,18 @@ function start(gid, callback) {
         // console.log("successfully set interval for poll!")
         callback(null, true);
     } catch (e) {
-        console.log("error from staert:", e);
+        console.log("error from start:", e);
     }
 }
 
 function _poll(gid) {
     global.distribution.local.newUrls.get((e, v) => {
         if (e) {
-            console.log("No URL was polled!");
+            // console.log("No URL was polled!");
             return;
         }
         if (v === '') {
-            console.log("Empty URL was polled; exiting.")
+            // console.log("Empty URL was polled; exiting.")
             return;
         }
         changeCount(1);
@@ -42,19 +42,35 @@ function crawl(config, callback) {
     let scriptOutput;
     const { url, gid } = config;
     console.log("[CRAWLING]", url);
+    let count;
     try {
+        const wcFilepath = 'd/'+ id.getSID(global.nodeConfig) + '-wc.txt';
+        const wc = fs.openSync(wcFilepath, 'w+');
         scriptOutput = spawnSync('bash', ['jen-crawl.sh', url], {
             encoding: 'utf-8',
-            maxBuffer: 1024 * 1024 * 64
+            maxBuffer: 1024 * 1024 * 64,
+            stdio: ['pipe', 'pipe', 'pipe', wc],
         });
+        count = parseInt(fs.readFileSync(wcFilepath, 'utf-8').trim());
+        console.log("COUNT:", count);
+        fs.closeSync(wc);
+        if (!count) {
+            console.log("[CRAWLER] Error: No word count retrieved. Exiting");
+            changeCount(-1);
+            callback(new Error("[CRAWLER] error: no word count retrieved"), false);
+            return;
+        }
     } catch (e) {
         console.log("error:", e.message);
+        changeCount(-1);
+        callback(new Error("[CRAWLER] error: ", e.message), false);
         return;
     }
 
     _processURLs(scriptOutput);
     if (url.includes(".txt")) {
-        _processDocs(scriptOutput);
+        _processDocs(scriptOutput, count);
+        console.log("Processed docs!");
     } else {
         changeCount(-1);
     }
@@ -109,37 +125,41 @@ const _processURLs = (scriptOutput) => {
     }
 }
 
-const _processDocs = (scriptOutput) => {
-    const result = scriptOutput.stdout.trim()
-        .split("\n")
-        .map(line => {
+const _processDocs = (scriptOutput, wc) => {
+    console.log("[CRAWLER] Processing documents...");
+    const result = scriptOutput.stdout.trim().split('\n').map(line => {
             const [ngram, freq, url] = line.split("|").map(s => s.trim());
-            return {
-                key: ngram,
-                value: {
-                    freq: parseInt(freq, 10),
-                    url: url
-                }
-            };
+            return { [ngram]: { freq: parseInt(freq, 10)/wc, url: url } }
         });
-
-    result.map(item => {
-        const ngram = item.key;
-        const freq = item.value.freq;
-        const url = item.value.url;
-        return { [ngram]: { freq: freq, url: url } }
-    })
-    distribution.local.store.appendForBatch([ngramInfo], { gid: "ngrams" }, (e, v) => {
+    
+    console.log("Sending to store...");
+    distribution.local.store.appendForBatch(result, { gid: "ngrams" }, (e, v) => {
+        console.log("finished writing to store!");
+        changeCount(-1);
         if (e) {
             console.log("Error in append for batch: ", e);
+            return;
         }
-        changeCount(-1);
+        
+        incrementDocumentCount();
     })
 };
 
 function changeCount(change) {
     currIters += change;  
-    console.log("currIters:", currIters);
+}
+
+function incrementDocumentCount() {
+    const docCount = 'd/'+ id.getSID(global.nodeConfig) + '-docCount.txt';
+    let count;
+    try {
+        count = parseInt(fs.readFileSync(docCount, 'utf-8').trim());
+    } catch(e) {
+        count = 0
+    }
+    fs.writeFileSync(docCount, (count + 1).toString());
+    console.log("incremented doc count to:", count + 1);
+    return;
 }
 
 module.exports = { crawl, start }
