@@ -190,8 +190,7 @@ function query(args, callback){
     // Execute the pipeline in bash
     let processedQuery;
     try {
-        
-        processedQuery = spawnSync('bash', ['-c', 'echo "gutenberg visits a house"| ./c/process.sh | node ./c/stem.js | ./c/combine.sh'], {
+        processedQuery = spawnSync('bash', ['-c', 'echo "gutenberg visted my house"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'], {
             encoding: 'utf-8'
         }).stdout;        
         

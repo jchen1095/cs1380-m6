@@ -31,7 +31,7 @@ merge into the NEW global index:
 Remember to error gracefully, particularly when reading the global index file.
 */
 
-//edit the merge file to make all of the frequencies merge amongst local and global
+// edit the merge file to make all of the frequencies merge amongst local and global
 const fs = require('fs');
 const readline = require('readline');
 // The `compare` function can be used for sorting.
@@ -132,5 +132,5 @@ const printMerged = (err, data) => {
   }
 };
 
-//we first need to combine the frequency with the same urls in reduce 
-//merge combines local urls and freq with a global one 
+// we first need to combine the frequency with the same urls in reduce
+// merge combines local urls and freq with a global one
