@@ -208,6 +208,7 @@ function query(args, callback){
             return;
         }
         console.log("Query result: ", result);
+        
         distribution.local.newUrls.status( (e,amt_of_docs)=> {
             if (e) {
                 console.log("Error in getting the idf: ", e);
@@ -216,15 +217,15 @@ function query(args, callback){
             console.log("idf", amt_of_docs);
             let idf_count = amt_of_docs.count;
             result.forEach(entry => {
-                let ngram = Object.keys(entry)[0]; // key of ngram "best book"
-                let value = entry[ngram];          // value object of arrays of url objs
-                let length = ngram.split(' ').length;; // count the words in the ngram
+                let ngram_pls = Object.keys(entry)[0]; // key of ngram "best book"
+                let value = entry[ngram_pls];          // value object of arrays of url objs
+                let length = ngram_pls.split(' ').length;; // count the words in the ngram
                 let num_docs_returned = value.length;
                 let idf = Math.log(1 + (idf_count/(1+num_docs_returned)));
                 value.forEach((obj, indx) => {
                     let url = obj.url;
                     let freq = obj.freq;
-                    console.log(`N-gram: "${ngram}" (${length}-gram)`);
+                    console.log(`N-gram: "${ngram_pls}" (${length}-gram)`);
                     console.log("Value:", value);
 
                     let tfidf = freq * idf;
@@ -238,17 +239,17 @@ function query(args, callback){
                     
                 });
             });            
-
+            let resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
+                return { [url]: score };
+            });
+            
+            console.log("Final weighted URLs:", resultArray);
+        
+            return resultArray;
 
         });
     });
-    let resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
-        return { [url]: score };
-    });
     
-    console.log("Final weighted URLs:", resultArray);
-
-    return resultArray;
 }
 
 
