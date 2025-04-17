@@ -4,11 +4,12 @@ const { id } = require("../util/util");
 
 
 let currIters = 0;
+let stopRequested = false;
 const CAP = 15; // number of allowable concurrent execs per node
 
 function start(gid, callback) {
     try {
-        setInterval(() => {
+        setInterval(async () => {
             if (currIters < CAP) {
                 _poll(gid);
             }
@@ -20,7 +21,18 @@ function start(gid, callback) {
     }
 }
 
+async function stop(callback) {
+    stopRequested = true;
+
+    global.distribution.local.index.flushAllWrites().then(() => {
+        callback(null, true);
+    })
+}
+
 function _poll(gid) {
+    if (stopRequested) {
+        return;
+    }
     global.distribution.local.newUrls.get((e, v) => {
         if (e) {
             // console.log("No URL was polled!");
@@ -32,13 +44,13 @@ function _poll(gid) {
         }
         changeCount(1);
         // console.log("About to call crawl with URL: ", v);
-        global.distribution.local.search.crawl({ gid: gid, url: v }, (e, v) => {
+        global.distribution.local.search.crawl({ gid: gid, url: v }, async (e, v) => {
             // Do something to stop polling maybe?
         })
     })
 }
 
-function crawl(config, callback) {
+async function crawl(config, callback) {
     let scriptOutput;
     const { url, gid } = config;
     console.log("[CRAWLING]", url);
@@ -137,7 +149,7 @@ const _processURLs = (scriptOutput) => {
     }
 }
 
-const _processDocs = (scriptOutput, wc) => {
+const _processDocs = async (scriptOutput, wc) => {
     // console.log("[CRAWLER] Processing documents...");
     const result = scriptOutput.stdout.trim().split('\n').map(line => {
             const [ngram, freq, url] = line.split("|").map(s => s.trim());
@@ -284,4 +296,4 @@ function query(args, numDocs, callback){
 }
 
 
-module.exports = { crawl, start, query }
+module.exports = { crawl, start, query, stop }

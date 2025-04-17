@@ -8,6 +8,7 @@
   },
   "description": "A set of components for cs1380's search engine.",
   "dependencies": {
+    "cheerio": "^1.0.0",
     "html-to-text": "^9.0.5",
     "jsdom": "^23.2.0",
     "natural": "^6.10.4"

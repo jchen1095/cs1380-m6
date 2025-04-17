@@ -13,7 +13,7 @@ group[getSID(n2)] = n2;
 group[getSID(n3)] = n3;
 
 let localServer = null;
-const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/"
+const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/2/8/6/"
 
 const startTests = () => {
     // Get node for URL
@@ -102,3 +102,12 @@ const stopNodes = (cb) => {
         });
     });
 }
+
+process.on('SIGINT', async () => {
+    global.distribution.crawl.comm.send([], { service: "search", method: "stop"}, (e, v) => {
+        stopNodes((e, v) => {
+            console.log('Flushed. Goodbye.');
+            process.exit(0);
+        });
+    })
+  });
