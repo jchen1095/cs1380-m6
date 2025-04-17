@@ -12,7 +12,7 @@ function start(gid, callback) {
             if (currIters < CAP) {
                 _poll(gid);
             }
-        }, 500);
+        }, 10);
         // console.log("successfully set interval for poll!")
         callback(null, true);
     } catch (e) {
@@ -46,6 +46,7 @@ function crawl(config, callback) {
     try {
         const wcFilepath = 'd/'+ id.getSID(global.nodeConfig) + '-wc.txt';
         const wc = fs.openSync(wcFilepath, 'w+');
+        const startTime = performance.now();
         scriptOutput = spawnSync('bash', ['jen-crawl.sh', url], {
             encoding: 'utf-8',
             maxBuffer: 1024 * 1024 * 64,
@@ -54,6 +55,9 @@ function crawl(config, callback) {
         count = parseInt(fs.readFileSync(wcFilepath, 'utf-8').trim());
         console.log("COUNT:", count);
         fs.closeSync(wc);
+        const endTime = performance.now();
+        console.log("Running jen-crawl took:", endTime-startTime)
+
         if (!count) {
             console.log("[CRAWLER] Error: No word count retrieved. Exiting");
             changeCount(-1);
