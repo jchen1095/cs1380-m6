@@ -46,6 +46,7 @@ function comm(config) {
           // console.log("e",e);
           // console.log("v",v);
           counter++;
+          console.log(counter)
           if(e) {
             nodeToError[sillygoose] = e;
           }

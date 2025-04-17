@@ -46,6 +46,9 @@ newUrls.status = function(callback) {
     let count;
     try {
         count = Number(fs.readFileSync('d/'+ id.getSID(global.nodeConfig) + '-docCount.txt', 'utf-8'));
+        if(isNaN(count)) {
+            count = 0
+        }
     } catch(e) {
         count = 0;
     }
