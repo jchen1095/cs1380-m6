@@ -30,9 +30,9 @@ function search(config) {
                     console.log('Counts check error:',e);
                     return;
                 }
-                console.log("counts");
+                // console.log("counts");
                 let totalCount = 0;
-                console.log("counts:",counts);
+                // console.log("counts:",counts);
                 Object.values(counts).forEach(c => totalCount+=c);
                 console.log(p);
                 const command = `echo "${args}" | ${p}/process.sh | node ${p}/stem.js | ${p}/combine.sh`; //| node ${path}/stem.js | ${path}/combine.sh
@@ -43,19 +43,19 @@ function search(config) {
                     // + ' | ./c/combine.sh';
                 let processedQuery;
                 try {
-                    console.log("command", command)
+                    // console.log("command", command)
                     processedQuery = spawnSync('bash', ['-c', command], { //'echo "gutenberg"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'
                         encoding: 'utf-8'
                     }).stdout;
-                    console.log("processed query", processedQuery)
-                    console.log("hello")
+                    // console.log("processed query", processedQuery)
+                    // console.log("hello")
                     if (processedQuery=='') {
-                        console.log("hello")
+                        // console.log("hello")
                         console.log("processed query is empty");
                         callback(null, []);
                         return;
                     }
-                    console.log("P", processedQuery)
+                    // console.log("P", processedQuery)
 
                     // console.log("processed query:", processedQuery);
                 } catch (e) {
@@ -64,10 +64,6 @@ function search(config) {
                     return;
                 }
                 global.distribution[context.gid].comm.send([processedQuery.trim()], { service: "query", method: "process" }, (e, results) => {
-                    // console.log("back from local query!")
-                    // console.log('hellow', e);
-                    // console.log('helloddd',results);
-                    // v.foreach(n => console.log(n));
                     const finalQueryUrls = {};
                     Object.entries(results).forEach(([nodeId, entry]) => {
                         Object.entries(entry).forEach(([ngram, docs]) => {
@@ -97,13 +93,18 @@ function search(config) {
                         });
                     
                     let resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
-                        console.log("URL,", url)
-                        console.log("SORCE:", score)
+                        // console.log("URL,", url)
+                        // console.log("SORCE:", score)
                         return { url: url, score: score };
                     })
                     resultArray = resultArray.sort((a,b) => {b.score - a.score});
                     
-                    console.log("Final weighted URLs:", resultArray);
+                    // console.log("Final weighted URLs:", resultArray);
+                    console.log("Final result");
+                    for( let i = 0; i < resultArray.length; i++) {
+                        console.log(`${i+1}. ${resultArray[i].url} - Score: ${resultArray[i].score}`);
+                    }
+                    console.log('\n');
                     callback(null, resultArray);
                     // callback(e, results);
                 })

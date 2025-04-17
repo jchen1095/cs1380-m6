@@ -35,20 +35,10 @@ const startTests = (callback) => {
         fs.appendFileSync('debug.log', 'query done????\n');
         callback(null, v);
     });
-    // global.distribution.crawl.store.getNode(CRAWL_URL, (e, node) => {
-    //     // console.log("gets after getNode");
-    //     global.distribution.local.comm.send([[CRAWL_URL]], { node: node, service: "newUrls", "method": "put" }, (e, v) => {
-    //         // console.log("comm send crawl url worked")
-    //         // console.log("v:", v);
-    //         global.distribution.crawl.search.query(args, (e, v) => {
-    //             fs.appendFileSync('debug.log', 'gets in here\n');
-    //         });
-    //     })
-    // })
 }
 
 fs.appendFileSync('debug.log', 'starting nodes....\n');
-console.log("Received Request")
+// console.log("Received Request")
 distribution.node.start((server) => {
     fs.appendFileSync('debug.log', 'nodes started\n');
     localServer = server
@@ -68,8 +58,8 @@ distribution.node.start((server) => {
                         } else {
                             fs.appendFileSync('debug.log', `Got result: ${JSON.stringify(result)}\n`);
                             
-                            
-                            return result;
+                            // stopNodes(() => {})    
+                            // return result;
                         }
                         stopNodes(() => {})
                     });
@@ -82,10 +72,6 @@ distribution.node.start((server) => {
     })
 })
 
-
-const hashURL = (url) => {
-    return getID(url).slice(0, 20);
-}
 
 const startNodes = (cb) => {
     fs.appendFileSync('debug.log', 'inside startNodes\n');
