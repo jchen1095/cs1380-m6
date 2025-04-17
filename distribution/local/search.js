@@ -203,8 +203,7 @@ function query(args, numDocs, callback){
         // const processScript = path.join(__dirname, '../../non-distribution', 'c', 'process.sh');
         // const stemScript = path.join(__dirname, '../../non-distribution', 'c','stem.js');
         // const combineScript = path.join(__dirname, '../../non-distribution', 'c','combine.sh');
-
-    const command = `echo`;
+    
     // Execute the pipeline in bash
     let processedQuery;
     try {
@@ -213,52 +212,61 @@ function query(args, numDocs, callback){
         }).stdout;        
         
     } catch (e) {
-        console.log("the error!: ", e);
+        console.log("the error!: ", e.message);
+        callback(new Error("[QUERY] Error in calculating n-grams: ", e.message));
         return;
     }
     
     // console.log("Processed Query:", processedQuery.trim());
-    console.log("pre processed")
+    // console.log("pre processed")
     global.distribution.local.query.process(processedQuery.trim(), (e, result) => {
-        console.log('processed');
+        // console.log('processed');
         if (e) {
-            console.log("Error in query: ", e);
+            console.log("[QUERY] Error in processing query: ", e.message);
+            callback(new Error("[QUERY] Error in processing query: ", e.message), null);
             return;
         }
         console.log("Query result: ", result);
-        console.log('hello')
-        result.forEach(r => console.log(r));
-        console.log("totalDocs", numDocs);
-        result.forEach(entry => {
-            let ngram_pls = Object.keys(entry)[0]; // key of ngram "best book"
-            let value = entry[ngram_pls];          // value object of arrays of url objs
-            let length = ngram_pls.split(' ').length;; // count the words in the ngram
-            let num_docs_returned = value.length;
-            let idf = Math.log(1 + (numDocs/(1+num_docs_returned)));
-            value.forEach((obj, indx) => {
-                let url = obj.url;
-                let freq = obj.freq;
-                console.log(`N-gram: "${ngram_pls}" (${length}-gram)`);
-                console.log("Value:", value);
+        // console.log('hello')
+        // result.forEach(r => console.log(r));
+        callback(null, result);
+        // try {
+        //     // console.log("totalDocs", numDocs);
+        //     // result.forEach(entry => {
+        //     //     let ngram_pls = Object.keys(entry)[0]; // key of ngram "best book"
+        //     //     let value = entry[ngram_pls];          // value object of arrays of url objs
+        //     //     let length = ngram_pls.split(' ').length;; // count the words in the ngram
+        //     //     let idf = Math.log(numDocs/value.length); 
+        //     //     value.forEach(obj => {
+        //     //         console.log("obj", obj)
+        //     //         let url = obj.url;
+        //     //         let freq = obj.freq;
+        //     //         console.log(`N-gram: "${ngram_pls}" (${length}-gram)`);
+        //     //         console.log("Value:", value);
 
-                let tfidf = freq * idf;
-                if (!(url in finalQueryUrls)) {
+        //     //         if (!(url in finalQueryUrls)) {
 
-                    // url is not in the map
-                    finalQueryUrls[url] = 0;
-                }
-                //log total num docs/ num docs for the specific ngram appears 
-                finalQueryUrls[url] += length * tfidf;
-                
-            });
-        });            
-        let resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
-            return { [url]: score };
-        });
+        //     //             // url is not in the map
+        //     //             finalQueryUrls[url] = 0;
+        //     //         }
+        //     //         //log total num docs/ num docs for the specific ngram appears 
+        //     //         finalQueryUrls[url] += length * freq * idf;
+                    
+        //     //     });
+        //     // });            
+        //     let resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
+        //         console.log("URL,", url)
+        //         console.log("SORCE:", score)
+        //         return { [url]: score };
+        //     });
+            
+        //     console.log("Final weighted URLs:", resultArray);
+        //     callback(null, resultArray);
+        // } catch(e) {
+        //     console.log('ERROR in local query');
+        //     callback(new Error("[Local.Query] Error:", e.message))
+        // }
         
-        console.log("Final weighted URLs:", resultArray);
-    
-        return resultArray;
     });
     
 }

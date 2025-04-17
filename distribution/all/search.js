@@ -24,10 +24,16 @@ function search(config) {
             callback = callback || function () { };
             console.log('in distributed query', args);
             global.distribution[context.gid].comm.send([], {service: 'newUrls', method: 'status'}, (e,counts) => {
+                if(e.length > 0) {
+                    console.log('Counts check error:',e);
+                    return;
+                }
+                console.log("counts");
                 let totalCount = 0;
-                console.log(counts);
+                console.log("counts:",counts);
                 Object.values(counts).forEach(c => totalCount+=c);
-                global.distribution[context.gid].comm.send([args, totalCount], { service: "search", method: "query" }, (e, v) => {
+                global.distribution[context.gid].comm.send([args, totalCount], { service: "search", method: "query" }, (e, results) => {
+                    console.log("back from group query!")
                     console.log(e);
                     console.log(v);
                     v.foreach(n => console.log(n));

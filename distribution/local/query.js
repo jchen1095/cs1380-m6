@@ -2,16 +2,18 @@
 
 const process = (input, callback) => {
     try {
-        
-        let results = [];
         console.log("input is:", input);
         const ngrams = input.split('\n');
         const number = ngrams.length;
         let count = 0;
+        console.log("length: ", number)
+        const out = {};
         ngrams.forEach(ngram => {
-            count +=1;
             try {
                 global.distribution.local.index.get(ngram, (err, value) => {
+                    
+                    count++;
+                    console.log('count:', count)
                     // console.log("Index v:", value);
                     // output: array, value = [{url: url, freq: freq}, {url: url, freq: freq}]
                     if (err) {
@@ -22,19 +24,17 @@ const process = (input, callback) => {
                     }
                     // console.log("value is:", value);
                     // const ngramData = JSON.parse(value);
-                    results.push({[ngram]: value});
-                    if (count == number){
+                    out[ngram] = value
+                    // results.push({[ngram]: value});
+                    if (count >= ngrams.length){
                         // console.log('done w the ngrams in local query');
-                        callback(null, results);
+                        callback(null, out);
                     }
                 });
             } catch (err) {
                 console.log("issue with store get:", err);
-            }
-            
-            
-        });
-        
+            } 
+        });        
     } catch (e) {
         callback(new Error('noooooooo ' + e), null);
     }
