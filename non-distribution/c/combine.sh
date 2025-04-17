@@ -19,4 +19,4 @@ trigram() {
 	rm "$1" "$2"
 }
 
-tee >(sort) >(bigram "$p1") >(trigram "$p2" "$p3") > /dev/null
+tee >(sort) >(bigram "$p1") > /dev/null
