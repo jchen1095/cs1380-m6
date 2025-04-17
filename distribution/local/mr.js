@@ -298,9 +298,9 @@ function _mr(config) {
                             // console.log(`${id.getSID(global.nodeConfig)}: result from newUrls get:`, result);
                             async function processSequentially(v, e, callback) {
                                 for (const obj of v) {
-                                    console.log("call execMap!");
+                                    // console.log("call execMap!");
                                     await execMap(Object.keys(obj)[0], e, Object.values(obj)[0]);
-                                    console.log("returned from execMap!");
+                                    // console.log("returned from execMap!");
                                 }
                                 // try {
                                 //     // callback(null, true);  // Call once after everything completes
@@ -309,7 +309,7 @@ function _mr(config) {
                                 // }
                             }
                             processSequentially(result, e, callback).then(() => {
-                                console.log("done processing sequentially")
+                                // console.log("done processing sequentially")
                                 callback(null, true);
                             })
                             // v.forEach(async (obj) => {

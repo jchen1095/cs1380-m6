@@ -57,7 +57,7 @@ async function crawl(config, callback) {
     let count;
     try {
         const wcFilepath = 'd/'+ id.getSID(global.nodeConfig) + '-wc.txt';
-        const startTime = performance.now();
+        // const startTime = performance.now();
         if (url.endsWith(".txt")) {
             const wc = fs.openSync(wcFilepath, 'w+');
             scriptOutput = spawnSync('bash', ['jen-crawl.sh', url], {
@@ -80,9 +80,9 @@ async function crawl(config, callback) {
                 stdio: ['pipe', 'pipe', 'pipe'],
             });
         }
-        console.log("COUNT:", count);
-        const endTime = performance.now();
-        console.log("Running jen-crawl took:", endTime-startTime)
+        // console.log("COUNT:", count);
+        // const endTime = performance.now();
+        // console.log("Running jen-crawl took:", endTime-startTime)
 
     } catch (e) {
         console.log("error:", e.message);
@@ -94,7 +94,7 @@ async function crawl(config, callback) {
     _processURLs(scriptOutput);
     if (url.includes(".txt")) {
         _processDocs(scriptOutput, count);
-        console.log("Processed docs!");
+        // console.log("Processed docs!");
     } else {
         changeCount(-1);
     }
@@ -156,9 +156,9 @@ const _processDocs = async (scriptOutput, wc) => {
             return { [ngram]: { freq: parseInt(freq, 10)/wc, url: url } }
         });
     
-    console.log("Sending to store...");
+    // console.log("Sending to store...");
     global.distribution.local.index.appendIndex(result, (e,v) => {
-        console.log("finished writing to store!");
+        // console.log("finished writing to store!");
         changeCount(-1);
         if (e) {
             console.log("Error in append: ", e);
@@ -170,7 +170,7 @@ const _processDocs = async (scriptOutput, wc) => {
 
 function changeCount(change) {
     currIters += change;  
-    console.log("currIters:", currIters);
+    // console.log("currIters:", currIters);
 }
 
 function incrementDocumentCount() {
@@ -185,7 +185,7 @@ function incrementDocumentCount() {
         count = 0
     }
     fs.writeFileSync(docCount, (count + 1).toString());
-    console.log("incremented doc count to:", count + 1);
+    // console.log("incremented doc count to:", count + 1);
     return;
 }
 
@@ -201,12 +201,12 @@ function incrementTotalCount() {
         count = 0
     }
     fs.writeFileSync(totalCount, (count + 1).toString());
-    console.log("incremented total count to:", count + 1);
+    // console.log("incremented total count to:", count + 1);
     return;
 }
 
 function query(args, numDocs, callback){
-    console.log('in local query', args);
+    // console.log('in local query', args);
 
     // Step 1: Read the command-line arguments
     

@@ -58,7 +58,7 @@ distribution.node.start((server) => {
             })
         })
     } catch (e) {
-        console.log("e???", e);
+        console.log("Error while putting the group", e);
     }
     // startNodes(() => {
     //     // console.log("start Nodes done!");

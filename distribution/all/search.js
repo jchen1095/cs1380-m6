@@ -23,7 +23,7 @@ function search(config) {
 
         query: (args, callback) => {
             callback = callback || function () { };
-            console.log('in distributed query', args);
+            // console.log('in distributed query', args);
             global.distribution[context.gid].comm.send([], {service: 'newUrls', method: 'status'}, (e,counts) => {
                 if(e.length > 0) {
                     console.log('Counts check error:',e);
@@ -40,31 +40,31 @@ function search(config) {
                     }).stdout;        
                     
                 } catch (e) {
-                    console.log("the error!: ", e.message);
+                    // console.log("the error!: ", e.message);
                     callback(new Error("[QUERY] Error in calculating n-grams: ", e.message));
                     return;
                 }
                 global.distribution[context.gid].comm.send([processedQuery.trim()], { service: "query", method: "process" }, (e, results) => {
-                    console.log("back from local query!")
-                    console.log('hellow', e);
-                    console.log('helloddd',results);
+                    // console.log("back from local query!")
+                    // console.log('hellow', e);
+                    // console.log('helloddd',results);
                     // v.foreach(n => console.log(n));
                     const finalQueryUrls = {};
                     Object.entries(results).forEach(([nodeId, entry]) => {
                         Object.entries(entry).forEach(([ngram, docs]) => {
                             if (!docs || docs.length === 0) {
                                 console.log(`Skipping empty docs for ngram: "${ngram}"`);
-                                return; // ⬅️ skip to next ngram
+                                return; // skip to next ngram
                             }
                             let length = ngram.split(' ').length; // count the words in the ngram
-                            console.log(`N-gram: "${ngram}" (${length}-gram)`);
-                            console.log("Value:", docs, docs.length);
+                            // console.log(`N-gram: "${ngram}" (${length}-gram)`);
+                            // console.log("Value:", docs, docs.length);
                             
                             let idf = Math.log(totalCount/docs.length); 
-                            console.log("IDF:", idf);
-                            console.log("total counts", totalCount);
+                            // console.log("IDF:", idf);
+                            // console.log("total counts", totalCount);
                             docs.forEach(obj => {
-                                console.log("obj", obj)
+                                // console.log("obj", obj)
                                 let url = obj.url;
                                 let freq = obj.freq;
                                 
@@ -80,8 +80,8 @@ function search(config) {
                         });
                     
                     let resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
-                        console.log("URL,", url)
-                        console.log("SORCE:", score)
+                        // console.log("URL,", url)
+                        // console.log("SORCE:", score)
                         return { [url]: score };
                     });
                     

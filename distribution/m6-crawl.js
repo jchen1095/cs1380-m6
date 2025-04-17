@@ -41,12 +41,12 @@ distribution.node.start((server) => {
             global.distribution.local.groups.put({ gid: "crawl", hash: consistentHash }, group, (e, node) => {
                 // console.log("local group put done!");
                 global.distribution.crawl.groups.put({ gid: "crawl" }, group, (e, node) => {
-                    console.log("about to start tests!");
+                    // console.log("about to start tests!");
                     startTests();
                 })
             })
         } catch (e) {
-            console.log("e???", e);
+            console.log("Error while putting nodes.", e);
         }
     })
 })
@@ -62,10 +62,10 @@ const startNodes = (cb) => {
         // console.log("spawn n1");
         global.distribution.local.status.spawn(n2, (e, node) => {
             global.distribution.local.status.spawn(n3, (e, node) => {
-                console.log("spawned everything!");
+                // console.log("spawned everything!");
                 // Create all necessary files
                 makeTxtFiles();
-                console.log("hi??");
+                // console.log("hi??");
                 cb();
             });
         });
