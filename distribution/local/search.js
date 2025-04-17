@@ -98,7 +98,7 @@ async function crawl(config, callback) {
     } else {
         changeCount(-1);
     }
-    console.log(id.getSID(global.nodeConfig) + ': call: ' + currIters);
+    // console.log(id.getSID(global.nodeConfig) + ': call: ' + currIters);
     // console.log("scriptOutput", scriptOutput);
     callback(null, true);
 }
