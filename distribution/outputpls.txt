@@ -1,284 +1,167 @@
-[2025-04-16T18:39:57.474Z] Script started
-[2025-04-16T18:39:58.103Z] spawned everything!
-[2025-04-16T18:39:58.107Z] local group put done!
-[2025-04-16T18:39:58.125Z] about to start tests!
-[2025-04-16T18:39:58.126Z] start tests
-[2025-04-16T18:42:30.323Z] Script started
-[2025-04-16T18:42:30.916Z] spawned everything!
-[2025-04-16T18:42:30.919Z] local group put done!
-[2025-04-16T18:42:30.944Z] about to start tests!
-[2025-04-16T18:42:30.944Z] start tests
-[2025-04-16T18:45:43.155Z] Script started
-[2025-04-16T18:45:43.454Z] spawned everything!
-[2025-04-16T18:45:43.456Z] local group put done!
-[2025-04-16T18:45:43.463Z] about to start tests!
-[2025-04-16T18:45:43.464Z] start tests
-[2025-04-16T20:24:23.163Z] Script started
-[2025-04-16T20:24:23.611Z] spawned everything!
-[2025-04-16T20:24:23.613Z] local group put done!
-[2025-04-16T20:24:23.621Z] about to start tests!
-[2025-04-16T20:24:23.621Z] start tests
-[2025-04-16T20:24:24.257Z] ERROR: Search query error: [object Object]
-[2025-04-16T20:27:15.915Z] Script started
-[2025-04-16T20:27:16.328Z] spawned everything!
-[2025-04-16T20:27:16.329Z] local group put done!
-[2025-04-16T20:27:16.337Z] about to start tests!
-[2025-04-16T20:27:16.337Z] start tests
-[2025-04-16T20:27:16.883Z] ERROR: Search query error: [object Object]
-[2025-04-16T20:29:53.683Z] Script started
-[2025-04-16T20:29:54.112Z] spawned everything!
-[2025-04-16T20:29:54.113Z] local group put done!
-[2025-04-16T20:29:54.120Z] about to start tests!
-[2025-04-16T20:29:54.121Z] start tests
-[2025-04-16T20:29:54.684Z] ERROR: Search query error: [object Object]
-[2025-04-16T20:30:29.427Z] Script started
-[2025-04-16T20:30:29.719Z] spawned everything!
-[2025-04-16T20:30:29.721Z] local group put done!
-[2025-04-16T20:30:29.729Z] about to start tests!
-[2025-04-16T20:30:29.729Z] start tests
-[2025-04-16T20:31:45.401Z] Script started
-[2025-04-16T20:31:45.705Z] spawned everything!
-[2025-04-16T20:31:45.707Z] local group put done!
-[2025-04-16T20:31:45.714Z] about to start tests!
-[2025-04-16T20:31:45.714Z] start tests
-[2025-04-16T20:34:11.957Z] Script started
-[2025-04-16T20:34:12.320Z] spawned everything!
-[2025-04-16T20:34:12.322Z] local group put done!
-[2025-04-16T20:34:12.338Z] about to start tests!
-[2025-04-16T20:34:12.338Z] start tests
-[2025-04-16T20:35:40.980Z] Script started
-[2025-04-16T20:35:41.285Z] spawned everything!
-[2025-04-16T20:35:41.287Z] local group put done!
-[2025-04-16T20:35:41.294Z] about to start tests!
-[2025-04-16T20:35:41.295Z] start tests
-[2025-04-16T20:36:01.812Z] Script started
-[2025-04-16T20:36:02.089Z] spawned everything!
-[2025-04-16T20:36:02.091Z] local group put done!
-[2025-04-16T20:36:02.097Z] about to start tests!
-[2025-04-16T20:36:02.098Z] start tests
-[2025-04-16T20:36:24.924Z] Script started
-[2025-04-16T20:36:25.208Z] spawned everything!
-[2025-04-16T20:36:25.209Z] local group put done!
-[2025-04-16T20:36:25.216Z] about to start tests!
-[2025-04-16T20:36:25.217Z] start tests
-[2025-04-16T20:40:14.038Z] Script started
-[2025-04-16T20:40:14.344Z] spawned everything!
-[2025-04-16T20:40:14.346Z] local group put done!
-[2025-04-16T20:40:14.353Z] about to start tests!
-[2025-04-16T20:40:14.354Z] start tests
-[2025-04-16T20:41:03.352Z] Script started
-[2025-04-16T20:41:03.666Z] spawned everything!
-[2025-04-16T20:41:03.668Z] local group put done!
-[2025-04-16T20:41:03.676Z] about to start tests!
-[2025-04-16T20:41:03.676Z] start tests
-[2025-04-16T20:41:52.371Z] Script started
-[2025-04-16T20:41:52.654Z] spawned everything!
-[2025-04-16T20:41:52.655Z] local group put done!
-[2025-04-16T20:41:52.662Z] about to start tests!
-[2025-04-16T20:41:52.663Z] start tests
-[2025-04-16T20:42:44.631Z] Script started
-[2025-04-16T20:42:44.934Z] spawned everything!
-[2025-04-16T20:42:44.935Z] local group put done!
-[2025-04-16T20:42:44.942Z] about to start tests!
-[2025-04-16T20:42:44.943Z] start tests
-[2025-04-16T20:43:16.480Z] Script started
-[2025-04-16T20:43:16.762Z] spawned everything!
-[2025-04-16T20:43:16.763Z] local group put done!
-[2025-04-16T20:43:16.770Z] about to start tests!
-[2025-04-16T20:43:16.771Z] start tests
-[2025-04-16T20:43:44.082Z] Script started
-[2025-04-16T20:43:44.519Z] spawned everything!
-[2025-04-16T20:43:44.522Z] local group put done!
-[2025-04-16T20:43:44.534Z] about to start tests!
-[2025-04-16T20:43:44.535Z] start tests
-[2025-04-16T20:44:30.184Z] Script started
-[2025-04-16T20:44:30.482Z] spawned everything!
-[2025-04-16T20:44:30.483Z] local group put done!
-[2025-04-16T20:44:30.490Z] about to start tests!
-[2025-04-16T20:44:30.491Z] start tests
-[2025-04-16T21:22:23.400Z] Script started
-[2025-04-16T21:22:23.698Z] spawned everything!
-[2025-04-16T21:22:23.699Z] local group put done!
-[2025-04-16T21:22:23.706Z] about to start tests!
-[2025-04-16T21:22:23.707Z] start tests
-[2025-04-16T21:22:49.159Z] Script started
-[2025-04-16T21:22:49.478Z] spawned everything!
-[2025-04-16T21:22:49.480Z] local group put done!
-[2025-04-16T21:22:49.486Z] about to start tests!
-[2025-04-16T21:22:49.487Z] start tests
-[2025-04-16T21:23:00.881Z] Script started
-[2025-04-16T21:23:01.172Z] spawned everything!
-[2025-04-16T21:23:01.173Z] local group put done!
-[2025-04-16T21:23:01.179Z] about to start tests!
-[2025-04-16T21:23:01.180Z] start tests
-[2025-04-16T21:23:15.295Z] Script started
-[2025-04-16T21:23:15.574Z] spawned everything!
-[2025-04-16T21:23:15.575Z] local group put done!
-[2025-04-16T21:23:15.582Z] about to start tests!
-[2025-04-16T21:23:15.582Z] start tests
-[2025-04-16T21:23:40.211Z] Script started
-[2025-04-16T21:23:40.524Z] spawned everything!
-[2025-04-16T21:23:40.525Z] local group put done!
-[2025-04-16T21:23:40.533Z] about to start tests!
-[2025-04-16T21:23:40.533Z] start tests
-[2025-04-16T21:23:53.273Z] Script started
-[2025-04-16T21:23:53.554Z] spawned everything!
-[2025-04-16T21:23:53.555Z] local group put done!
-[2025-04-16T21:23:53.563Z] about to start tests!
-[2025-04-16T21:23:53.563Z] start tests
-[2025-04-16T21:24:11.552Z] Script started
-[2025-04-16T21:24:11.856Z] spawned everything!
-[2025-04-16T21:24:11.857Z] local group put done!
-[2025-04-16T21:24:11.865Z] about to start tests!
-[2025-04-16T21:24:11.866Z] start tests
-[2025-04-16T21:46:13.435Z] Script started
-[2025-04-16T21:46:13.749Z] spawned everything!
-[2025-04-16T21:46:13.751Z] local group put done!
-[2025-04-16T21:46:13.759Z] about to start tests!
-[2025-04-16T21:46:13.759Z] start tests
-[2025-04-16T21:46:31.180Z] Script started
-[2025-04-16T21:46:31.494Z] spawned everything!
-[2025-04-16T21:46:31.496Z] local group put done!
-[2025-04-16T21:46:31.504Z] about to start tests!
-[2025-04-16T21:46:31.505Z] start tests
-[2025-04-16T21:46:47.237Z] Script started
-[2025-04-16T21:46:50.989Z] Script started
-[2025-04-16T21:46:51.288Z] spawned everything!
-[2025-04-16T21:46:51.289Z] local group put done!
-[2025-04-16T21:46:51.297Z] about to start tests!
-[2025-04-16T21:46:51.298Z] start tests
-[2025-04-16T21:58:52.420Z] Script started
-[2025-04-16T21:58:52.735Z] spawned everything!
-[2025-04-16T21:58:52.737Z] local group put done!
-[2025-04-16T21:58:52.745Z] about to start tests!
-[2025-04-16T21:58:52.745Z] start tests
-[2025-04-16T22:27:05.146Z] Script started
-[2025-04-16T22:27:05.500Z] spawned everything!
-[2025-04-16T22:27:05.501Z] local group put done!
-[2025-04-16T22:27:05.509Z] about to start tests!
-[2025-04-16T22:27:05.509Z] start tests
-[2025-04-16T22:27:54.803Z] Script started
-[2025-04-16T22:27:55.144Z] spawned everything!
-[2025-04-16T22:27:55.146Z] local group put done!
-[2025-04-16T22:27:55.155Z] about to start tests!
-[2025-04-16T22:27:55.155Z] start tests
-[2025-04-16T22:28:12.291Z] Script started
-[2025-04-16T22:28:12.586Z] spawned everything!
-[2025-04-16T22:28:12.588Z] local group put done!
-[2025-04-16T22:28:12.595Z] about to start tests!
-[2025-04-16T22:28:12.595Z] start tests
-[2025-04-16T22:28:57.921Z] Script started
-[2025-04-16T22:28:58.251Z] spawned everything!
-[2025-04-16T22:28:58.252Z] local group put done!
-[2025-04-16T22:28:58.260Z] about to start tests!
-[2025-04-16T22:28:58.260Z] start tests
-[2025-04-16T22:29:22.206Z] Script started
-[2025-04-16T22:29:22.495Z] spawned everything!
-[2025-04-16T22:29:22.496Z] local group put done!
-[2025-04-16T22:29:22.503Z] about to start tests!
-[2025-04-16T22:29:22.504Z] start tests
-[2025-04-16T22:29:51.224Z] Script started
-[2025-04-16T22:29:51.538Z] spawned everything!
-[2025-04-16T22:29:51.540Z] local group put done!
-[2025-04-16T22:29:51.548Z] about to start tests!
-[2025-04-16T22:29:51.549Z] start tests
-[2025-04-16T22:37:51.014Z] Script started
-[2025-04-16T22:37:51.450Z] spawned everything!
-[2025-04-16T22:37:51.453Z] local group put done!
-[2025-04-16T22:37:51.473Z] about to start tests!
-[2025-04-16T22:37:51.474Z] start tests
-[2025-04-16T22:58:21.414Z] Script started
-[2025-04-16T22:58:21.716Z] spawned everything!
-[2025-04-16T22:58:21.718Z] local group put done!
-[2025-04-16T22:58:21.726Z] about to start tests!
-[2025-04-16T22:58:21.726Z] start tests
-[2025-04-16T22:59:27.536Z] Script started
-[2025-04-16T22:59:27.855Z] spawned everything!
-[2025-04-16T22:59:27.857Z] local group put done!
-[2025-04-16T22:59:27.864Z] about to start tests!
-[2025-04-16T22:59:27.864Z] start tests
-[2025-04-16T22:59:54.867Z] Script started
-[2025-04-16T22:59:55.147Z] spawned everything!
-[2025-04-16T22:59:55.148Z] local group put done!
-[2025-04-16T22:59:55.156Z] about to start tests!
-[2025-04-16T22:59:55.156Z] start tests
-[2025-04-16T23:01:43.698Z] Script started
-[2025-04-16T23:01:43.991Z] spawned everything!
-[2025-04-16T23:01:43.992Z] local group put done!
-[2025-04-16T23:01:44.000Z] about to start tests!
-[2025-04-16T23:01:44.000Z] start tests
-[2025-04-16T23:03:50.234Z] Script started
-[2025-04-16T23:03:50.537Z] spawned everything!
-[2025-04-16T23:03:50.538Z] local group put done!
-[2025-04-16T23:03:50.547Z] about to start tests!
-[2025-04-16T23:03:50.547Z] start tests
-[2025-04-16T23:04:16.802Z] Script started
-[2025-04-16T23:04:17.108Z] spawned everything!
-[2025-04-16T23:04:17.109Z] local group put done!
-[2025-04-16T23:04:17.117Z] about to start tests!
-[2025-04-16T23:04:17.117Z] start tests
-[2025-04-16T23:12:44.703Z] Script started
-[2025-04-16T23:12:45.044Z] spawned everything!
-[2025-04-16T23:12:45.046Z] local group put done!
-[2025-04-16T23:12:45.058Z] about to start tests!
-[2025-04-16T23:12:45.059Z] start tests
-[2025-04-16T23:28:56.548Z] Script started
-[2025-04-16T23:28:56.974Z] spawned everything!
-[2025-04-16T23:28:56.976Z] local group put done!
-[2025-04-16T23:28:56.984Z] about to start tests!
-[2025-04-16T23:28:56.984Z] start tests
-[2025-04-16T23:33:30.703Z] Script started
-[2025-04-16T23:33:31.060Z] spawned everything!
-[2025-04-16T23:33:31.063Z] local group put done!
-[2025-04-16T23:33:31.079Z] about to start tests!
-[2025-04-16T23:33:31.080Z] start tests
-[2025-04-16T23:35:13.597Z] Script started
-[2025-04-16T23:35:13.922Z] spawned everything!
-[2025-04-16T23:35:13.924Z] local group put done!
-[2025-04-16T23:35:13.935Z] about to start tests!
-[2025-04-16T23:35:13.935Z] start tests
-[2025-04-16T23:35:44.010Z] Script started
-[2025-04-16T23:35:44.384Z] spawned everything!
-[2025-04-16T23:35:44.386Z] local group put done!
-[2025-04-16T23:35:44.401Z] about to start tests!
-[2025-04-16T23:35:44.402Z] start tests
-[2025-04-16T23:36:55.337Z] Script started
-[2025-04-16T23:36:55.702Z] spawned everything!
-[2025-04-16T23:36:55.705Z] local group put done!
-[2025-04-16T23:36:55.721Z] about to start tests!
-[2025-04-16T23:36:55.722Z] start tests
-[2025-04-16T23:37:19.050Z] Script started
-[2025-04-16T23:37:19.386Z] spawned everything!
-[2025-04-16T23:37:19.388Z] local group put done!
-[2025-04-16T23:37:19.396Z] about to start tests!
-[2025-04-16T23:37:19.396Z] start tests
-[2025-04-16T23:38:14.298Z] Script started
-[2025-04-16T23:38:14.645Z] spawned everything!
-[2025-04-16T23:38:14.648Z] local group put done!
-[2025-04-16T23:38:14.663Z] about to start tests!
-[2025-04-16T23:38:14.664Z] start tests
-[2025-04-16T23:39:01.386Z] Script started
-[2025-04-16T23:39:01.718Z] spawned everything!
-[2025-04-16T23:39:01.719Z] local group put done!
-[2025-04-16T23:39:01.731Z] about to start tests!
-[2025-04-16T23:39:01.732Z] start tests
-[2025-04-16T23:40:25.069Z] Script started
-[2025-04-16T23:40:25.404Z] spawned everything!
-[2025-04-16T23:40:25.406Z] local group put done!
-[2025-04-16T23:40:25.417Z] about to start tests!
-[2025-04-16T23:40:25.417Z] start tests
-[2025-04-16T23:40:56.261Z] Script started
-[2025-04-16T23:40:56.597Z] spawned everything!
-[2025-04-16T23:40:56.598Z] local group put done!
-[2025-04-16T23:40:56.611Z] about to start tests!
-[2025-04-16T23:40:56.611Z] start tests
-[2025-04-16T23:41:46.409Z] Script started
-[2025-04-16T23:41:46.742Z] spawned everything!
-[2025-04-16T23:41:46.744Z] local group put done!
-[2025-04-16T23:41:46.753Z] about to start tests!
-[2025-04-16T23:41:46.754Z] start tests
-[2025-04-16T23:42:17.542Z] Script started
-[2025-04-16T23:42:17.851Z] spawned everything!
-[2025-04-16T23:42:17.853Z] local group put done!
-[2025-04-16T23:42:17.861Z] about to start tests!
-[2025-04-16T23:42:17.861Z] start tests
+[2025-04-17T01:07:50.627Z] Script started
+[2025-04-17T01:07:51.070Z] spawned everything!
+[2025-04-17T01:07:51.072Z] local group put done!
+[2025-04-17T01:07:51.080Z] about to start tests!
+[2025-04-17T01:07:51.080Z] start tests
+[2025-04-17T01:07:51.087Z] ERROR: Search query error: Error: [QUERY] Error in calculating n-grams: 
+[2025-04-17T01:08:37.933Z] Script started
+[2025-04-17T01:08:38.373Z] spawned everything!
+[2025-04-17T01:08:38.374Z] local group put done!
+[2025-04-17T01:08:38.383Z] about to start tests!
+[2025-04-17T01:08:38.383Z] start tests
+[2025-04-17T01:11:23.666Z] Script started
+[2025-04-17T01:11:24.148Z] spawned everything!
+[2025-04-17T01:11:24.150Z] local group put done!
+[2025-04-17T01:11:24.159Z] about to start tests!
+[2025-04-17T01:11:24.159Z] start tests
+[2025-04-17T01:12:23.374Z] Script started
+[2025-04-17T01:12:23.820Z] spawned everything!
+[2025-04-17T01:12:23.822Z] local group put done!
+[2025-04-17T01:12:23.830Z] about to start tests!
+[2025-04-17T01:12:23.831Z] start tests
+[2025-04-17T01:12:54.545Z] Script started
+[2025-04-17T01:12:55.001Z] spawned everything!
+[2025-04-17T01:12:55.003Z] local group put done!
+[2025-04-17T01:12:55.017Z] about to start tests!
+[2025-04-17T01:12:55.017Z] start tests
+[2025-04-17T01:13:08.328Z] Script started
+[2025-04-17T01:13:08.776Z] spawned everything!
+[2025-04-17T01:13:08.778Z] local group put done!
+[2025-04-17T01:13:08.787Z] about to start tests!
+[2025-04-17T01:13:08.787Z] start tests
+[2025-04-17T01:27:05.467Z] Script started
+[2025-04-17T01:27:06.034Z] spawned everything!
+[2025-04-17T01:27:06.036Z] local group put done!
+[2025-04-17T01:27:06.049Z] about to start tests!
+[2025-04-17T01:27:06.050Z] start tests
+[2025-04-17T01:28:30.199Z] Script started
+[2025-04-17T01:28:30.719Z] spawned everything!
+[2025-04-17T01:28:30.721Z] local group put done!
+[2025-04-17T01:28:30.734Z] about to start tests!
+[2025-04-17T01:28:30.734Z] start tests
+[2025-04-17T01:29:56.970Z] Script started
+[2025-04-17T01:29:57.468Z] spawned everything!
+[2025-04-17T01:29:57.471Z] local group put done!
+[2025-04-17T01:29:57.483Z] about to start tests!
+[2025-04-17T01:29:57.484Z] start tests
+[2025-04-17T01:30:57.776Z] Script started
+[2025-04-17T01:30:58.291Z] spawned everything!
+[2025-04-17T01:30:58.294Z] local group put done!
+[2025-04-17T01:30:58.306Z] about to start tests!
+[2025-04-17T01:30:58.307Z] start tests
+[2025-04-17T01:31:22.639Z] Script started
+[2025-04-17T01:31:23.134Z] spawned everything!
+[2025-04-17T01:31:23.137Z] local group put done!
+[2025-04-17T01:31:23.150Z] about to start tests!
+[2025-04-17T01:31:23.150Z] start tests
+[2025-04-17T01:32:20.900Z] Script started
+[2025-04-17T01:32:21.398Z] spawned everything!
+[2025-04-17T01:32:21.401Z] local group put done!
+[2025-04-17T01:32:21.413Z] about to start tests!
+[2025-04-17T01:32:21.414Z] start tests
+[2025-04-17T01:32:43.610Z] Script started
+[2025-04-17T01:32:44.134Z] spawned everything!
+[2025-04-17T01:32:44.137Z] local group put done!
+[2025-04-17T01:32:44.154Z] about to start tests!
+[2025-04-17T01:32:44.155Z] start tests
+[2025-04-17T01:37:37.422Z] Script started
+[2025-04-17T01:37:37.975Z] spawned everything!
+[2025-04-17T01:37:37.978Z] local group put done!
+[2025-04-17T01:37:37.991Z] about to start tests!
+[2025-04-17T01:37:37.991Z] start tests
+[2025-04-17T01:38:37.355Z] Script started
+[2025-04-17T01:38:37.842Z] spawned everything!
+[2025-04-17T01:38:37.845Z] local group put done!
+[2025-04-17T01:38:37.858Z] about to start tests!
+[2025-04-17T01:38:37.859Z] start tests
+[2025-04-17T01:45:00.712Z] Script started
+[2025-04-17T01:45:01.201Z] spawned everything!
+[2025-04-17T01:45:01.204Z] local group put done!
+[2025-04-17T01:45:01.216Z] about to start tests!
+[2025-04-17T01:45:01.216Z] start tests
+[2025-04-17T01:46:13.575Z] Script started
+[2025-04-17T01:46:14.084Z] spawned everything!
+[2025-04-17T01:46:14.086Z] local group put done!
+[2025-04-17T01:46:14.098Z] about to start tests!
+[2025-04-17T01:46:14.099Z] start tests
+[2025-04-17T01:46:34.137Z] Script started
+[2025-04-17T01:46:34.665Z] spawned everything!
+[2025-04-17T01:46:34.667Z] local group put done!
+[2025-04-17T01:46:34.684Z] about to start tests!
+[2025-04-17T01:46:34.684Z] start tests
+[2025-04-17T01:53:00.266Z] Script started
+[2025-04-17T01:53:00.777Z] spawned everything!
+[2025-04-17T01:53:00.779Z] local group put done!
+[2025-04-17T01:53:00.792Z] about to start tests!
+[2025-04-17T01:53:00.793Z] start tests
+[2025-04-17T01:53:38.103Z] Script started
+[2025-04-17T01:53:38.585Z] spawned everything!
+[2025-04-17T01:53:38.588Z] local group put done!
+[2025-04-17T01:53:38.600Z] about to start tests!
+[2025-04-17T01:53:38.601Z] start tests
+[2025-04-17T02:02:51.740Z] Script started
+[2025-04-17T02:02:52.253Z] spawned everything!
+[2025-04-17T02:02:52.255Z] local group put done!
+[2025-04-17T02:02:52.268Z] about to start tests!
+[2025-04-17T02:02:52.268Z] start tests
+[2025-04-17T02:02:52.866Z] ERROR: Search query error: Error: [QUERY] n‑gram pipeline failed: Empty processedQuery
+[2025-04-17T02:04:13.811Z] Script started
+[2025-04-17T02:04:14.326Z] spawned everything!
+[2025-04-17T02:04:14.328Z] local group put done!
+[2025-04-17T02:04:14.342Z] about to start tests!
+[2025-04-17T02:04:14.342Z] start tests
+[2025-04-17T02:06:43.754Z] Script started
+[2025-04-17T02:06:44.297Z] spawned everything!
+[2025-04-17T02:06:44.299Z] local group put done!
+[2025-04-17T02:06:44.312Z] about to start tests!
+[2025-04-17T02:06:44.313Z] start tests
+[2025-04-17T02:07:39.343Z] Script started
+[2025-04-17T02:07:39.851Z] spawned everything!
+[2025-04-17T02:07:39.853Z] local group put done!
+[2025-04-17T02:07:39.865Z] about to start tests!
+[2025-04-17T02:07:39.866Z] start tests
+[2025-04-17T02:07:40.506Z] Search query succeeded: []
+[2025-04-17T02:07:40.506Z] Search query succeeded: []
+[2025-04-17T02:07:57.196Z] Script started
+[2025-04-17T02:07:57.794Z] spawned everything!
+[2025-04-17T02:07:57.796Z] local group put done!
+[2025-04-17T02:07:57.810Z] about to start tests!
+[2025-04-17T02:07:57.811Z] start tests
+[2025-04-17T02:07:58.393Z] Search query succeeded: []
+[2025-04-17T02:08:21.458Z] Script started
+[2025-04-17T02:08:21.972Z] spawned everything!
+[2025-04-17T02:08:21.974Z] local group put done!
+[2025-04-17T02:08:21.986Z] about to start tests!
+[2025-04-17T02:08:21.987Z] start tests
+[2025-04-17T02:08:22.534Z] Search query succeeded: []
+[2025-04-17T02:08:22.535Z] Search query succeeded: []
+[2025-04-17T02:08:22.536Z] Search query succeeded: [{"https://atlas.cs.brown.edu/data/gutenberg/indextree.txt":0}]
+[2025-04-17T02:09:55.608Z] Script started
+[2025-04-17T02:09:56.118Z] spawned everything!
+[2025-04-17T02:09:56.121Z] local group put done!
+[2025-04-17T02:09:56.136Z] about to start tests!
+[2025-04-17T02:09:56.136Z] start tests
+[2025-04-17T02:09:56.980Z] Search query succeeded: []
+[2025-04-17T02:09:56.981Z] Search query succeeded: []
+[2025-04-17T02:09:56.983Z] Search query succeeded: [{"https://atlas.cs.brown.edu/data/gutenberg/indextree.txt":0}]
+[2025-04-17T02:12:02.717Z] Script started
+[2025-04-17T02:12:03.214Z] spawned everything!
+[2025-04-17T02:12:03.217Z] local group put done!
+[2025-04-17T02:12:03.229Z] about to start tests!
+[2025-04-17T02:12:03.230Z] start tests
+[2025-04-17T02:12:23.194Z] Script started
+[2025-04-17T02:12:23.720Z] spawned everything!
+[2025-04-17T02:12:23.722Z] local group put done!
+[2025-04-17T02:12:23.735Z] about to start tests!
+[2025-04-17T02:12:23.736Z] start tests
+[2025-04-17T02:12:24.285Z] Search query succeeded: []
+[2025-04-17T02:12:24.287Z] Search query succeeded: [{"https://atlas.cs.brown.edu/data/gutenberg/indextree.txt":0}]
+[2025-04-17T02:12:24.288Z] Search query succeeded: [{"https://atlas.cs.brown.edu/data/gutenberg/indextree.txt":0}]
+[2025-04-17T02:13:05.623Z] Script started
+[2025-04-17T02:13:06.134Z] spawned everything!
+[2025-04-17T02:13:06.136Z] local group put done!
+[2025-04-17T02:13:06.149Z] about to start tests!
+[2025-04-17T02:13:06.149Z] start tests
+[2025-04-17T02:13:06.720Z] Search query succeeded: []
+[2025-04-17T02:13:06.721Z] Search query succeeded: []
+[2025-04-17T02:13:06.722Z] Search query succeeded: [{"https://atlas.cs.brown.edu/data/gutenberg/indextree.txt":0}]
