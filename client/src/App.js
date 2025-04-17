@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <div id="scrollable-container">
-        <h1>The GOAT-enberg Project</h1>
+        <h1>The GOAT-enberg Project 🐐</h1>
         <SearchBar items={bakeryData} />
         {/* <div id="menu-container">
           {bakeryData.map(

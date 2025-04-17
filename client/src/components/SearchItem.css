@@ -1,18 +1,26 @@
 #item-container {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 100%;
   height: auto;
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; */
+  background-color: rgb(247, 244, 241);
   border-radius: 10px;
   overflow: hidden;
 }
 
 #item-desc {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-left: 20px;
   margin-top: 10px;
   margin-right: 20px;
+  /* display: flex;
+  flex-direction: row; */
+}
+
+#relevancy {
+  float: right;
+  color: #929292;
 }
 
 img {
@@ -40,4 +48,14 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   float: right;
+}
+
+a {
+  text-decoration: underline;
+  color: #5e5b5b;
+  transition: all 0.1s ease;
+}
+
+a:hover {
+  color: hotpink;
 }
