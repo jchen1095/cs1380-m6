@@ -46,31 +46,39 @@ function search(config) {
                 }
                 global.distribution[context.gid].comm.send([processedQuery.trim()], { service: "query", method: "process" }, (e, results) => {
                     console.log("back from local query!")
-                    console.log(e);
-                    console.log(results);
-                    v.foreach(n => console.log(n));
-                    results.forEach(entry => {
-                        let ngram_pls = Object.keys(entry)[0]; // key of ngram "best book"
-                        let value = entry[ngram_pls];          // value object of arrays of url objs
-                        let length = ngram_pls.split(' ').length;; // count the words in the ngram
-                        let idf = Math.log(numDocs/value.length); 
-                        value.forEach(obj => {
-                            console.log("obj", obj)
-                            let url = obj.url;
-                            let freq = obj.freq;
-                            console.log(`N-gram: "${ngram_pls}" (${length}-gram)`);
-                            console.log("Value:", value);
-        
-                            if (!(url in finalQueryUrls)) {
-        
-                                // url is not in the map
-                                finalQueryUrls[url] = 0;
+                    console.log('hellow', e);
+                    console.log('helloddd',results);
+                    // v.foreach(n => console.log(n));
+                    const finalQueryUrls = {};
+                    Object.entries(results).forEach(([nodeId, entry]) => {
+                        Object.entries(entry).forEach(([ngram, docs]) => {
+                            if (!docs || docs.length === 0) {
+                                console.log(`Skipping empty docs for ngram: "${ngram}"`);
+                                return; // ⬅️ skip to next ngram
                             }
-                            //log total num docs/ num docs for the specific ngram appears 
-                            finalQueryUrls[url] += length * freq * idf;
+                            let length = ngram.split(' ').length; // count the words in the ngram
+                            console.log(`N-gram: "${ngram}" (${length}-gram)`);
+                            console.log("Value:", docs, docs.length);
                             
+                            let idf = Math.log(totalCount/docs.length); 
+                            console.log("IDF:", idf);
+                            console.log("total counts", totalCount);
+                            docs.forEach(obj => {
+                                console.log("obj", obj)
+                                let url = obj.url;
+                                let freq = obj.freq;
+                                
+            
+                                if (!(url in finalQueryUrls)) {
+            
+                                    // url is not in the map
+                                    finalQueryUrls[url] = 0;
+                                }
+                                //log total num docs/ num docs for the specific ngram appears 
+                                finalQueryUrls[url] += length * freq * idf;
+                          });
                         });
-                    });            
+                    
                     let resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
                         console.log("URL,", url)
                         console.log("SORCE:", score)
@@ -83,8 +91,9 @@ function search(config) {
                 })
             })
             
-        }
+        });
     }
+}
 }
 
 

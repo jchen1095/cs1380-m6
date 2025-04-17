@@ -1,0 +1,4 @@
+https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt
+https://atlas.cs.brown.edu/data/gutenberg/indextree.txt
+https://atlas.cs.brown.edu/data/gutenberg/retired/
+
