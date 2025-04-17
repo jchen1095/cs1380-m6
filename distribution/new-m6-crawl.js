@@ -13,7 +13,7 @@ group[getSID(n2)] = n2;
 group[getSID(n3)] = n3;
 
 let localServer = null;
-const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/2/8/6/"
+const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/"
 
 const startTests = () => {
     // Get node for URL
