@@ -33,6 +33,11 @@ function search(config) {
                 let totalCount = 0;
                 console.log("counts:",counts);
                 Object.values(counts).forEach(c => totalCount+=c);
+                const command =
+                    'echo "' + args + '"'
+                    + ' | ./c/process.sh'
+                    + ' | node ./c/stem.js'
+                    + ' | ./c/combine.sh';
                 let processedQuery;
                 try {
                     processedQuery = spawnSync('bash', ['-c', 'echo "gutenberg"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'], {
