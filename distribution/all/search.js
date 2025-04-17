@@ -1,4 +1,3 @@
-const { newUrls } = require("../local/local");
 const { spawnSync } = require("child_process");
 
 function search(config) {
@@ -21,8 +20,9 @@ function search(config) {
             })
         },
 
-        query: (args, dir, callback) => {
-            path = dir || './c/';
+        query: (args, callback) => {
+            const path = require('path');
+            const p = path.join(__dirname, '..','..','non-distribution','c');
             callback = callback || function () { };
             console.log('in distributed query', args);
             global.distribution[context.gid].comm.send([], {service: 'newUrls', method: 'status'}, (e,counts) => {
@@ -34,7 +34,9 @@ function search(config) {
                 let totalCount = 0;
                 console.log("counts:",counts);
                 Object.values(counts).forEach(c => totalCount+=c);
-                const command = `echo "${args}" | ${path}process.sh | node ${path}stem.js | ${path}combine.sh`;
+                console.log(p);
+                const command = `echo "${args}" | ${p}/process.sh | node ${p}/stem.js | ${p}/combine.sh`; //| node ${path}/stem.js | ${path}/combine.sh
+                ///usr/src/app/Desktop/distributed_systems/cs1380-m6/non-distribution/c/process.sh
                     // 'echo "' + args + '"'
                     // + ' | ./c/process.sh'
                     // + ' | node ./c/stem.js'
@@ -45,6 +47,7 @@ function search(config) {
                     processedQuery = spawnSync('bash', ['-c', command], { //'echo "gutenberg"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'
                         encoding: 'utf-8'
                     }).stdout;
+                    console.log("processed query", processedQuery)
                     console.log("hello")
                     if (processedQuery=='') {
                         console.log("hello")
@@ -97,7 +100,8 @@ function search(config) {
                         console.log("URL,", url)
                         console.log("SORCE:", score)
                         return { url: url, score: score };
-                    });
+                    })
+                    resultArray = resultArray.sort((a,b) => {b.score - a.score});
                     
                     console.log("Final weighted URLs:", resultArray);
                     callback(null, resultArray);

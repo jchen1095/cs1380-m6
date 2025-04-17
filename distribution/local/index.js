@@ -5,7 +5,7 @@ const id = require('../util/util').id;
 if (!fs.existsSync('ngrams')) {
   fs.mkdirSync('ngrams', { recursive: true });
 }
-const rootPath = path.join('ngrams', `${id.getSID(global.nodeConfig)}`);
+const rootPath = path.join(__dirname, '..', '..','non-distribution','ngrams', `${id.getSID(global.nodeConfig)}`);
 if (!fs.existsSync(rootPath)) {
   fs.mkdirSync(rootPath, { recursive: true });
 }
@@ -35,8 +35,8 @@ function get(ngram, callback) {
             });
         callback(null, indices);
     } catch (e) {
-        // console.log('[Index] Error:', e.message)
-        callback(e, []);
+        console.log('[Index] Error:', e.message)
+        callback(null, []);
     }
 }
 

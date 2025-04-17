@@ -11,7 +11,7 @@ function process(input, callback) {
         console.log("ngrams:", ngrams);
         ngrams.forEach(ngram => {
             try {
-                global.distribution.local.index.get(ngram, (err, value) => {
+                global.distribution.local.index.get(ngram.trim(), (err, value) => {
                     count++;
                     console.log("Index v:", value);
                     //console.log("Index err:", err);

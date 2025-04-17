@@ -3,6 +3,7 @@ import './SearchBar.css';
 import SearchItem from './SearchItem';
 import './SearchItem.css';
 import axios from 'axios';
+const {deserialize} = require('deserialize');
 
 function SearchBar() {
   const [query, setQuery] = useState('');
@@ -16,9 +17,13 @@ function SearchBar() {
         ]);
         return;
       }
+      console.log("query")
       const res = await axios.get('http://localhost:3001/search', {
         params: { q: query },
       });
+      console.log(res);
+      const r = JSON.parse(res);
+      console.log(r)
       setResults(res.data.result);
     } catch (err) {
       console.error('Search failed: ', err);

@@ -1,7 +1,6 @@
 const distribution = require("../distribution");
 const { getSID, getID, consistentHash } = require("./util/id");
 const fs = require("fs");
-const { id } = require("./util/util");
 
 const n1 = { ip: "54.173.212.156", port: 12345 }
 const n2 = { ip: "44.204.175.147", port: 12346 }
