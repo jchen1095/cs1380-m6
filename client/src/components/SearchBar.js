@@ -29,10 +29,10 @@ function SearchBar() {
     <div>
       <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search..." />
       <button id="search-button" onClick={handleSearch}>Search</button>
-      <div id="results">{results.map(result => <SearchItem url={result.url} relevancy={result.relevancy} />)}</div>
+      {results && results.length > 0 && (<div id="results">{results.map(result => <SearchItem url={result.url} relevancy={result.relevancy} />)}</div>)}
       {/* TODO assume results are in a list */}
       {/* <ul>
-        {results.map((item, i) => (
+        // {results.map((item, i) => (
           <li key={i}><SearchItem url={item.url} /></li>
         ))}
       </ul> */}

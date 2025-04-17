@@ -48,6 +48,7 @@ const startTests = (callback) => {
 }
 
 fs.appendFileSync('debug.log', 'starting nodes....\n');
+console.log("Received Request")
 distribution.node.start((server) => {
     fs.appendFileSync('debug.log', 'nodes started\n');
     localServer = server
@@ -66,12 +67,17 @@ distribution.node.start((server) => {
                             fs.appendFileSync('debug.log', `Error: ${err}\n`);
                         } else {
                             fs.appendFileSync('debug.log', `Got result: ${JSON.stringify(result)}\n`);
+                            
+                            
+                            return result;
                         }
+                        stopNodes(() => {})
                     });
                 })
             })
         } catch (e) {
             console.log("e???", e);
+            stopNodes(() => {})
         }
     })
 })

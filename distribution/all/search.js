@@ -21,7 +21,8 @@ function search(config) {
             })
         },
 
-        query: (args, callback) => {
+        query: (args, dir, callback) => {
+            path = dir || './c/';
             callback = callback || function () { };
             console.log('in distributed query', args);
             global.distribution[context.gid].comm.send([], {service: 'newUrls', method: 'status'}, (e,counts) => {
@@ -33,17 +34,27 @@ function search(config) {
                 let totalCount = 0;
                 console.log("counts:",counts);
                 Object.values(counts).forEach(c => totalCount+=c);
-                const command =
-                    'echo "' + args + '"'
-                    + ' | ./c/process.sh'
-                    + ' | node ./c/stem.js'
-                    + ' | ./c/combine.sh';
+                const command = `echo "${args}" | ${path}process.sh | node ${path}stem.js | ${path}combine.sh`;
+                    // 'echo "' + args + '"'
+                    // + ' | ./c/process.sh'
+                    // + ' | node ./c/stem.js'
+                    // + ' | ./c/combine.sh';
                 let processedQuery;
                 try {
-                    processedQuery = spawnSync('bash', ['-c', 'echo "gutenberg"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'], {
+                    console.log("command", command)
+                    processedQuery = spawnSync('bash', ['-c', command], { //'echo "gutenberg"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'
                         encoding: 'utf-8'
-                    }).stdout;        
-                    
+                    }).stdout;
+                    console.log("hello")
+                    if (processedQuery=='') {
+                        console.log("hello")
+                        console.log("processed query is empty");
+                        callback(null, []);
+                        return;
+                    }
+                    console.log("P", processedQuery)
+
+                    // console.log("processed query:", processedQuery);
                 } catch (e) {
                     console.log("the error!: ", e.message);
                     callback(new Error("[QUERY] Error in calculating n-grams: ", e.message));
@@ -59,7 +70,7 @@ function search(config) {
                         Object.entries(entry).forEach(([ngram, docs]) => {
                             if (!docs || docs.length === 0) {
                                 console.log(`Skipping empty docs for ngram: "${ngram}"`);
-                                return; // ⬅️ skip to next ngram
+                                return; // skip to next ngram
                             }
                             let length = ngram.split(' ').length; // count the words in the ngram
                             console.log(`N-gram: "${ngram}" (${length}-gram)`);
@@ -72,10 +83,8 @@ function search(config) {
                                 console.log("obj", obj)
                                 let url = obj.url;
                                 let freq = obj.freq;
-                                
             
                                 if (!(url in finalQueryUrls)) {
-            
                                     // url is not in the map
                                     finalQueryUrls[url] = 0;
                                 }
@@ -87,7 +96,7 @@ function search(config) {
                     let resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
                         console.log("URL,", url)
                         console.log("SORCE:", score)
-                        return { [url]: score };
+                        return { url: url, score: score };
                     });
                     
                     console.log("Final weighted URLs:", resultArray);
