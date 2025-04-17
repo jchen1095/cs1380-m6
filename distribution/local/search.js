@@ -12,7 +12,7 @@ function start(gid, callback) {
             if (currIters < CAP) {
                 _poll(gid);
             }
-        }, 10);
+        }, 500);
         // console.log("successfully set interval for poll!")
         callback(null, true);
     } catch (e) {
