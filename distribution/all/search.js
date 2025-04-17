@@ -35,7 +35,7 @@ function search(config) {
                 Object.values(counts).forEach(c => totalCount+=c);
                 let processedQuery;
                 try {
-                    processedQuery = spawnSync('bash', ['-c', 'echo "amor txt"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'], {
+                    processedQuery = spawnSync('bash', ['-c', 'echo "gutenberg"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'], {
                         encoding: 'utf-8'
                     }).stdout;        
                     

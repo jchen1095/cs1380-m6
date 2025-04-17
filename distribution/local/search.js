@@ -276,4 +276,4 @@ function query(args, numDocs, callback){
 }
 
 
-module.exports = { crawl, start, query }
+module.exports = { crawl, start }

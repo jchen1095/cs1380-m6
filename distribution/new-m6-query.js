@@ -1,70 +1,93 @@
 const fs = require('fs');
-const path = require('path');
-
-const logFilePath = path.join(__dirname, 'outputpls.txt');
-
-// Log "Script started"
-fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] Script started\n`);
-
-// Import modules
+fs.appendFileSync('debug.log', '=== Script started ===\n');
 const distribution = require("../distribution");
 const { getSID, getID, consistentHash } = require("./util/id");
 
-const n1 = { ip: "127.0.0.1", port: 12345 };
-const n2 = { ip: "127.0.0.1", port: 12346 };
-const n3 = { ip: "127.0.0.1", port: 12347 };
+const n1 = { ip: "127.0.0.1", port: 12345 }
+const n2 = { ip: "127.0.0.1", port: 12346 }
+const n3 = { ip: "127.0.0.1", port: 12347 }
 
-const group = {};
+const group = {}
 group[getSID(n1)] = n1;
 group[getSID(n2)] = n2;
 group[getSID(n3)] = n3;
 
 let localServer = null;
-const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/";
+const CRAWL_URL = "https://atlas.cs.brown.edu/data/gutenberg/"
 
-const startTests = () => {
-    fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] start tests\n`);
+const startTests = (callback) => {
+    fs.appendFileSync('debug.log', 'Hit startTests()\n');
+    // Get node for URL
+    // const args = process.argv[0]; // Get command-line arguments
     const args = process.argv.slice(2);
     if (args.length < 1) {
-        fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] ERROR: Usage: ./query.js [query_strings...]\n`);
+        console.error('Usage: ./query.js [query_strings...]');
         process.exit(1);
     }
+    fs.appendFileSync('debug.log', 'args are good\n');
+    
     global.distribution.queryg.search.query(args, (e, v) => {
         if (e) {
-            fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] ERROR: Search query error: ${e}\n`);
-        } else {
-            fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] Search query succeeded: ${JSON.stringify(v)}\n`);
-        }
+            fs.appendFileSync('debug.log', 'error\n');
+            callback(e, null);
+        };
+        // console.log("gets here!");
+        fs.appendFileSync('debug.log', 'query done????\n');
+        callback(null, v);
     });
-};
+    // global.distribution.crawl.store.getNode(CRAWL_URL, (e, node) => {
+    //     // console.log("gets after getNode");
+    //     global.distribution.local.comm.send([[CRAWL_URL]], { node: node, service: "newUrls", "method": "put" }, (e, v) => {
+    //         // console.log("comm send crawl url worked")
+    //         // console.log("v:", v);
+    //         global.distribution.crawl.search.query(args, (e, v) => {
+    //             fs.appendFileSync('debug.log', 'gets in here\n');
+    //         });
+    //     })
+    // })
+}
 
+fs.appendFileSync('debug.log', 'starting nodes....\n');
 distribution.node.start((server) => {
-    localServer = server;
+    fs.appendFileSync('debug.log', 'nodes started\n');
+    localServer = server
     startNodes(() => {
+        fs.appendFileSync('debug.log', 'start nodes done\n');
+        // console.log("start Nodes done!");
         try {
             global.distribution.local.groups.put({ gid: "queryg", hash: consistentHash }, group, (e, node) => {
-                fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] local group put done!\n`);
-                if (e) {
-                    fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] ERROR: Error putting local group: ${e}\n`);
-                }
+                // console.log("local group put done!");
                 global.distribution.queryg.groups.put({ gid: "queryg" }, group, (e, node) => {
-                    fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] about to start tests!\n`);
-                    startTests();
-                });
-            });
+                    // console.log("about to start tests!");
+                    fs.appendFileSync('debug.log', 'about to start tests\n');
+                    startTests((err, result) => {
+                        fs.appendFileSync('debug.log', 'Start tests finished!\n');
+                        if (err) {
+                            fs.appendFileSync('debug.log', `Error: ${err}\n`);
+                        } else {
+                            fs.appendFileSync('debug.log', `Got result: ${JSON.stringify(result)}\n`);
+                        }
+                    });
+                })
+            })
         } catch (e) {
-            fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] Exception encountered: ${e}\n`);
+            console.log("e???", e);
         }
-    });
-});
+    })
+})
 
 
+const hashURL = (url) => {
+    return getID(url).slice(0, 20);
+}
 
 const startNodes = (cb) => {
+    fs.appendFileSync('debug.log', 'inside startNodes\n');
     global.distribution.local.status.spawn(n1, (e, node) => {
         global.distribution.local.status.spawn(n2, (e, node) => {
             global.distribution.local.status.spawn(n3, (e, node) => {
-                fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] spawned everything!\n`);
+                // console.log("spawned everything!");
+                fs.appendFileSync('debug.log', 'spawned everything\n');
                 cb();
             });
         });
@@ -80,11 +103,9 @@ const stopNodes = (cb) => {
             remote.node = n3;
             distribution.local.comm.send([], remote, (e, node) => {
                 localServer.close();
-                if (cb) cb();
             });
         });
     });
-};
+}
 
-// Uncomment the line below to immediately start tests when this script runs
 // startTests();
