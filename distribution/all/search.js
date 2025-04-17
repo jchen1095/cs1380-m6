@@ -1,4 +1,5 @@
 const { newUrls } = require("../local/local");
+const { spawnSync } = require("child_process");
 
 function search(config) {
     const context = {};
@@ -32,12 +33,53 @@ function search(config) {
                 let totalCount = 0;
                 console.log("counts:",counts);
                 Object.values(counts).forEach(c => totalCount+=c);
-                global.distribution[context.gid].comm.send([args, totalCount], { service: "search", method: "query" }, (e, results) => {
-                    console.log("back from group query!")
+                let processedQuery;
+                try {
+                    processedQuery = spawnSync('bash', ['-c', 'echo "amor txt"| ./c/process.sh | node ./c/stem.js | ./c/combine.js'], {
+                        encoding: 'utf-8'
+                    }).stdout;        
+                    
+                } catch (e) {
+                    console.log("the error!: ", e.message);
+                    callback(new Error("[QUERY] Error in calculating n-grams: ", e.message));
+                    return;
+                }
+                global.distribution[context.gid].comm.send([processedQuery.trim()], { service: "query", method: "process" }, (e, results) => {
+                    console.log("back from local query!")
                     console.log(e);
-                    console.log(v);
+                    console.log(results);
                     v.foreach(n => console.log(n));
-                    callback(e, v);
+                    results.forEach(entry => {
+                        let ngram_pls = Object.keys(entry)[0]; // key of ngram "best book"
+                        let value = entry[ngram_pls];          // value object of arrays of url objs
+                        let length = ngram_pls.split(' ').length;; // count the words in the ngram
+                        let idf = Math.log(numDocs/value.length); 
+                        value.forEach(obj => {
+                            console.log("obj", obj)
+                            let url = obj.url;
+                            let freq = obj.freq;
+                            console.log(`N-gram: "${ngram_pls}" (${length}-gram)`);
+                            console.log("Value:", value);
+        
+                            if (!(url in finalQueryUrls)) {
+        
+                                // url is not in the map
+                                finalQueryUrls[url] = 0;
+                            }
+                            //log total num docs/ num docs for the specific ngram appears 
+                            finalQueryUrls[url] += length * freq * idf;
+                            
+                        });
+                    });            
+                    let resultArray = Object.entries(finalQueryUrls).map(([url, score]) => {
+                        console.log("URL,", url)
+                        console.log("SORCE:", score)
+                        return { [url]: score };
+                    });
+                    
+                    console.log("Final weighted URLs:", resultArray);
+                    callback(null, resultArray);
+                    // callback(e, results);
                 })
             })
             
