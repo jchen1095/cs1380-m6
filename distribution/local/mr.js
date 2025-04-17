@@ -281,9 +281,9 @@ function _mr(config) {
                         // get the keys from the newUrls route
                         // console.log("DO WE EVER GET HERE???????");
                         global.distribution.local.newUrls.get((e, v) => {
-                            let result = v;
+                            let newUrlsResult = v;
                             if (e) {
-                                result = []
+                                newUrlsResult = []
                             }
                             // console.log("e:", e);
                             // console.log("v:", v);

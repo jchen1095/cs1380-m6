@@ -1,6 +1,49 @@
 input {
-    width: 100%;
+    width: 85%;
     padding: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #e4e2e0;
     border-radius: 12px;
+    background-color: rgb(249, 248, 246);
+    color: rgb(99, 77, 63);
+    font-family: "Nunito", sans-serif;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid hotpink;
+    transition: all 0.3s ease;
+}
+
+#results {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#search-button {
+    border-radius: 5px;
+    background-color: rgb(231, 227, 222);
+    color: rgb(99, 77, 63);
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    float: right;
+}
+
+#search-button:hover {
+    background-color: rgb(213, 206, 198);
+}
+
+#search-button:active {
+    background-color: rgb(197, 184, 169);
 }

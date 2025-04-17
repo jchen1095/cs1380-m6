@@ -248,10 +248,10 @@ const startTests = () => {
                 // console.log("does this get sent?");
                 // console.log("newUrls put e:", e);
                 // console.log("newUrls put node:", node);
-                if (e) {
-                    cb(e);
-                    return;
-                }
+                // if (e) {
+                //     cb(e);
+                //     return;
+                // }
                 // distribution.crawl.store.put(CRAWL_URL, hashURL(CRAWL_URL), (e, node) => {
                 //     if(e) {
                 //         cb(e);

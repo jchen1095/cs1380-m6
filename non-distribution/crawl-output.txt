@@ -1,0 +1,1241 @@
+e0854: getAll result:  undefined
+93959: getAll result:  undefined
+ef47f: getAll result:  { e71890ee407776518c69: 'https://atlas.cs.brown.edu/data/gutenberg' }
+ef47f: result from newUrls get: [
+  { e71890ee407776518c69: 'https://atlas.cs.brown.edu/data/gutenberg' }
+]
+ef47f: execMap is called with:  e71890ee407776518c69 https://atlas.cs.brown.edu/data/gutenberg
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e71890ee407776518c69' ] [ 'https://atlas.cs.brown.edu/data/gutenberg' ]
+sidToURLList[nsid]: [
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  { '79ccb7a2844283d086a5': 'https://atlas.cs.brown.edu/data/' },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '23410ae4cf70ee0ee0d2': 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    d52c05b38ba5d8bf0bb1: 'https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt'
+  },
+  {
+    c4f9a8e2dc80057a45d9: 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  }
+]
+count reached
+count reached
+count reached
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+localKeyCounts: 1
+localKeys.length: 0
+done going through all the keys; bye!
+DONE MAPPING!
+Reducer key: a
+Reducer value: [
+  null, null, null,
+  null, null, null,
+  null, null, null
+]
+[reduce] temp: {
+  status: 0,
+  signal: null,
+  output: [
+    null,
+    '',
+    ',,,,,,,,\n' +
+      "Error reading file: [Error: ENOENT: no such file or directory, open ',,,,,,,,'] {\n" +
+      '  errno: -2,\n' +
+      "  code: 'ENOENT',\n" +
+      "  syscall: 'open',\n" +
+      "  path: ',,,,,,,,'\n" +
+      '}\n'
+  ],
+  pid: 29604,
+  stdout: '',
+  stderr: ',,,,,,,,\n' +
+    "Error reading file: [Error: ENOENT: no such file or directory, open ',,,,,,,,'] {\n" +
+    '  errno: -2,\n' +
+    "  code: 'ENOENT',\n" +
+    "  syscall: 'open',\n" +
+    "  path: ',,,,,,,,'\n" +
+    '}\n'
+}
+
+[reduce] ran: 
+[MR ITERATION] Count: 0
+ef47f: getAll result:  {
+  e71890ee407776518c69: 'https://atlas.cs.brown.edu/data/gutenberg',
+  ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+}
+e0854: getAll result:  {
+  d52c05b38ba5d8bf0bb1: 'https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt',
+  c4f9a8e2dc80057a45d9: 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt',
+  '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+}
+ef47f: result from newUrls get: [
+  { e71890ee407776518c69: 'https://atlas.cs.brown.edu/data/gutenberg' },
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  }
+]
+e0854: result from newUrls get: [
+  {
+    d52c05b38ba5d8bf0bb1: 'https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt'
+  },
+  {
+    c4f9a8e2dc80057a45d9: 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  }
+]
+ef47f: execMap is called with:  e71890ee407776518c69 https://atlas.cs.brown.edu/data/gutenberg
+e0854: execMap is called with:  d52c05b38ba5d8bf0bb1 https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt
+ef47f: Object.keys(obj), Object.values(obj):  [ 'e71890ee407776518c69' ] [ 'https://atlas.cs.brown.edu/data/gutenberg' ]
+e0854: Object.keys(obj), Object.values(obj):  [ 'd52c05b38ba5d8bf0bb1' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt' ]
+93959: getAll result:  {
+  '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/',
+  '79ccb7a2844283d086a5': 'https://atlas.cs.brown.edu/data/',
+  '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/',
+  '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/',
+  '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/',
+  '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/',
+  '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/',
+  '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/',
+  '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/',
+  '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/',
+  '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/',
+  '23410ae4cf70ee0ee0d2': 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+}
+93959: result from newUrls get: [
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  { '79ccb7a2844283d086a5': 'https://atlas.cs.brown.edu/data/' },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '23410ae4cf70ee0ee0d2': 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  }
+]
+93959: execMap is called with:  24d40372efa1cfc87c6d https://atlas.cs.brown.edu/data/gutenberg/
+93959: Object.keys(obj), Object.values(obj):  [ '24d40372efa1cfc87c6d' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/' ]
+e0854: execMap is called with:  c4f9a8e2dc80057a45d9 https://atlas.cs.brown.edu/data/gutenberg/indextree.txt
+e0854: Object.keys(obj), Object.values(obj):  [ 'c4f9a8e2dc80057a45d9' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt' ]
+ef47f: execMap is called with:  ee94fb36ecc062a4cd5d https://atlas.cs.brown.edu/data/gutenberg/3/
+ef47f: Object.keys(obj), Object.values(obj):  [ 'ee94fb36ecc062a4cd5d' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/3/' ]
+93959: execMap is called with:  79ccb7a2844283d086a5 https://atlas.cs.brown.edu/data/
+93959: Object.keys(obj), Object.values(obj):  [ '79ccb7a2844283d086a5' ] [ 'https://atlas.cs.brown.edu/data/' ]
+93959: execMap is called with:  925bb111b96f124a45aa https://atlas.cs.brown.edu/data/gutenberg/0/
+93959: Object.keys(obj), Object.values(obj):  [ '925bb111b96f124a45aa' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/0/' ]
+93959: execMap is called with:  2ae163acad6522ca6c14 https://atlas.cs.brown.edu/data/gutenberg/1/
+93959: Object.keys(obj), Object.values(obj):  [ '2ae163acad6522ca6c14' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/1/' ]
+93959: execMap is called with:  6a0d2c61a9f9454e3a4b https://atlas.cs.brown.edu/data/gutenberg/2/
+93959: Object.keys(obj), Object.values(obj):  [ '6a0d2c61a9f9454e3a4b' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/2/' ]
+93959: execMap is called with:  71be4a32112f0d31525d https://atlas.cs.brown.edu/data/gutenberg/4/
+93959: Object.keys(obj), Object.values(obj):  [ '71be4a32112f0d31525d' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/4/' ]
+93959: execMap is called with:  68eddc5b20829d6d7733 https://atlas.cs.brown.edu/data/gutenberg/5/
+93959: Object.keys(obj), Object.values(obj):  [ '68eddc5b20829d6d7733' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/5/' ]
+93959: execMap is called with:  6037210139c526ef49f9 https://atlas.cs.brown.edu/data/gutenberg/6/
+93959: Object.keys(obj), Object.values(obj):  [ '6037210139c526ef49f9' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/6/' ]
+93959: execMap is called with:  4021fb37a69eac4be360 https://atlas.cs.brown.edu/data/gutenberg/7/
+93959: Object.keys(obj), Object.values(obj):  [ '4021fb37a69eac4be360' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/7/' ]
+93959: execMap is called with:  2e1ac8b38cc3bc34874b https://atlas.cs.brown.edu/data/gutenberg/8/
+93959: Object.keys(obj), Object.values(obj):  [ '2e1ac8b38cc3bc34874b' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/8/' ]
+93959: execMap is called with:  87b8251b60a5236986ee https://atlas.cs.brown.edu/data/gutenberg/9/
+93959: Object.keys(obj), Object.values(obj):  [ '87b8251b60a5236986ee' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/9/' ]
+93959: execMap is called with:  23410ae4cf70ee0ee0d2 https://atlas.cs.brown.edu/data/gutenberg/books.txt
+93959: Object.keys(obj), Object.values(obj):  [ '23410ae4cf70ee0ee0d2' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/books.txt' ]
+e0854: execMap is called with:  9e025d9e69e2ad77f6a4 https://atlas.cs.brown.edu/data/gutenberg/retired/
+e0854: Object.keys(obj), Object.values(obj):  [ '9e025d9e69e2ad77f6a4' ] [ 'https://atlas.cs.brown.edu/data/gutenberg/retired/' ]
+sidToURLList[nsid]: [
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '07e6dfb5a23e02cd018c': 'https://atlas.cs.brown.edu/data/gutenberg/3/0/'
+  },
+  {
+    '558309a097cfbd23560c': 'https://atlas.cs.brown.edu/data/gutenberg/3/1/'
+  },
+  {
+    '652c1f420976ff189c8b': 'https://atlas.cs.brown.edu/data/gutenberg/3/6/'
+  },
+  {
+    '214a822de89d054f424e': 'https://atlas.cs.brown.edu/data/gutenberg/3/7/'
+  },
+  {
+    '792e6ea54bf08ee46cba': 'https://atlas.cs.brown.edu/data/gutenberg/3/8/'
+  },
+  {
+    '363d3cd828af65ac09c0': 'https://atlas.cs.brown.edu/data/gutenberg/3/33/'
+  },
+  {
+    ff2c94e76c3e6d100081: 'https://atlas.cs.brown.edu/data/gutenberg/3/35/'
+  },
+  {
+    '37ff10c18a888ef2e8a0': 'https://atlas.cs.brown.edu/data/gutenberg/3/36/'
+  },
+  {
+    '0657661a6d22ca173a78': 'https://atlas.cs.brown.edu/data/gutenberg/3/37/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  },
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  },
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  },
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  },
+  {
+    e1f22b459e453c621bc9: 'https://atlas.cs.brown.edu/data/gutenberg/3/4/'
+  },
+  {
+    eb5c306092daee3f0c66: 'https://atlas.cs.brown.edu/data/gutenberg/3/30/'
+  },
+  {
+    e58523a2bdc5f910b0c1: 'https://atlas.cs.brown.edu/data/gutenberg/3/39/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    '0fb329f20cca6ffb314e': 'https://atlas.cs.brown.edu/data/gutenberg/3/2/'
+  },
+  {
+    cb58ee41d91f57e8ffa4: 'https://atlas.cs.brown.edu/data/gutenberg/3/3/'
+  },
+  {
+    '945da9e5fe096b764a20': 'https://atlas.cs.brown.edu/data/gutenberg/3/5/'
+  },
+  {
+    '97dea2cf784cdbca8eb6': 'https://atlas.cs.brown.edu/data/gutenberg/3/9/'
+  },
+  {
+    d6a28636cb1e283a9ea1: 'https://atlas.cs.brown.edu/data/gutenberg/3/31/'
+  },
+  {
+    d79b1c9e65b13fe7c872: 'https://atlas.cs.brown.edu/data/gutenberg/3/32/'
+  },
+  {
+    cc5f26d56b6f2ae5b8cb: 'https://atlas.cs.brown.edu/data/gutenberg/3/34/'
+  },
+  {
+    '0fd69383e9560ae6ce03': 'https://atlas.cs.brown.edu/data/gutenberg/3/38/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  { '79ccb7a2844283d086a5': 'https://atlas.cs.brown.edu/data/' },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '23410ae4cf70ee0ee0d2': 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    d52c05b38ba5d8bf0bb1: 'https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt'
+  },
+  {
+    c4f9a8e2dc80057a45d9: 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  }
+]
+count reached
+count reached
+count reached
+count reached
+count reached
+count reached
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+sidToURLList[nsid]: [
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '37af9f09ecf8cdcb801b': 'https://atlas.cs.brown.edu/data/gutenberg/retired/etext05/'
+  }
+]
+localKeyCounts: 1
+localKeys.length: 0
+sidToURLList[nsid]: [
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  }
+]
+count reached
+count reached
+sidToURLList[nsid]: [
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  { '79ccb7a2844283d086a5': 'https://atlas.cs.brown.edu/data/' },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '23410ae4cf70ee0ee0d2': 'https://atlas.cs.brown.edu/data/gutenberg/books.txt'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    ee94fb36ecc062a4cd5d: 'https://atlas.cs.brown.edu/data/gutenberg/3/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    d52c05b38ba5d8bf0bb1: 'https://atlas.cs.brown.edu/data/gutenberg/donate-howto.txt'
+  },
+  {
+    c4f9a8e2dc80057a45d9: 'https://atlas.cs.brown.edu/data/gutenberg/indextree.txt'
+  },
+  {
+    '9e025d9e69e2ad77f6a4': 'https://atlas.cs.brown.edu/data/gutenberg/retired/'
+  }
+]
+count reached
+sidToURLList[nsid]: [
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '925bb111b96f124a45aa': 'https://atlas.cs.brown.edu/data/gutenberg/0/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    fad3b6c68a4528df9103: 'https://atlas.cs.brown.edu/data/gutenberg/0/4/'
+  },
+  {
+    '0060c41bdc9889e5292a': 'https://atlas.cs.brown.edu/data/gutenberg/0/7/'
+  },
+  {
+    '8d97cf0504dff47195a5': 'https://atlas.cs.brown.edu/data/gutenberg/0/8/'
+  },
+  {
+    '2719be0ccb98e9251b6a': 'https://atlas.cs.brown.edu/data/gutenberg/0/9/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    a3829cd8538e1c9cb173: 'https://atlas.cs.brown.edu/data/gutenberg/0/1/'
+  },
+  {
+    '1574cb7d9556ea3ba20b': 'https://atlas.cs.brown.edu/data/gutenberg/0/2/'
+  },
+  {
+    ba6f94037c5456888fb0: 'https://atlas.cs.brown.edu/data/gutenberg/0/3/'
+  },
+  {
+    '9e13a3e4b87ad2d22ecd': 'https://atlas.cs.brown.edu/data/gutenberg/0/5/'
+  },
+  {
+    c7e5b80a0c7e1a377481: 'https://atlas.cs.brown.edu/data/gutenberg/0/6/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '2ae163acad6522ca6c14': 'https://atlas.cs.brown.edu/data/gutenberg/1/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '18f34994f896b1ff4e9b': 'https://atlas.cs.brown.edu/data/gutenberg/1/0/'
+  },
+  {
+    '07f604d92f309bbffd63': 'https://atlas.cs.brown.edu/data/gutenberg/1/2/'
+  },
+  {
+    '60853b42d5bbfe70d9dd': 'https://atlas.cs.brown.edu/data/gutenberg/1/7/'
+  },
+  {
+    '74bd467fa010950f93de': 'https://atlas.cs.brown.edu/data/gutenberg/1/8/'
+  },
+  {
+    '5bdb6476e9567182bdfe': 'https://atlas.cs.brown.edu/data/gutenberg/1/9/'
+  },
+  {
+    '2a00056b247c7ac7182d': 'https://atlas.cs.brown.edu/data/gutenberg/1/10/'
+  },
+  {
+    f228a52b88a1d19d3095: 'https://atlas.cs.brown.edu/data/gutenberg/1/11/'
+  },
+  {
+    '54acd23fc056a4c708e7': 'https://atlas.cs.brown.edu/data/gutenberg/1/14/'
+  },
+  {
+    '876a21fe1c3630bd1f36': 'https://atlas.cs.brown.edu/data/gutenberg/1/17/'
+  },
+  {
+    f2a67b1647e70bb10fd8: 'https://atlas.cs.brown.edu/data/gutenberg/1/18/'
+  },
+  {
+    '0ab5dcfe317800e1af73': 'https://atlas.cs.brown.edu/data/gutenberg/1/19/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    acfc60dda4919a2a1b71: 'https://atlas.cs.brown.edu/data/gutenberg/1/1/'
+  },
+  {
+    d47d10190c8d87cb450f: 'https://atlas.cs.brown.edu/data/gutenberg/1/3/'
+  },
+  {
+    c16585a695850f0bfe4c: 'https://atlas.cs.brown.edu/data/gutenberg/1/4/'
+  },
+  {
+    cdb48ca76e23a16fb393: 'https://atlas.cs.brown.edu/data/gutenberg/1/5/'
+  },
+  {
+    c1e9e1b7fc43778c4601: 'https://atlas.cs.brown.edu/data/gutenberg/1/6/'
+  },
+  {
+    d12cd122adb071cdeb8c: 'https://atlas.cs.brown.edu/data/gutenberg/1/12/'
+  },
+  {
+    dffb6a9d392df88e5102: 'https://atlas.cs.brown.edu/data/gutenberg/1/16/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    e49a5b40feeb4ce735a5: 'https://atlas.cs.brown.edu/data/gutenberg/1/13/'
+  },
+  {
+    e82010edfd042d2523bb: 'https://atlas.cs.brown.edu/data/gutenberg/1/15/'
+  }
+]
+count reached
+count reached
+count reached
+sidToURLList[nsid]: [
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '6a0d2c61a9f9454e3a4b': 'https://atlas.cs.brown.edu/data/gutenberg/2/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    fe3f599706f58d4f40bf: 'https://atlas.cs.brown.edu/data/gutenberg/2/1/'
+  },
+  {
+    '40edd85b9597fe917ad5': 'https://atlas.cs.brown.edu/data/gutenberg/2/2/'
+  },
+  {
+    '05af6a568eb728afe55f': 'https://atlas.cs.brown.edu/data/gutenberg/2/3/'
+  },
+  {
+    '0add4df77ac304e1b7bd': 'https://atlas.cs.brown.edu/data/gutenberg/2/4/'
+  },
+  {
+    '76cf225a4d57b0d42831': 'https://atlas.cs.brown.edu/data/gutenberg/2/5/'
+  },
+  {
+    '70bf58cddf9e2ba29f21': 'https://atlas.cs.brown.edu/data/gutenberg/2/6/'
+  },
+  {
+    '912e6cabe664a53e8b47': 'https://atlas.cs.brown.edu/data/gutenberg/2/8/'
+  },
+  {
+    '92b14f808cc51f25c056': 'https://atlas.cs.brown.edu/data/gutenberg/2/9/'
+  },
+  {
+    '4a99eda79507f390c309': 'https://atlas.cs.brown.edu/data/gutenberg/2/21/'
+  },
+  {
+    '899e8392eaaf26415ebb': 'https://atlas.cs.brown.edu/data/gutenberg/2/23/'
+  },
+  {
+    '6b3258fef07c9c44681c': 'https://atlas.cs.brown.edu/data/gutenberg/2/28/'
+  },
+  {
+    '8ecb61f5434e15145e1c': 'https://atlas.cs.brown.edu/data/gutenberg/2/29/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    c32fc780ca9d958d33f9: 'https://atlas.cs.brown.edu/data/gutenberg/2/0/'
+  },
+  {
+    db376f6d2467aca1897a: 'https://atlas.cs.brown.edu/data/gutenberg/2/7/'
+  },
+  {
+    '98ce792586f99e45a8ab': 'https://atlas.cs.brown.edu/data/gutenberg/2/20/'
+  },
+  {
+    a2247c3cf41c911e8da6: 'https://atlas.cs.brown.edu/data/gutenberg/2/22/'
+  },
+  {
+    c4fcbc33183d5917b7f9: 'https://atlas.cs.brown.edu/data/gutenberg/2/24/'
+  },
+  {
+    b991425798e6a0097f02: 'https://atlas.cs.brown.edu/data/gutenberg/2/25/'
+  },
+  {
+    a9ed9f210692f4f54293: 'https://atlas.cs.brown.edu/data/gutenberg/2/27/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    e10b345bf5d4ec7dec72: 'https://atlas.cs.brown.edu/data/gutenberg/2/26/'
+  }
+]
+count reached
+sidToURLList[nsid]: [
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '71be4a32112f0d31525d': 'https://atlas.cs.brown.edu/data/gutenberg/4/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '631d18e705a16451ddde': 'https://atlas.cs.brown.edu/data/gutenberg/4/1/'
+  },
+  {
+    f1fe539454175836cf0b: 'https://atlas.cs.brown.edu/data/gutenberg/4/2/'
+  },
+  {
+    '28926636a810f2563722': 'https://atlas.cs.brown.edu/data/gutenberg/4/3/'
+  },
+  {
+    '5a1648b512f8c4e0a8fc': 'https://atlas.cs.brown.edu/data/gutenberg/4/4/'
+  },
+  {
+    '5f4590b7f406fc6b0b0f': 'https://atlas.cs.brown.edu/data/gutenberg/4/5/'
+  },
+  {
+    '7f623a3522697c4a36c1': 'https://atlas.cs.brown.edu/data/gutenberg/4/6/'
+  },
+  {
+    '780c4d7d7fe5ff3e85d9': 'https://atlas.cs.brown.edu/data/gutenberg/4/7/'
+  },
+  {
+    '2d3643afb057c8eaa307': 'https://atlas.cs.brown.edu/data/gutenberg/4/8/'
+  },
+  {
+    '1dc1ecd49a22c5ad8e90': 'https://atlas.cs.brown.edu/data/gutenberg/4/41/'
+  },
+  {
+    '477b4307a7a55ce0e3c1': 'https://atlas.cs.brown.edu/data/gutenberg/4/42/'
+  },
+  {
+    fc6c7a12dc9c3589c714: 'https://atlas.cs.brown.edu/data/gutenberg/4/43/'
+  },
+  {
+    '3269ea36c2cd53d10de6': 'https://atlas.cs.brown.edu/data/gutenberg/4/44/'
+  },
+  {
+    '0b9767d65ba8e3f88d03': 'https://atlas.cs.brown.edu/data/gutenberg/4/46/'
+  },
+  {
+    '433af42dd4fa486cb189': 'https://atlas.cs.brown.edu/data/gutenberg/4/47/'
+  },
+  {
+    '0097e81d783d765fc8ba': 'https://atlas.cs.brown.edu/data/gutenberg/4/48/'
+  },
+  {
+    '8f624f5d73ea47957180': 'https://atlas.cs.brown.edu/data/gutenberg/4/49/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    aeef432ec96f5811aa68: 'https://atlas.cs.brown.edu/data/gutenberg/4/0/'
+  },
+  {
+    '019c4a11ab30994cabff': 'https://atlas.cs.brown.edu/data/gutenberg/4/9/'
+  },
+  {
+    '9637ae6521e32530dcfe': 'https://atlas.cs.brown.edu/data/gutenberg/4/40/'
+  },
+  {
+    db247a60e3ab0aa68475: 'https://atlas.cs.brown.edu/data/gutenberg/4/45/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '68eddc5b20829d6d7733': 'https://atlas.cs.brown.edu/data/gutenberg/5/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '8a4beb3ffc19cb5e71b6': 'https://atlas.cs.brown.edu/data/gutenberg/5/0/'
+  },
+  {
+    fb10a07e5b4315584079: 'https://atlas.cs.brown.edu/data/gutenberg/5/1/'
+  },
+  {
+    '6cb2470169d80ec706af': 'https://atlas.cs.brown.edu/data/gutenberg/5/2/'
+  },
+  {
+    '6ff6143614d58a791429': 'https://atlas.cs.brown.edu/data/gutenberg/5/3/'
+  },
+  {
+    '0c119db9821fb75bf9ee': 'https://atlas.cs.brown.edu/data/gutenberg/5/4/'
+  },
+  {
+    '70169f86d65d89b7062c': 'https://atlas.cs.brown.edu/data/gutenberg/5/5/'
+  },
+  {
+    fefaa542d66175ef6fde: 'https://atlas.cs.brown.edu/data/gutenberg/5/8/'
+  },
+  {
+    '888526dbcce45f1c2cc5': 'https://atlas.cs.brown.edu/data/gutenberg/5/9/'
+  },
+  {
+    '76047b9950eac729d7cd': 'https://atlas.cs.brown.edu/data/gutenberg/5/50/'
+  },
+  {
+    '85349c43f083d3189e2e': 'https://atlas.cs.brown.edu/data/gutenberg/5/51/'
+  },
+  {
+    '74e10073b4b323ae4781': 'https://atlas.cs.brown.edu/data/gutenberg/5/52/'
+  },
+  {
+    '89ea75c7fb6d095f8cde': 'https://atlas.cs.brown.edu/data/gutenberg/5/54/'
+  },
+  {
+    '8aaae304fdaebe751cc2': 'https://atlas.cs.brown.edu/data/gutenberg/5/57/'
+  },
+  {
+    '58db95013db808870c4c': 'https://atlas.cs.brown.edu/data/gutenberg/5/58/'
+  },
+  {
+    '497773b29131e54ca0eb': 'https://atlas.cs.brown.edu/data/gutenberg/5/59/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    d1b7e4abe20fb3456700: 'https://atlas.cs.brown.edu/data/gutenberg/5/6/'
+  },
+  {
+    '14ab9246142c0659edb7': 'https://atlas.cs.brown.edu/data/gutenberg/5/7/'
+  },
+  {
+    d8a526bd07161531653a: 'https://atlas.cs.brown.edu/data/gutenberg/5/56/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    e4e2f11bd8463f92aa4f: 'https://atlas.cs.brown.edu/data/gutenberg/5/53/'
+  },
+  {
+    e6d1508f4f343aa6338e: 'https://atlas.cs.brown.edu/data/gutenberg/5/55/'
+  }
+]
+count reached
+count reached
+count reached
+count reached
+sidToURLList[nsid]: [
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '6037210139c526ef49f9': 'https://atlas.cs.brown.edu/data/gutenberg/6/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '1c87064283a3cccb5346': 'https://atlas.cs.brown.edu/data/gutenberg/6/0/'
+  },
+  {
+    '8e11c7bcfcb60b001506': 'https://atlas.cs.brown.edu/data/gutenberg/6/1/'
+  },
+  {
+    f3124b34da8a4ee5e86e: 'https://atlas.cs.brown.edu/data/gutenberg/6/2/'
+  },
+  {
+    '6f09b598ec6f040487e6': 'https://atlas.cs.brown.edu/data/gutenberg/6/3/'
+  },
+  {
+    '63baaa771a9c1a9cac47': 'https://atlas.cs.brown.edu/data/gutenberg/6/5/'
+  },
+  {
+    '2b2af8ec5c5c4bdaada6': 'https://atlas.cs.brown.edu/data/gutenberg/6/6/'
+  },
+  {
+    '9242b3d8dc0f154e7be1': 'https://atlas.cs.brown.edu/data/gutenberg/6/8/'
+  },
+  {
+    '67fe394442576f0b8dcf': 'https://atlas.cs.brown.edu/data/gutenberg/6/60/'
+  },
+  {
+    '7cd3d988912218167503': 'https://atlas.cs.brown.edu/data/gutenberg/6/62/'
+  },
+  {
+    '6144557df45644e04936': 'https://atlas.cs.brown.edu/data/gutenberg/6/63/'
+  },
+  {
+    f1cc60e636904d07bb9d: 'https://atlas.cs.brown.edu/data/gutenberg/6/64/'
+  },
+  {
+    '348c2ab411c0744f4230': 'https://atlas.cs.brown.edu/data/gutenberg/6/65/'
+  },
+  {
+    '8f1f060148862b771103': 'https://atlas.cs.brown.edu/data/gutenberg/6/67/'
+  },
+  {
+    '39c750f17d58725a2aa4': 'https://atlas.cs.brown.edu/data/gutenberg/6/68/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    '16e68b189f5e7bd49c65': 'https://atlas.cs.brown.edu/data/gutenberg/6/4/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    a63163764a12fa73728d: 'https://atlas.cs.brown.edu/data/gutenberg/6/7/'
+  },
+  {
+    '110c7885d89bae60f982': 'https://atlas.cs.brown.edu/data/gutenberg/6/9/'
+  },
+  {
+    d6b8e35dd48702eb8d58: 'https://atlas.cs.brown.edu/data/gutenberg/6/61/'
+  },
+  {
+    c292199b1c9b3dbc3cb4: 'https://atlas.cs.brown.edu/data/gutenberg/6/66/'
+  },
+  {
+    d99ffff1d1c323878379: 'https://atlas.cs.brown.edu/data/gutenberg/6/69/'
+  }
+]
+count reached
+count reached
+count reached
+count reached
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+localKeyCounts: 1
+localKeys.length: 1
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+localKeyCounts: 2
+localKeys.length: 1
+count reached
+count reached
+count reached
+count reached
+count reached
+sidToURLList[nsid]: [
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '4021fb37a69eac4be360': 'https://atlas.cs.brown.edu/data/gutenberg/7/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '2e534a4eb1521b23af36': 'https://atlas.cs.brown.edu/data/gutenberg/7/0/'
+  },
+  {
+    f9c9712304dd53e755e6: 'https://atlas.cs.brown.edu/data/gutenberg/7/3/'
+  },
+  {
+    '5ae54f40fa557e1419c6': 'https://atlas.cs.brown.edu/data/gutenberg/7/4/'
+  },
+  {
+    f32893f7d2a11d0f0178: 'https://atlas.cs.brown.edu/data/gutenberg/7/5/'
+  },
+  {
+    '42a4b4135e344e337051': 'https://atlas.cs.brown.edu/data/gutenberg/7/6/'
+  },
+  {
+    '2bd172ecaf964c63d8d5': 'https://atlas.cs.brown.edu/data/gutenberg/7/8/'
+  },
+  {
+    f383ee8cb82f38e86004: 'https://atlas.cs.brown.edu/data/gutenberg/7/9/'
+  },
+  {
+    '5f349e8f530bbd781a2b': 'https://atlas.cs.brown.edu/data/gutenberg/7/70/'
+  },
+  {
+    '62c7a938bac457246c29': 'https://atlas.cs.brown.edu/data/gutenberg/7/71/'
+  },
+  {
+    '7937f7acead126b3ccd9': 'https://atlas.cs.brown.edu/data/gutenberg/7/73/'
+  },
+  {
+    fb85ac250b7cdaa933c3: 'https://atlas.cs.brown.edu/data/gutenberg/7/74/'
+  },
+  {
+    '81756cc2025b3cef0052': 'https://atlas.cs.brown.edu/data/gutenberg/7/75/'
+  },
+  {
+    '4db330d1fa4874b6af54': 'https://atlas.cs.brown.edu/data/gutenberg/7/77/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    ef35b0a296b14c1804b3: 'https://atlas.cs.brown.edu/data/gutenberg/7/1/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    bdb09342f6fb44fc81a8: 'https://atlas.cs.brown.edu/data/gutenberg/7/2/'
+  },
+  {
+    d0d60a68f184b0bc8989: 'https://atlas.cs.brown.edu/data/gutenberg/7/7/'
+  },
+  {
+    ba34011ca0b65bc8b317: 'https://atlas.cs.brown.edu/data/gutenberg/7/72/'
+  },
+  {
+    '9feee2dc4cb11ea9691f': 'https://atlas.cs.brown.edu/data/gutenberg/7/76/'
+  },
+  {
+    '16039ecb815d37320a2a': 'https://atlas.cs.brown.edu/data/gutenberg/7/78/'
+  },
+  {
+    df81d07e06cf9fbd1348: 'https://atlas.cs.brown.edu/data/gutenberg/7/79/'
+  }
+]
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+count reached
+localKeyCounts: 3
+localKeys.length: 1
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+localKeyCounts: 4
+localKeys.length: 1
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+localKeyCounts: 5
+localKeys.length: 1
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+localKeyCounts: 6
+localKeys.length: 1
+count reached
+count reached
+sidToURLList[nsid]: [
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '2e1ac8b38cc3bc34874b': 'https://atlas.cs.brown.edu/data/gutenberg/8/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '7c3ce0c9391e34741509': 'https://atlas.cs.brown.edu/data/gutenberg/8/1/'
+  },
+  {
+    '3b4671d0c8957b57e704': 'https://atlas.cs.brown.edu/data/gutenberg/8/2/'
+  },
+  {
+    faef51c99e6e4142f8c4: 'https://atlas.cs.brown.edu/data/gutenberg/8/3/'
+  },
+  {
+    f50520d674e8d490f51c: 'https://atlas.cs.brown.edu/data/gutenberg/8/4/'
+  },
+  {
+    f3a8b3b99af2b1c5bc84: 'https://atlas.cs.brown.edu/data/gutenberg/8/5/'
+  },
+  {
+    '6e971b931f8f5f3e29d7': 'https://atlas.cs.brown.edu/data/gutenberg/8/6/'
+  },
+  {
+    '20e576732acb12ff1e60': 'https://atlas.cs.brown.edu/data/gutenberg/8/8/'
+  },
+  {
+    '0778de00c493b5f92f74': 'https://atlas.cs.brown.edu/data/gutenberg/8/9/'
+  },
+  {
+    '4f3176071090e0993ce5': 'https://atlas.cs.brown.edu/data/gutenberg/8/82/'
+  },
+  {
+    '4ab45f2958d55e5f4636': 'https://atlas.cs.brown.edu/data/gutenberg/8/83/'
+  },
+  {
+    '77f66e27b1e87ebb272a': 'https://atlas.cs.brown.edu/data/gutenberg/8/85/'
+  },
+  {
+    '658d0f10ccf9ae1c3b95': 'https://atlas.cs.brown.edu/data/gutenberg/8/86/'
+  },
+  {
+    f6b7ca3822c2bd94e941: 'https://atlas.cs.brown.edu/data/gutenberg/8/88/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    cc3f68d697c23eb1ee3d: 'https://atlas.cs.brown.edu/data/gutenberg/8/0/'
+  },
+  {
+    '1628e7d11b5b5918a1eb': 'https://atlas.cs.brown.edu/data/gutenberg/8/80/'
+  },
+  {
+    '11ac52a53fc443a18bc0': 'https://atlas.cs.brown.edu/data/gutenberg/8/81/'
+  },
+  {
+    c854ea7fbefd83ac597a: 'https://atlas.cs.brown.edu/data/gutenberg/8/84/'
+  },
+  {
+    a6e0b9458fb5721bdd3f: 'https://atlas.cs.brown.edu/data/gutenberg/8/89/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    e6076005e6c2ef74aa76: 'https://atlas.cs.brown.edu/data/gutenberg/8/7/'
+  },
+  {
+    e47ca8c0b06d6b67a74b: 'https://atlas.cs.brown.edu/data/gutenberg/8/87/'
+  }
+]
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+count reached
+localKeyCounts: 7
+localKeys.length: 1
+count reached
+count reached
+count reached
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+sidToURLList[nsid]: [
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '87b8251b60a5236986ee': 'https://atlas.cs.brown.edu/data/gutenberg/9/'
+  },
+  {
+    '24d40372efa1cfc87c6d': 'https://atlas.cs.brown.edu/data/gutenberg/'
+  },
+  {
+    '012b0beb76e95df95068': 'https://atlas.cs.brown.edu/data/gutenberg/9/0/'
+  },
+  {
+    '213184d63aedd588a422': 'https://atlas.cs.brown.edu/data/gutenberg/9/1/'
+  },
+  {
+    '550b0ee6405498cd39f5': 'https://atlas.cs.brown.edu/data/gutenberg/9/2/'
+  },
+  {
+    '907efd30c3a09cd0b14a': 'https://atlas.cs.brown.edu/data/gutenberg/9/3/'
+  },
+  {
+    '38fc380c97e4f69c5d81': 'https://atlas.cs.brown.edu/data/gutenberg/9/4/'
+  },
+  {
+    '3c5aea115a6c227658f7': 'https://atlas.cs.brown.edu/data/gutenberg/9/5/'
+  },
+  {
+    '91953d29b88ab3f633fc': 'https://atlas.cs.brown.edu/data/gutenberg/9/90/'
+  },
+  {
+    fd066cbc8f7daf35d65f: 'https://atlas.cs.brown.edu/data/gutenberg/9/91/'
+  },
+  {
+    '42a79f7b45dc3f31a124': 'https://atlas.cs.brown.edu/data/gutenberg/9/92/'
+  },
+  {
+    '0d2f4f12d925ee7b5ff5': 'https://atlas.cs.brown.edu/data/gutenberg/9/93/'
+  },
+  {
+    '7b616482e1fedb131eea': 'https://atlas.cs.brown.edu/data/gutenberg/9/94/'
+  },
+  {
+    '56f4d4bec71ac2085b55': 'https://atlas.cs.brown.edu/data/gutenberg/9/95/'
+  },
+  {
+    '5a7a5b553a4b7d0a9bc3': 'https://atlas.cs.brown.edu/data/gutenberg/9/97/'
+  },
+  {
+    '4c8e59ccb4dad0e0090a': 'https://atlas.cs.brown.edu/data/gutenberg/9/98/'
+  }
+]
+sidToURLList[nsid]: [
+  {
+    baf8d2498c39b0c1e35a: 'https://atlas.cs.brown.edu/data/gutenberg/9/6/'
+  },
+  {
+    '9bb424f5818f48dca191': 'https://atlas.cs.brown.edu/data/gutenberg/9/7/'
+  },
+  {
+    d0e15a8c58cb4386ac95: 'https://atlas.cs.brown.edu/data/gutenberg/9/8/'
+  },
+  {
+    b77daf631b2812779ea6: 'https://atlas.cs.brown.edu/data/gutenberg/9/9/'
+  },
+  {
+    ac7b395a9620ee7fdd60: 'https://atlas.cs.brown.edu/data/gutenberg/9/96/'
+  },
+  {
+    aad2ac1e84cfddb36302: 'https://atlas.cs.brown.edu/data/gutenberg/9/99/'
+  }
+]
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+localKeyCounts: 2
+localKeys.length: 0
+done going through all the keys; bye!
+count reached
+count reached
+localKeyCounts: 8
+localKeys.length: 1
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+count reached
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+localKeyCounts: 1
+localKeys.length: 0
+count reached
+localKeyCounts: 9
+localKeys.length: 1
+SEND ALL URLS FOR NEXT ROUND
+Promise resolved! Going to rest of the stuff; [ { a: null }, { a: null }, { a: null } ]
+outMappings.length: 3
+localKeyCounts: 10
+localKeys.length: 1
+count reached
