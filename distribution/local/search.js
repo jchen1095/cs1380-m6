@@ -45,25 +45,33 @@ function crawl(config, callback) {
     let count;
     try {
         const wcFilepath = 'd/'+ id.getSID(global.nodeConfig) + '-wc.txt';
-        const wc = fs.openSync(wcFilepath, 'w+');
         const startTime = performance.now();
-        scriptOutput = spawnSync('bash', ['jen-crawl.sh', url], {
-            encoding: 'utf-8',
-            maxBuffer: 1024 * 1024 * 64,
-            stdio: ['pipe', 'pipe', 'pipe', wc],
-        });
-        count = parseInt(fs.readFileSync(wcFilepath, 'utf-8').trim());
+        if (url.endsWith(".txt")) {
+            const wc = fs.openSync(wcFilepath, 'w+');
+            scriptOutput = spawnSync('bash', ['jen-crawl.sh', url], {
+                encoding: 'utf-8',
+                maxBuffer: 1024 * 1024 * 64,
+                stdio: ['pipe', 'pipe', 'pipe', wc],
+            });
+            fs.closeSync(wc);
+            count = parseInt(fs.readFileSync(wcFilepath, 'utf-8').trim());
+            if (!count) {
+                console.log("[CRAWLER] Error: No word count retrieved. Exiting");
+                changeCount(-1);
+                callback(new Error("[CRAWLER] error: no word count retrieved"), false);
+                return;
+            }
+        } else {
+            scriptOutput = spawnSync('bash', ['jen-crawl-small.sh', url], {
+                encoding: 'utf-8',
+                maxBuffer: 1024 * 1024 * 64,
+                stdio: ['pipe', 'pipe', 'pipe'],
+            });
+        }
         console.log("COUNT:", count);
-        fs.closeSync(wc);
         const endTime = performance.now();
         console.log("Running jen-crawl took:", endTime-startTime)
 
-        if (!count) {
-            console.log("[CRAWLER] Error: No word count retrieved. Exiting");
-            changeCount(-1);
-            callback(new Error("[CRAWLER] error: no word count retrieved"), false);
-            return;
-        }
     } catch (e) {
         console.log("error:", e.message);
         changeCount(-1);

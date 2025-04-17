@@ -5,7 +5,7 @@ const id = require('../util/util').id;
 if (!fs.existsSync('ngrams')) {
   fs.mkdirSync('ngrams', { recursive: true });
 }
-const rootPath = path.join('ngrams', `${id.getSID(global.nodeConfig)}`);
+const rootPath = path.join('ngrams', ${id.getSID(global.nodeConfig)});
 if (!fs.existsSync(rootPath)) {
   fs.mkdirSync(rootPath, { recursive: true });
 }
