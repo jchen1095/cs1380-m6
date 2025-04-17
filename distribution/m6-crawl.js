@@ -103,11 +103,11 @@ const stopNodes = (cb) => {
     });
 }
 
-process.on('SIGINT', async () => {
-    global.distribution.crawl.comm.send([], { service: "search", method: "stop"}, (e, v) => {
-        stopNodes((e, v) => {
-            console.log('Flushed. Goodbye.');
-            process.exit(0);
-        });
-    })
-  });
+// process.on('SIGINT', async () => {
+//     global.distribution.crawl.comm.send([], { service: "search", method: "stop"}, (e, v) => {
+//         stopNodes((e, v) => {
+//             console.log('Flushed. Goodbye.');
+//             process.exit(0);
+//         });
+//     })
+//   });
