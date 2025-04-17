@@ -1,5 +1,5 @@
 const { execSync } = require('child_process');
-const { id } = require('./util/util');
+const { id } = require('../util/util');
 const fs = require("fs");
 
 const IP_TO_PORT = {

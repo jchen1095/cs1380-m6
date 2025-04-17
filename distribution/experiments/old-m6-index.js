@@ -1,6 +1,6 @@
 const { getSID, getID } = require("@brown-ds/distribution/distribution/util/id")
-const distribution = require("../distribution")
-const { consistentHash } = require("./util/id")
+const distribution = require("../../distribution")
+const { consistentHash } = require("../util/id")
 // const fs = require("fs")
 /**
  * USE THIS COMMAND:
