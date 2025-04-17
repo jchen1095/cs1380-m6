@@ -4,11 +4,12 @@ const { id } = require("../util/util");
 
 
 let currIters = 0;
+let stopRequested = false;
 const CAP = 15; // number of allowable concurrent execs per node
 
 function start(gid, callback) {
     try {
-        setInterval(() => {
+        setInterval(async () => {
             if (currIters < CAP) {
                 _poll(gid);
             }
@@ -20,7 +21,18 @@ function start(gid, callback) {
     }
 }
 
+async function stop(callback) {
+    stopRequested = true;
+
+    global.distribution.local.index.flushAllWrites().then(() => {
+        callback(null, true);
+    })
+}
+
 function _poll(gid) {
+    if (stopRequested) {
+        return;
+    }
     global.distribution.local.newUrls.get((e, v) => {
         if (e) {
             // console.log("No URL was polled!");
@@ -32,38 +44,46 @@ function _poll(gid) {
         }
         changeCount(1);
         // console.log("About to call crawl with URL: ", v);
-        global.distribution.local.search.crawl({ gid: gid, url: v }, (e, v) => {
+        global.distribution.local.search.crawl({ gid: gid, url: v }, async (e, v) => {
             // Do something to stop polling maybe?
         })
     })
 }
 
-function crawl(config, callback) {
+async function crawl(config, callback) {
     let scriptOutput;
     const { url, gid } = config;
     console.log("[CRAWLING]", url);
     let count;
     try {
         const wcFilepath = 'd/'+ id.getSID(global.nodeConfig) + '-wc.txt';
-        const wc = fs.openSync(wcFilepath, 'w+');
-        const startTime = performance.now();
-        scriptOutput = spawnSync('bash', ['jen-crawl.sh', url], {
-            encoding: 'utf-8',
-            maxBuffer: 1024 * 1024 * 64,
-            stdio: ['pipe', 'pipe', 'pipe', wc],
-        });
-        count = parseInt(fs.readFileSync(wcFilepath, 'utf-8').trim());
-        console.log("COUNT:", count);
-        fs.closeSync(wc);
-        const endTime = performance.now();
-        console.log("Running jen-crawl took:", endTime-startTime)
-
-        if (!count) {
-            console.log("[CRAWLER] Error: No word count retrieved. Exiting");
-            changeCount(-1);
-            callback(new Error("[CRAWLER] error: no word count retrieved"), false);
-            return;
+        // const startTime = performance.now();
+        if (url.endsWith(".txt")) {
+            const wc = fs.openSync(wcFilepath, 'w+');
+            scriptOutput = spawnSync('bash', ['jen-crawl.sh', url], {
+                encoding: 'utf-8',
+                maxBuffer: 1024 * 1024 * 64,
+                stdio: ['pipe', 'pipe', 'pipe', wc],
+            });
+            fs.closeSync(wc);
+            count = parseInt(fs.readFileSync(wcFilepath, 'utf-8').trim());
+            if (!count) {
+                console.log("[CRAWLER] Error: No word count retrieved. Exiting");
+                changeCount(-1);
+                callback(new Error("[CRAWLER] error: no word count retrieved"), false);
+                return;
+            }
+        } else {
+            scriptOutput = spawnSync('bash', ['jen-crawl-small.sh', url], {
+                encoding: 'utf-8',
+                maxBuffer: 1024 * 1024 * 64,
+                stdio: ['pipe', 'pipe', 'pipe'],
+            });
         }
+        // console.log("COUNT:", count);
+        // const endTime = performance.now();
+        // console.log("Running jen-crawl took:", endTime-startTime)
+
     } catch (e) {
         console.log("error:", e.message);
         changeCount(-1);
@@ -74,11 +94,11 @@ function crawl(config, callback) {
     _processURLs(scriptOutput);
     if (url.includes(".txt")) {
         _processDocs(scriptOutput, count);
-        console.log("Processed docs!");
+        // console.log("Processed docs!");
     } else {
         changeCount(-1);
     }
-    console.log(id.getSID(global.nodeConfig) + ': call: ' + currIters);
+    // console.log(id.getSID(global.nodeConfig) + ': call: ' + currIters);
     // console.log("scriptOutput", scriptOutput);
     callback(null, true);
 }
@@ -129,16 +149,16 @@ const _processURLs = (scriptOutput) => {
     }
 }
 
-const _processDocs = (scriptOutput, wc) => {
+const _processDocs = async (scriptOutput, wc) => {
     // console.log("[CRAWLER] Processing documents...");
     const result = scriptOutput.stdout.trim().split('\n').map(line => {
             const [ngram, freq, url] = line.split("|").map(s => s.trim());
             return { [ngram]: { freq: parseInt(freq, 10)/wc, url: url } }
         });
     
-    console.log("Sending to store...");
+    // console.log("Sending to store...");
     global.distribution.local.index.appendIndex(result, (e,v) => {
-        console.log("finished writing to store!");
+        // console.log("finished writing to store!");
         changeCount(-1);
         if (e) {
             console.log("Error in append: ", e);
@@ -147,6 +167,11 @@ const _processDocs = (scriptOutput, wc) => {
         incrementDocumentCount();
     })
 };
+
+function changeCount(change) {
+    currIters += change;  
+    // console.log("currIters:", currIters);
+}
 
 const query = (args) => {
     fs.appendFileSync('debug.log', '=QUERY=\n');
@@ -229,7 +254,7 @@ function incrementDocumentCount() {
         count = 0
     }
     fs.writeFileSync(docCount, (count + 1).toString());
-    console.log("incremented doc count to:", count + 1);
+    // console.log("incremented doc count to:", count + 1);
     return;
 }
 
@@ -245,7 +270,7 @@ function incrementTotalCount() {
         count = 0
     }
     fs.writeFileSync(totalCount, (count + 1).toString());
-    console.log("incremented total count to:", count + 1);
+    // console.log("incremented total count to:", count + 1);
     return;
 }
 
@@ -340,4 +365,4 @@ function incrementTotalCount() {
 // }
 
 
-module.exports = { crawl, start }
+module.exports = { crawl, start, stop }

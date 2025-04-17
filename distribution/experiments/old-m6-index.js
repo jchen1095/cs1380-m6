@@ -1,6 +1,6 @@
 const { getSID, getID } = require("@brown-ds/distribution/distribution/util/id")
-const distribution = require("../distribution")
-const { consistentHash } = require("./util/id")
+const distribution = require("../../distribution")
+const { consistentHash } = require("../util/id")
 // const fs = require("fs")
 /**
  * USE THIS COMMAND:
@@ -44,7 +44,7 @@ const startTests = () => {
                 distribution.crawl.store.put(capturedText, `${key}-text`, (e, v) => {
                     // Value doesn't matter; what matters here is that we stored the text
                     out[value] = true;
-                    console.log("about to resolve promise")
+                    // console.log("about to resolve promise")
                     resolve(out);
                 })
             } catch (e) {
