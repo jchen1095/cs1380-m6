@@ -315,3 +315,312 @@ inside startNodes
 spawned everything
 start nodes done
 query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+starting nodes....
+nodes started
+inside startNodes
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+starting nodes....
+nodes started
+inside startNodes
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+starting nodes....
+nodes started
+inside startNodes
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+starting nodes....
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+query done????
+query done????
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+=== Script started ===
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+about to start tests
+Hit startTests()
+args are good
+query done????
+Start tests finished!
+Got result: [{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3422/3422.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3424/3424-8.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/1/15/15-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/2/26/26-0.txt","score":null}]
+query done????
+Start tests finished!
+Got result: [{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3422/3422.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3424/3424-8.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/1/15/15-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/2/26/26-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/38/38.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3424/3424-0.txt","score":null}]
+query done????
+Start tests finished!
+Got result: [{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3422/3422.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3424/3424-8.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/1/15/15-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/2/26/26-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/38/38.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3424/3424-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/2/321/321.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/5/51/51-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/6/0/603/603.txt","score":null}]
+=== Script started ===
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+about to start tests
+Hit startTests()
+args are good
+query done????
+Start tests finished!
+Got result: [{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3422/3422.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3424/3424-8.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/1/15/15-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/2/26/26-0.txt","score":null}]
+query done????
+Start tests finished!
+Got result: [{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3422/3422.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3424/3424-8.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/1/15/15-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/2/26/26-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/2/321/321.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/5/51/51-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/6/0/603/603.txt","score":null}]
+query done????
+Start tests finished!
+Got result: [{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3422/3422.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3424/3424-8.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/1/15/15-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/2/26/26-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/2/321/321.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/5/51/51-0.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/6/0/603/603.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/38/38.txt","score":null},{"url":"https://atlas.cs.brown.edu/data/gutenberg/3/4/2/3424/3424-0.txt","score":null}]
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+starting nodes....
+nodes started
+inside startNodes
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+starting nodes....
+nodes started
+inside startNodes
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????
+starting nodes....
+nodes started
+inside startNodes
+spawned everything
+start nodes done
+query done????
+query done????

@@ -1,11 +1,10 @@
 const express = require('express');
-const { execSync } = require('child_process');
 const cors = require('cors');
-const path = require('path');
 const fs = require('fs');
 const { getSID, consistentHash } = require("../distribution/util/id");
+const { execSync } = require('child_process');
 const distribution = require("../distribution");
-
+const path = require('path');
 const app = express();
 const PORT = 3001;
 
@@ -15,9 +14,9 @@ app.use(express.json());
 
 app.get('/search', (req, res) => {
     console.log("search endpoint hit");
-    const query = req.query.q;
-    console.log("query", query);
-    if (!query) {
+    const args = req.query.q;
+    console.log("query", args);
+    if (!args) {
         return res.status(400).json({ error: 'Missing search query' });
     }
 
@@ -37,25 +36,32 @@ app.get('/search', (req, res) => {
         //     { url: 'http://example.com/item3', relevancy: 0.7 },
         //     { url: 'http://example.com/item3', relevancy: 0.7 },
         // ];
-        const args = query.split(' ');
+        // const args = query.split(' ');
         console.log("args", args);
+        // const query = req.query.q;
+        // const scriptPath = path.resolve(__dirname, '../distribution/new-m6-query.js');
+        // const result = execSync(`node "${scriptPath}" "${query}"`, { encoding: 'utf-8' });
         // fs.appendFileSync('debug.log', 'args are good\n');
-        const path = require('path');
-        global.distribution.queryg.search.query(args,path.join(process.cwd, '..', 'non-distribution','c'), (e, v) => {
+        // console.log(result);
+        
+        global.distribution.queryg.search.query(args, (e, v) => {
             if (e) {
                 fs.appendFileSync('debug.log', 'error\n');
-                res.json([]);
+                return res.json({data:[]});
             };
-            // console.log("gets here!");
+            console.log("gets here!");
             fs.appendFileSync('debug.log', 'query done????\n');
-            res.json(v);
+            // res.json(v);
+            return res.json({data:v});
+                
         });
+        // res.json({ result });
 
 
-
+        
     } catch (error) {
         console.error('Search script failed:', error);
-        res.status(500).json({ error: 'Search failed' });
+        return res.status(500).json({ error: 'Search failed' });
     }
 });
 
@@ -68,27 +74,13 @@ group[getSID(n1)] = n1;
 group[getSID(n2)] = n2;
 group[getSID(n3)] = n3;
 
-// const startTests = (callback) => {
-//     fs.appendFileSync('debug.log', 'Hit startTests()\n');
-//     // Get node for URL
-//     // const args = process.argv[0]; // Get command-line arguments
-//     const args = process.argv.slice(2);
-//     if (args.length < 1) {
-//         console.error('Usage: ./query.js [query_strings...]');
-//         process.exit(1);
-//     }
-//     fs.appendFileSync('debug.log', 'args are good\n');
-    
-//     global.distribution.queryg.search.query(args, (e, v) => {
-//         if (e) {
-//             fs.appendFileSync('debug.log', 'error\n');
-//             callback(e, null);
-//         };
-//         // console.log("gets here!");
-//         fs.appendFileSync('debug.log', 'query done????\n');
-//         callback(null, v);
-//     });
-// }
+// app.listen(PORT, () => {
+//     console.log(`Backend server running on http://localhost:${PORT}`);
+// });
+
+app.on('close', () => {stopNodes})
+app.on('error', () => {stopNodes})
+
 let localServer = null;
 fs.appendFileSync('debug.log', 'starting nodes....\n');
 console.log("Received Request")
@@ -97,32 +89,15 @@ distribution.node.start((server) => {
     localServer = server
     startNodes(() => {
         fs.appendFileSync('debug.log', 'start nodes done\n');
-        // console.log("start Nodes done!");
         try {
             global.distribution.local.groups.put({ gid: "queryg", hash: consistentHash }, group, (e, node) => {
-                // console.log("local group put done!");
                 global.distribution.queryg.groups.put({ gid: "queryg" }, group, (e, node) => {
                     app.listen(PORT, () => {
                         console.log(`Backend server running on http://localhost:${PORT}`);
                     });
-                    // console.log("about to start tests!");
-                    // fs.appendFileSync('debug.log', 'about to start tests\n');
-                    // startTests((err, result) => {
-                    //     fs.appendFileSync('debug.log', 'Start tests finished!\n');
-                    //     if (err) {
-                    //         fs.appendFileSync('debug.log', `Error: ${err}\n`);
-                    //     } else {
-                    //         fs.appendFileSync('debug.log', `Got result: ${JSON.stringify(result)}\n`);
-                            
-                            
-                    //         return result;
-                    //     }
-                    //     stopNodes(() => {})
-                    // });
                 })
             })
         } catch (e) {
-            console.log("e???", e);
             stopNodes(() => {})
         }
     })
@@ -134,7 +109,6 @@ const startNodes = (cb) => {
     global.distribution.local.status.spawn(n1, (e, node) => {
         global.distribution.local.status.spawn(n2, (e, node) => {
             global.distribution.local.status.spawn(n3, (e, node) => {
-                // console.log("spawned everything!");
                 fs.appendFileSync('debug.log', 'spawned everything\n');
                 cb();
             });
